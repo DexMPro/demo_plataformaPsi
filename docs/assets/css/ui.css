@@ -1,0 +1,235 @@
+/* ==========================================================================
+   Plataforma Psicológica · capa de interfaz unificada
+   Se carga después de app.css, extra.css y los CSS de módulo para que todos
+   los campos, botones y modales se vean iguales en toda la plataforma.
+   ========================================================================== */
+
+:root {
+    --cd-primario: #667eea;
+    --cd-primario-2: #764ba2;
+    --cd-primario-suave: #eef1ff;
+    --cd-texto: #1a1a2e;
+    --cd-texto-2: #3b3f5c;
+    --cd-muted: #6c757d;
+    --cd-placeholder: #a3a9bf;
+    --cd-borde: #e3e6f0;
+    --cd-borde-fuerte: #cfd4e6;
+    --cd-fondo-campo: #fbfcff;
+    --cd-fondo: #f5f6fa;
+    --cd-peligro: #d63a3a;
+    --cd-exito: #1e9e5a;
+    --cd-radio: 10px;
+    --cd-alto-campo: 42px;
+    --cd-anillo: 0 0 0 3px rgba(102, 126, 234, .16);
+    --cd-degradado: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+body { font-family: 'Inter', 'Roboto', system-ui, -apple-system, 'Segoe UI', sans-serif; color: var(--cd-texto); }
+
+/* --------------------------------------------------------------------------
+   Marca del menú lateral
+   -------------------------------------------------------------------------- */
+.sidebar-brand { display: flex; align-items: center; gap: 12px; padding: 26px 22px 20px; }
+.sidebar-brand img { width: 40px; height: 40px; border-radius: 10px; background: #fff; box-shadow: 0 2px 8px rgba(102, 126, 234, .18); padding: 3px; }
+.sidebar-brand h2 { line-height: 1.1; }
+.sidebar-brand h2 a,
+.sidebar .sidebar-brand h2 a {
+    display: inline; padding: 0; margin: 0; border: 0; background: none;
+    font-size: 20px; font-weight: 800; color: var(--cd-texto); letter-spacing: -.4px;
+}
+.sidebar-brand h2 a:hover { background: none; color: var(--cd-primario); }
+.sidebar-brand span { display: block; font-size: 10.5px; margin-top: 3px; }
+
+/* --------------------------------------------------------------------------
+   Etiquetas (baja especificidad: las de .form-group-modern mantienen su estilo)
+   -------------------------------------------------------------------------- */
+:where(.main-content, .modal-card-body, .portal-contenido) label:where(:not(.checkbox):not(.radio):not(.file-label):not(.remember-me)) {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--cd-texto-2);
+    margin: 14px 0 6px;
+}
+:where(.main-content, .modal-card-body, .portal-contenido) .column > label:first-child { margin-top: 0; }
+.required-dot { color: #ef4444; margin-left: 2px; }
+
+/* --------------------------------------------------------------------------
+   Campos de texto, selects y áreas de texto
+   -------------------------------------------------------------------------- */
+.main-content .input, .main-content .textarea, .main-content .select select,
+.modal .input, .modal .textarea, .modal .select select,
+.portal-contenido .input, .portal-contenido .textarea, .portal-contenido .select select,
+.form-group-modern .input, .form-group-modern .textarea, .form-group-modern .select select {
+    font-family: inherit;
+    font-size: 14px;
+    color: var(--cd-texto);
+    background: var(--cd-fondo-campo);
+    border: 1.5px solid var(--cd-borde);
+    border-radius: var(--cd-radio);
+    box-shadow: none;
+    transition: border-color .18s ease, box-shadow .18s ease, background .18s ease;
+}
+.main-content .input, .modal .input, .portal-contenido .input, .form-group-modern .input,
+.main-content .select select, .modal .select select, .portal-contenido .select select, .form-group-modern .select select {
+    height: var(--cd-alto-campo);
+    padding: 0 14px;
+    line-height: 1.4;
+}
+.main-content .textarea, .modal .textarea, .portal-contenido .textarea, .form-group-modern .textarea {
+    padding: 11px 14px;
+    line-height: 1.55;
+    min-height: 96px;
+}
+/* textarea con clase .input (formularios viejos) */
+.main-content textarea.input, .modal textarea.input { height: auto; min-height: 72px; padding: 11px 14px; line-height: 1.55; resize: vertical; }
+
+.main-content .input::placeholder, .main-content .textarea::placeholder,
+.modal .input::placeholder, .modal .textarea::placeholder,
+.portal-contenido .input::placeholder, .portal-contenido .textarea::placeholder { color: var(--cd-placeholder); }
+
+.main-content .input:hover, .main-content .textarea:hover, .main-content .select select:hover,
+.modal .input:hover, .modal .textarea:hover, .modal .select select:hover,
+.portal-contenido .input:hover, .portal-contenido .textarea:hover, .portal-contenido .select select:hover { border-color: var(--cd-borde-fuerte); }
+
+.main-content .input:focus, .main-content .textarea:focus, .main-content .select select:focus,
+.modal .input:focus, .modal .textarea:focus, .modal .select select:focus,
+.portal-contenido .input:focus, .portal-contenido .textarea:focus, .portal-contenido .select select:focus,
+.form-group-modern .input:focus, .form-group-modern .textarea:focus, .form-group-modern .select select:focus {
+    outline: none;
+    border-color: var(--cd-primario);
+    background: #fff;
+    box-shadow: var(--cd-anillo);
+}
+
+.main-content .input.is-danger, .main-content .textarea.is-danger, .modal .input.is-danger, .modal .textarea.is-danger { border-color: var(--cd-peligro); background: #fff7f7; }
+.main-content .input[disabled], .main-content .input[readonly], .modal .input[readonly] { background: #f2f3f8; color: var(--cd-muted); }
+
+/* Select: flecha con el color de la marca y alto correcto */
+.main-content .select:not(.is-multiple), .modal .select:not(.is-multiple), .portal-contenido .select:not(.is-multiple) { height: auto; }
+.main-content .select select, .modal .select select, .portal-contenido .select select { padding-right: 2.6em; }
+.main-content .select:not(.is-multiple):not(.is-loading)::after,
+.modal .select:not(.is-multiple):not(.is-loading)::after,
+.portal-contenido .select:not(.is-multiple):not(.is-loading)::after { border-color: var(--cd-primario); border-width: 2px; margin-top: -.45em; right: 1.1em; }
+
+/* Tamaño pequeño (filtros) */
+.main-content .input.is-small, .main-content .select.is-small select, .modal .input.is-small, .modal .select.is-small select { height: 36px; font-size: 13px; border-radius: 9px; padding-left: 12px; }
+.main-content .select.is-small select, .modal .select.is-small select { padding-right: 2.4em; }
+
+/* Buscadores redondeados (pill) */
+.main-content .input.is-rounded { border-radius: 999px; padding-left: 2.6em; }
+.main-content .control.has-icons-left .icon { height: var(--cd-alto-campo); color: var(--cd-placeholder); }
+.main-content .control.has-icons-left .input.is-small ~ .icon { height: 36px; }
+
+/* Fechas y horas */
+.main-content input[type="date"].input, .main-content input[type="time"].input, .main-content input[type="month"].input,
+.main-content input[type="datetime-local"].input, .modal input[type="date"].input, .modal input[type="time"].input,
+.modal input[type="month"].input, .modal input[type="datetime-local"].input { padding-right: 10px; }
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator,
+input[type="month"]::-webkit-calendar-picker-indicator,
+input[type="datetime-local"]::-webkit-calendar-picker-indicator { opacity: .55; cursor: pointer; }
+
+/* Casillas */
+.main-content input[type="checkbox"], .main-content input[type="radio"],
+.modal input[type="checkbox"], .modal input[type="radio"],
+.portal-contenido input[type="checkbox"] { accent-color: var(--cd-primario); width: 16px; height: 16px; vertical-align: -2px; cursor: pointer; }
+.main-content label.checkbox, .modal label.checkbox, .portal-contenido label.checkbox {
+    display: inline-flex; align-items: flex-start; gap: 9px; font-size: 13.5px; color: var(--cd-texto-2); line-height: 1.45; cursor: pointer;
+}
+.main-content label.checkbox input, .modal label.checkbox input { margin-top: 1px; flex-shrink: 0; }
+
+/* Selector de archivo de Bulma */
+.file .file-cta { background: var(--cd-primario-suave); border: 1.5px dashed #c5cdf6; color: var(--cd-primario); border-radius: var(--cd-radio); font-weight: 600; font-size: 13.5px; }
+.file:hover .file-cta { background: #e3e8ff; color: var(--cd-primario-2); border-color: var(--cd-primario); }
+
+/* --------------------------------------------------------------------------
+   Botones
+   -------------------------------------------------------------------------- */
+.main-content .button, .modal .button, .portal-contenido .button {
+    font-family: inherit; font-weight: 600; font-size: 14px; border-radius: var(--cd-radio);
+    height: auto; min-height: 40px; padding: 8px 18px; border: 1.5px solid var(--cd-borde); color: var(--cd-texto-2); background: #fff;
+    transition: transform .15s ease, box-shadow .15s ease, background .15s ease, border-color .15s ease;
+}
+.main-content .button:hover, .modal .button:hover, .portal-contenido .button:hover { border-color: var(--cd-borde-fuerte); color: var(--cd-texto); }
+.main-content .button:focus-visible, .modal .button:focus-visible { box-shadow: var(--cd-anillo); outline: none; }
+
+.main-content .button.is-info, .main-content .button.is-primary, .main-content .button.is-link, .main-content .button.is-success,
+.modal .button.is-info, .modal .button.is-primary, .modal .button.is-link, .modal .button.is-success,
+.portal-contenido .button.is-info, .portal-contenido .button.is-primary, .portal-contenido .button.is-link {
+    background: var(--cd-degradado); border: 0; color: #fff; box-shadow: 0 4px 12px rgba(102, 126, 234, .28);
+}
+.main-content .button.is-info:hover, .main-content .button.is-primary:hover, .main-content .button.is-link:hover, .main-content .button.is-success:hover,
+.modal .button.is-info:hover, .modal .button.is-primary:hover, .modal .button.is-link:hover, .modal .button.is-success:hover,
+.portal-contenido .button.is-info:hover, .portal-contenido .button.is-primary:hover, .portal-contenido .button.is-link:hover {
+    color: #fff; transform: translateY(-1px); box-shadow: 0 8px 18px rgba(102, 126, 234, .34);
+}
+.main-content .button.is-light, .modal .button.is-light { background: #f3f4f9; border-color: transparent; }
+.main-content .button.is-danger, .modal .button.is-danger { background: var(--cd-peligro); border: 0; color: #fff; }
+.main-content .button.is-warning, .modal .button.is-warning { background: #ffb020; border: 0; color: #3d2a00; }
+.main-content .button.is-small, .modal .button.is-small { min-height: 34px; padding: 5px 14px; font-size: 13px; border-radius: 9px; }
+.main-content .button .icon:first-child:not(:last-child) { margin-right: .35em; }
+
+/* --------------------------------------------------------------------------
+   Modales
+   -------------------------------------------------------------------------- */
+.modal-background { background: rgba(18, 20, 40, .55); backdrop-filter: blur(2px); }
+.modal-card { border-radius: 18px; overflow: hidden; box-shadow: 0 24px 60px rgba(20, 22, 50, .28); }
+.modal-card-head { border-bottom: 0; padding: 20px 26px; }
+.modal-card-title { font-weight: 700; font-size: 19px; }
+.modal-card-body { padding: 24px 26px 26px; background: #fff; }
+.modal-card-foot { background: #fafbff; border-top: 1px solid #eef0f7; padding: 14px 26px; gap: 8px; }
+.modal-card-body .notification { margin-bottom: 18px; }
+.modal-card-body > .buttons:last-child, .modal-card-body .buttons.mt-4 { margin-top: 22px !important; padding-top: 18px; border-top: 1px solid #eef0f7; }
+
+/* --------------------------------------------------------------------------
+   Paneles, avisos y detalles desplegables
+   -------------------------------------------------------------------------- */
+.notification { border-radius: 12px; font-size: 14px; }
+.panel-blanco { border: 1px solid #eef0f7; }
+details > summary { list-style: none; cursor: pointer; }
+details > summary::-webkit-details-marker { display: none; }
+details[open] > summary { margin-bottom: 6px; }
+details .columns { margin-top: 4px; }
+
+.ayuda { font-size: 12.5px; color: var(--cd-muted); margin-top: 6px; line-height: 1.45; }
+
+/* Líneas del profesional en las tarjetas de pacientes */
+.tarjeta-profesionales { display: flex; align-items: flex-start; gap: 6px; font-size: 12.5px; color: var(--cd-texto-2); margin-top: 4px; line-height: 1.4; }
+.tarjeta-profesionales i { color: var(--cd-primario); margin-top: 2px; }
+.tarjeta-profesionales.sin-asignar { color: var(--cd-placeholder); }
+.tarjeta-profesionales.sin-asignar i { color: var(--cd-placeholder); }
+
+/* Barra de filtros del listado de pacientes */
+.filtros-pacientes { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+.filtros-pacientes .buscar { flex: 1; min-width: 240px; }
+.filtros-pacientes .select select { min-width: 220px; border-radius: 999px; }
+
+/* Buscador de pacientes (lista desplegable) */
+.buscador-paciente { position: relative; }
+.buscador-resultados {
+    position: absolute; z-index: 40; left: 0; right: 0; top: calc(100% + 4px); max-height: 280px; overflow-y: auto;
+    background: #fff; border: 1px solid var(--cd-borde); border-radius: 12px; box-shadow: 0 14px 34px rgba(20, 22, 50, .14); padding: 6px;
+}
+.buscador-opcion { padding: 9px 12px; border-radius: 8px; font-size: 13.5px; color: var(--cd-texto); cursor: pointer; }
+.buscador-opcion:hover, .buscador-opcion.activa { background: var(--cd-primario-suave); color: var(--cd-primario-2); }
+.buscador-vacio { padding: 10px 12px; font-size: 13px; color: var(--cd-muted); }
+
+/* Accesibilidad: foco visible con teclado */
+:focus-visible { outline-color: var(--cd-primario); }
+
+/* Campos con icono a la izquierda (buscadores) */
+.main-content .control.has-icons-left .input, .modal .control.has-icons-left .input { padding-left: 2.6em; }
+.main-content .control.has-icons-left .input.is-small, .modal .control.has-icons-left .input.is-small { padding-left: 2.4em; }
+.main-content .control.has-icons-left .input.is-small ~ .icon.is-left { height: 36px; width: 2.4em; }
+
+/* Alto uniforme de selects: algunos CSS de módulo ponían height:auto y los aplastaban */
+.main-content .select:not(.is-multiple) select,
+.modal .select:not(.is-multiple) select,
+.portal-contenido .select:not(.is-multiple) select {
+    height: var(--cd-alto-campo) !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    line-height: calc(var(--cd-alto-campo) - 3px);
+}
+.main-content .select.is-small:not(.is-multiple) select,
+.modal .select.is-small:not(.is-multiple) select { height: 36px !important; line-height: 33px; }

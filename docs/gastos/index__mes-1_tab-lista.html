@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es" style="overflow:hidden;">
+<head>
+<script>window.DEMO_ROOT="..";window.DEMO_KEY="/gastos/index.php?mes=1&tab=lista";window.DEMO_HOY="2026-10-07";</script>
+<script src="../demo/tiempo.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">
+    <title>Gastos · Plataforma Psicológica</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../demo/vendor/bulma/bulma.min.css">
+    <link rel="stylesheet" href="../demo/vendor/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/app.css">
+    <link rel="stylesheet" href="../assets/css/extra.css">
+    <link rel="icon" href="../assets/img/favicon-96x96.png" type="image/png">
+    <link rel="stylesheet" href="../assets/css/finanzas.css">    <link rel="stylesheet" href="../assets/css/ui.css">
+<link rel="stylesheet" href="../demo/demo.css">
+</head>
+<body>
+
+<button class="menu-toggle" type="button" onclick="toggleMenu()" aria-label="Menú"><i class="fas fa-bars"></i></button>
+
+<aside class="sidebar">
+    <div class="sidebar-brand">
+        <img src="../assets/img/logo.png" alt="">
+        <div>
+            <h2><a href="../inicio.html">Plataforma Psicológica</a></h2>
+            <span>Portal administrativo</span>
+        </div>
+    </div>
+
+    <nav>
+        <div class="sidebar-section-title">Navegación</div>
+
+        <a href="../inicio.html" class="">
+            <i class="fa-solid fa-house"></i> Inicio
+        </a>
+
+                    <a href="../pacientes/index.html" class="">
+                <i class="fa-solid fa-hospital-user"></i> Pacientes
+            </a>
+        
+                    <a href="../citas/index.html" class="">
+                <i class="fa-solid fa-calendar-check"></i> Citas
+            </a>
+        
+                    <a href="../empleados/index.html" class="">
+                <i class="fa-solid fa-user-tie"></i> Empleados
+            </a>
+        
+                    <a href="../pagos/index.html" class="">
+                <i class="fa-solid fa-sack-dollar"></i> Pagos
+            </a>
+        
+                    <a href="index.html" class="active">
+                <i class="fa-solid fa-receipt"></i> Gastos
+            </a>
+        
+                    <a href="../usuarios/index.html" class="">
+                <i class="fa-solid fa-users"></i> Usuarios
+            </a>
+        
+                    <a href="../anuncios/index.html" class="">
+                <i class="fa-solid fa-bullhorn"></i> Anuncios
+            </a>
+        
+                    <a href="../empresa/index.html" class="">
+                <i class="fa-solid fa-building"></i> Empresa
+            </a>
+        
+        <hr>
+
+        <form method="post" action="#demo-no-disponible" data-demo-action="/salir.php" class="form-salir">
+            <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">            <button type="submit"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</button>
+        </form>
+    </nav>
+
+    <div class="system-health">
+        <div class="system-health-title">Administración Demo</div>
+        <div class="health-indicator">
+            <div class="health-dot"></div>
+            Administrador        </div>
+    </div>
+</aside>
+
+<main class="main-content">
+<div class="columns header-titulos">
+    <div class="column is-flex is-align-items-center is-justify-content-space-between" style="flex-wrap:wrap;gap:10px">
+        <h1 class="titulos-secciones" style="margin-bottom:0">GESTIÓN DE GASTOS</h1>
+        <div class="is-flex" style="gap:10px;flex-wrap:wrap">
+            <a href="resumen.html" class="btn-historia btn-historia-informe"><i class="fa-solid fa-chart-pie"></i> Resumen</a>
+            <a href="categorias.html" class="btn-historia btn-historia-datos"><i class="fa-solid fa-tags"></i> Categorías</a>
+            <span class="empleados-count"><i class="fa-solid fa-receipt"></i> 115 gasto(s)</span>
+        </div>
+    </div>
+</div>
+
+<div class="facturas-tabs">
+    <a class="facturas-tab" href="index__tab-nuevo.html">
+        <i class="fa-solid fa-plus-circle"></i> Nuevo gasto
+    </a>
+    <a class="facturas-tab active" href="index__tab-lista.html">
+        <i class="fa-solid fa-list"></i> Lista de gastos
+    </a>
+</div>
+
+<div class="panel-blanco">
+    <h3><i class="fa-solid fa-filter" style="color:#667eea"></i> Filtrar gastos</h3>
+    <form method="get" class="filtros-bar">
+        <input type="hidden" name="tab" value="lista">
+        <div class="filtro-group">
+            <label>Año</label>
+            <select name="anio">
+                <option value="">Todos los años</option>
+                                    <option value="2026">2026</option>
+                            </select>
+        </div>
+        <div class="filtro-group">
+            <label>Mes</label>
+            <select name="mes">
+                <option value="">Todos</option>
+                                    <option value="1" selected>Enero</option>
+                                    <option value="2">Febrero</option>
+                                    <option value="3">Marzo</option>
+                                    <option value="4">Abril</option>
+                                    <option value="5">Mayo</option>
+                                    <option value="6">Junio</option>
+                                    <option value="7">Julio</option>
+                                    <option value="8">Agosto</option>
+                                    <option value="9">Septiembre</option>
+                                    <option value="10">Octubre</option>
+                                    <option value="11">Noviembre</option>
+                                    <option value="12">Diciembre</option>
+                            </select>
+        </div>
+        <div class="filtro-group">
+            <label>Categoría</label>
+            <select name="categoria">
+                <option value="">Todas</option>
+                                    <option value="1">Alimentos</option>
+                                    <option value="2">Arriendo</option>
+                                    <option value="3">Aseo</option>
+                                    <option value="4">Cigarrillos (inactiva)</option>
+                                    <option value="5">Mantenimiento edificio</option>
+                                    <option value="6">Medicamentos</option>
+                                    <option value="7">Nómina</option>
+                                    <option value="11">Otros</option>
+                                    <option value="10">Papelería</option>
+                                    <option value="8">Servicios públicos</option>
+                                    <option value="9">Transporte</option>
+                            </select>
+        </div>
+        <div class="filtro-group">
+            <label>Proveedor / comprobante</label>
+            <input type="search" name="proveedor" value="" placeholder="Buscar…">
+        </div>
+        <div class="filtros-actions">
+            <button type="submit" class="btn-ver-empleado" style="padding:10px 20px"><i class="fa-solid fa-magnifying-glass"></i> Filtrar</button>
+                            <a href="index__tab-lista.html" class="btn-historia btn-historia-editar" style="display:inline-flex;padding:10px 15px"><i class="fa-solid fa-xmark"></i> Limpiar</a>
+                    </div>
+    </form>
+</div>
+
+<div class="tabla-facturas-container">
+    <div class="total-filtrado">
+        <span>0 gasto(s) con los filtros aplicados</span>
+        <span>Total: <strong>$0</strong></span>
+    </div>
+    <div class="tabla-scroll">
+        <table class="tabla-facturas">
+            <thead>
+            <tr>
+                <th>Fecha</th>
+                <th>Nº comprobante</th>
+                <th>Proveedor</th>
+                <th>Categoría</th>
+                <th>Descripción</th>
+                <th class="has-text-right">Total</th>
+                <th class="has-text-centered">Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+                                        <tr><td colspan="7" class="celda-vacia"><div class="empty-state-small"><i class="fa-solid fa-receipt"></i><p>No se encontraron gastos.</p></div></td></tr>
+                        </tbody>
+        </table>
+    </div>
+</div>
+
+<div id="modal-gasto" class="modal modal-pago" data-abrir="0">
+    <form method="post">
+        <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">        <input type="hidden" name="accion" value="editar">
+        <input type="hidden" name="gasto_id" value="">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title"><i class="fa-solid fa-pen-to-square"></i> Editar gasto</p>
+                <button class="delete" type="button" aria-label="Cerrar"></button>
+            </header>
+            <section class="modal-card-body">
+                                <div class="columns">
+                    <div class="column is-6">
+                        <div class="form-group-modern">
+                            <label>Fecha <span class="required-dot">*</span></label>
+                            <input class="input" type="date" name="fecha" required max="2026-10-07" value="">
+                        </div>
+                    </div>
+                    <div class="column is-6">
+                        <div class="form-group-modern">
+                            <label>Categoría <span class="required-dot">*</span></label>
+                            <div class="select is-fullwidth">
+                                <select name="categoria_id" required>
+                                                                            <option value="1">Alimentos</option>
+                                                                            <option value="2">Arriendo</option>
+                                                                            <option value="3">Aseo</option>
+                                                                            <option value="4">Cigarrillos (inactiva)</option>
+                                                                            <option value="5">Mantenimiento edificio</option>
+                                                                            <option value="6">Medicamentos</option>
+                                                                            <option value="7">Nómina</option>
+                                                                            <option value="11">Otros</option>
+                                                                            <option value="10">Papelería</option>
+                                                                            <option value="8">Servicios públicos</option>
+                                                                            <option value="9">Transporte</option>
+                                                                    </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="columns">
+                    <div class="column is-6">
+                        <div class="form-group-modern">
+                            <label>Proveedor <span class="required-dot">*</span></label>
+                            <input class="input" type="text" name="proveedor" maxlength="150" required value="">
+                        </div>
+                    </div>
+                    <div class="column is-6">
+                        <div class="form-group-modern">
+                            <label>Nº de comprobante</label>
+                            <input class="input" type="text" name="numero_comprobante" maxlength="50" value="">
+                        </div>
+                    </div>
+                </div>
+                <div class="columns">
+                    <div class="column is-8">
+                        <div class="form-group-modern">
+                            <label>Descripción</label>
+                            <input class="input" type="text" name="descripcion" maxlength="255" value="">
+                        </div>
+                    </div>
+                    <div class="column is-4">
+                        <div class="form-group-modern">
+                            <label>Total <span class="required-dot">*</span></label>
+                            <input class="input" type="text" name="total" data-dinero required inputmode="numeric" value="">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <footer class="modal-card-foot">
+                <button type="submit" class="button is-primary"><i class="fa-solid fa-floppy-disk"></i>&nbsp; Guardar cambios</button>
+                <button type="button" class="button is-light js-modal-cerrar">Cancelar</button>
+            </footer>
+        </div>
+    </form>
+</div>
+
+</main>
+<script src="../assets/js/app.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    var modal = document.getElementById('modal-gasto');
+    if (!modal) return;
+    var f = modal.querySelector('form');
+    document.querySelectorAll('.js-editar-gasto').forEach(function (btn) {
+        btn.addEventListener('click', function (ev) {
+            ev.preventDefault();
+            var d = btn.dataset;
+            f.elements['gasto_id'].value = d.id;
+            f.elements['fecha'].value = d.fecha;
+            f.elements['categoria_id'].value = d.categoria;
+            f.elements['proveedor'].value = d.proveedor || '';
+            f.elements['numero_comprobante'].value = d.comprobante || '';
+            f.elements['descripcion'].value = d.descripcion || '';
+            f.elements['total'].value = d.total || '';
+            var aviso = modal.querySelector('.notification');
+            if (aviso) aviso.remove();
+            modal.classList.add('is-active');
+        });
+    });
+});
+</script><script src="../demo/mapa.js"></script>
+<script src="../demo/demo.js"></script>
+</body>
+</html>

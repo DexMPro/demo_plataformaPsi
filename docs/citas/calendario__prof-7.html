@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es" style="overflow:hidden;">
+<head>
+<script>window.DEMO_ROOT="..";window.DEMO_KEY="/citas/calendario.php?prof=7";window.DEMO_HOY="2026-10-07";</script>
+<script src="../demo/tiempo.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">
+    <title>Calendario de citas · Plataforma Psicológica</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../demo/vendor/bulma/bulma.min.css">
+    <link rel="stylesheet" href="../demo/vendor/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/app.css">
+    <link rel="stylesheet" href="../assets/css/extra.css">
+    <link rel="icon" href="../assets/img/favicon-96x96.png" type="image/png">
+    <link rel="stylesheet" href="../assets/css/citas.css">    <link rel="stylesheet" href="../assets/css/ui.css">
+<link rel="stylesheet" href="../demo/demo.css">
+</head>
+<body>
+
+<button class="menu-toggle" type="button" onclick="toggleMenu()" aria-label="Menú"><i class="fas fa-bars"></i></button>
+
+<aside class="sidebar">
+    <div class="sidebar-brand">
+        <img src="../assets/img/logo.png" alt="">
+        <div>
+            <h2><a href="../inicio.html">Plataforma Psicológica</a></h2>
+            <span>Portal administrativo</span>
+        </div>
+    </div>
+
+    <nav>
+        <div class="sidebar-section-title">Navegación</div>
+
+        <a href="../inicio.html" class="">
+            <i class="fa-solid fa-house"></i> Inicio
+        </a>
+
+                    <a href="../pacientes/index.html" class="">
+                <i class="fa-solid fa-hospital-user"></i> Pacientes
+            </a>
+        
+                    <a href="index.html" class="active">
+                <i class="fa-solid fa-calendar-check"></i> Citas
+            </a>
+        
+                    <a href="../empleados/index.html" class="">
+                <i class="fa-solid fa-user-tie"></i> Empleados
+            </a>
+        
+                    <a href="../pagos/index.html" class="">
+                <i class="fa-solid fa-sack-dollar"></i> Pagos
+            </a>
+        
+                    <a href="../gastos/index.html" class="">
+                <i class="fa-solid fa-receipt"></i> Gastos
+            </a>
+        
+                    <a href="../usuarios/index.html" class="">
+                <i class="fa-solid fa-users"></i> Usuarios
+            </a>
+        
+                    <a href="../anuncios/index.html" class="">
+                <i class="fa-solid fa-bullhorn"></i> Anuncios
+            </a>
+        
+                    <a href="../empresa/index.html" class="">
+                <i class="fa-solid fa-building"></i> Empresa
+            </a>
+        
+        <hr>
+
+        <form method="post" action="#demo-no-disponible" data-demo-action="/salir.php" class="form-salir">
+            <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">            <button type="submit"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</button>
+        </form>
+    </nav>
+
+    <div class="system-health">
+        <div class="system-health-title">Administración Demo</div>
+        <div class="health-indicator">
+            <div class="health-dot"></div>
+            Administrador        </div>
+    </div>
+</aside>
+
+<main class="main-content">
+<div class="columns header-titulos">
+    <div class="column is-flex is-align-items-center is-justify-content-space-between" style="flex-wrap:wrap;gap:10px">
+        <h1 class="titulos-secciones" style="margin-bottom:0">CALENDARIO DE CITAS</h1>
+        <a class="button is-rounded is-light" href="index__prof-7_tab-agenda.html">
+            <i class="fa-solid fa-list"></i>&nbsp; Ver agenda
+        </a>
+    </div>
+</div>
+
+
+<form method="get" class="panel-blanco citas-filtros is-flex is-align-items-center" style="gap:14px;flex-wrap:wrap">
+    <div>
+        <label class="label is-small mb-1">Profesional</label>
+        <div class="select is-small"><select name="prof" onchange="this.form.submit()">
+            <option value="todos">Todos los profesionales</option>
+                            <option value="2">Andrés Morales</option>
+                            <option value="3">Catalina Restrepo</option>
+                            <option value="6">Daniela Suárez</option>
+                            <option value="4">Julián Ortiz</option>
+                            <option value="1">Laura Valencia</option>
+                            <option value="7" selected>Santiago Peña</option>
+                    </select></div>
+    </div>
+    <label class="checkbox mt-4 is-size-7"><input type="checkbox" name="canceladas" value="1" onchange="this.form.submit()"> Mostrar canceladas</label>
+    <div class="citas-leyenda mt-4">
+                                <span><i style="background:#667eea"></i>Agendada</span>
+                                <span><i style="background:#0b6fa4"></i>Confirmada</span>
+                                <span><i style="background:#1e7e46"></i>Atendida</span>
+                                            <span><i style="background:#8a8a8a"></i>No asistió</span>
+            </div>
+</form>
+
+<div class="panel-blanco">
+    <div id="calendario" data-config="{&quot;eventos&quot;:&quot;eventos.json&quot;,&quot;prof&quot;:&quot;7&quot;,&quot;canceladas&quot;:&quot;0&quot;,&quot;horaMin&quot;:&quot;06:00:00&quot;,&quot;horaMax&quot;:&quot;22:00:00&quot;,&quot;duracion&quot;:30}"></div>
+    <p class="ayuda mt-3"><i class="fa-solid fa-circle-info"></i> Haga clic en una cita para abrir la agenda de ese día.</p>
+</div>
+
+</main>
+<script src="../assets/js/app.js"></script>
+<script src="../demo/vendor/fullcalendar/index.global.min.js"></script><script src="../demo/vendor/fullcalendar/es.global.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    var el = document.getElementById('calendario');
+    var cfg = JSON.parse(el.dataset.config);
+    if (typeof FullCalendar === 'undefined') {
+        el.innerHTML = '<div class="notification is-warning is-light">No se pudo cargar el calendario. Revise su conexión a internet y recargue la página.</div>';
+        return;
+    }
+    var cal = new FullCalendar.Calendar(el, {
+        eventSourceSuccess: function (c) { return window.demoFiltrarEventos ? window.demoFiltrarEventos(c, cfg) : c; },
+        locale: 'es',
+        firstDay: 1,
+        initialView: window.innerWidth < 768 ? 'listWeek' : 'timeGridWeek',
+        headerToolbar: { left: 'prev,next today', center: 'title', right: 'dayGridMonth,timeGridWeek,listWeek' },
+        buttonText: { today: 'Hoy', month: 'Mes', week: 'Semana', day: 'Día', list: 'Lista' },
+        allDayText: 'Todo el día',
+        noEventsText: 'No hay citas en este periodo',
+        slotMinTime: cfg.horaMin,
+        slotMaxTime: cfg.horaMax,
+        slotDuration: '00:30:00',
+        scrollTime: '08:00:00',
+        allDaySlot: false,
+        nowIndicator: true,
+        height: 'auto',
+        dayMaxEvents: 4,
+        eventTimeFormat: { hour: 'numeric', minute: '2-digit', hour12: true },
+        events: {
+            url: cfg.eventos,
+            extraParams: { prof: cfg.prof, canceladas: cfg.canceladas },
+            failure: function () {
+                el.insertAdjacentHTML('beforebegin', '<div class="notification is-danger is-light">No se pudieron cargar las citas.</div>');
+            }
+        },
+        eventDidMount: function (info) {
+            var p = info.event.extendedProps;
+            info.el.title = info.event.title + ' · ' + p.estado + ' · ' + (p.modalidad === 'virtual' ? 'Virtual' : 'Presencial');
+        }
+    });
+    cal.render();
+});
+</script>
+<script src="../demo/mapa.js"></script>
+<script src="../demo/demo.js"></script>
+</body>
+</html>

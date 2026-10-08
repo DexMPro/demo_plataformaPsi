@@ -1,0 +1,92 @@
+/* Plataforma Psicológica · capa de demo estática (usa la paleta de la app) */
+:root {
+  --demo-1: #667eea;
+  --demo-2: #764ba2;
+  --demo-texto: #1a1a2e;
+  --demo-muted: #6c757d;
+}
+
+/* ---------- avisos ---------- */
+#demo-toasts {
+  position: fixed; top: 16px; right: 16px; z-index: 10000;
+  display: flex; flex-direction: column; gap: 10px;
+  width: min(380px, calc(100vw - 32px));
+  pointer-events: none;
+}
+.demo-toast {
+  pointer-events: auto;
+  display: grid; grid-template-columns: 22px 1fr 20px; gap: 10px; align-items: start;
+  background: #fff; color: var(--demo-texto);
+  border-radius: 12px; padding: 12px 14px;
+  box-shadow: 0 10px 30px rgba(26, 26, 46, .18);
+  border-left: 4px solid var(--demo-1);
+  font-family: Inter, system-ui, sans-serif; font-size: 13.5px; line-height: 1.4;
+  animation: demo-entra .25s ease-out;
+  transition: opacity .4s, transform .4s;
+}
+.demo-toast i { color: var(--demo-1); font-size: 18px; margin-top: 1px; }
+.demo-toast strong { display: block; font-weight: 600; margin-bottom: 2px; }
+.demo-toast p { margin: 0; color: var(--demo-muted); }
+.demo-toast button { background: none; border: 0; font-size: 18px; line-height: 1; color: #adb5bd; cursor: pointer; padding: 0; }
+.demo-toast-ok { border-left-color: #1e9e5a; }
+.demo-toast-ok i { color: #1e9e5a; }
+.demo-toast-warn { border-left-color: #f97316; }
+.demo-toast-warn i { color: #f97316; }
+.demo-toast.saliendo { opacity: 0; transform: translateX(20px); }
+@keyframes demo-entra { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
+
+/* ---------- insignia flotante ---------- */
+.demo-insignia {
+  position: fixed; right: 16px; bottom: 16px; z-index: 9999;
+  font-family: Inter, system-ui, sans-serif;
+}
+.demo-insignia-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  border: 0; border-radius: 999px; padding: 9px 16px;
+  background: linear-gradient(135deg, var(--demo-1), var(--demo-2)); color: #fff;
+  font-weight: 600; font-size: 13px; cursor: pointer;
+  box-shadow: 0 8px 22px rgba(102, 126, 234, .45);
+}
+.demo-insignia-panel {
+  display: none; position: absolute; right: 0; bottom: calc(100% + 10px);
+  width: min(320px, calc(100vw - 32px));
+  background: #fff; color: var(--demo-texto); border-radius: 14px; padding: 16px;
+  box-shadow: 0 16px 40px rgba(26, 26, 46, .22); font-size: 13.5px;
+}
+.demo-insignia.abierta .demo-insignia-panel { display: block; }
+.demo-insignia-panel p { color: var(--demo-muted); margin: 6px 0 12px; line-height: 1.45; }
+.demo-insignia-acciones { display: flex; flex-direction: column; gap: 2px; }
+.demo-insignia-acciones a {
+  display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 8px;
+  color: var(--demo-texto); text-decoration: none; cursor: pointer;
+}
+.demo-insignia-acciones a:hover { background: #eef1ff; color: var(--demo-2); }
+.demo-insignia-acciones i { width: 16px; text-align: center; color: var(--demo-1); }
+
+/* ---------- inicio de sesión ---------- */
+.demo-login {
+  border: 1px solid #e3e6f0; border-radius: 14px; padding: 14px; margin-bottom: 22px;
+  background: linear-gradient(180deg, #f8f9ff, #fff);
+}
+.demo-login-cab {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 12px; font-weight: 600; letter-spacing: .02em; text-transform: uppercase;
+  color: var(--demo-2); background: #eef1ff; border-radius: 999px; padding: 4px 10px;
+}
+.demo-login > p { margin: 10px 0; color: var(--demo-muted); font-size: 13.5px; }
+.demo-login-botones { display: grid; gap: 8px; }
+.demo-login-botones button {
+  display: flex; align-items: center; gap: 12px; text-align: left; width: 100%;
+  border: 1px solid #e3e6f0; background: #fff; border-radius: 12px; padding: 11px 14px;
+  cursor: pointer; transition: border-color .15s, box-shadow .15s, transform .15s; font: inherit;
+}
+.demo-login-botones button:hover { border-color: var(--demo-1); box-shadow: 0 6px 18px rgba(102, 126, 234, .18); transform: translateY(-1px); }
+.demo-login-botones i { font-size: 20px; width: 26px; color: var(--demo-1); }
+.demo-login-botones strong { display: block; color: var(--demo-texto); font-size: 14.5px; }
+.demo-login-botones small { color: var(--demo-muted); font-size: 12.5px; }
+.demo-login .demo-login-pie { font-size: 12.5px; margin-bottom: 0; }
+.demo-login code { background: #eef1ff; color: var(--demo-2); padding: 1px 5px; border-radius: 5px; font-size: 12px; }
+
+@media (max-width: 600px) {
+  .demo-insignia-btn span { display: none; }
+}

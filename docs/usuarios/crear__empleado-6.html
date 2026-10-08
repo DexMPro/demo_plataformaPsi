@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es" style="overflow:hidden;">
+<head>
+<script>window.DEMO_ROOT="..";window.DEMO_KEY="/usuarios/crear.php?empleado=6";window.DEMO_HOY="2026-10-07";</script>
+<script src="../demo/tiempo.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">
+    <title>Crear usuario · Plataforma Psicológica</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../demo/vendor/bulma/bulma.min.css">
+    <link rel="stylesheet" href="../demo/vendor/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/app.css">
+    <link rel="stylesheet" href="../assets/css/extra.css">
+    <link rel="icon" href="../assets/img/favicon-96x96.png" type="image/png">
+    <link rel="stylesheet" href="../assets/css/personal.css">    <link rel="stylesheet" href="../assets/css/ui.css">
+<link rel="stylesheet" href="../demo/demo.css">
+</head>
+<body>
+
+<button class="menu-toggle" type="button" onclick="toggleMenu()" aria-label="Menú"><i class="fas fa-bars"></i></button>
+
+<aside class="sidebar">
+    <div class="sidebar-brand">
+        <img src="../assets/img/logo.png" alt="">
+        <div>
+            <h2><a href="../inicio.html">Plataforma Psicológica</a></h2>
+            <span>Portal administrativo</span>
+        </div>
+    </div>
+
+    <nav>
+        <div class="sidebar-section-title">Navegación</div>
+
+        <a href="../inicio.html" class="">
+            <i class="fa-solid fa-house"></i> Inicio
+        </a>
+
+                    <a href="../pacientes/index.html" class="">
+                <i class="fa-solid fa-hospital-user"></i> Pacientes
+            </a>
+        
+                    <a href="../citas/index.html" class="">
+                <i class="fa-solid fa-calendar-check"></i> Citas
+            </a>
+        
+                    <a href="../empleados/index.html" class="">
+                <i class="fa-solid fa-user-tie"></i> Empleados
+            </a>
+        
+                    <a href="../pagos/index.html" class="">
+                <i class="fa-solid fa-sack-dollar"></i> Pagos
+            </a>
+        
+                    <a href="../gastos/index.html" class="">
+                <i class="fa-solid fa-receipt"></i> Gastos
+            </a>
+        
+                    <a href="index.html" class="active">
+                <i class="fa-solid fa-users"></i> Usuarios
+            </a>
+        
+                    <a href="../anuncios/index.html" class="">
+                <i class="fa-solid fa-bullhorn"></i> Anuncios
+            </a>
+        
+                    <a href="../empresa/index.html" class="">
+                <i class="fa-solid fa-building"></i> Empresa
+            </a>
+        
+        <hr>
+
+        <form method="post" action="#demo-no-disponible" data-demo-action="/salir.php" class="form-salir">
+            <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">            <button type="submit"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</button>
+        </form>
+    </nav>
+
+    <div class="system-health">
+        <div class="system-health-title">Administración Demo</div>
+        <div class="health-indicator">
+            <div class="health-dot"></div>
+            Administrador        </div>
+    </div>
+</aside>
+
+<main class="main-content">
+<div class="columns header-titulos">
+    <div class="column is-flex is-align-items-center is-justify-content-space-between">
+        <h1 class="titulos-secciones" style="margin-bottom:0">CREAR USUARIO</h1>
+        <a href="index.html" class="btn-historia btn-historia-datos" style="text-decoration:none">
+            <i class="fa-solid fa-arrow-left"></i> Volver
+        </a>
+    </div>
+</div>
+
+<div class="form-container-modern">
+    <form method="post" autocomplete="off">
+        <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">        <div class="form-card">
+            <div class="form-card-header">
+                <div class="form-card-icon"><i class="fa-solid fa-user-plus"></i></div>
+                <h2>Registro de usuario</h2>
+                <p>Complete el formulario para crear un nuevo acceso a la plataforma</p>
+            </div>
+            <div class="form-card-body">
+                                <div class="form-section-title">
+    <div class="section-icon datos"><i class="fa-solid fa-key"></i></div>
+    Datos de acceso
+</div>
+<div class="columns">
+    <div class="column is-6">
+        <div class="form-group-modern">
+            <label for="f-usuario">Nombre de usuario <span class="required-dot">*</span></label>
+            <div class="control has-icons-left">
+                <input class="input" type="text" id="f-usuario" name="usuario" required minlength="3" maxlength="60"
+                       pattern="[A-Za-z0-9._\-]{3,60}" autocomplete="off" placeholder="Ej: juan.perez" value="">
+                <span class="icon is-small is-left icono-campo"><i class="fa-solid fa-user"></i></span>
+            </div>
+            <p class="ayuda">Letras sin tilde, números, punto, guion o guion bajo.</p>
+        </div>
+    </div>
+    <div class="column is-6">
+        <div class="form-group-modern">
+            <label for="f-correo">Correo electrónico <span class="required-dot">*</span></label>
+            <div class="control has-icons-left">
+                <input class="input" type="email" id="f-correo" name="correo" required maxlength="150" placeholder="Ej: juan@plataforma.co" value="daniela.suarez@plataforma-demo.co">
+                <span class="icon is-small is-left icono-campo"><i class="fa-solid fa-envelope"></i></span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="columns">
+    <div class="column is-6">
+        <div class="form-group-modern" data-clave>
+            <label for="f-clave">
+                Contraseña <span class="required-dot">*</span>            </label>
+            <div class="control has-icons-left has-icons-right">
+                <input class="input" type="password" id="f-clave" name="clave" minlength="8" maxlength="72" autocomplete="new-password"
+                       placeholder="Mínimo 8 caracteres" required>
+                <span class="icon is-small is-left icono-campo"><i class="fa-solid fa-lock"></i></span>
+                <span class="icon is-small is-right password-toggle-icon" role="button" tabindex="0" aria-label="Mostrar u ocultar contraseña">
+                    <i class="fa-regular fa-eye"></i>
+                </span>
+            </div>
+            <div class="medidor-clave">
+                <div class="strength-bar"></div><div class="strength-bar"></div><div class="strength-bar"></div><div class="strength-bar"></div>
+            </div>
+            <span class="strength-text"></span>
+        </div>
+    </div>
+    <div class="column is-6">
+        <div class="form-group-modern">
+            <label for="f-nombre">Nombre para mostrar <span class="required-dot">*</span></label>
+            <div class="control has-icons-left">
+                <input class="input" type="text" id="f-nombre" name="nombre_mostrar" required maxlength="150" placeholder="Nombre completo de la persona" value="Daniela Suárez León">
+                <span class="icon is-small is-left icono-campo"><i class="fa-solid fa-id-badge"></i></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="form-section-title mt-5">
+    <div class="section-icon consulta"><i class="fa-solid fa-shield-halved"></i></div>
+    Permisos
+</div>
+<div class="columns">
+    <div class="column is-6">
+        <div class="form-group-modern">
+            <label for="f-rol">Rol <span class="required-dot">*</span></label>
+            <div class="select is-fullwidth">
+                <select name="rol_id" id="f-rol" required>
+                    <option value="">Seleccione un rol…</option>
+                                            <option value="1" data-rol="admin">Administrador</option>
+                                            <option value="2" data-rol="familia">Usuario/familia</option>
+                                            <option value="3" data-rol="profesional">Profesional</option>
+                                            <option value="4" data-rol="colaborador">Colaborador</option>
+                                    </select>
+            </div>
+                    </div>
+        <label class="checkbox check-firma">
+            <input type="checkbox" name="activo" value="1" checked>
+            <span><strong>Activo</strong> — puede iniciar sesión.</span>
+        </label>
+            </div>
+    <div class="column is-6" data-bloque-empleado>
+        <div class="form-group-modern">
+            <label for="f-empleado">Empleado vinculado</label>
+            <div class="select is-fullwidth">
+                <select name="empleado_id" id="f-empleado">
+                    <option value="">Sin empleado</option>
+                                            <option value="6" selected>
+                            Daniela Suárez León · CC 1015478963                        </option>
+                                            <option value="7">
+                            Santiago Peña Vargas · CC 1019874521                        </option>
+                                    </select>
+            </div>
+            <p class="ayuda">Solo empleados que aún no tienen usuario. Los usuarios de familia no se vinculan a empleados.</p>
+        </div>
+    </div>
+</div>
+
+<div class="dashboard-grid-3 roles-ayuda">
+            <div class="info-card" style="border-left:4px solid #667eea">
+            <div class="info-label"><i class="fa-solid fa-crown" style="color:#667eea"></i> Administrador</div>
+            <div class="info-value" style="font-size:12px;color:#6c757d">Acceso total a la empresa</div>
+        </div>
+            <div class="info-card" style="border-left:4px solid #f97316">
+            <div class="info-label"><i class="fa-solid fa-people-roof" style="color:#f97316"></i> Usuario/familia</div>
+            <div class="info-value" style="font-size:12px;color:#6c757d">Acudiente: ve sus pacientes y agenda citas</div>
+        </div>
+            <div class="info-card" style="border-left:4px solid #2dce89">
+            <div class="info-label"><i class="fa-solid fa-user-doctor" style="color:#2dce89"></i> Profesional</div>
+            <div class="info-value" style="font-size:12px;color:#6c757d">Historia clínica de sus pacientes y agenda</div>
+        </div>
+            <div class="info-card" style="border-left:4px solid #0ea5e9">
+            <div class="info-label"><i class="fa-solid fa-file-invoice" style="color:#0ea5e9"></i> Colaborador</div>
+            <div class="info-value" style="font-size:12px;color:#6c757d">Administrativo: pagos, gastos y agenda; sin historia clínica</div>
+        </div>
+    </div>
+            </div>
+            <div class="form-card-footer">
+                <a href="index.html" class="btn-historia btn-historia-editar" style="display:inline-flex;padding:14px 25px;text-decoration:none">
+                    <i class="fa-solid fa-xmark"></i> Cancelar
+                </a>
+                <button type="submit" class="btn-guardar-historia"><i class="fa-solid fa-user-plus"></i> Crear usuario</button>
+            </div>
+        </div>
+    </form>
+</div>
+</main>
+<script src="../assets/js/app.js"></script>
+<script src="../assets/js/clave.js"></script><script src="../demo/mapa.js"></script>
+<script src="../demo/demo.js"></script>
+</body>
+</html>

@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="es" style="overflow:hidden;">
+<head>
+<script>window.DEMO_ROOT="..";window.DEMO_KEY="/cargos/index.php";window.DEMO_HOY="2026-10-07";</script>
+<script src="../demo/tiempo.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">
+    <title>Cargos · Plataforma Psicológica</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../demo/vendor/bulma/bulma.min.css">
+    <link rel="stylesheet" href="../demo/vendor/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/app.css">
+    <link rel="stylesheet" href="../assets/css/extra.css">
+    <link rel="icon" href="../assets/img/favicon-96x96.png" type="image/png">
+    <link rel="stylesheet" href="../assets/css/personal.css">    <link rel="stylesheet" href="../assets/css/ui.css">
+<link rel="stylesheet" href="../demo/demo.css">
+</head>
+<body>
+
+<button class="menu-toggle" type="button" onclick="toggleMenu()" aria-label="Menú"><i class="fas fa-bars"></i></button>
+
+<aside class="sidebar">
+    <div class="sidebar-brand">
+        <img src="../assets/img/logo.png" alt="">
+        <div>
+            <h2><a href="../inicio.html">Plataforma Psicológica</a></h2>
+            <span>Portal administrativo</span>
+        </div>
+    </div>
+
+    <nav>
+        <div class="sidebar-section-title">Navegación</div>
+
+        <a href="../inicio.html" class="">
+            <i class="fa-solid fa-house"></i> Inicio
+        </a>
+
+                    <a href="../pacientes/index.html" class="">
+                <i class="fa-solid fa-hospital-user"></i> Pacientes
+            </a>
+        
+                    <a href="../citas/index.html" class="">
+                <i class="fa-solid fa-calendar-check"></i> Citas
+            </a>
+        
+                    <a href="../empleados/index.html" class="active">
+                <i class="fa-solid fa-user-tie"></i> Empleados
+            </a>
+        
+                    <a href="../pagos/index.html" class="">
+                <i class="fa-solid fa-sack-dollar"></i> Pagos
+            </a>
+        
+                    <a href="../gastos/index.html" class="">
+                <i class="fa-solid fa-receipt"></i> Gastos
+            </a>
+        
+                    <a href="../usuarios/index.html" class="">
+                <i class="fa-solid fa-users"></i> Usuarios
+            </a>
+        
+                    <a href="../anuncios/index.html" class="">
+                <i class="fa-solid fa-bullhorn"></i> Anuncios
+            </a>
+        
+                    <a href="../empresa/index.html" class="">
+                <i class="fa-solid fa-building"></i> Empresa
+            </a>
+        
+        <hr>
+
+        <form method="post" action="#demo-no-disponible" data-demo-action="/salir.php" class="form-salir">
+            <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">            <button type="submit"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</button>
+        </form>
+    </nav>
+
+    <div class="system-health">
+        <div class="system-health-title">Administración Demo</div>
+        <div class="health-indicator">
+            <div class="health-dot"></div>
+            Administrador        </div>
+    </div>
+</aside>
+
+<main class="main-content">
+<div class="columns header-titulos">
+    <div class="column is-flex is-align-items-center is-justify-content-space-between">
+        <h1 class="titulos-secciones" style="margin-bottom:0">CARGOS</h1>
+        <span class="empleados-count"><i class="fa-solid fa-sitemap"></i> 6 cargo(s)</span>
+    </div>
+</div>
+
+<div class="usuarios-toolbar">
+    <a href="../empleados/index.html" class="btn-historia btn-historia-datos" style="text-decoration:none">
+        <i class="fa-solid fa-arrow-left"></i> Empleados
+    </a>
+    <button class="btn-historia btn-historia-evoluciones js-modal-trigger" data-target="modal-cargo">
+        <i class="fa-solid fa-plus"></i> Nuevo cargo
+    </button>
+</div>
+
+<div class="usuarios-table-container">
+    <table class="usuarios-table">
+        <thead>
+            <tr>
+                <th><i class="fa-solid fa-sitemap"></i> Cargo</th>
+                <th><i class="fa-solid fa-users"></i> Empleados activos</th>
+                <th><i class="fa-solid fa-toggle-on"></i> Estado</th>
+                <th class="has-text-right"><i class="fa-solid fa-gear"></i> Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+                    <tr>
+                <td><strong>Auxiliar administrativa</strong></td>
+                <td>1</td>
+                <td>
+                                            <span class="estado-tag estado-cerrada">Activo</span>
+                                    </td>
+                <td>
+                    <div class="acciones-fila" style="justify-content:flex-end">
+                        <button class="boton-mini js-modal-trigger" data-target="modal-cargo-5"><i class="fa-solid fa-pen"></i> Renombrar</button>
+                        <form method="post" class="en-linea" data-confirmar="¿Desactivar este cargo? Los empleados que ya lo tienen lo conservan.">
+                            <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">                            <input type="hidden" name="id" value="5">
+                            <input type="hidden" name="accion" value="desactivar">
+                                                            <button class="boton-mini" type="submit"><i class="fa-solid fa-toggle-off"></i> Desactivar</button>
+                                                    </form>
+                        <form method="post" class="en-linea" data-confirmar="¿Eliminar este cargo? Como hay empleados que lo tienen, solo se desactivará.">
+                            <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">                            <input type="hidden" name="id" value="5">
+                            <input type="hidden" name="accion" value="eliminar">
+                            <button class="boton-mini peligro" type="submit" title="Eliminar"><i class="fa-solid fa-trash-can"></i></button>
+                        </form>
+                    </div>
+
+                </td>
+            </tr>
+                    <tr>
+                <td><strong>Dirección clínica</strong></td>
+                <td>1</td>
+                <td>
+                                            <span class="estado-tag estado-cerrada">Activo</span>
+                                    </td>
+                <td>
+                    <div class="acciones-fila" style="justify-content:flex-end">
+                        <button class="boton-mini js-modal-trigger" data-target="modal-cargo-1"><i class="fa-solid fa-pen"></i> Renombrar</button>
+                        <form method="post" class="en-linea" data-confirmar="¿Desactivar este cargo? Los empleados que ya lo tienen lo conservan.">
+                            <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">                            <input type="hidden" name="id" value="1">
+                            <input type="hidden" name="accion" value="desactivar">
+                                                            <button class="boton-mini" type="submit"><i class="fa-solid fa-toggle-off"></i> Desactivar</button>
+                                                    </form>
+                        <form method="post" class="en-linea" data-confirmar="¿Eliminar este cargo? Como hay empleados que lo tienen, solo se desactivará.">
+                            <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">                            <input type="hidden" name="id" value="1">
+                            <input type="hidden" name="accion" value="eliminar">
+                            <button class="boton-mini peligro" type="submit" title="Eliminar"><i class="fa-solid fa-trash-can"></i></button>
+                        </form>
+                    </div>
+
+                </td>
+            </tr>
+                    <tr>
+                <td><strong>Psicólogo(a) clínico(a)</strong></td>
+                <td>2</td>
+                <td>
+                                            <span class="estado-tag estado-cerrada">Activo</span>
+                                    </td>
+                <td>
+                    <div class="acciones-fila" style="justify-content:flex-end">
+                        <button class="boton-mini js-modal-trigger" data-target="modal-cargo-2"><i class="fa-solid fa-pen"></i> Renombrar</button>
+                        <form method="post" class="en-linea" data-confirmar="¿Desactivar este cargo? Los empleados que ya lo tienen lo conservan.">
+                            <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">                            <input type="hidden" name="id" value="2">
+                            <input type="hidden" name="accion" value="desactivar">
+                                                            <button class="boton-mini" type="submit"><i class="fa-solid fa-toggle-off"></i> Desactivar</button>
+                                                    </form>
+                        <form method="post" class="en-linea" data-confirmar="¿Eliminar este cargo? Como hay empleados que lo tienen, solo se desactivará.">
+                            <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">                            <input type="hidden" name="id" value="2">
+                            <input type="hidden" name="accion" value="eliminar">
+                            <button class="boton-mini peligro" type="submit" title="Eliminar"><i class="fa-solid fa-trash-can"></i></button>
+                        </form>
+                    </div>
+
+                </td>
+            </tr>
+                    <tr>
+                <td><strong>Psiquiatra</strong></td>
+                <td>1</td>
+                <td>
+                                            <span class="estado-tag estado-cerrada">Activo</span>
+                                    </td>
+                <td>
+                    <div class="acciones-fila" style="justify-content:flex-end">
+                        <button class="boton-mini js-modal-trigger" data-target="modal-cargo-3"><i class="fa-solid fa-pen"></i> Renombrar</button>
+                        <form method="post" class="en-linea" data-confirmar="¿Desactivar este cargo? Los empleados que ya lo tienen lo conservan.">
+                            <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">                            <input type="hidden" name="id" value="3">
+                            <input type="hidden" name="accion" value="desactivar">
+                                                            <button class="boton-mini" type="submit"><i class="fa-solid fa-toggle-off"></i> Desactivar</button>
+                                                    </form>
+                        <form method="post" class="en-linea" data-confirmar="¿Eliminar este cargo? Como hay empleados que lo tienen, solo se desactivará.">
+                            <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">                            <input type="hidden" name="id" value="3">
+                            <input type="hidden" name="accion" value="eliminar">
+                            <button class="boton-mini peligro" type="submit" title="Eliminar"><i class="fa-solid fa-trash-can"></i></button>
+                        </form>
+                    </div>
+
+                </td>
+            </tr>
+                    <tr>
+                <td><strong>Terapeuta ocupacional</strong></td>
+                <td>1</td>
+                <td>
+                                            <span class="estado-tag estado-cerrada">Activo</span>
+                                    </td>
+                <td>
+                    <div class="acciones-fila" style="justify-content:flex-end">
+                        <button class="boton-mini js-modal-trigger" data-target="modal-cargo-6"><i class="fa-solid fa-pen"></i> Renombrar</button>
+                        <form method="post" class="en-linea" data-confirmar="¿Desactivar este cargo? Los empleados que ya lo tienen lo conservan.">
+                            <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">                            <input type="hidden" name="id" value="6">
+                            <input type="hidden" name="accion" value="desactivar">
+                                                            <button class="boton-mini" type="submit"><i class="fa-solid fa-toggle-off"></i> Desactivar</button>
+                                                    </form>
+                        <form method="post" class="en-linea" data-confirmar="¿Eliminar este cargo? Como hay empleados que lo tienen, solo se desactivará.">
+                            <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">                            <input type="hidden" name="id" value="6">
+                            <input type="hidden" name="accion" value="eliminar">
+                            <button class="boton-mini peligro" type="submit" title="Eliminar"><i class="fa-solid fa-trash-can"></i></button>
+                        </form>
+                    </div>
+
+                </td>
+            </tr>
+                    <tr>
+                <td><strong>Trabajo social</strong></td>
+                <td>1</td>
+                <td>
+                                            <span class="estado-tag estado-cerrada">Activo</span>
+                                    </td>
+                <td>
+                    <div class="acciones-fila" style="justify-content:flex-end">
+                        <button class="boton-mini js-modal-trigger" data-target="modal-cargo-4"><i class="fa-solid fa-pen"></i> Renombrar</button>
+                        <form method="post" class="en-linea" data-confirmar="¿Desactivar este cargo? Los empleados que ya lo tienen lo conservan.">
+                            <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">                            <input type="hidden" name="id" value="4">
+                            <input type="hidden" name="accion" value="desactivar">
+                                                            <button class="boton-mini" type="submit"><i class="fa-solid fa-toggle-off"></i> Desactivar</button>
+                                                    </form>
+                        <form method="post" class="en-linea" data-confirmar="¿Eliminar este cargo? Como hay empleados que lo tienen, solo se desactivará.">
+                            <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">                            <input type="hidden" name="id" value="4">
+                            <input type="hidden" name="accion" value="eliminar">
+                            <button class="boton-mini peligro" type="submit" title="Eliminar"><i class="fa-solid fa-trash-can"></i></button>
+                        </form>
+                    </div>
+
+                </td>
+            </tr>
+                        </tbody>
+    </table>
+</div>
+
+        <div id="modal-cargo-5" class="modal" data-abrir="0">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <form method="post">
+                <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">                <input type="hidden" name="accion" value="renombrar">
+                <input type="hidden" name="id" value="5">
+                <header class="modal-card-head">
+                    <p class="modal-card-title">Renombrar cargo</p>
+                    <button class="delete" type="button" aria-label="Cerrar"></button>
+                </header>
+                <section class="modal-card-body">
+                                        <div class="form-group-modern">
+                        <label>Nombre del cargo <span class="required-dot">*</span></label>
+                        <input class="input" type="text" name="nombre" required maxlength="100" value="Auxiliar administrativa">
+                    </div>
+                    <div class="buttons">
+                        <button type="submit" class="button is-info"><i class="fa-solid fa-floppy-disk"></i>&nbsp; Guardar</button>
+                        <button type="button" class="button js-modal-cerrar">Cancelar</button>
+                    </div>
+                </section>
+            </form>
+        </div>
+    </div>
+        <div id="modal-cargo-1" class="modal" data-abrir="0">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <form method="post">
+                <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">                <input type="hidden" name="accion" value="renombrar">
+                <input type="hidden" name="id" value="1">
+                <header class="modal-card-head">
+                    <p class="modal-card-title">Renombrar cargo</p>
+                    <button class="delete" type="button" aria-label="Cerrar"></button>
+                </header>
+                <section class="modal-card-body">
+                                        <div class="form-group-modern">
+                        <label>Nombre del cargo <span class="required-dot">*</span></label>
+                        <input class="input" type="text" name="nombre" required maxlength="100" value="Dirección clínica">
+                    </div>
+                    <div class="buttons">
+                        <button type="submit" class="button is-info"><i class="fa-solid fa-floppy-disk"></i>&nbsp; Guardar</button>
+                        <button type="button" class="button js-modal-cerrar">Cancelar</button>
+                    </div>
+                </section>
+            </form>
+        </div>
+    </div>
+        <div id="modal-cargo-2" class="modal" data-abrir="0">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <form method="post">
+                <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">                <input type="hidden" name="accion" value="renombrar">
+                <input type="hidden" name="id" value="2">
+                <header class="modal-card-head">
+                    <p class="modal-card-title">Renombrar cargo</p>
+                    <button class="delete" type="button" aria-label="Cerrar"></button>
+                </header>
+                <section class="modal-card-body">
+                                        <div class="form-group-modern">
+                        <label>Nombre del cargo <span class="required-dot">*</span></label>
+                        <input class="input" type="text" name="nombre" required maxlength="100" value="Psicólogo(a) clínico(a)">
+                    </div>
+                    <div class="buttons">
+                        <button type="submit" class="button is-info"><i class="fa-solid fa-floppy-disk"></i>&nbsp; Guardar</button>
+                        <button type="button" class="button js-modal-cerrar">Cancelar</button>
+                    </div>
+                </section>
+            </form>
+        </div>
+    </div>
+        <div id="modal-cargo-3" class="modal" data-abrir="0">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <form method="post">
+                <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">                <input type="hidden" name="accion" value="renombrar">
+                <input type="hidden" name="id" value="3">
+                <header class="modal-card-head">
+                    <p class="modal-card-title">Renombrar cargo</p>
+                    <button class="delete" type="button" aria-label="Cerrar"></button>
+                </header>
+                <section class="modal-card-body">
+                                        <div class="form-group-modern">
+                        <label>Nombre del cargo <span class="required-dot">*</span></label>
+                        <input class="input" type="text" name="nombre" required maxlength="100" value="Psiquiatra">
+                    </div>
+                    <div class="buttons">
+                        <button type="submit" class="button is-info"><i class="fa-solid fa-floppy-disk"></i>&nbsp; Guardar</button>
+                        <button type="button" class="button js-modal-cerrar">Cancelar</button>
+                    </div>
+                </section>
+            </form>
+        </div>
+    </div>
+        <div id="modal-cargo-6" class="modal" data-abrir="0">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <form method="post">
+                <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">                <input type="hidden" name="accion" value="renombrar">
+                <input type="hidden" name="id" value="6">
+                <header class="modal-card-head">
+                    <p class="modal-card-title">Renombrar cargo</p>
+                    <button class="delete" type="button" aria-label="Cerrar"></button>
+                </header>
+                <section class="modal-card-body">
+                                        <div class="form-group-modern">
+                        <label>Nombre del cargo <span class="required-dot">*</span></label>
+                        <input class="input" type="text" name="nombre" required maxlength="100" value="Terapeuta ocupacional">
+                    </div>
+                    <div class="buttons">
+                        <button type="submit" class="button is-info"><i class="fa-solid fa-floppy-disk"></i>&nbsp; Guardar</button>
+                        <button type="button" class="button js-modal-cerrar">Cancelar</button>
+                    </div>
+                </section>
+            </form>
+        </div>
+    </div>
+        <div id="modal-cargo-4" class="modal" data-abrir="0">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <form method="post">
+                <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">                <input type="hidden" name="accion" value="renombrar">
+                <input type="hidden" name="id" value="4">
+                <header class="modal-card-head">
+                    <p class="modal-card-title">Renombrar cargo</p>
+                    <button class="delete" type="button" aria-label="Cerrar"></button>
+                </header>
+                <section class="modal-card-body">
+                                        <div class="form-group-modern">
+                        <label>Nombre del cargo <span class="required-dot">*</span></label>
+                        <input class="input" type="text" name="nombre" required maxlength="100" value="Trabajo social">
+                    </div>
+                    <div class="buttons">
+                        <button type="submit" class="button is-info"><i class="fa-solid fa-floppy-disk"></i>&nbsp; Guardar</button>
+                        <button type="button" class="button js-modal-cerrar">Cancelar</button>
+                    </div>
+                </section>
+            </form>
+        </div>
+    </div>
+
+<div id="modal-cargo" class="modal" data-abrir="0">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <form method="post">
+            <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">            <input type="hidden" name="accion" value="crear">
+            <header class="modal-card-head">
+                <p class="modal-card-title">+ Nuevo cargo</p>
+                <button class="delete" type="button" aria-label="Cerrar"></button>
+            </header>
+            <section class="modal-card-body">
+                                <div class="form-group-modern">
+                    <label>Nombre del cargo <span class="required-dot">*</span></label>
+                    <input class="input" type="text" name="nombre" required maxlength="100" placeholder="Ej: Psicólogo clínico, Recepción…" value="">
+                </div>
+                <div class="buttons">
+                    <button type="submit" class="button is-info"><i class="fa-solid fa-floppy-disk"></i>&nbsp; Guardar</button>
+                    <button type="button" class="button js-modal-cerrar">Cancelar</button>
+                </div>
+            </section>
+        </form>
+    </div>
+</div>
+</main>
+<script src="../assets/js/app.js"></script>
+<script src="../demo/mapa.js"></script>
+<script src="../demo/demo.js"></script>
+</body>
+</html>

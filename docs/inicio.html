@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es" style="overflow:hidden;">
+<head>
+<script>window.DEMO_ROOT=".";window.DEMO_KEY="/inicio.php";window.DEMO_HOY="2026-10-07";</script>
+<script src="demo/tiempo.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">
+    <title>Inicio · Plataforma Psicológica</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="demo/vendor/bulma/bulma.min.css">
+    <link rel="stylesheet" href="demo/vendor/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="stylesheet" href="assets/css/extra.css">
+    <link rel="icon" href="assets/img/favicon-96x96.png" type="image/png">
+        <link rel="stylesheet" href="assets/css/ui.css">
+<link rel="stylesheet" href="demo/demo.css">
+</head>
+<body>
+
+<button class="menu-toggle" type="button" onclick="toggleMenu()" aria-label="Menú"><i class="fas fa-bars"></i></button>
+
+<aside class="sidebar">
+    <div class="sidebar-brand">
+        <img src="assets/img/logo.png" alt="">
+        <div>
+            <h2><a href="inicio.html">Plataforma Psicológica</a></h2>
+            <span>Portal administrativo</span>
+        </div>
+    </div>
+
+    <nav>
+        <div class="sidebar-section-title">Navegación</div>
+
+        <a href="inicio.html" class="active">
+            <i class="fa-solid fa-house"></i> Inicio
+        </a>
+
+                    <a href="pacientes/index.html" class="">
+                <i class="fa-solid fa-hospital-user"></i> Pacientes
+            </a>
+        
+                    <a href="citas/index.html" class="">
+                <i class="fa-solid fa-calendar-check"></i> Citas
+            </a>
+        
+                    <a href="empleados/index.html" class="">
+                <i class="fa-solid fa-user-tie"></i> Empleados
+            </a>
+        
+                    <a href="pagos/index.html" class="">
+                <i class="fa-solid fa-sack-dollar"></i> Pagos
+            </a>
+        
+                    <a href="gastos/index.html" class="">
+                <i class="fa-solid fa-receipt"></i> Gastos
+            </a>
+        
+                    <a href="usuarios/index.html" class="">
+                <i class="fa-solid fa-users"></i> Usuarios
+            </a>
+        
+                    <a href="anuncios/index.html" class="">
+                <i class="fa-solid fa-bullhorn"></i> Anuncios
+            </a>
+        
+                    <a href="empresa/index.html" class="">
+                <i class="fa-solid fa-building"></i> Empresa
+            </a>
+        
+        <hr>
+
+        <form method="post" action="#demo-no-disponible" data-demo-action="/salir.php" class="form-salir">
+            <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">            <button type="submit"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</button>
+        </form>
+    </nav>
+
+    <div class="system-health">
+        <div class="system-health-title">Administración Demo</div>
+        <div class="health-indicator">
+            <div class="health-dot"></div>
+            Administrador        </div>
+    </div>
+</aside>
+
+<main class="main-content">
+<div class="welcome-dashboard">
+    <div class="welcome-content-dash">
+        <h1>Bienvenido, <span>Administración Demo</span></h1>
+        <p>Panel de control de la Plataforma Psicológica · Miércoles, 7 de octubre de 2026</p>
+    </div>
+</div>
+
+<div class="stats-grid">
+            <div class="stat-card">
+            <div class="stat-icon pacientes"><i class="fa-solid fa-hospital-user"></i></div>
+            <div class="stat-info">
+                <div class="stat-number">28</div>
+                <div class="stat-label">Total pacientes</div>
+                <div class="stat-change positive"><i class="fa-solid fa-arrow-up"></i> +3 este mes</div>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon historias"><i class="fa-solid fa-folder-open"></i></div>
+            <div class="stat-info">
+                <div class="stat-number">26</div>
+                <div class="stat-label">Historias clínicas</div>
+                <div class="stat-change positive"><i class="fa-solid fa-arrow-up"></i> +3 este mes</div>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon evoluciones"><i class="fa-solid fa-notes-medical"></i></div>
+            <div class="stat-info">
+                <div class="stat-number">97</div>
+                <div class="stat-label">Evoluciones totales</div>
+                <div class="stat-change neutral"><i class="fa-solid fa-chart-line"></i> Registros SOAP</div>
+            </div>
+        </div>
+    
+            <div class="stat-card">
+            <div class="stat-icon historias"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+            <div class="stat-info">
+                <div class="stat-number">$15.110.000</div>
+                <div class="stat-label">Recaudado este mes</div>
+                <div class="stat-change neutral"><i class="fa-solid fa-receipt"></i> Gastos: $9.110.000</div>
+            </div>
+        </div>
+    
+    <div class="stat-card">
+        <div class="stat-icon empleados"><i class="fa-solid fa-user-tie"></i></div>
+        <div class="stat-info">
+            <div class="stat-number">7</div>
+            <div class="stat-label">Empleados</div>
+            <div class="stat-change neutral"><i class="fa-solid fa-building"></i> Personal activo</div>
+        </div>
+    </div>
+</div>
+
+<div class="dashboard-grid">
+    <div class="dash-card">
+        <div class="dash-card-header">
+            <h3><i class="fa-solid fa-user-plus"></i> Últimos pacientes</h3>
+            <a href="pacientes/index.html" class="dash-link">Ver todos <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="dash-card-body">
+                            <div class="lista-pacientes">
+                                            <a class="paciente-item" href="pacientes/ver__id-28.html">
+                            <img src="assets/img/default-user.png" alt="" class="paciente-mini-foto">
+                            <div class="paciente-item-info">
+                                <strong>Esteban Ramírez</strong>
+                                <span>25/02/2026</span>
+                            </div>
+                        </a>
+                                            <a class="paciente-item" href="pacientes/ver__id-27.html">
+                            <img src="assets/img/default-user.png" alt="" class="paciente-mini-foto">
+                            <div class="paciente-item-info">
+                                <strong>Paula Martínez</strong>
+                                <span>28/09/2025</span>
+                            </div>
+                        </a>
+                                            <a class="paciente-item" href="pacientes/ver__id-26.html">
+                            <img src="assets/img/default-user.png" alt="" class="paciente-mini-foto">
+                            <div class="paciente-item-info">
+                                <strong>Sebastián Romero</strong>
+                                <span>30/04/2026</span>
+                            </div>
+                        </a>
+                                            <a class="paciente-item" href="pacientes/ver__id-25.html">
+                            <img src="assets/img/default-user.png" alt="" class="paciente-mini-foto">
+                            <div class="paciente-item-info">
+                                <strong>Juliana Hernández</strong>
+                                <span>23/03/2026</span>
+                            </div>
+                        </a>
+                                            <a class="paciente-item" href="pacientes/ver__id-24.html">
+                            <img src="assets/img/default-user.png" alt="" class="paciente-mini-foto">
+                            <div class="paciente-item-info">
+                                <strong>Daniela Herrera</strong>
+                                <span>25/03/2026</span>
+                            </div>
+                        </a>
+                                    </div>
+                    </div>
+    </div>
+
+    <div class="dash-card">
+        <div class="dash-card-header">
+            <h3><i class="fa-solid fa-chart-pie"></i> Distribución por género</h3>
+        </div>
+        <div class="dash-card-body">
+                            <div class="genero-distribucion">
+                                            <div class="genero-item">
+                            <div class="genero-info">
+                                <i class="fa-solid fa-venus" style="color:#e864a8"></i>
+                                <span>Femenino</span>
+                            </div>
+                            <div class="genero-barra-container">
+                                <div class="genero-barra" style="width:64%;background:#e864a8"></div>
+                            </div>
+                            <div class="genero-cantidad"><strong>18</strong><span>64%</span></div>
+                        </div>
+                                            <div class="genero-item">
+                            <div class="genero-info">
+                                <i class="fa-solid fa-mars" style="color:#667eea"></i>
+                                <span>Masculino</span>
+                            </div>
+                            <div class="genero-barra-container">
+                                <div class="genero-barra" style="width:36%;background:#667eea"></div>
+                            </div>
+                            <div class="genero-cantidad"><strong>10</strong><span>36%</span></div>
+                        </div>
+                                    </div>
+                    </div>
+    </div>
+</div>
+
+<div class="dashboard-grid-3">
+            <div class="dash-card">
+            <div class="dash-card-header"><h3><i class="fa-solid fa-users-gear"></i> Usuarios</h3></div>
+            <div class="dash-card-body">
+                <div class="stat-mini">
+                    <div class="stat-mini-number">9</div>
+                    <div class="stat-mini-label">Usuarios registrados en el sistema</div>
+                </div>
+            </div>
+        </div>
+    
+    <div class="dash-card">
+        <div class="dash-card-header"><h3><i class="fa-solid fa-calendar-check"></i> Citas pendientes</h3></div>
+        <div class="dash-card-body">
+            <div class="stat-mini">
+                <div class="stat-mini-number">78</div>
+                <div class="stat-mini-label">Citas programadas</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="dash-card">
+        <div class="dash-card-header"><h3><i class="fa-solid fa-bolt"></i> Acceso rápido</h3></div>
+        <div class="dash-card-body">
+            <div class="quick-actions">
+                                    <a href="pacientes/index__nuevo-1.html" class="quick-btn"><i class="fa-solid fa-user-plus"></i> Nuevo paciente</a>
+                                <a href="citas/index.html" class="quick-btn"><i class="fa-solid fa-calendar-plus"></i> Citas</a>
+                                    <a href="pagos/index.html" class="quick-btn"><i class="fa-solid fa-sack-dollar"></i> Pagos</a>
+                            </div>
+        </div>
+    </div>
+</div>
+</main>
+<script src="assets/js/app.js"></script>
+<script src="demo/mapa.js"></script>
+<script src="demo/demo.js"></script>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es" style="overflow:hidden;">
+<head>
+<script>window.DEMO_ROOT="..";window.DEMO_KEY="/usuarios/index.php?demo_todo=1&rol=colaborador";window.DEMO_HOY="2026-10-07";</script>
+<script src="../demo/tiempo.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">
+    <title>Usuarios · Plataforma Psicológica</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../demo/vendor/bulma/bulma.min.css">
+    <link rel="stylesheet" href="../demo/vendor/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/app.css">
+    <link rel="stylesheet" href="../assets/css/extra.css">
+    <link rel="icon" href="../assets/img/favicon-96x96.png" type="image/png">
+    <link rel="stylesheet" href="../assets/css/personal.css">    <link rel="stylesheet" href="../assets/css/ui.css">
+<link rel="stylesheet" href="../demo/demo.css">
+</head>
+<body>
+
+<button class="menu-toggle" type="button" onclick="toggleMenu()" aria-label="Menú"><i class="fas fa-bars"></i></button>
+
+<aside class="sidebar">
+    <div class="sidebar-brand">
+        <img src="../assets/img/logo.png" alt="">
+        <div>
+            <h2><a href="../inicio.html">Plataforma Psicológica</a></h2>
+            <span>Portal administrativo</span>
+        </div>
+    </div>
+
+    <nav>
+        <div class="sidebar-section-title">Navegación</div>
+
+        <a href="../inicio.html" class="">
+            <i class="fa-solid fa-house"></i> Inicio
+        </a>
+
+                    <a href="../pacientes/index.html" class="">
+                <i class="fa-solid fa-hospital-user"></i> Pacientes
+            </a>
+        
+                    <a href="../citas/index.html" class="">
+                <i class="fa-solid fa-calendar-check"></i> Citas
+            </a>
+        
+                    <a href="../empleados/index.html" class="">
+                <i class="fa-solid fa-user-tie"></i> Empleados
+            </a>
+        
+                    <a href="../pagos/index.html" class="">
+                <i class="fa-solid fa-sack-dollar"></i> Pagos
+            </a>
+        
+                    <a href="../gastos/index.html" class="">
+                <i class="fa-solid fa-receipt"></i> Gastos
+            </a>
+        
+                    <a href="index.html" class="active">
+                <i class="fa-solid fa-users"></i> Usuarios
+            </a>
+        
+                    <a href="../anuncios/index.html" class="">
+                <i class="fa-solid fa-bullhorn"></i> Anuncios
+            </a>
+        
+                    <a href="../empresa/index.html" class="">
+                <i class="fa-solid fa-building"></i> Empresa
+            </a>
+        
+        <hr>
+
+        <form method="post" action="#demo-no-disponible" data-demo-action="/salir.php" class="form-salir">
+            <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">            <button type="submit"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</button>
+        </form>
+    </nav>
+
+    <div class="system-health">
+        <div class="system-health-title">Administración Demo</div>
+        <div class="health-indicator">
+            <div class="health-dot"></div>
+            Administrador        </div>
+    </div>
+</aside>
+
+<main class="main-content">
+<div class="columns header-titulos">
+    <div class="column is-flex is-align-items-center is-justify-content-space-between">
+        <h1 class="titulos-secciones" style="margin-bottom:0">USUARIOS</h1>
+        <span class="empleados-count"><i class="fa-solid fa-users"></i> 1 usuario(s)</span>
+    </div>
+</div>
+
+<div class="usuarios-toolbar">
+    <div class="search-box">
+        <form method="get" class="is-flex" style="gap:10px">
+            <div style="position:relative;flex:1">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="search" name="buscar" placeholder="Buscar por usuario, correo o nombre…" value="">
+            </div>
+            <div class="select is-rounded">
+                <select name="rol" onchange="this.form.submit()" aria-label="Filtrar por rol">
+                    <option value="">Todos los roles</option>
+                                            <option value="admin">Administrador</option>
+                                            <option value="familia">Usuario/familia</option>
+                                            <option value="profesional">Profesional</option>
+                                            <option value="colaborador" selected>Colaborador</option>
+                                    </select>
+            </div>
+        </form>
+    </div>
+    <a href="crear.html" class="btn-historia btn-historia-evoluciones" style="text-decoration:none">
+        <i class="fa-solid fa-user-plus"></i> Crear usuario
+    </a>
+</div>
+
+<div class="usuarios-table-container">
+    <div class="tabla-desplazable">
+    <table class="usuarios-table">
+        <thead>
+            <tr>
+                <th><i class="fa-solid fa-user"></i> Usuario</th>
+                <th><i class="fa-solid fa-envelope"></i> Correo</th>
+                <th><i class="fa-solid fa-id-badge"></i> Nombre</th>
+                <th><i class="fa-solid fa-shield-halved"></i> Rol</th>
+                <th><i class="fa-solid fa-user-tie"></i> Empleado</th>
+                <th><i class="fa-solid fa-circle-half-stroke"></i> Estado</th>
+                <th><i class="fa-solid fa-clock"></i> Último acceso</th>
+                <th class="has-text-centered"><i class="fa-solid fa-gear"></i></th>
+            </tr>
+        </thead>
+        <tbody>
+                                <tr>
+                <td>
+                    <div class="user-name">
+                        <div class="user-avatar default">MM</div>
+                        <div>
+                            <strong>mgomez</strong>
+                                                    </div>
+                    </div>
+                </td>
+                <td><span style="color:#6c757d">marcela.gomez@plataforma-demo.co</span></td>
+                <td>Marcela Gómez</td>
+                <td><span class="rol-badge default">Colaborador</span></td>
+                <td>
+                                            <a href="../empleados/ver__id-5.html">Marcela Gómez</a>
+                                    </td>
+                <td><span class="estado-usuario estado-usuario-activo">Activo</span></td>
+                <td><span class="autor-linea">07/10/2026 08:00 am</span></td>
+                <td class="has-text-centered">
+                    <a href="editar__id-6.html" class="btn-editar-usuario" title="Editar usuario">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                    </a>
+                </td>
+            </tr>
+                        </tbody>
+    </table>
+    </div>
+    <div class="usuarios-pagination">
+        <div class="usuarios-count">
+            Mostrando <strong>1-1</strong> de <strong>1</strong> usuarios
+        </div>
+    </div>
+</div>
+</main>
+<script src="../assets/js/app.js"></script>
+<script src="../demo/mapa.js"></script>
+<script src="../demo/demo.js"></script>
+</body>
+</html>

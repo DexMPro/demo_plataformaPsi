@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="es" style="overflow:hidden;">
+<head>
+<script>window.DEMO_ROOT="..";window.DEMO_KEY="/citas/index.php?pagina=4&periodo=pasadas&tab=agenda";window.DEMO_HOY="2026-10-07";</script>
+<script src="../demo/tiempo.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">
+    <title>Citas · Plataforma Psicológica</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../demo/vendor/bulma/bulma.min.css">
+    <link rel="stylesheet" href="../demo/vendor/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/app.css">
+    <link rel="stylesheet" href="../assets/css/extra.css">
+    <link rel="icon" href="../assets/img/favicon-96x96.png" type="image/png">
+    <link rel="stylesheet" href="../assets/css/citas.css">    <link rel="stylesheet" href="../assets/css/ui.css">
+<link rel="stylesheet" href="../demo/demo.css">
+</head>
+<body>
+
+<button class="menu-toggle" type="button" onclick="toggleMenu()" aria-label="Menú"><i class="fas fa-bars"></i></button>
+
+<aside class="sidebar">
+    <div class="sidebar-brand">
+        <img src="../assets/img/logo.png" alt="">
+        <div>
+            <h2><a href="../inicio.html">Plataforma Psicológica</a></h2>
+            <span>Portal administrativo</span>
+        </div>
+    </div>
+
+    <nav>
+        <div class="sidebar-section-title">Navegación</div>
+
+        <a href="../inicio.html" class="">
+            <i class="fa-solid fa-house"></i> Inicio
+        </a>
+
+                    <a href="../pacientes/index.html" class="">
+                <i class="fa-solid fa-hospital-user"></i> Pacientes
+            </a>
+        
+                    <a href="index.html" class="active">
+                <i class="fa-solid fa-calendar-check"></i> Citas
+            </a>
+        
+                    <a href="../empleados/index.html" class="">
+                <i class="fa-solid fa-user-tie"></i> Empleados
+            </a>
+        
+                    <a href="../pagos/index.html" class="">
+                <i class="fa-solid fa-sack-dollar"></i> Pagos
+            </a>
+        
+                    <a href="../gastos/index.html" class="">
+                <i class="fa-solid fa-receipt"></i> Gastos
+            </a>
+        
+                    <a href="../usuarios/index.html" class="">
+                <i class="fa-solid fa-users"></i> Usuarios
+            </a>
+        
+                    <a href="../anuncios/index.html" class="">
+                <i class="fa-solid fa-bullhorn"></i> Anuncios
+            </a>
+        
+                    <a href="../empresa/index.html" class="">
+                <i class="fa-solid fa-building"></i> Empresa
+            </a>
+        
+        <hr>
+
+        <form method="post" action="#demo-no-disponible" data-demo-action="/salir.php" class="form-salir">
+            <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">            <button type="submit"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</button>
+        </form>
+    </nav>
+
+    <div class="system-health">
+        <div class="system-health-title">Administración Demo</div>
+        <div class="health-indicator">
+            <div class="health-dot"></div>
+            Administrador        </div>
+    </div>
+</aside>
+
+<main class="main-content">
+<div class="columns header-titulos">
+    <div class="column is-flex is-align-items-center is-justify-content-space-between" style="flex-wrap:wrap;gap:10px">
+        <h1 class="titulos-secciones" style="margin-bottom:0">CITAS</h1>
+        <div class="is-flex" style="gap:10px;flex-wrap:wrap">
+            <a class="button is-rounded is-light" href="calendario__prof-todos.html">
+                <i class="fa-solid fa-calendar-days"></i>&nbsp; Calendario
+            </a>
+            <button class="button is-rounded is-outlined js-modal-trigger" data-target="modal-cita" style="border:2px solid #667eea;color:#667eea;font-weight:600">
+                <i class="fa-solid fa-plus"></i>&nbsp; Agendar cita
+            </button>
+        </div>
+    </div>
+</div>
+
+
+<div class="facturas-tabs citas-tabs">
+    <a class="facturas-tab active" href="index__prof-todos_tab-agenda.html"><i class="fa-solid fa-calendar-check"></i>&nbsp; Agenda</a>
+    <a class="facturas-tab" href="index__prof-todos_tab-motivos.html"><i class="fa-solid fa-clipboard-list"></i>&nbsp; Motivos de consulta</a>
+</div>
+
+    <form method="get" class="panel-blanco citas-filtros">
+        <input type="hidden" name="tab" value="agenda">
+        <div class="columns is-multiline is-variable is-2">
+            <div class="column is-3">
+                <label class="label is-small">Profesional</label>
+                <div class="select is-fullwidth is-small"><select name="prof">
+                    <option value="todos" selected>Todos los profesionales</option>
+                                            <option value="2">Andrés Morales</option>
+                                            <option value="3">Catalina Restrepo</option>
+                                            <option value="6">Daniela Suárez</option>
+                                            <option value="4">Julián Ortiz</option>
+                                            <option value="1">Laura Valencia</option>
+                                            <option value="7">Santiago Peña</option>
+                                    </select></div>
+            </div>
+            <div class="column is-2">
+                <label class="label is-small">Periodo</label>
+                <div class="select is-fullwidth is-small"><select name="periodo">
+                    <option value="proximas">Próximas</option><option value="hoy">Hoy</option><option value="pasadas" selected>Pasadas</option><option value="todas">Todas</option>                </select></div>
+            </div>
+            <div class="column is-2">
+                <label class="label is-small">Estado</label>
+                <div class="select is-fullwidth is-small"><select name="estado">
+                    <option value="">Todos</option><option value="agendada">Agendada</option><option value="confirmada">Confirmada</option><option value="atendida">Atendida</option><option value="cancelada">Cancelada</option><option value="no_asistio">No asistió</option>                </select></div>
+            </div>
+            <div class="column is-2">
+                <label class="label is-small">Desde</label>
+                <input class="input is-small" type="date" name="desde" value="">
+            </div>
+            <div class="column is-2">
+                <label class="label is-small">Hasta</label>
+                <input class="input is-small" type="date" name="hasta" value="">
+            </div>
+            <div class="column is-1"></div>
+            <div class="column is-8">
+                <div class="control has-icons-left">
+                    <input class="input is-small" type="search" name="buscar" placeholder="Buscar paciente por nombre o documento…" value="">
+                    <span class="icon is-small is-left"><i class="fa-solid fa-magnifying-glass"></i></span>
+                </div>
+            </div>
+            <div class="column is-4 has-text-right">
+                <button class="button is-small is-info" type="submit"><i class="fa-solid fa-filter"></i>&nbsp; Filtrar</button>
+                <a class="button is-small is-light" href="index__tab-agenda.html">Limpiar</a>
+            </div>
+        </div>
+            </form>
+
+    <p class="autor-linea mb-3"><i class="fa-solid fa-list"></i> 113 cita(s)</p>
+
+            <div class="citas-dia">
+            <div class="citas-dia-titulo">
+                <i class="fa-solid fa-calendar-day"></i> Martes, 15 de septiembre de 2026                                <span class="citas-dia-num">2</span>
+            </div>
+            <table class="tabla-simple tabla-citas">
+                <thead><tr><th style="width:12%">Hora</th><th style="width:19%">Paciente</th><th style="width:13%">Profesional</th><th style="width:18%">Motivo</th><th style="width:12%">Estado</th><th style="width:26%">Acciones</th></tr></thead>
+                <tbody>
+                                    <tr>
+                        <td>
+                            <strong>02:00 pm</strong>
+                            <div class="autor-linea">02:45 pm · <i class="fa-solid fa-building"></i> Presencial</div>
+                        </td>
+                        <td>
+                                                            <a class="nombrePaciente" href="../pacientes/ver__id-15.html">Sara Paula Quintero Jiménez</a>
+                                                        <div class="autor-linea">CC 11897335</div>
+                        </td>
+                        <td>Andrés Morales</td>
+                        <td>
+                            <span class="autor-linea">Sin motivo</span>                            <div class="autor-linea">Agendó: Administración Demo</div>                        </td>
+                        <td>
+                            <span class="estado-tag estado-no_asistio">No asistió</span>
+                                                    </td>
+                        <td>
+                            <div class="acciones-fila">
+                                                                                                    <a class="boton-mini" href="../evoluciones/index__historia-15.html"><i class="fa-solid fa-notes-medical"></i> Registrar evolución</a>
+                                                            </div>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td>
+                            <strong>08:00 am</strong>
+                            <div class="autor-linea">08:45 am · <i class="fa-solid fa-building"></i> Presencial</div>
+                        </td>
+                        <td>
+                                                            <a class="nombrePaciente" href="../pacientes/ver__id-27.html">Paula Martínez Jiménez</a>
+                                                        <div class="autor-linea">CC 82998927</div>
+                        </td>
+                        <td>Andrés Morales</td>
+                        <td>
+                            <span class="autor-linea">Sin motivo</span>                            <div class="autor-linea">Agendó: Administración Demo</div>                        </td>
+                        <td>
+                            <span class="estado-tag estado-atendida">Atendida</span>
+                                                    </td>
+                        <td>
+                            <div class="acciones-fila">
+                                                                                                    <a class="boton-mini" href="../evoluciones/index__historia-25.html"><i class="fa-solid fa-notes-medical"></i> Registrar evolución</a>
+                                                            </div>
+                        </td>
+                    </tr>
+                                </tbody>
+            </table>
+        </div>
+            <div class="citas-dia">
+            <div class="citas-dia-titulo">
+                <i class="fa-solid fa-calendar-day"></i> Lunes, 14 de septiembre de 2026                                <span class="citas-dia-num">4</span>
+            </div>
+            <table class="tabla-simple tabla-citas">
+                <thead><tr><th style="width:12%">Hora</th><th style="width:19%">Paciente</th><th style="width:13%">Profesional</th><th style="width:18%">Motivo</th><th style="width:12%">Estado</th><th style="width:26%">Acciones</th></tr></thead>
+                <tbody>
+                                    <tr>
+                        <td>
+                            <strong>05:00 pm</strong>
+                            <div class="autor-linea">05:45 pm · <i class="fa-solid fa-video"></i> Virtual</div>
+                        </td>
+                        <td>
+                                                            <a class="nombrePaciente" href="../pacientes/ver__id-27.html">Paula Martínez Jiménez</a>
+                                                        <div class="autor-linea">CC 82998927</div>
+                        </td>
+                        <td>Andrés Morales</td>
+                        <td>
+                            <span class="autor-linea">Sin motivo</span>                            <div class="autor-linea">Agendó: Administración Demo</div>                        </td>
+                        <td>
+                            <span class="estado-tag estado-atendida">Atendida</span>
+                                                    </td>
+                        <td>
+                            <div class="acciones-fila">
+                                                                                                    <a class="boton-mini" href="../evoluciones/index__historia-25.html"><i class="fa-solid fa-notes-medical"></i> Registrar evolución</a>
+                                                            </div>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td>
+                            <strong>05:00 pm</strong>
+                            <div class="autor-linea">05:45 pm · <i class="fa-solid fa-building"></i> Presencial</div>
+                        </td>
+                        <td>
+                                                            <a class="nombrePaciente" href="../pacientes/ver__id-14.html">Sofía Herrera Pérez</a>
+                                                        <div class="autor-linea">TI 1081265886</div>
+                        </td>
+                        <td>Catalina Restrepo</td>
+                        <td>
+                            <span class="autor-linea">Sin motivo</span>                            <div class="autor-linea">Agendó: Marcela Gómez</div>                        </td>
+                        <td>
+                            <span class="estado-tag estado-atendida">Atendida</span>
+                                                    </td>
+                        <td>
+                            <div class="acciones-fila">
+                                                                                                    <a class="boton-mini" href="../evoluciones/index__historia-14.html"><i class="fa-solid fa-notes-medical"></i> Registrar evolución</a>
+                                                            </div>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td>
+                            <strong>02:00 pm</strong>
+                            <div class="autor-linea">02:45 pm · <i class="fa-solid fa-building"></i> Presencial</div>
+                        </td>
+                        <td>
+                                                            <a class="nombrePaciente" href="../pacientes/ver__id-11.html">Sofía Sánchez Hernández</a>
+                                                        <div class="autor-linea">TI 1009278108</div>
+                        </td>
+                        <td>Catalina Restrepo</td>
+                        <td>
+                            <span class="autor-linea">Sin motivo</span>                            <div class="autor-linea">Agendó: Catalina Restrepo</div>                        </td>
+                        <td>
+                            <span class="estado-tag estado-atendida">Atendida</span>
+                                                    </td>
+                        <td>
+                            <div class="acciones-fila">
+                                                                                                    <a class="boton-mini" href="../evoluciones/index__historia-11.html"><i class="fa-solid fa-notes-medical"></i> Registrar evolución</a>
+                                                            </div>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td>
+                            <strong>10:00 am</strong>
+                            <div class="autor-linea">10:45 am · <i class="fa-solid fa-building"></i> Presencial</div>
+                        </td>
+                        <td>
+                                                            <a class="nombrePaciente" href="../pacientes/ver__id-8.html">Carolina Daniela Londoño Aguilar</a>
+                                                        <div class="autor-linea">TI 1062263036</div>
+                        </td>
+                        <td>Catalina Restrepo</td>
+                        <td>
+                            <span class="autor-linea">Sin motivo</span>                            <div class="autor-linea">Agendó: Catalina Restrepo</div>                        </td>
+                        <td>
+                            <span class="estado-tag estado-atendida">Atendida</span>
+                                                    </td>
+                        <td>
+                            <div class="acciones-fila">
+                                                                                                    <a class="boton-mini" href="../evoluciones/index__historia-8.html"><i class="fa-solid fa-notes-medical"></i> Registrar evolución</a>
+                                                            </div>
+                        </td>
+                    </tr>
+                                </tbody>
+            </table>
+        </div>
+            <div class="citas-dia">
+            <div class="citas-dia-titulo">
+                <i class="fa-solid fa-calendar-day"></i> Viernes, 11 de septiembre de 2026                                <span class="citas-dia-num">4</span>
+            </div>
+            <table class="tabla-simple tabla-citas">
+                <thead><tr><th style="width:12%">Hora</th><th style="width:19%">Paciente</th><th style="width:13%">Profesional</th><th style="width:18%">Motivo</th><th style="width:12%">Estado</th><th style="width:26%">Acciones</th></tr></thead>
+                <tbody>
+                                    <tr>
+                        <td>
+                            <strong>04:00 pm</strong>
+                            <div class="autor-linea">04:45 pm · <i class="fa-solid fa-video"></i> Virtual</div>
+                        </td>
+                        <td>
+                                                            <a class="nombrePaciente" href="../pacientes/ver__id-15.html">Sara Paula Quintero Jiménez</a>
+                                                        <div class="autor-linea">CC 11897335</div>
+                        </td>
+                        <td>Andrés Morales</td>
+                        <td>
+                            <span class="autor-linea">Sin motivo</span>                            <div class="autor-linea">Agendó: Andrés Morales</div>                        </td>
+                        <td>
+                            <span class="estado-tag estado-no_asistio">No asistió</span>
+                                                    </td>
+                        <td>
+                            <div class="acciones-fila">
+                                                                                                    <a class="boton-mini" href="../evoluciones/index__historia-15.html"><i class="fa-solid fa-notes-medical"></i> Registrar evolución</a>
+                                                            </div>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td>
+                            <strong>04:00 pm</strong>
+                            <div class="autor-linea">04:45 pm · <i class="fa-solid fa-building"></i> Presencial</div>
+                        </td>
+                        <td>
+                                                            <a class="nombrePaciente" href="../pacientes/ver__id-7.html">Daniela Rodríguez Londoño</a>
+                                                        <div class="autor-linea">CC 41332109</div>
+                        </td>
+                        <td>Laura Valencia</td>
+                        <td>
+                            <span class="autor-linea">Sin motivo</span>                            <div class="autor-linea">Agendó: Administración Demo</div>                        </td>
+                        <td>
+                            <span class="estado-tag estado-atendida">Atendida</span>
+                                                    </td>
+                        <td>
+                            <div class="acciones-fila">
+                                                                                                    <a class="boton-mini" href="../evoluciones/index__historia-7.html"><i class="fa-solid fa-notes-medical"></i> Registrar evolución</a>
+                                                            </div>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td>
+                            <strong>03:00 pm</strong>
+                            <div class="autor-linea">03:45 pm · <i class="fa-solid fa-building"></i> Presencial</div>
+                        </td>
+                        <td>
+                                                            <a class="nombrePaciente" href="../pacientes/ver__id-14.html">Sofía Herrera Pérez</a>
+                                                        <div class="autor-linea">TI 1081265886</div>
+                        </td>
+                        <td>Catalina Restrepo</td>
+                        <td>
+                            <span class="autor-linea">Sin motivo</span>                            <div class="autor-linea">Agendó: Administración Demo</div>                        </td>
+                        <td>
+                            <span class="estado-tag estado-atendida">Atendida</span>
+                                                    </td>
+                        <td>
+                            <div class="acciones-fila">
+                                                                                                    <a class="boton-mini" href="../evoluciones/index__historia-14.html"><i class="fa-solid fa-notes-medical"></i> Registrar evolución</a>
+                                                            </div>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td>
+                            <strong>02:00 pm</strong>
+                            <div class="autor-linea">02:45 pm · <i class="fa-solid fa-video"></i> Virtual</div>
+                        </td>
+                        <td>
+                                                            <a class="nombrePaciente" href="../pacientes/ver__id-21.html">Juan José Camilo Vargas Martínez</a>
+                                                        <div class="autor-linea">TI 1014597226</div>
+                        </td>
+                        <td>Catalina Restrepo</td>
+                        <td>
+                            <span class="autor-linea">Sin motivo</span>                            <div class="autor-linea">Agendó: Catalina Restrepo</div>                        </td>
+                        <td>
+                            <span class="estado-tag estado-cancelada">Cancelada</span>
+                                                            <div class="autor-linea" title="Cruce con compromiso laboral.">Cruce con compromiso laboral.</div>
+                                                    </td>
+                        <td>
+                            <div class="acciones-fila">
+                                                                                            </div>
+                        </td>
+                    </tr>
+                                </tbody>
+            </table>
+        </div>
+            <div class="citas-dia">
+            <div class="citas-dia-titulo">
+                <i class="fa-solid fa-calendar-day"></i> Jueves, 10 de septiembre de 2026                                <span class="citas-dia-num">3</span>
+            </div>
+            <table class="tabla-simple tabla-citas">
+                <thead><tr><th style="width:12%">Hora</th><th style="width:19%">Paciente</th><th style="width:13%">Profesional</th><th style="width:18%">Motivo</th><th style="width:12%">Estado</th><th style="width:26%">Acciones</th></tr></thead>
+                <tbody>
+                                    <tr>
+                        <td>
+                            <strong>04:00 pm</strong>
+                            <div class="autor-linea">04:45 pm · <i class="fa-solid fa-building"></i> Presencial</div>
+                        </td>
+                        <td>
+                                                            <a class="nombrePaciente" href="../pacientes/ver__id-14.html">Sofía Herrera Pérez</a>
+                                                        <div class="autor-linea">TI 1081265886</div>
+                        </td>
+                        <td>Catalina Restrepo</td>
+                        <td>
+                            <span class="autor-linea">Sin motivo</span>                            <div class="autor-linea">Agendó: Marcela Gómez</div>                        </td>
+                        <td>
+                            <span class="estado-tag estado-atendida">Atendida</span>
+                                                    </td>
+                        <td>
+                            <div class="acciones-fila">
+                                                                                                    <a class="boton-mini" href="../evoluciones/index__historia-14.html"><i class="fa-solid fa-notes-medical"></i> Registrar evolución</a>
+                                                            </div>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td>
+                            <strong>11:00 am</strong>
+                            <div class="autor-linea">11:45 am · <i class="fa-solid fa-building"></i> Presencial</div>
+                        </td>
+                        <td>
+                                                            <a class="nombrePaciente" href="../pacientes/ver__id-11.html">Sofía Sánchez Hernández</a>
+                                                        <div class="autor-linea">TI 1009278108</div>
+                        </td>
+                        <td>Catalina Restrepo</td>
+                        <td>
+                            <span class="autor-linea">Sin motivo</span>                            <div class="autor-linea">Agendó: Administración Demo</div>                        </td>
+                        <td>
+                            <span class="estado-tag estado-atendida">Atendida</span>
+                                                    </td>
+                        <td>
+                            <div class="acciones-fila">
+                                                                                                    <a class="boton-mini" href="../evoluciones/index__historia-11.html"><i class="fa-solid fa-notes-medical"></i> Registrar evolución</a>
+                                                            </div>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td>
+                            <strong>08:00 am</strong>
+                            <div class="autor-linea">08:45 am · <i class="fa-solid fa-video"></i> Virtual</div>
+                        </td>
+                        <td>
+                                                            <a class="nombrePaciente" href="../pacientes/ver__id-1.html">Daniel Rojas Londoño</a>
+                                                        <div class="autor-linea">TI 81967330</div>
+                        </td>
+                        <td>Catalina Restrepo</td>
+                        <td>
+                            <span class="autor-linea">Sin motivo</span>                            <div class="autor-linea">Agendó: Marcela Gómez</div>                        </td>
+                        <td>
+                            <span class="estado-tag estado-atendida">Atendida</span>
+                                                    </td>
+                        <td>
+                            <div class="acciones-fila">
+                                                                                                    <a class="boton-mini" href="../evoluciones/index__historia-1.html"><i class="fa-solid fa-notes-medical"></i> Registrar evolución</a>
+                                                            </div>
+                        </td>
+                    </tr>
+                                </tbody>
+            </table>
+        </div>
+            <div class="citas-dia">
+            <div class="citas-dia-titulo">
+                <i class="fa-solid fa-calendar-day"></i> Miércoles, 9 de septiembre de 2026                                <span class="citas-dia-num">4</span>
+            </div>
+            <table class="tabla-simple tabla-citas">
+                <thead><tr><th style="width:12%">Hora</th><th style="width:19%">Paciente</th><th style="width:13%">Profesional</th><th style="width:18%">Motivo</th><th style="width:12%">Estado</th><th style="width:26%">Acciones</th></tr></thead>
+                <tbody>
+                                    <tr>
+                        <td>
+                            <strong>05:00 pm</strong>
+                            <div class="autor-linea">05:45 pm · <i class="fa-solid fa-building"></i> Presencial</div>
+                        </td>
+                        <td>
+                                                            <a class="nombrePaciente" href="../pacientes/ver__id-5.html">Mariana Cárdenas Moreno</a>
+                                                        <div class="autor-linea">CC 37199395</div>
+                        </td>
+                        <td>Julián Ortiz</td>
+                        <td>
+                            <span class="autor-linea">Sin motivo</span>                            <div class="autor-linea">Agendó: Marcela Gómez</div>                        </td>
+                        <td>
+                            <span class="estado-tag estado-atendida">Atendida</span>
+                                                    </td>
+                        <td>
+                            <div class="acciones-fila">
+                                                                                                    <a class="boton-mini" href="../evoluciones/index__historia-5.html"><i class="fa-solid fa-notes-medical"></i> Registrar evolución</a>
+                                                            </div>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td>
+                            <strong>04:00 pm</strong>
+                            <div class="autor-linea">04:45 pm · <i class="fa-solid fa-building"></i> Presencial</div>
+                        </td>
+                        <td>
+                                                            <a class="nombrePaciente" href="../pacientes/ver__id-8.html">Carolina Daniela Londoño Aguilar</a>
+                                                        <div class="autor-linea">TI 1062263036</div>
+                        </td>
+                        <td>Catalina Restrepo</td>
+                        <td>
+                            <span class="autor-linea">Sin motivo</span>                            <div class="autor-linea">Agendó: Administración Demo</div>                        </td>
+                        <td>
+                            <span class="estado-tag estado-atendida">Atendida</span>
+                                                    </td>
+                        <td>
+                            <div class="acciones-fila">
+                                                                                                    <a class="boton-mini" href="../evoluciones/index__historia-8.html"><i class="fa-solid fa-notes-medical"></i> Registrar evolución</a>
+                                                            </div>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td>
+                            <strong>11:00 am</strong>
+                            <div class="autor-linea">11:45 am · <i class="fa-solid fa-building"></i> Presencial</div>
+                        </td>
+                        <td>
+                                                            <a class="nombrePaciente" href="../pacientes/ver__id-4.html">Diego Esteban Castro Medina</a>
+                                                        <div class="autor-linea">CC 11368404</div>
+                        </td>
+                        <td>Andrés Morales</td>
+                        <td>
+                            <span class="autor-linea">Sin motivo</span>                            <div class="autor-linea">Agendó: Andrés Morales</div>                        </td>
+                        <td>
+                            <span class="estado-tag estado-atendida">Atendida</span>
+                                                    </td>
+                        <td>
+                            <div class="acciones-fila">
+                                                                                                    <a class="boton-mini" href="../evoluciones/index__historia-4.html"><i class="fa-solid fa-notes-medical"></i> Registrar evolución</a>
+                                                            </div>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td>
+                            <strong>09:00 am</strong>
+                            <div class="autor-linea">09:45 am · <i class="fa-solid fa-building"></i> Presencial</div>
+                        </td>
+                        <td>
+                                                            <a class="nombrePaciente" href="../pacientes/ver__id-5.html">Mariana Cárdenas Moreno</a>
+                                                        <div class="autor-linea">CC 37199395</div>
+                        </td>
+                        <td>Julián Ortiz</td>
+                        <td>
+                            <span class="autor-linea">Sin motivo</span>                            <div class="autor-linea">Agendó: Julián Ortiz</div>                        </td>
+                        <td>
+                            <span class="estado-tag estado-atendida">Atendida</span>
+                                                    </td>
+                        <td>
+                            <div class="acciones-fila">
+                                                                                                    <a class="boton-mini" href="../evoluciones/index__historia-5.html"><i class="fa-solid fa-notes-medical"></i> Registrar evolución</a>
+                                                            </div>
+                        </td>
+                    </tr>
+                                </tbody>
+            </table>
+        </div>
+            <div class="citas-dia">
+            <div class="citas-dia-titulo">
+                <i class="fa-solid fa-calendar-day"></i> Martes, 8 de septiembre de 2026                                <span class="citas-dia-num">4</span>
+            </div>
+            <table class="tabla-simple tabla-citas">
+                <thead><tr><th style="width:12%">Hora</th><th style="width:19%">Paciente</th><th style="width:13%">Profesional</th><th style="width:18%">Motivo</th><th style="width:12%">Estado</th><th style="width:26%">Acciones</th></tr></thead>
+                <tbody>
+                                    <tr>
+                        <td>
+                            <strong>04:00 pm</strong>
+                            <div class="autor-linea">04:45 pm · <i class="fa-solid fa-building"></i> Presencial</div>
+                        </td>
+                        <td>
+                                                            <a class="nombrePaciente" href="../pacientes/ver__id-28.html">Esteban Ramírez Zapata</a>
+                                                        <div class="autor-linea">CC 23138915</div>
+                        </td>
+                        <td>Andrés Morales</td>
+                        <td>
+                            <span class="autor-linea">Sin motivo</span>                            <div class="autor-linea">Agendó: Administración Demo</div>                        </td>
+                        <td>
+                            <span class="estado-tag estado-no_asistio">No asistió</span>
+                                                    </td>
+                        <td>
+                            <div class="acciones-fila">
+                                                                                                    <a class="boton-mini" href="../evoluciones/index__historia-26.html"><i class="fa-solid fa-notes-medical"></i> Registrar evolución</a>
+                                                            </div>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td>
+                            <strong>02:00 pm</strong>
+                            <div class="autor-linea">02:45 pm · <i class="fa-solid fa-building"></i> Presencial</div>
+                        </td>
+                        <td>
+                                                            <a class="nombrePaciente" href="../pacientes/ver__id-11.html">Sofía Sánchez Hernández</a>
+                                                        <div class="autor-linea">TI 1009278108</div>
+                        </td>
+                        <td>Catalina Restrepo</td>
+                        <td>
+                            <span class="autor-linea">Sin motivo</span>                            <div class="autor-linea">Agendó: Administración Demo</div>                        </td>
+                        <td>
+                            <span class="estado-tag estado-no_asistio">No asistió</span>
+                                                    </td>
+                        <td>
+                            <div class="acciones-fila">
+                                                                                                    <a class="boton-mini" href="../evoluciones/index__historia-11.html"><i class="fa-solid fa-notes-medical"></i> Registrar evolución</a>
+                                                            </div>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td>
+                            <strong>11:00 am</strong>
+                            <div class="autor-linea">11:45 am · <i class="fa-solid fa-building"></i> Presencial</div>
+                        </td>
+                        <td>
+                                                            <a class="nombrePaciente" href="../pacientes/ver__id-24.html">Daniela Antonia Herrera Arango</a>
+                                                        <div class="autor-linea">CC 48471089</div>
+                        </td>
+                        <td>Andrés Morales</td>
+                        <td>
+                            <span class="autor-linea">Sin motivo</span>                            <div class="autor-linea">Agendó: Administración Demo</div>                        </td>
+                        <td>
+                            <span class="estado-tag estado-atendida">Atendida</span>
+                                                    </td>
+                        <td>
+                            <div class="acciones-fila">
+                                                                                                    <a class="boton-mini" href="../evoluciones/index__historia-23.html"><i class="fa-solid fa-notes-medical"></i> Registrar evolución</a>
+                                                            </div>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td>
+                            <strong>09:00 am</strong>
+                            <div class="autor-linea">09:45 am · <i class="fa-solid fa-building"></i> Presencial</div>
+                        </td>
+                        <td>
+                                                            <a class="nombrePaciente" href="../pacientes/ver__id-6.html">Daniela Torres Londoño</a>
+                                                        <div class="autor-linea">CC 46332090</div>
+                        </td>
+                        <td>Andrés Morales</td>
+                        <td>
+                            <span class="autor-linea">Sin motivo</span>                            <div class="autor-linea">Agendó: Andrés Morales</div>                        </td>
+                        <td>
+                            <span class="estado-tag estado-atendida">Atendida</span>
+                                                    </td>
+                        <td>
+                            <div class="acciones-fila">
+                                                                                                    <a class="boton-mini" href="../evoluciones/index__historia-6.html"><i class="fa-solid fa-notes-medical"></i> Registrar evolución</a>
+                                                            </div>
+                        </td>
+                    </tr>
+                                </tbody>
+            </table>
+        </div>
+            <div class="citas-dia">
+            <div class="citas-dia-titulo">
+                <i class="fa-solid fa-calendar-day"></i> Lunes, 7 de septiembre de 2026                                <span class="citas-dia-num">4</span>
+            </div>
+            <table class="tabla-simple tabla-citas">
+                <thead><tr><th style="width:12%">Hora</th><th style="width:19%">Paciente</th><th style="width:13%">Profesional</th><th style="width:18%">Motivo</th><th style="width:12%">Estado</th><th style="width:26%">Acciones</th></tr></thead>
+                <tbody>
+                                    <tr>
+                        <td>
+                            <strong>05:00 pm</strong>
+                            <div class="autor-linea">05:45 pm · <i class="fa-solid fa-building"></i> Presencial</div>
+                        </td>
+                        <td>
+                                                            <a class="nombrePaciente" href="../pacientes/ver__id-7.html">Daniela Rodríguez Londoño</a>
+                                                        <div class="autor-linea">CC 41332109</div>
+                        </td>
+                        <td>Laura Valencia</td>
+                        <td>
+                            <span class="autor-linea">Sin motivo</span>                            <div class="autor-linea">Agendó: Marcela Gómez</div>                        </td>
+                        <td>
+                            <span class="estado-tag estado-atendida">Atendida</span>
+                                                    </td>
+                        <td>
+                            <div class="acciones-fila">
+                                                                                                    <a class="boton-mini" href="../evoluciones/index__historia-7.html"><i class="fa-solid fa-notes-medical"></i> Registrar evolución</a>
+                                                            </div>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td>
+                            <strong>04:00 pm</strong>
+                            <div class="autor-linea">04:45 pm · <i class="fa-solid fa-building"></i> Presencial</div>
+                        </td>
+                        <td>
+                                                            <a class="nombrePaciente" href="../pacientes/ver__id-5.html">Mariana Cárdenas Moreno</a>
+                                                        <div class="autor-linea">CC 37199395</div>
+                        </td>
+                        <td>Julián Ortiz</td>
+                        <td>
+                            <span class="autor-linea">Sin motivo</span>                            <div class="autor-linea">Agendó: Marcela Gómez</div>                        </td>
+                        <td>
+                            <span class="estado-tag estado-atendida">Atendida</span>
+                                                    </td>
+                        <td>
+                            <div class="acciones-fila">
+                                                                                                    <a class="boton-mini" href="../evoluciones/index__historia-5.html"><i class="fa-solid fa-notes-medical"></i> Registrar evolución</a>
+                                                            </div>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td>
+                            <strong>03:00 pm</strong>
+                            <div class="autor-linea">03:45 pm · <i class="fa-solid fa-building"></i> Presencial</div>
+                        </td>
+                        <td>
+                                                            <a class="nombrePaciente" href="../pacientes/ver__id-14.html">Sofía Herrera Pérez</a>
+                                                        <div class="autor-linea">TI 1081265886</div>
+                        </td>
+                        <td>Catalina Restrepo</td>
+                        <td>
+                            <span class="autor-linea">Sin motivo</span>                            <div class="autor-linea">Agendó: Administración Demo</div>                        </td>
+                        <td>
+                            <span class="estado-tag estado-atendida">Atendida</span>
+                                                    </td>
+                        <td>
+                            <div class="acciones-fila">
+                                                                                                    <a class="boton-mini" href="../evoluciones/index__historia-14.html"><i class="fa-solid fa-notes-medical"></i> Registrar evolución</a>
+                                                            </div>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td>
+                            <strong>02:00 pm</strong>
+                            <div class="autor-linea">02:45 pm · <i class="fa-solid fa-building"></i> Presencial</div>
+                        </td>
+                        <td>
+                                                            <a class="nombrePaciente" href="../pacientes/ver__id-27.html">Paula Martínez Jiménez</a>
+                                                        <div class="autor-linea">CC 82998927</div>
+                        </td>
+                        <td>Andrés Morales</td>
+                        <td>
+                            <span class="autor-linea">Sin motivo</span>                            <div class="autor-linea">Agendó: Andrés Morales</div>                        </td>
+                        <td>
+                            <span class="estado-tag estado-atendida">Atendida</span>
+                                                    </td>
+                        <td>
+                            <div class="acciones-fila">
+                                                                                                    <a class="boton-mini" href="../evoluciones/index__historia-25.html"><i class="fa-solid fa-notes-medical"></i> Registrar evolución</a>
+                                                            </div>
+                        </td>
+                    </tr>
+                                </tbody>
+            </table>
+        </div>
+    
+        <nav class="pagination is-centered mt-6" role="navigation" aria-label="Paginación">
+            <a class="pagination-previous" href="index__pagina-3_periodo-pasadas_tab-agenda.html"><i class="fa-solid fa-chevron-left"></i>&nbsp;Anterior</a>
+    
+            <a class="pagination-next" href="index__pagina-5_periodo-pasadas_tab-agenda.html">Siguiente&nbsp;<i class="fa-solid fa-chevron-right"></i></a>
+    
+    <ul class="pagination-list">
+                    <li><a class="pagination-link" href="index__pagina-1_periodo-pasadas_tab-agenda.html">1</a></li>
+                    
+                    <li><a class="pagination-link" href="index__pagina-2_periodo-pasadas_tab-agenda.html">2</a></li>
+                    <li><a class="pagination-link" href="index__pagina-3_periodo-pasadas_tab-agenda.html">3</a></li>
+                    <li><a class="pagination-link is-current" href="index__pagina-4_periodo-pasadas_tab-agenda.html">4</a></li>
+                    <li><a class="pagination-link" href="index__pagina-5_periodo-pasadas_tab-agenda.html">5</a></li>
+        
+            </ul>
+</nav>
+
+
+<!-- ============================================================ modal: nuevo motivo -->
+<div id="modal-motivo" class="modal" data-abrir="0">
+    <form method="post">
+        <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8"><input type="hidden" name="accion" value="motivo_crear">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title"><i class="fa-solid fa-clipboard-list"></i> Nuevo motivo de consulta</p>
+                <button class="delete" type="button" aria-label="Cerrar"></button>
+            </header>
+            <section class="modal-card-body">
+                                <div class="form-group-modern">
+                    <label>Paciente <span class="required-dot">*</span></label>
+                    <div class="buscador-paciente" data-buscador-paciente>
+    <input class="input" type="text" id="motivo-paciente-texto" autocomplete="off"
+           placeholder="Escriba el nombre o el número de documento…" required>
+    <input type="hidden" name="paciente_id" id="motivo-paciente" value="">
+    <div class="buscador-resultados" role="listbox" hidden></div>
+    <script type="application/json" class="buscador-datos">[{"id":9,"t":"Carolina Díaz Zapata — CC 18947695"},{"id":8,"t":"Carolina Daniela Londoño Aguilar — TI 1062263036"},{"id":1,"t":"Daniel Rojas Londoño — TI 81967330"},{"id":13,"t":"Daniel Sánchez Pérez — CC 85249699"},{"id":24,"t":"Daniela Antonia Herrera Arango — CC 48471089"},{"id":7,"t":"Daniela Rodríguez Londoño — CC 41332109"},{"id":6,"t":"Daniela Torres Londoño — CC 46332090"},{"id":4,"t":"Diego Esteban Castro Medina — CC 11368404"},{"id":3,"t":"Esteban Hernández Vargas — CC 32552269"},{"id":28,"t":"Esteban Ramírez Zapata — CC 23138915"},{"id":18,"t":"Juan José Rojas Medina — CC 37273784"},{"id":21,"t":"Juan José Camilo Vargas Martínez — TI 1014597226"},{"id":25,"t":"Juliana Hernández Salazar — CC 45875443"},{"id":5,"t":"Mariana Cárdenas Moreno — CC 37199395"},{"id":20,"t":"Natalia Cárdenas Díaz — CC 46858321"},{"id":12,"t":"Natalia Salazar Torres — CC 69905541"},{"id":27,"t":"Paula Martínez Jiménez — CC 82998927"},{"id":10,"t":"Samuel Daniel Díaz Ramírez — TI 1016843871"},{"id":17,"t":"Sara Gabriela Herrera Pérez — TI 1037890414"},{"id":15,"t":"Sara Paula Quintero Jiménez — CC 11897335"},{"id":19,"t":"Sara Romero Gutiérrez — CC 54307065"},{"id":23,"t":"Sara Vargas Díaz — TI 1083494142"},{"id":2,"t":"Sebastián Rojas López — TI 1088189218"},{"id":26,"t":"Sebastián Romero Romero — CC 94453835"},{"id":14,"t":"Sofía Herrera Pérez — TI 1081265886"},{"id":11,"t":"Sofía Sánchez Hernández — TI 1009278108"},{"id":16,"t":"Sofía Torres Vargas — TI 1083208769"},{"id":22,"t":"Sofía Vargas Gutiérrez — CC 82006536"}]</script>
+</div>
+                </div>
+                <div class="form-group-modern">
+                    <label>Profesional que atenderá <span class="required-dot">*</span></label>
+                    <div class="select is-fullwidth"><select name="profesional_id" required>
+                        <option value="">Seleccione…</option>
+                                                    <option value="2">Andrés Morales · PSICÓLOGO</option>
+                                                    <option value="3">Catalina Restrepo · PSICÓLOGO</option>
+                                                    <option value="6">Daniela Suárez · TRABAJADOR(A) SOCIAL</option>
+                                                    <option value="4">Julián Ortiz · MÉDICO (A) ESPECIALISTA</option>
+                                                    <option value="1">Laura Valencia · PSICÓLOGO</option>
+                                                    <option value="7">Santiago Peña · TERAPEUTA</option>
+                                            </select></div>
+                </div>
+                <div class="form-group-modern">
+                    <label>Motivo <span class="required-dot">*</span></label>
+                    <textarea class="textarea" name="motivo" required maxlength="2000" placeholder="Ej.: Valoración inicial por dificultades de atención en el colegio."></textarea>
+                    <p class="ayuda">La familia verá este texto en el portal al agendar.</p>
+                </div>
+                <div class="buttons">
+                    <button type="submit" class="button is-info"><i class="fa-solid fa-floppy-disk"></i>&nbsp; Crear motivo</button>
+                    <button type="button" class="button js-modal-cerrar">Cancelar</button>
+                </div>
+            </section>
+        </div>
+    </form>
+</div>
+
+<!-- ============================================================ modal: agendar cita -->
+<div id="modal-cita" class="modal" data-abrir="0">
+    <form method="post">
+        <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8"><input type="hidden" name="accion" value="cita_agendar">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title"><i class="fa-solid fa-calendar-plus"></i> Agendar cita</p>
+                <button class="delete" type="button" aria-label="Cerrar"></button>
+            </header>
+            <section class="modal-card-body">
+                                <div class="form-group-modern">
+                    <label>Paciente <span class="required-dot">*</span></label>
+                    <div class="buscador-paciente" data-buscador-paciente>
+    <input class="input" type="text" id="cita-paciente-texto" autocomplete="off"
+           placeholder="Escriba el nombre o el número de documento…" required>
+    <input type="hidden" name="paciente_id" id="cita-paciente" value="">
+    <div class="buscador-resultados" role="listbox" hidden></div>
+    <script type="application/json" class="buscador-datos">[{"id":9,"t":"Carolina Díaz Zapata — CC 18947695"},{"id":8,"t":"Carolina Daniela Londoño Aguilar — TI 1062263036"},{"id":1,"t":"Daniel Rojas Londoño — TI 81967330"},{"id":13,"t":"Daniel Sánchez Pérez — CC 85249699"},{"id":24,"t":"Daniela Antonia Herrera Arango — CC 48471089"},{"id":7,"t":"Daniela Rodríguez Londoño — CC 41332109"},{"id":6,"t":"Daniela Torres Londoño — CC 46332090"},{"id":4,"t":"Diego Esteban Castro Medina — CC 11368404"},{"id":3,"t":"Esteban Hernández Vargas — CC 32552269"},{"id":28,"t":"Esteban Ramírez Zapata — CC 23138915"},{"id":18,"t":"Juan José Rojas Medina — CC 37273784"},{"id":21,"t":"Juan José Camilo Vargas Martínez — TI 1014597226"},{"id":25,"t":"Juliana Hernández Salazar — CC 45875443"},{"id":5,"t":"Mariana Cárdenas Moreno — CC 37199395"},{"id":20,"t":"Natalia Cárdenas Díaz — CC 46858321"},{"id":12,"t":"Natalia Salazar Torres — CC 69905541"},{"id":27,"t":"Paula Martínez Jiménez — CC 82998927"},{"id":10,"t":"Samuel Daniel Díaz Ramírez — TI 1016843871"},{"id":17,"t":"Sara Gabriela Herrera Pérez — TI 1037890414"},{"id":15,"t":"Sara Paula Quintero Jiménez — CC 11897335"},{"id":19,"t":"Sara Romero Gutiérrez — CC 54307065"},{"id":23,"t":"Sara Vargas Díaz — TI 1083494142"},{"id":2,"t":"Sebastián Rojas López — TI 1088189218"},{"id":26,"t":"Sebastián Romero Romero — CC 94453835"},{"id":14,"t":"Sofía Herrera Pérez — TI 1081265886"},{"id":11,"t":"Sofía Sánchez Hernández — TI 1009278108"},{"id":16,"t":"Sofía Torres Vargas — TI 1083208769"},{"id":22,"t":"Sofía Vargas Gutiérrez — CC 82006536"}]</script>
+</div>
+                </div>
+                <div class="form-group-modern">
+                    <label>Profesional <span class="required-dot">*</span></label>
+                    <div class="select is-fullwidth"><select name="profesional_id" id="cita-profesional" required>
+                        <option value="">Seleccione…</option>
+                                                    <option value="2">Andrés Morales · PSICÓLOGO</option>
+                                                    <option value="3">Catalina Restrepo · PSICÓLOGO</option>
+                                                    <option value="6">Daniela Suárez · TRABAJADOR(A) SOCIAL</option>
+                                                    <option value="4">Julián Ortiz · MÉDICO (A) ESPECIALISTA</option>
+                                                    <option value="1">Laura Valencia · PSICÓLOGO</option>
+                                                    <option value="7">Santiago Peña · TERAPEUTA</option>
+                                            </select></div>
+                </div>
+                <div class="columns">
+                    <div class="column">
+                        <div class="form-group-modern">
+                            <label>Fecha <span class="required-dot">*</span></label>
+                            <input class="input" type="date" name="fecha" required min="2026-10-07" value="">
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="form-group-modern">
+                            <label>Hora <span class="required-dot">*</span></label>
+                            <input class="input" type="time" name="hora" required step="300" value="">
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="form-group-modern">
+                            <label>Duración (min)</label>
+                            <input class="input" type="number" name="duracion" min="5" max="480" step="5" value="30">
+                        </div>
+                    </div>
+                </div>
+                <div class="columns">
+                    <div class="column is-4">
+                        <div class="form-group-modern">
+                            <label>Modalidad</label>
+                            <div class="select is-fullwidth"><select name="modalidad">
+                                <option value="presencial" selected>Presencial</option><option value="virtual">Virtual</option>                            </select></div>
+                        </div>
+                    </div>
+                    <div class="column is-8">
+                        <div class="form-group-modern">
+                            <label>Motivo de consulta (opcional)</label>
+                            <div class="select is-fullwidth"><select name="motivo_consulta_id" id="cita-motivo">
+                                <option value="">Sin motivo</option>
+                                                                    <option value="1" data-paciente="1" data-profesional="3">
+                                        Daniel Rojas → Catalina Restrepo: Seguimiento del proceso terapéutico y orientación …                                    </option>
+                                                                    <option value="4" data-paciente="4" data-profesional="1">
+                                        Diego Castro → Laura Valencia: Seguimiento del proceso terapéutico y orientación …                                    </option>
+                                                                    <option value="3" data-paciente="3" data-profesional="2">
+                                        Esteban Hernández → Andrés Morales: Seguimiento del proceso terapéutico y orientación …                                    </option>
+                                                                    <option value="2" data-paciente="2" data-profesional="3">
+                                        Sebastián Rojas → Catalina Restrepo: Seguimiento del proceso terapéutico y orientación …                                    </option>
+                                                            </select></div>
+                            <p class="ayuda">Solo se listan los motivos activos del paciente y profesional elegidos.</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="ayuda mb-3"><i class="fa-solid fa-circle-info"></i> Desde aquí puede agendar cualquier día y hora (no aplica el horario del portal), pero no en el pasado ni cruzando otra cita del mismo profesional.</p>
+                <div class="buttons">
+                    <button type="submit" class="button is-info"><i class="fa-solid fa-floppy-disk"></i>&nbsp; Agendar</button>
+                    <button type="button" class="button js-modal-cerrar">Cancelar</button>
+                </div>
+            </section>
+        </div>
+    </form>
+</div>
+
+<!-- ============================================================ modal: finalizar -->
+<div id="modal-finalizar" class="modal">
+    <form method="post">
+        <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8"><input type="hidden" name="accion" value="cita_estado">
+        <input type="hidden" name="estado" value="atendida"><input type="hidden" name="cita_id" value="">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title"><i class="fa-solid fa-flag-checkered"></i> Finalizar cita</p>
+                <button class="delete" type="button" aria-label="Cerrar"></button>
+            </header>
+            <section class="modal-card-body">
+                <p class="mb-3">Se marcará como <strong>atendida</strong> la cita de <strong data-texto></strong>.</p>
+                <label class="checkbox mb-4" data-bloque-motivo>
+                    <input type="checkbox" name="desactivar_motivo" value="1">
+                    Desactivar también el motivo de consulta (la familia ya no podrá agendar otra cita con él).
+                </label>
+                <div class="buttons mt-4">
+                    <button type="submit" class="button is-success"><i class="fa-solid fa-check"></i>&nbsp; Finalizar</button>
+                    <button type="button" class="button js-modal-cerrar">Volver</button>
+                </div>
+            </section>
+        </div>
+    </form>
+</div>
+
+<!-- ============================================================ modal: cancelar -->
+<div id="modal-cancelar" class="modal">
+    <form method="post">
+        <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8"><input type="hidden" name="accion" value="cita_estado">
+        <input type="hidden" name="estado" value="cancelar"><input type="hidden" name="cita_id" value="">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title"><i class="fa-solid fa-ban"></i> Cancelar cita</p>
+                <button class="delete" type="button" aria-label="Cerrar"></button>
+            </header>
+            <section class="modal-card-body">
+                <p class="mb-3">Cita de <strong data-texto></strong>.</p>
+                <div class="form-group-modern">
+                    <label>Motivo de la cancelación <span class="required-dot">*</span></label>
+                    <input class="input" name="motivo_cancelacion" required maxlength="255" placeholder="Ej.: La familia pidió reprogramar.">
+                </div>
+                <div class="buttons">
+                    <button type="submit" class="button is-danger"><i class="fa-solid fa-ban"></i>&nbsp; Cancelar cita</button>
+                    <button type="button" class="button js-modal-cerrar">Volver</button>
+                </div>
+            </section>
+        </div>
+    </form>
+</div>
+
+</main>
+<script src="../assets/js/app.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    function abrirConCita(id, btn) {
+        var modal = document.getElementById(id);
+        modal.querySelector('input[name="cita_id"]').value = btn.dataset.cita;
+        modal.querySelector('[data-texto]').textContent = btn.dataset.texto;
+        var bloque = modal.querySelector('[data-bloque-motivo]');
+        if (bloque) {
+            bloque.style.display = btn.dataset.motivo === '1' ? '' : 'none';
+            bloque.querySelector('input').checked = false;
+        }
+        modal.classList.add('is-active');
+    }
+    document.querySelectorAll('.js-finalizar').forEach(function (b) {
+        b.addEventListener('click', function () { abrirConCita('modal-finalizar', b); });
+    });
+    document.querySelectorAll('.js-cancelar').forEach(function (b) {
+        b.addEventListener('click', function () { abrirConCita('modal-cancelar', b); });
+    });
+
+    // Motivos del modal de agendar: solo los del paciente y profesional elegidos.
+    var selPac = document.getElementById('cita-paciente');
+    var selProf = document.getElementById('cita-profesional');
+    var selMot = document.getElementById('cita-motivo');
+    function filtrarMotivos() {
+        Array.prototype.forEach.call(selMot.options, function (o) {
+            if (!o.value) return;
+            var ok = o.dataset.paciente === selPac.value && o.dataset.profesional === selProf.value;
+            o.hidden = !ok;
+            o.disabled = !ok;
+            if (!ok && o.selected) selMot.value = '';
+        });
+    }
+    var buscadorCita = selPac.closest('[data-buscador-paciente]');
+    buscadorCita.querySelector('input[type="text"]').addEventListener('change', filtrarMotivos);
+    buscadorCita.querySelector('input[type="text"]').addEventListener('input', filtrarMotivos);
+    selProf.addEventListener('change', filtrarMotivos);
+    filtrarMotivos();
+
+    document.querySelectorAll('.js-agendar-motivo').forEach(function (b) {
+        b.addEventListener('click', function () {
+            buscadorCita.fijar(b.dataset.paciente);
+            selProf.value = b.dataset.profesional;
+            filtrarMotivos();
+            selMot.value = b.dataset.motivo;
+            document.getElementById('modal-cita').classList.add('is-active');
+        });
+    });
+});
+</script>
+<script src="../demo/mapa.js"></script>
+<script src="../demo/demo.js"></script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+/* ==========================================================================
+   Estilos añadidos en la v2. El diseño original sigue en app.css.
+   ========================================================================== */
+
+/* Botón "Cerrar sesión" con el mismo aspecto de los enlaces del menú */
+.sidebar .form-salir { margin: 0; }
+.sidebar .form-salir button {
+    display: flex; align-items: center; gap: 12px; width: 100%;
+    padding: 12px 25px; margin: 2px 0; background: none; border: 0;
+    border-left: 3px solid transparent; color: #6c757d; font-size: 14px;
+    font-weight: 500; font-family: inherit; cursor: pointer; text-align: left;
+    transition: all .2s ease;
+}
+.sidebar .form-salir button i { width: 20px; text-align: center; font-size: 16px; }
+.sidebar .form-salir button:hover { background: #f8f9ff; color: #667eea; border-left-color: #667eea; }
+
+.flash-mensaje { border-radius: 12px; margin-bottom: 20px; }
+
+/* Estados */
+.estado-tag { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+.estado-borrador   { background: #fff4e5; color: #b26a00; }
+.estado-cerrada    { background: #e8f7ee; color: #1e7e46; }
+.estado-agendada   { background: #eef1ff; color: #4c5fd5; }
+.estado-confirmada { background: #e6f6ff; color: #0b6fa4; }
+.estado-atendida   { background: #e8f7ee; color: #1e7e46; }
+.estado-cancelada  { background: #fdecec; color: #b42318; }
+.estado-no_asistio { background: #f2f2f2; color: #666; }
+.estado-pendiente  { background: #fff4e5; color: #b26a00; }
+.estado-parcial    { background: #e6f6ff; color: #0b6fa4; }
+.estado-pagado     { background: #e8f7ee; color: #1e7e46; }
+.estado-anulado    { background: #f2f2f2; color: #666; text-decoration: line-through; }
+
+/* Aviso de historia cerrada / notas aclaratorias */
+.aviso-cerrada {
+    display: flex; gap: 14px; align-items: flex-start; background: #f5f7ff;
+    border: 1px solid #e0e4ff; border-radius: 14px; padding: 16px 20px; margin-bottom: 20px; color: #3b3f5c;
+}
+.aviso-cerrada i { color: #667eea; font-size: 20px; margin-top: 2px; }
+
+.notas-lista { display: flex; flex-direction: column; gap: 12px; }
+.nota-item {
+    background: #fff; border: 1px solid #eceffd; border-left: 4px solid #667eea;
+    border-radius: 12px; padding: 14px 18px;
+}
+.nota-meta { font-size: 12px; color: #6c757d; margin-bottom: 6px; }
+
+.panel-blanco { background: #fff; border-radius: 16px; padding: 24px; box-shadow: 0 2px 12px rgba(0,0,0,.04); margin-bottom: 24px; }
+.panel-blanco h3 { font-weight: 700; color: #1a1a2e; margin-bottom: 14px; font-size: 16px; }
+
+.autor-linea { font-size: 13px; color: #6c757d; }
+.autor-linea strong { color: #1a1a2e; }
+
+/* Diagnósticos en el formulario */
+.dx-fila { display: grid; grid-template-columns: 220px 1fr; gap: 10px; margin-bottom: 10px; }
+@media (max-width: 768px) { .dx-fila { grid-template-columns: 1fr; } }
+.dx-codigo { font-weight: 700; margin-right: 6px; }
+
+/* Tabla simple reutilizable */
+.tabla-simple { width: 100%; border-collapse: separate; border-spacing: 0; background: #fff; border-radius: 14px; overflow: hidden; }
+.tabla-simple th { background: #f8f9ff; color: #4a4f6a; font-size: 12px; text-transform: uppercase; letter-spacing: .03em; padding: 12px 14px; text-align: left; }
+.tabla-simple td { padding: 12px 14px; border-top: 1px solid #f0f1f7; font-size: 14px; vertical-align: middle; }
+.tabla-simple tr:hover td { background: #fcfcff; }
+
+.acciones-fila { display: flex; gap: 8px; flex-wrap: wrap; }
+.boton-mini {
+    display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 8px;
+    font-size: 12px; font-weight: 600; border: 1px solid #e0e4ff; background: #fff; color: #667eea;
+    cursor: pointer; text-decoration: none; font-family: inherit;
+}
+.boton-mini:hover { background: #667eea; color: #fff; }
+.boton-mini.peligro { color: #b42318; border-color: #f5c2c0; }
+.boton-mini.peligro:hover { background: #b42318; color: #fff; }
+.boton-mini.exito { color: #1e7e46; border-color: #bfe6cf; }
+.boton-mini.exito:hover { background: #1e7e46; color: #fff; }
+
+form.en-linea { display: inline; margin: 0; }
+
+.ayuda { font-size: 12px; color: #6c757d; margin-top: 4px; }
+
+/* Portal de familias */
+.portal-body { background: #f5f6fa; min-height: 100vh; }
+.portal-nav { background: #1a1a2e; }
+.portal-nav .navbar-item, .portal-nav .navbar-link { color: #fff; }
+.portal-nav a.navbar-item:hover, .portal-nav a.navbar-item.is-active { background: #2a2a4a; color: #fff; }
+.portal-nav .navbar-burger { color: #fff; }
+.portal-nav .navbar-menu { background: #1a1a2e; }
+.portal-nav .form-salir button { background: none; border: 0; color: #fff; cursor: pointer; padding: .5rem .75rem; font: inherit; }
+.portal-contenido { max-width: 1100px; margin: 0 auto; padding: 30px 16px; }
+.fc-day-disabled { background-color: #f0f0f0 !important; pointer-events: none; cursor: not-allowed; }
+.fc .fc-toolbar-title { text-transform: capitalize; }
+
+/* Los <select> de Bulma tienen alto fijo y el padding de .form-group-modern recortaba el texto */
+.form-group-modern .select:not(.is-multiple) { height: auto; }
+.form-group-modern .select select { height: auto; line-height: 1.4; padding-right: 2.5em; }
+.form-group-modern .select:not(.is-multiple):not(.is-loading)::after { margin-top: -0.3em; }
+
+/* .btn-accion usado como <button> dentro de un <form> */
+button.btn-accion { background: #fff; border: 2px solid #e0e4ff; cursor: pointer; font-family: inherit; }
+
+/* Buscador de pacientes (reemplaza el <datalist> del navegador) */
+.buscador-paciente { position: relative; }
+.buscador-resultados {
+    position: absolute; left: 0; right: 0; top: calc(100% + 4px); z-index: 50; max-height: 280px; overflow-y: auto;
+    background: #fff; border: 1px solid #e0e4ff; border-radius: 12px; box-shadow: 0 10px 30px rgba(26,26,46,.12);
+}
+.buscador-opcion { padding: 10px 14px; font-size: 14px; cursor: pointer; border-bottom: 1px solid #f3f4fb; }
+.buscador-opcion:last-child { border-bottom: 0; }
+.buscador-opcion:hover, .buscador-opcion.activa { background: #f0f2ff; color: #4c5fd5; }
+.buscador-vacio { padding: 10px 14px; font-size: 13px; color: #6c757d; }

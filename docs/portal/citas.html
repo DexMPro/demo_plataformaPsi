@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<script>window.DEMO_ROOT="..";window.DEMO_KEY="/portal/citas.php";window.DEMO_HOY="2026-10-07";</script>
+<script src="../demo/tiempo.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="46b8f74be7f51ac5abdcbb64cb86cb06debc34f365fed2dea70d3383205c3524">
+    <title>Citas · Portal de familias · Plataforma Psicológica</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../demo/vendor/bulma/bulma.min.css">
+    <link rel="stylesheet" href="../demo/vendor/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/extra.css">
+    <link rel="icon" href="../assets/img/favicon-96x96.png" type="image/png">
+        <link rel="stylesheet" href="../assets/css/ui.css">
+    <link rel="stylesheet" href="../assets/css/portal.css">
+<link rel="stylesheet" href="../demo/demo.css">
+</head>
+<body class="portal-body">
+
+<nav class="navbar portal-navbar is-spaced" role="navigation" aria-label="Menú principal">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item portal-marca" href="index.html">
+                <img src="../assets/img/logo.png" alt="" width="40" height="40">
+                <span class="portal-marca-texto">
+                    <strong>Plataforma Psicológica</strong>
+                    <small>Portal de familias</small>
+                </span>
+            </a>
+            <a role="button" class="navbar-burger" aria-label="Abrir menú" aria-expanded="false" data-target="menuPortal">
+                <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div id="menuPortal" class="navbar-menu">
+            <div class="navbar-start portal-enlaces">
+                                    <a class="navbar-item" href="index.html">
+                        <span class="icon"><i class="fa-solid fa-house"></i></span>
+                        <span>Inicio</span>
+                    </a>
+                                    <a class="navbar-item is-active" href="citas.html" aria-current="page">
+                        <span class="icon"><i class="fa-solid fa-calendar-days"></i></span>
+                        <span>Citas</span>
+                    </a>
+                                    <a class="navbar-item" href="cuenta.html">
+                        <span class="icon"><i class="fa-solid fa-user"></i></span>
+                        <span>Mi cuenta</span>
+                    </a>
+                            </div>
+
+            <div class="navbar-end">
+                <div class="navbar-item has-dropdown portal-usuario">
+                    <a class="navbar-link is-arrowless" role="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="portal-usuario-avatar">PR</span>
+                        <span class="portal-usuario-nombre">
+                            <strong>Patricia Rojas</strong>
+                            <small>Familiar · acudiente</small>
+                        </span>
+                        <span class="icon is-small portal-usuario-flecha"><i class="fa-solid fa-chevron-down"></i></span>
+                    </a>
+                    <div class="navbar-dropdown is-right">
+                        <div class="portal-dropdown-cabecera">
+                            <strong>Patricia Rojas</strong>
+                            <span>familia.rojas@correo-demo.co</span>
+                        </div>
+                        <hr class="navbar-divider">
+                        <a class="navbar-item" href="cuenta.html"><span class="icon"><i class="fa-solid fa-user-gear"></i></span> Mi cuenta</a>
+                        <a class="navbar-item" href="citas.html"><span class="icon"><i class="fa-solid fa-calendar-plus"></i></span> Agendar una cita</a>
+                        <hr class="navbar-divider">
+                        <form method="post" action="#demo-no-disponible" data-demo-action="/salir.php" class="portal-salir">
+                            <input type="hidden" name="_csrf" value="46b8f74be7f51ac5abdcbb64cb86cb06debc34f365fed2dea70d3383205c3524">                            <button type="submit" class="navbar-item"><span class="icon"><i class="fa-solid fa-right-from-bracket"></i></span> Cerrar sesión</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<main class="portal-principal">
+    <div class="container portal-contenido">
+        <section class="portal-encabezado is-compacto">
+    <div class="portal-encabezado-fecha">Agenda de citas</div>
+    <h1>Agende y consulte las citas</h1>
+    <p>Elija un día disponible en el calendario, seleccione la consulta y la hora que prefiera. Recibirá la confirmación en pantalla.</p>
+</section>
+
+<div id="aviso-portal" aria-live="polite"></div>
+
+<div id="sin-motivos" class="notification is-info is-light" style="display:none">
+    <i class="fa-solid fa-circle-info"></i>&nbsp; En este momento no tiene motivos de consulta pendientes por agendar. Cuando el profesional autorice una nueva consulta podrá elegir fecha y hora aquí.
+</div>
+
+<div class="columns is-variable is-5">
+    <div class="column is-8-desktop">
+        <div class="portal-caja portal-calendario">
+            <div id="calendario" data-config="{&quot;api&quot;:&quot;demo-api:portal&quot;,&quot;hoy&quot;:&quot;2026-10-07&quot;,&quot;dias&quot;:[4,5],&quot;diasTexto&quot;:&quot;jueves y viernes&quot;,&quot;duracion&quot;:30,&quot;horasCancelar&quot;:2,&quot;motivos&quot;:[{&quot;id&quot;:2,&quot;paciente&quot;:&quot;Sebastián Rojas&quot;,&quot;profesional&quot;:&quot;Catalina Restrepo&quot;,&quot;motivo&quot;:&quot;Seguimiento del proceso terapéutico y orientación a la familia.&quot;}]}"></div>
+        </div>
+    </div>
+    <aside class="column is-4-desktop">
+        <div class="portal-caja">
+            <h3 class="portal-caja-titulo">Cómo agendar</h3>
+            <ol class="portal-pasos">
+                <li>Haga clic en un <strong>día disponible</strong>. Atendemos los jueves y viernes.</li>
+                <li>Elija la <strong>consulta</strong> y una <strong>hora libre</strong>. Cada cita dura 30 minutos.</li>
+                <li>Confirme. Puede tener <strong>una cita pendiente por consulta</strong> y cancelarla hasta 2 horas antes.</li>
+            </ol>
+        </div>
+        <div class="portal-caja">
+            <h3 class="portal-caja-titulo">Próximas citas</h3>
+            <ul class="portal-proximas" id="lista-proximas">
+                <li class="portal-texto-suave"><i class="fa-solid fa-spinner fa-spin"></i>&nbsp; Cargando…</li>
+            </ul>
+        </div>
+        <div class="portal-caja">
+            <h3 class="portal-caja-titulo">Convenciones</h3>
+            <div class="citas-leyenda">
+                <span><i style="background:#667eea"></i>Agendada</span>
+                <span><i style="background:#0b6fa4"></i>Confirmada</span>
+                <span><i style="background:#1e7e46"></i>Atendida</span>
+                <span><i style="background:repeating-linear-gradient(-45deg,#fafbfd,#fafbfd 3px,#e6e8f0 3px,#e6e8f0 6px);border:1px solid #e3e6ef"></i>No disponible</span>
+            </div>
+        </div>
+    </aside>
+</div>
+
+<!-- ============================================================ modal: agendar -->
+<div id="modal-agendar" class="modal portal-modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Agendar cita</p>
+            <button class="delete" type="button" aria-label="Cerrar"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="portal-fecha-elegida"><i class="fa-regular fa-calendar"></i><div><span class="portal-texto-suave">Fecha seleccionada</span><br><strong id="agendar-fecha-texto"></strong></div></div>
+            <div id="agendar-error" class="notification is-danger is-light" style="display:none"></div>
+            <div class="field">
+                <label class="label" for="agendar-motivo">¿Para qué consulta es la cita?</label>
+                <div class="select is-fullwidth"><select id="agendar-motivo"></select></div>
+                <p class="ayuda" id="agendar-motivo-detalle"></p>
+            </div>
+            <div class="field">
+                <label class="label">Horas disponibles</label>
+                <div id="agendar-horas" class="portal-horas"></div>
+            </div>
+        </section>
+        <footer class="modal-card-foot is-justify-content-flex-end">
+            <button type="button" class="button js-modal-cerrar">Cancelar</button>
+            <button type="button" class="button is-link" id="agendar-confirmar" disabled><span class="icon"><i class="fa-solid fa-check"></i></span><span>Confirmar cita</span></button>
+        </footer>
+    </div>
+</div>
+
+<!-- ============================================================ modal: detalle -->
+<div id="modal-detalle" class="modal portal-modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Detalle de la cita</p>
+            <button class="delete" type="button" aria-label="Cerrar"></button>
+        </header>
+        <section class="modal-card-body">
+            <div id="detalle-error" class="notification is-danger is-light" style="display:none"></div>
+            <dl class="portal-detalle">
+                <dt>Paciente</dt><dd data-campo="paciente"></dd>
+                <dt>Fecha</dt><dd data-campo="fecha"></dd>
+                <dt>Hora</dt><dd data-campo="hora"></dd>
+                <dt>Profesional</dt><dd data-campo="profesional"></dd>
+                <dt>Modalidad</dt><dd data-campo="modalidad"></dd>
+                <dt>Estado</dt><dd data-campo="estado"></dd>
+                <dt>Motivo</dt><dd data-campo="motivo"></dd>
+            </dl>
+            <p class="ayuda mt-4" id="detalle-no-cancelable" style="display:none">
+                <i class="fa-solid fa-circle-info"></i> Esta cita ya no se puede cancelar desde el portal. Si necesita cambiarla, comuníquese con el consultorio.
+            </p>
+        </section>
+        <footer class="modal-card-foot is-justify-content-flex-end">
+            <button type="button" class="button js-modal-cerrar">Cerrar</button>
+            <button type="button" class="button is-danger is-light" id="detalle-cancelar" style="display:none"><span class="icon"><i class="fa-solid fa-ban"></i></span><span>Cancelar esta cita</span></button>
+        </footer>
+    </div>
+</div>
+
+    </div>
+</main>
+
+<footer class="portal-pie">
+    <div class="container">
+        <div class="columns is-vcentered">
+            <div class="column is-5">
+                <div class="portal-pie-marca">
+                    <img src="../assets/img/logo.png" alt="" width="34" height="34">
+                    <div>
+                        <strong>Plataforma Psicológica</strong>
+                        <span>Centro de atención psicológica y acompañamiento familiar</span>                    </div>
+                </div>
+            </div>
+            <div class="column is-7">
+                <ul class="portal-pie-contacto">
+                                            <li><i class="fa-solid fa-phone"></i> 601 000 0000</li>
+                                                                <li><i class="fa-solid fa-envelope"></i> contacto@plataforma-demo.co</li>
+                                                                <li><i class="fa-solid fa-location-dot"></i> Calle 100 # 15-20, Of. 301, Bogotá</li>
+                                    </ul>
+            </div>
+        </div>
+        <div class="portal-pie-legal">
+            <span><i class="fa-solid fa-shield-halved"></i> Conexión privada. Sus datos se tratan de forma confidencial (Ley 1581 de 2012).</span>
+            <span>© 2026 Plataforma Psicológica</span>
+        </div>
+    </div>
+</footer>
+
+<script src="../assets/js/app.js"></script>
+<script>
+// Menú del portal: hamburguesa en móvil y desplegable del usuario.
+(function () {
+    var burger = document.querySelector('.portal-navbar .navbar-burger');
+    var menu = document.getElementById('menuPortal');
+    if (burger && menu) {
+        burger.addEventListener('click', function () {
+            var abierto = menu.classList.toggle('is-active');
+            burger.classList.toggle('is-active', abierto);
+            burger.setAttribute('aria-expanded', abierto ? 'true' : 'false');
+        });
+    }
+    var usuario = document.querySelector('.portal-usuario');
+    if (usuario) {
+        var enlace = usuario.querySelector('.navbar-link');
+        enlace.addEventListener('click', function (ev) {
+            ev.preventDefault();
+            var abierto = usuario.classList.toggle('is-active');
+            enlace.setAttribute('aria-expanded', abierto ? 'true' : 'false');
+        });
+        document.addEventListener('click', function (ev) {
+            if (!usuario.contains(ev.target)) {
+                usuario.classList.remove('is-active');
+                enlace.setAttribute('aria-expanded', 'false');
+            }
+        });
+        document.addEventListener('keydown', function (ev) {
+            if (ev.key === 'Escape') usuario.classList.remove('is-active');
+        });
+    }
+})();
+</script>
+<script src="../demo/vendor/fullcalendar/index.global.min.js"></script><script src="../demo/vendor/fullcalendar/es.global.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    var el = document.getElementById('calendario');
+    var cfg = JSON.parse(el.dataset.config);
+    var motivos = cfg.motivos;
+    var aviso = document.getElementById('aviso-portal');
+    var fechaSel = null, horaSel = null, citaSel = null;
+
+    // ------------------------------------------------------------ utilidades
+    function avisar(tipo, texto) {
+        aviso.innerHTML = '';
+        var n = document.createElement('div');
+        n.className = 'notification is-light flash-mensaje ' + (tipo === 'ok' ? 'is-success' : 'is-danger');
+        var b = document.createElement('button');
+        b.className = 'delete'; b.type = 'button'; b.setAttribute('aria-label', 'Cerrar');
+        b.addEventListener('click', function () { n.remove(); });
+        n.appendChild(b);
+        n.appendChild(document.createTextNode(texto));
+        aviso.appendChild(n);
+        aviso.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    function error(caja, texto) {
+        caja.textContent = texto || '';
+        caja.style.display = texto ? '' : 'none';
+    }
+    function ymd(d) {
+        return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+    }
+    function diaDisponible(d) {
+        return ymd(d) >= cfg.hoy && cfg.dias.indexOf(d.getDay()) !== -1;
+    }
+    function api(metodo, params) {
+        var opciones = { method: metodo, headers: { 'Accept': 'application/json', 'X-CSRF-Token': csrfToken() }, credentials: 'same-origin' };
+        var url = cfg.api;
+        if (metodo === 'GET') {
+            url += '?' + new URLSearchParams(params).toString();
+        } else {
+            opciones.body = new URLSearchParams(params);
+        }
+        return fetch(url, opciones).then(function (r) {
+            return r.json().catch(function () { return { error: 'Respuesta inesperada del servidor.' }; }).then(function (d) {
+                if (!r.ok || d.error) throw new Error(d.error || 'No se pudo completar la acción.');
+                return d;
+            });
+        });
+    }
+    function abrir(id) { document.getElementById(id).classList.add('is-active'); }
+    function cerrar(id) { document.getElementById(id).classList.remove('is-active'); }
+    function actualizarMotivos(lista) {
+        motivos = lista;
+        document.getElementById('sin-motivos').style.display = motivos.length ? 'none' : '';
+    }
+
+    if (typeof FullCalendar === 'undefined') {
+        el.innerHTML = '<div class="notification is-warning is-light">No se pudo cargar el calendario. Revise su conexión a internet y recargue la página.</div>';
+        return;
+    }
+
+    // ------------------------------------------------------------ calendario
+    var cal = new FullCalendar.Calendar(el, {
+        locale: 'es',
+        firstDay: 1,
+        initialView: 'dayGridMonth',
+        headerToolbar: { left: 'prev,next today', center: 'title', right: '' },
+        buttonText: { today: 'Hoy', month: 'Mes' },
+        height: 'auto',
+        fixedWeekCount: false,
+        eventTimeFormat: { hour: 'numeric', minute: '2-digit', hour12: true },
+        events: function (info, ok, falla) {
+            api('GET', { accion: 'eventos', start: info.startStr, end: info.endStr }).then(ok).catch(function (e) {
+                avisar('error', e.message); falla(e);
+            });
+        },
+        dayCellDidMount: function (info) {
+            if (!diaDisponible(info.date)) info.el.classList.add('fc-day-disabled');
+            else info.el.classList.add('portal-dia-libre');
+        },
+        dateClick: function (info) {
+            if (!diaDisponible(info.date)) return;
+            if (!motivos.length) {
+                avisar('error', 'No tiene motivos de consulta pendientes por agendar.');
+                return;
+            }
+            abrirAgendar(info.dateStr.substring(0, 10), info.date);
+        },
+        eventClick: function (info) {
+            info.jsEvent.preventDefault();
+            abrirDetalle(info.event);
+        }
+    });
+    cal.render();
+
+    // ------------------------------------------------------------ próximas citas (panel lateral)
+    var listaProximas = document.getElementById('lista-proximas');
+    var MESES_CORTOS = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'];
+    function cargarProximas() {
+        var desde = new Date();
+        var hasta = new Date(); hasta.setDate(hasta.getDate() + 180);
+        api('GET', { accion: 'eventos', start: ymd(desde) + 'T00:00:00', end: ymd(hasta) + 'T00:00:00' }).then(function (lista) {
+            var ahora = new Date();
+            var pendientes = lista.filter(function (ev) {
+                var p = ev.extendedProps || {};
+                return (p.estado === 'Agendada' || p.estado === 'Confirmada') && new Date(ev.start) >= ahora;
+            }).sort(function (a, b) { return a.start < b.start ? -1 : 1; }).slice(0, 5);
+            listaProximas.innerHTML = '';
+            if (!pendientes.length) {
+                var vacio = document.createElement('li');
+                vacio.className = 'portal-texto-suave';
+                vacio.textContent = 'No tiene citas pendientes.';
+                listaProximas.appendChild(vacio);
+                return;
+            }
+            pendientes.forEach(function (ev) {
+                var d = new Date(ev.start);
+                var li = document.createElement('li');
+                li.style.cursor = 'pointer';
+                li.tabIndex = 0;
+                var fecha = document.createElement('div');
+                fecha.className = 'portal-cita-fecha';
+                var mes = document.createElement('span'); mes.className = 'mes'; mes.textContent = MESES_CORTOS[d.getMonth()];
+                var dia = document.createElement('span'); dia.className = 'dia'; dia.textContent = d.getDate();
+                fecha.appendChild(mes); fecha.appendChild(dia);
+                var info = document.createElement('div');
+                info.className = 'portal-cita-info';
+                var t = document.createElement('strong'); t.textContent = ev.extendedProps.paciente;
+                var s = document.createElement('span'); s.textContent = ev.extendedProps.hora + ' · ' + ev.extendedProps.profesional;
+                info.appendChild(t); info.appendChild(s);
+                li.appendChild(fecha); li.appendChild(info);
+                function ver() { abrirDetalle({ id: ev.id, extendedProps: ev.extendedProps }); }
+                li.addEventListener('click', ver);
+                li.addEventListener('keydown', function (e) { if (e.key === 'Enter') ver(); });
+                listaProximas.appendChild(li);
+            });
+        }).catch(function () {
+            listaProximas.innerHTML = '<li class="portal-texto-suave">No se pudieron cargar las citas.</li>';
+        });
+    }
+    cargarProximas();
+
+    // ------------------------------------------------------------ agendar
+    var selMotivo = document.getElementById('agendar-motivo');
+    var cajaHoras = document.getElementById('agendar-horas');
+    var btnConfirmar = document.getElementById('agendar-confirmar');
+    var errAgendar = document.getElementById('agendar-error');
+
+    function abrirAgendar(fecha, fechaObj) {
+        fechaSel = fecha; horaSel = null;
+        error(errAgendar, '');
+        var t = fechaObj.toLocaleDateString('es-CO', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+        document.getElementById('agendar-fecha-texto').textContent = t.charAt(0).toUpperCase() + t.slice(1);
+        selMotivo.innerHTML = '';
+        motivos.forEach(function (m) {
+            var o = document.createElement('option');
+            o.value = m.id;
+            o.textContent = m.paciente + ' — con ' + m.profesional;
+            selMotivo.appendChild(o);
+        });
+        abrir('modal-agendar');
+        cargarHoras();
+    }
+
+    function cargarHoras() {
+        horaSel = null;
+        btnConfirmar.disabled = true;
+        var m = motivos.filter(function (x) { return String(x.id) === selMotivo.value; })[0];
+        document.getElementById('agendar-motivo-detalle').textContent = m ? 'Motivo: ' + m.motivo : '';
+        cajaHoras.innerHTML = '<p class="autor-linea"><i class="fa-solid fa-spinner fa-spin"></i> Buscando horas libres…</p>';
+        api('GET', { accion: 'horas', fecha: fechaSel, motivo: selMotivo.value }).then(function (d) {
+            cajaHoras.innerHTML = '';
+            if (!d.horas.length) {
+                cajaHoras.innerHTML = '<p class="autor-linea">No quedan horas libres este día. Por favor elija otra fecha.</p>';
+                return;
+            }
+            d.horas.forEach(function (h) {
+                var b = document.createElement('button');
+                b.type = 'button';
+                b.className = 'button is-small portal-hora';
+                b.textContent = h.texto;
+                b.dataset.hora = h.valor;
+                b.addEventListener('click', function () {
+                    cajaHoras.querySelectorAll('.portal-hora').forEach(function (x) { x.classList.remove('is-link'); });
+                    b.classList.add('is-link');
+                    horaSel = h.valor;
+                    btnConfirmar.disabled = false;
+                });
+                cajaHoras.appendChild(b);
+            });
+        }).catch(function (e) {
+            cajaHoras.innerHTML = '';
+            error(errAgendar, e.message);
+        });
+    }
+    selMotivo.addEventListener('change', function () { error(errAgendar, ''); cargarHoras(); });
+
+    btnConfirmar.addEventListener('click', function () {
+        if (!horaSel) return;
+        btnConfirmar.disabled = true;
+        btnConfirmar.classList.add('is-loading');
+        api('POST', { accion: 'agendar', motivo_id: selMotivo.value, fecha: fechaSel, hora: horaSel }).then(function (d) {
+            cerrar('modal-agendar');
+            actualizarMotivos(d.motivos);
+            cal.refetchEvents();
+            cargarProximas();
+            avisar('ok', d.mensaje);
+        }).catch(function (e) {
+            error(errAgendar, e.message);
+            cargarHoras();
+        }).finally(function () {
+            btnConfirmar.classList.remove('is-loading');
+        });
+    });
+
+    // ------------------------------------------------------------ detalle / cancelar
+    var btnCancelar = document.getElementById('detalle-cancelar');
+    var errDetalle = document.getElementById('detalle-error');
+
+    function abrirDetalle(ev) {
+        citaSel = ev.id;
+        error(errDetalle, '');
+        var p = ev.extendedProps;
+        document.querySelectorAll('#modal-detalle [data-campo]').forEach(function (dd) {
+            dd.textContent = p[dd.dataset.campo] || '—';
+        });
+        btnCancelar.style.display = p.cancelable ? '' : 'none';
+        var pendiente = p.estado === 'Agendada' || p.estado === 'Confirmada';
+        document.getElementById('detalle-no-cancelable').style.display = (!p.cancelable && pendiente) ? '' : 'none';
+        abrir('modal-detalle');
+    }
+
+    btnCancelar.addEventListener('click', function () {
+        if (!window.confirm('¿Seguro que desea cancelar esta cita?')) return;
+        btnCancelar.classList.add('is-loading');
+        api('POST', { accion: 'cancelar', cita_id: citaSel }).then(function (d) {
+            cerrar('modal-detalle');
+            actualizarMotivos(d.motivos);
+            cal.refetchEvents();
+            cargarProximas();
+            avisar('ok', d.mensaje);
+        }).catch(function (e) {
+            error(errDetalle, e.message);
+        }).finally(function () {
+            btnCancelar.classList.remove('is-loading');
+        });
+    });
+});
+</script>
+<script src="../demo/mapa.js"></script>
+<script src="../demo/portal-data.js"></script>
+<script src="../demo/demo.js"></script>
+</body>
+</html>

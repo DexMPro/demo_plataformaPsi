@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="es">
+<head>
+<script>window.DEMO_ROOT=".";window.DEMO_KEY="/index.php";window.DEMO_HOY="2026-10-07";</script>
+<script src="demo/tiempo.js"></script>
+    <title>Plataforma Psicológica · Ingresar</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="demo/vendor/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/login.css">
+    <link rel="icon" href="assets/img/favicon-96x96.png" type="image/png">
+<link rel="stylesheet" href="demo/demo.css">
+</head>
+<body>
+<div class="login-container">
+    <div class="welcome-section">
+        <div class="welcome-content">
+            <div class="logo">
+                <img src="assets/img/logo.png" alt="Plataforma Psicológica" style="width:80px;height:80px;">
+            </div>
+            <h2>Bienvenido de nuevo</h2>
+            <p>Accede a tu panel de control de la Plataforma Psicológica y gestiona las necesidades de la fundación.</p>
+        </div>
+    </div>
+
+    <div class="login-section">
+        <div class="login-header">
+            <h3>INGRESAR</h3>
+            <p>Introduce tus credenciales para continuar</p>
+        </div>
+
+        
+        <form method="post" autocomplete="on">
+            <input type="hidden" name="_csrf" value="08f9d0b2809b380eacd97ff5b2dcadbbdfa1be486684fb3a958e7518862d09a2">            <div class="form-group">
+                <label for="usuario">Usuario o correo</label>
+                <div class="input-wrapper">
+                    <i class="fas fa-envelope input-icon"></i>
+                    <input type="text" class="form-control" name="usuario" id="usuario" required autofocus
+                           autocomplete="username" placeholder="usuario o correo@ejemplo.com" value="">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="clave">Contraseña</label>
+                <div class="input-wrapper">
+                    <i class="fas fa-lock input-icon"></i>
+                    <input type="password" class="form-control" name="clave" id="clave" required
+                           autocomplete="current-password" placeholder="••••••••">
+                    <button type="button" class="password-toggle" id="togglePassword" aria-label="Mostrar contraseña">
+                        <i class="far fa-eye"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="form-options">
+                <label class="remember-me" for="recordar">
+                    <input type="checkbox" id="recordar" name="recordar" value="1">
+                    <span>Recuérdame</span>
+                </label>
+            </div>
+            <p class="recordar-ayuda">Mantiene la sesión abierta en este equipo por 30 días. No lo use en equipos compartidos.</p>
+
+            <button type="submit" class="btn-login">Ingresar</button>
+
+                    </form>
+    </div>
+</div>
+<script>
+document.getElementById('togglePassword').addEventListener('click', function () {
+    var input = document.getElementById('clave');
+    var icon = this.querySelector('i');
+    var ver = input.type === 'password';
+    input.type = ver ? 'text' : 'password';
+    icon.classList.toggle('fa-eye', !ver);
+    icon.classList.toggle('fa-eye-slash', ver);
+});
+</script>
+<script src="demo/mapa.js"></script>
+<script src="demo/demo.js"></script>
+</body>
+</html>

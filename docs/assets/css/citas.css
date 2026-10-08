@@ -1,0 +1,96 @@
+/* ==========================================================================
+   Módulo de citas: agenda del personal y portal de familias.
+   ========================================================================== */
+
+/* Pestañas como enlaces */
+.citas-tabs a.facturas-tab { text-decoration: none; display: flex; align-items: center; justify-content: center; }
+
+.citas-filtros .label.is-small { font-size: 12px; color: #4a4f6a; margin-bottom: 4px; }
+.citas-filtros { padding: 18px 20px; }
+
+/* Agenda agrupada por día */
+.citas-dia { margin-bottom: 24px; }
+.citas-dia-titulo {
+    display: flex; align-items: center; gap: 8px; font-weight: 700; color: #1a1a2e;
+    font-size: 15px; margin: 0 0 10px 4px;
+}
+.citas-dia-titulo i { color: #667eea; }
+.citas-dia-titulo.es-hoy { color: #4c5fd5; }
+.citas-dia-num {
+    margin-left: auto; background: #f0f2ff; color: #667eea; border-radius: 20px;
+    padding: 2px 10px; font-size: 12px;
+}
+.tabla-citas { box-shadow: 0 2px 12px rgba(0,0,0,.04); table-layout: fixed; }
+.tabla-citas td { word-break: break-word; }
+.tabla-citas .nombrePaciente { font-size: 15px; }
+.tabla-citas td .autor-linea { font-size: 12px; }
+@media (max-width: 900px) {
+    .tabla-citas thead { display: none; }
+    .tabla-citas, .tabla-citas tbody, .tabla-citas tr, .tabla-citas td { display: block; width: 100% !important; }
+    .tabla-citas tr { border-top: 1px solid #f0f1f7; padding: 6px 0; }
+    .tabla-citas td { border-top: 0; padding: 6px 14px; }
+}
+
+/* Leyenda de colores */
+.citas-leyenda { display: flex; flex-wrap: wrap; gap: 14px; font-size: 12px; color: #4a4f6a; }
+.citas-leyenda span { display: inline-flex; align-items: center; gap: 6px; }
+.citas-leyenda i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; }
+
+/* FullCalendar */
+.fc .fc-button-primary { background: #667eea; border-color: #667eea; text-transform: capitalize; }
+.fc .fc-button-primary:hover,
+.fc .fc-button-primary:not(:disabled).fc-button-active,
+.fc .fc-button-primary:not(:disabled):active { background: #4c5fd5; border-color: #4c5fd5; }
+.fc .fc-button-primary:disabled { background: #a3adf0; border-color: #a3adf0; }
+.fc .fc-toolbar-title { font-size: 1.3rem; color: #1a1a2e; }
+.fc .fc-col-header-cell-cushion, .fc .fc-daygrid-day-number { color: #1a1a2e; text-decoration: none; }
+.fc a.fc-event { cursor: pointer; }
+.fc-day-disabled .fc-daygrid-day-number { color: #aaa; }
+/* Las citas propias siguen siendo clicables aunque el día no admita reservas */
+.fc-day-disabled .fc-daygrid-event-harness { pointer-events: auto; }
+.portal-dia-libre { cursor: pointer; }
+.portal-dia-libre:hover { background: #f5f7ff; }
+
+/* ---------------------------------------------------------------- portal */
+.portal-bienvenida {
+    display: flex; gap: 28px; align-items: center; background: #fff; border-radius: 18px;
+    padding: 28px; box-shadow: 0 4px 20px rgba(0,0,0,.05);
+}
+.portal-logo { width: 180px; max-width: 40%; height: auto; }
+@media (max-width: 640px) {
+    .portal-bienvenida { flex-direction: column; text-align: center; }
+    .portal-logo { max-width: 60%; }
+}
+.portal-tarjeta {
+    background: #fff; border-radius: 16px; padding: 22px; box-shadow: 0 2px 12px rgba(0,0,0,.04);
+    margin-bottom: 20px; height: calc(100% - 20px);
+}
+.portal-instrucciones { display: flex; gap: 14px; align-items: flex-start; height: auto; color: #3b3f5c; }
+.portal-instrucciones > i { color: #667eea; font-size: 20px; margin-top: 2px; }
+.portal-avatar {
+    width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;
+}
+.portal-subtitulo { font-weight: 700; color: #1a1a2e; font-size: 14px; text-transform: uppercase; letter-spacing: .03em; margin: 14px 0 8px; }
+.portal-lista { list-style: none; margin: 0 0 8px; padding: 0; }
+.portal-lista li { padding: 10px 0; border-top: 1px solid #f0f1f7; }
+.portal-lista li:first-child { border-top: 0; }
+.portal-lista .estado-tag { margin-left: 6px; }
+
+.portal-anuncios { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+.portal-anuncio { background: #fff; border-left: 4px solid #667eea; border-radius: 12px; padding: 16px 18px; box-shadow: 0 2px 12px rgba(0,0,0,.04); }
+.portal-anuncio h3 { font-weight: 700; margin-bottom: 6px; color: #1a1a2e; }
+
+.portal-horas { display: flex; flex-wrap: wrap; gap: 8px; }
+.portal-hora { min-width: 96px; }
+
+.portal-detalle { display: grid; grid-template-columns: 120px 1fr; gap: 8px 14px; margin-bottom: 10px; }
+.portal-detalle dt { color: #6c757d; font-size: 13px; }
+.portal-detalle dd { margin: 0; font-weight: 500; white-space: pre-line; word-break: break-word; }
+/* extra.css capitaliza cada palabra ("Septiembre De 2026"); aquí solo la primera letra */
+.fc .fc-toolbar-title { text-transform: none; }
+.fc .fc-toolbar-title::first-letter { text-transform: uppercase; }
+@media (max-width: 640px) {
+    .fc .fc-toolbar { flex-wrap: wrap; gap: 8px; }
+    .fc .fc-toolbar-title { font-size: 1.05rem; }
+}

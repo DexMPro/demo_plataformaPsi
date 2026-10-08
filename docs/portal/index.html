@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<script>window.DEMO_ROOT="..";window.DEMO_KEY="/portal/index.php";window.DEMO_HOY="2026-10-07";</script>
+<script src="../demo/tiempo.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="46b8f74be7f51ac5abdcbb64cb86cb06debc34f365fed2dea70d3383205c3524">
+    <title>Inicio · Portal de familias · Plataforma Psicológica</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../demo/vendor/bulma/bulma.min.css">
+    <link rel="stylesheet" href="../demo/vendor/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/extra.css">
+    <link rel="icon" href="../assets/img/favicon-96x96.png" type="image/png">
+        <link rel="stylesheet" href="../assets/css/ui.css">
+    <link rel="stylesheet" href="../assets/css/portal.css">
+<link rel="stylesheet" href="../demo/demo.css">
+</head>
+<body class="portal-body">
+
+<nav class="navbar portal-navbar is-spaced" role="navigation" aria-label="Menú principal">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item portal-marca" href="index.html">
+                <img src="../assets/img/logo.png" alt="" width="40" height="40">
+                <span class="portal-marca-texto">
+                    <strong>Plataforma Psicológica</strong>
+                    <small>Portal de familias</small>
+                </span>
+            </a>
+            <a role="button" class="navbar-burger" aria-label="Abrir menú" aria-expanded="false" data-target="menuPortal">
+                <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div id="menuPortal" class="navbar-menu">
+            <div class="navbar-start portal-enlaces">
+                                    <a class="navbar-item is-active" href="index.html" aria-current="page">
+                        <span class="icon"><i class="fa-solid fa-house"></i></span>
+                        <span>Inicio</span>
+                    </a>
+                                    <a class="navbar-item" href="citas.html">
+                        <span class="icon"><i class="fa-solid fa-calendar-days"></i></span>
+                        <span>Citas</span>
+                    </a>
+                                    <a class="navbar-item" href="cuenta.html">
+                        <span class="icon"><i class="fa-solid fa-user"></i></span>
+                        <span>Mi cuenta</span>
+                    </a>
+                            </div>
+
+            <div class="navbar-end">
+                <div class="navbar-item has-dropdown portal-usuario">
+                    <a class="navbar-link is-arrowless" role="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="portal-usuario-avatar">PR</span>
+                        <span class="portal-usuario-nombre">
+                            <strong>Patricia Rojas</strong>
+                            <small>Familiar · acudiente</small>
+                        </span>
+                        <span class="icon is-small portal-usuario-flecha"><i class="fa-solid fa-chevron-down"></i></span>
+                    </a>
+                    <div class="navbar-dropdown is-right">
+                        <div class="portal-dropdown-cabecera">
+                            <strong>Patricia Rojas</strong>
+                            <span>familia.rojas@correo-demo.co</span>
+                        </div>
+                        <hr class="navbar-divider">
+                        <a class="navbar-item" href="cuenta.html"><span class="icon"><i class="fa-solid fa-user-gear"></i></span> Mi cuenta</a>
+                        <a class="navbar-item" href="citas.html"><span class="icon"><i class="fa-solid fa-calendar-plus"></i></span> Agendar una cita</a>
+                        <hr class="navbar-divider">
+                        <form method="post" action="#demo-no-disponible" data-demo-action="/salir.php" class="portal-salir">
+                            <input type="hidden" name="_csrf" value="46b8f74be7f51ac5abdcbb64cb86cb06debc34f365fed2dea70d3383205c3524">                            <button type="submit" class="navbar-item"><span class="icon"><i class="fa-solid fa-right-from-bracket"></i></span> Cerrar sesión</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<main class="portal-principal">
+    <div class="container portal-contenido">
+        <section class="portal-encabezado con-indicadores">
+    <div class="portal-encabezado-fecha">Miércoles, 7 de octubre de 2026</div>
+    <h1>Buenas noches, Patricia</h1>
+    <p>Desde aquí puede consultar los anuncios del consultorio, revisar las próximas citas de sus familiares y agendar las consultas que el profesional haya autorizado.</p>
+    <div class="buttons">
+                    <a class="button portal-boton-claro" href="citas.html">
+                <span class="icon"><i class="fa-solid fa-calendar-plus"></i></span><span>Agendar una cita</span>
+            </a>
+                <a class="button portal-boton-transparente" href="citas.html">
+            <span class="icon"><i class="fa-solid fa-calendar-days"></i></span><span>Ver calendario</span>
+        </a>
+    </div>
+</section>
+
+<div class="portal-indicadores">
+    <div class="portal-indicador">
+        <div class="portal-indicador-icono"><i class="fa-solid fa-people-roof"></i></div>
+        <div><strong>2</strong><span>Familiares vinculados</span></div>
+    </div>
+    <div class="portal-indicador">
+        <div class="portal-indicador-icono is-exito"><i class="fa-solid fa-calendar-check"></i></div>
+        <div><strong>6</strong><span>Próximas citas</span></div>
+    </div>
+    <div class="portal-indicador">
+        <div class="portal-indicador-icono is-aviso"><i class="fa-solid fa-hourglass-half"></i></div>
+        <div><strong>1</strong><span>Consultas por agendar</span></div>
+    </div>
+</div>
+
+    <section class="portal-seccion">
+        <div class="portal-seccion-titulo">
+            <h2><span class="icon"><i class="fa-solid fa-bullhorn"></i></span>Anuncios del consultorio</h2>
+        </div>
+        <div class="portal-anuncios">
+                            <article class="portal-caja portal-anuncio">
+                    <h3>Taller para familias: límites y comunicación</h3>
+                    <p>Los invitamos al taller gratuito del próximo sábado a las 9:00 a. m. en la sede.<br>
+Temas: comunicación asertiva, límites sanos y prevención de recaídas.<br>
+Cupos limitados, confirme su asistencia en recepción.</p>
+                    <time><i class="fa-regular fa-clock"></i> 04/10/2026</time>
+                </article>
+                            <article class="portal-caja portal-anuncio">
+                    <h3>Nuevo horario de atención</h3>
+                    <p>A partir de este mes atendemos de lunes a viernes de 8:00 a. m. a 6:00 p. m. y sábados de 8:00 a. m. a 12:00 m.</p>
+                    <time><i class="fa-regular fa-clock"></i> 22/09/2026</time>
+                </article>
+                            <article class="portal-caja portal-anuncio">
+                    <h3>Agendamiento en línea</h3>
+                    <p>Recuerde que puede agendar las citas de seguimiento desde este portal los jueves y viernes. Si necesita otro horario, comuníquese con recepción.</p>
+                    <time><i class="fa-regular fa-clock"></i> 28/08/2026</time>
+                </article>
+                    </div>
+    </section>
+
+<section class="portal-seccion">
+    <div class="portal-seccion-titulo">
+        <h2><span class="icon"><i class="fa-solid fa-children"></i></span>Mis familiares</h2>
+        <a class="enlace-ver" href="citas.html">Ir a citas <i class="fa-solid fa-arrow-right"></i></a>    </div>
+
+    
+    <div class="columns is-multiline">
+                    <div class="column is-6">
+                <article class="portal-caja portal-familiar">
+                    <header class="portal-familiar-cabecera">
+                        <div class="portal-familiar-avatar">DR</div>
+                        <div>
+                            <div class="portal-familiar-nombre">Daniel Rojas Londoño</div>
+                            <div class="portal-familiar-meta">
+                                TI 81967330                                <span class="tag is-light is-rounded">Madre</span>
+                            </div>
+                        </div>
+                    </header>
+                    <div class="portal-familiar-cuerpo">
+                        <h4 class="portal-subtitulo">Próxima cita</h4>
+                                                    <div class="portal-cita-destacada">
+                                <div class="portal-cita-fecha"><span class="mes">Oct</span><span class="dia">9</span></div>
+                                <div class="portal-cita-info">
+                                    <strong>Viernes, 9 de octubre de 2026 · 10:00 am</strong>
+                                    <span><i class="fa-solid fa-user-doctor"></i> Catalina Restrepo</span><br>
+                                    <span class="estado-tag estado-agendada">Agendada</span>
+                                </div>
+                            </div>
+                                                            <p class="portal-cita-mas"><i class="fa-solid fa-plus"></i> 2 citas más programadas. <a href="citas.html">Ver en el calendario</a></p>
+                                                    
+                        <h4 class="portal-subtitulo">Motivos de consulta</h4>
+                                                                                    <div class="portal-motivo">
+                                    <div class="portal-motivo-icono"><i class="fa-solid fa-notes-medical"></i></div>
+                                    <div>
+                                        <div class="portal-motivo-texto">Seguimiento del proceso terapéutico y orientación a la familia.</div>
+                                        <div class="portal-motivo-meta">
+                                            <span>Con Catalina Restrepo</span>
+                                                                                            <span class="portal-etiqueta is-exito"><i class="fa-solid fa-check"></i> Cita agendada</span>
+                                                                                    </div>
+                                    </div>
+                                </div>
+                                                                        </div>
+                </article>
+            </div>
+                    <div class="column is-6">
+                <article class="portal-caja portal-familiar">
+                    <header class="portal-familiar-cabecera">
+                        <div class="portal-familiar-avatar">SR</div>
+                        <div>
+                            <div class="portal-familiar-nombre">Sebastián Rojas López</div>
+                            <div class="portal-familiar-meta">
+                                TI 1088189218                                <span class="tag is-light is-rounded">Madre</span>
+                            </div>
+                        </div>
+                    </header>
+                    <div class="portal-familiar-cuerpo">
+                        <h4 class="portal-subtitulo">Próxima cita</h4>
+                                                    <div class="portal-cita-destacada">
+                                <div class="portal-cita-fecha"><span class="mes">Oct</span><span class="dia">21</span></div>
+                                <div class="portal-cita-info">
+                                    <strong>Miércoles, 21 de octubre de 2026 · 10:00 am</strong>
+                                    <span><i class="fa-solid fa-user-doctor"></i> Catalina Restrepo</span><br>
+                                    <span class="estado-tag estado-agendada">Agendada</span>
+                                </div>
+                            </div>
+                                                            <p class="portal-cita-mas"><i class="fa-solid fa-plus"></i> 2 citas más programadas. <a href="citas.html">Ver en el calendario</a></p>
+                                                    
+                        <h4 class="portal-subtitulo">Motivos de consulta</h4>
+                                                                                    <div class="portal-motivo">
+                                    <div class="portal-motivo-icono"><i class="fa-solid fa-notes-medical"></i></div>
+                                    <div>
+                                        <div class="portal-motivo-texto">Seguimiento del proceso terapéutico y orientación a la familia.</div>
+                                        <div class="portal-motivo-meta">
+                                            <span>Con Catalina Restrepo</span>
+                                                                                            <a class="portal-etiqueta is-pendiente" href="citas.html"><i class="fa-solid fa-calendar-plus"></i> Agendar cita</a>
+                                                                                    </div>
+                                    </div>
+                                </div>
+                                                                        </div>
+                </article>
+            </div>
+            </div>
+</section>
+    </div>
+</main>
+
+<footer class="portal-pie">
+    <div class="container">
+        <div class="columns is-vcentered">
+            <div class="column is-5">
+                <div class="portal-pie-marca">
+                    <img src="../assets/img/logo.png" alt="" width="34" height="34">
+                    <div>
+                        <strong>Plataforma Psicológica</strong>
+                        <span>Centro de atención psicológica y acompañamiento familiar</span>                    </div>
+                </div>
+            </div>
+            <div class="column is-7">
+                <ul class="portal-pie-contacto">
+                                            <li><i class="fa-solid fa-phone"></i> 601 000 0000</li>
+                                                                <li><i class="fa-solid fa-envelope"></i> contacto@plataforma-demo.co</li>
+                                                                <li><i class="fa-solid fa-location-dot"></i> Calle 100 # 15-20, Of. 301, Bogotá</li>
+                                    </ul>
+            </div>
+        </div>
+        <div class="portal-pie-legal">
+            <span><i class="fa-solid fa-shield-halved"></i> Conexión privada. Sus datos se tratan de forma confidencial (Ley 1581 de 2012).</span>
+            <span>© 2026 Plataforma Psicológica</span>
+        </div>
+    </div>
+</footer>
+
+<script src="../assets/js/app.js"></script>
+<script>
+// Menú del portal: hamburguesa en móvil y desplegable del usuario.
+(function () {
+    var burger = document.querySelector('.portal-navbar .navbar-burger');
+    var menu = document.getElementById('menuPortal');
+    if (burger && menu) {
+        burger.addEventListener('click', function () {
+            var abierto = menu.classList.toggle('is-active');
+            burger.classList.toggle('is-active', abierto);
+            burger.setAttribute('aria-expanded', abierto ? 'true' : 'false');
+        });
+    }
+    var usuario = document.querySelector('.portal-usuario');
+    if (usuario) {
+        var enlace = usuario.querySelector('.navbar-link');
+        enlace.addEventListener('click', function (ev) {
+            ev.preventDefault();
+            var abierto = usuario.classList.toggle('is-active');
+            enlace.setAttribute('aria-expanded', abierto ? 'true' : 'false');
+        });
+        document.addEventListener('click', function (ev) {
+            if (!usuario.contains(ev.target)) {
+                usuario.classList.remove('is-active');
+                enlace.setAttribute('aria-expanded', 'false');
+            }
+        });
+        document.addEventListener('keydown', function (ev) {
+            if (ev.key === 'Escape') usuario.classList.remove('is-active');
+        });
+    }
+})();
+</script>
+<script src="../demo/mapa.js"></script>
+<script src="../demo/portal-data.js"></script>
+<script src="../demo/demo.js"></script>
+</body>
+</html>

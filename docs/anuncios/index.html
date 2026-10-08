@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es" style="overflow:hidden;">
+<head>
+<script>window.DEMO_ROOT="..";window.DEMO_KEY="/anuncios/index.php";window.DEMO_HOY="2026-10-07";</script>
+<script src="../demo/tiempo.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">
+    <title>Anuncios · Plataforma Psicológica</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../demo/vendor/bulma/bulma.min.css">
+    <link rel="stylesheet" href="../demo/vendor/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/app.css">
+    <link rel="stylesheet" href="../assets/css/extra.css">
+    <link rel="icon" href="../assets/img/favicon-96x96.png" type="image/png">
+    <link rel="stylesheet" href="../assets/css/personal.css">    <link rel="stylesheet" href="../assets/css/ui.css">
+<link rel="stylesheet" href="../demo/demo.css">
+</head>
+<body>
+
+<button class="menu-toggle" type="button" onclick="toggleMenu()" aria-label="Menú"><i class="fas fa-bars"></i></button>
+
+<aside class="sidebar">
+    <div class="sidebar-brand">
+        <img src="../assets/img/logo.png" alt="">
+        <div>
+            <h2><a href="../inicio.html">Plataforma Psicológica</a></h2>
+            <span>Portal administrativo</span>
+        </div>
+    </div>
+
+    <nav>
+        <div class="sidebar-section-title">Navegación</div>
+
+        <a href="../inicio.html" class="">
+            <i class="fa-solid fa-house"></i> Inicio
+        </a>
+
+                    <a href="../pacientes/index.html" class="">
+                <i class="fa-solid fa-hospital-user"></i> Pacientes
+            </a>
+        
+                    <a href="../citas/index.html" class="">
+                <i class="fa-solid fa-calendar-check"></i> Citas
+            </a>
+        
+                    <a href="../empleados/index.html" class="">
+                <i class="fa-solid fa-user-tie"></i> Empleados
+            </a>
+        
+                    <a href="../pagos/index.html" class="">
+                <i class="fa-solid fa-sack-dollar"></i> Pagos
+            </a>
+        
+                    <a href="../gastos/index.html" class="">
+                <i class="fa-solid fa-receipt"></i> Gastos
+            </a>
+        
+                    <a href="../usuarios/index.html" class="">
+                <i class="fa-solid fa-users"></i> Usuarios
+            </a>
+        
+                    <a href="index.html" class="active">
+                <i class="fa-solid fa-bullhorn"></i> Anuncios
+            </a>
+        
+                    <a href="../empresa/index.html" class="">
+                <i class="fa-solid fa-building"></i> Empresa
+            </a>
+        
+        <hr>
+
+        <form method="post" action="#demo-no-disponible" data-demo-action="/salir.php" class="form-salir">
+            <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">            <button type="submit"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</button>
+        </form>
+    </nav>
+
+    <div class="system-health">
+        <div class="system-health-title">Administración Demo</div>
+        <div class="health-indicator">
+            <div class="health-dot"></div>
+            Administrador        </div>
+    </div>
+</aside>
+
+<main class="main-content">
+<div class="columns header-titulos">
+    <div class="column is-flex is-align-items-center is-justify-content-space-between">
+        <h1 class="titulos-secciones" style="margin-bottom:0">ANUNCIOS</h1>
+        <span class="empleados-count"><i class="fa-solid fa-bullhorn"></i> 3 anuncio(s) · 3 visible(s) hoy</span>
+    </div>
+</div>
+
+<div class="usuarios-toolbar">
+    <p class="autor-linea" style="margin:0">Los anuncios visibles aparecen en el portal de las familias.</p>
+    <button class="btn-historia btn-historia-evoluciones js-modal-trigger" data-target="modal-anuncio-nuevo">
+        <i class="fa-solid fa-plus"></i> Nuevo anuncio
+    </button>
+</div>
+
+<div class="anuncios-lista">
+                    <div class="anuncio-card anuncio-visible">
+            <div class="anuncio-cabecera">
+                <h3>Taller para familias: límites y comunicación</h3>
+                <span class="estado-anuncio estado-anuncio-visible">Visible ahora</span>
+            </div>
+            <div class="anuncio-contenido">Los invitamos al taller gratuito del próximo sábado a las 9:00 a. m. en la sede.<br>
+Temas: comunicación asertiva, límites sanos y prevención de recaídas.<br>
+Cupos limitados, confirme su asistencia en recepción.</div>
+            <div class="anuncio-pie">
+                <span class="autor-linea">
+                    <i class="fa-regular fa-calendar"></i>
+                    Desde 04/10/2026 12:00 am                    · hasta 27/10/2026 12:00 am                    · por Administración Demo                </span>
+                <div class="acciones-fila">
+                    <button class="boton-mini js-modal-trigger" data-target="modal-anuncio-1"><i class="fa-solid fa-pen"></i> Editar</button>
+                    <form method="post" class="en-linea" data-confirmar="¿Eliminar este anuncio? Esta acción no se puede deshacer.">
+                        <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8"><input type="hidden" name="accion" value="eliminar"><input type="hidden" name="id" value="1">
+                        <button class="boton-mini peligro" type="submit"><i class="fa-solid fa-trash-can"></i> Eliminar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+                    <div class="anuncio-card anuncio-visible">
+            <div class="anuncio-cabecera">
+                <h3>Nuevo horario de atención</h3>
+                <span class="estado-anuncio estado-anuncio-visible">Visible ahora</span>
+            </div>
+            <div class="anuncio-contenido">A partir de este mes atendemos de lunes a viernes de 8:00 a. m. a 6:00 p. m. y sábados de 8:00 a. m. a 12:00 m.</div>
+            <div class="anuncio-pie">
+                <span class="autor-linea">
+                    <i class="fa-regular fa-calendar"></i>
+                    Desde 22/09/2026 12:00 am                    · sin vencimiento                    · por Administración Demo                </span>
+                <div class="acciones-fila">
+                    <button class="boton-mini js-modal-trigger" data-target="modal-anuncio-2"><i class="fa-solid fa-pen"></i> Editar</button>
+                    <form method="post" class="en-linea" data-confirmar="¿Eliminar este anuncio? Esta acción no se puede deshacer.">
+                        <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8"><input type="hidden" name="accion" value="eliminar"><input type="hidden" name="id" value="2">
+                        <button class="boton-mini peligro" type="submit"><i class="fa-solid fa-trash-can"></i> Eliminar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+                    <div class="anuncio-card anuncio-visible">
+            <div class="anuncio-cabecera">
+                <h3>Agendamiento en línea</h3>
+                <span class="estado-anuncio estado-anuncio-visible">Visible ahora</span>
+            </div>
+            <div class="anuncio-contenido">Recuerde que puede agendar las citas de seguimiento desde este portal los jueves y viernes. Si necesita otro horario, comuníquese con recepción.</div>
+            <div class="anuncio-pie">
+                <span class="autor-linea">
+                    <i class="fa-regular fa-calendar"></i>
+                    Desde 28/08/2026 12:00 am                    · sin vencimiento                    · por Administración Demo                </span>
+                <div class="acciones-fila">
+                    <button class="boton-mini js-modal-trigger" data-target="modal-anuncio-3"><i class="fa-solid fa-pen"></i> Editar</button>
+                    <form method="post" class="en-linea" data-confirmar="¿Eliminar este anuncio? Esta acción no se puede deshacer.">
+                        <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8"><input type="hidden" name="accion" value="eliminar"><input type="hidden" name="id" value="3">
+                        <button class="boton-mini peligro" type="submit"><i class="fa-solid fa-trash-can"></i> Eliminar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+
+    <div id="modal-anuncio-nuevo" class="modal" data-abrir="0">
+        <div class="modal-background"></div>
+        <div class="modal-card is-large">
+            <form method="post">
+                <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">                <input type="hidden" name="accion" value="crear">
+                                <header class="modal-card-head">
+                    <p class="modal-card-title">+ Nuevo anuncio</p>
+                    <button class="delete" type="button" aria-label="Cerrar"></button>
+                </header>
+                <section class="modal-card-body">
+                                        <div class="form-group-modern">
+                        <label>Título <span class="required-dot">*</span></label>
+                        <input class="input" type="text" name="titulo" required maxlength="150" value="">
+                    </div>
+                    <div class="form-group-modern">
+                        <label>Contenido <span class="required-dot">*</span></label>
+                        <textarea class="textarea" name="contenido" required maxlength="5000" rows="6"></textarea>
+                    </div>
+                    <div class="columns">
+                        <div class="column">
+                            <div class="form-group-modern">
+                                <label>Visible desde</label>
+                                <input class="input" type="datetime-local" name="visible_desde" value="">
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="form-group-modern">
+                                <label>Visible hasta</label>
+                                <input class="input" type="datetime-local" name="visible_hasta" value="">
+                            </div>
+                        </div>
+                    </div>
+                    <p class="ayuda mb-3"><i class="fa-solid fa-circle-info"></i> Sin fechas, el anuncio se muestra de inmediato y no vence. Lo ven las familias en su portal.</p>
+                    <div class="buttons">
+                        <button type="submit" class="button is-info"><i class="fa-solid fa-floppy-disk"></i>&nbsp; Guardar</button>
+                        <button type="button" class="button js-modal-cerrar">Cancelar</button>
+                    </div>
+                </section>
+            </form>
+        </div>
+    </div>
+        <div id="modal-anuncio-1" class="modal" data-abrir="0">
+        <div class="modal-background"></div>
+        <div class="modal-card is-large">
+            <form method="post">
+                <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">                <input type="hidden" name="accion" value="editar">
+                <input type="hidden" name="id" value="1">                <header class="modal-card-head">
+                    <p class="modal-card-title">Editar anuncio</p>
+                    <button class="delete" type="button" aria-label="Cerrar"></button>
+                </header>
+                <section class="modal-card-body">
+                                        <div class="form-group-modern">
+                        <label>Título <span class="required-dot">*</span></label>
+                        <input class="input" type="text" name="titulo" required maxlength="150" value="Taller para familias: límites y comunicación">
+                    </div>
+                    <div class="form-group-modern">
+                        <label>Contenido <span class="required-dot">*</span></label>
+                        <textarea class="textarea" name="contenido" required maxlength="5000" rows="6">Los invitamos al taller gratuito del próximo sábado a las 9:00 a. m. en la sede.
+Temas: comunicación asertiva, límites sanos y prevención de recaídas.
+Cupos limitados, confirme su asistencia en recepción.</textarea>
+                    </div>
+                    <div class="columns">
+                        <div class="column">
+                            <div class="form-group-modern">
+                                <label>Visible desde</label>
+                                <input class="input" type="datetime-local" name="visible_desde" value="2026-10-04T00:00">
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="form-group-modern">
+                                <label>Visible hasta</label>
+                                <input class="input" type="datetime-local" name="visible_hasta" value="2026-10-27T00:00">
+                            </div>
+                        </div>
+                    </div>
+                    <p class="ayuda mb-3"><i class="fa-solid fa-circle-info"></i> Sin fechas, el anuncio se muestra de inmediato y no vence. Lo ven las familias en su portal.</p>
+                    <div class="buttons">
+                        <button type="submit" class="button is-info"><i class="fa-solid fa-floppy-disk"></i>&nbsp; Guardar</button>
+                        <button type="button" class="button js-modal-cerrar">Cancelar</button>
+                    </div>
+                </section>
+            </form>
+        </div>
+    </div>
+        <div id="modal-anuncio-2" class="modal" data-abrir="0">
+        <div class="modal-background"></div>
+        <div class="modal-card is-large">
+            <form method="post">
+                <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">                <input type="hidden" name="accion" value="editar">
+                <input type="hidden" name="id" value="2">                <header class="modal-card-head">
+                    <p class="modal-card-title">Editar anuncio</p>
+                    <button class="delete" type="button" aria-label="Cerrar"></button>
+                </header>
+                <section class="modal-card-body">
+                                        <div class="form-group-modern">
+                        <label>Título <span class="required-dot">*</span></label>
+                        <input class="input" type="text" name="titulo" required maxlength="150" value="Nuevo horario de atención">
+                    </div>
+                    <div class="form-group-modern">
+                        <label>Contenido <span class="required-dot">*</span></label>
+                        <textarea class="textarea" name="contenido" required maxlength="5000" rows="6">A partir de este mes atendemos de lunes a viernes de 8:00 a. m. a 6:00 p. m. y sábados de 8:00 a. m. a 12:00 m.</textarea>
+                    </div>
+                    <div class="columns">
+                        <div class="column">
+                            <div class="form-group-modern">
+                                <label>Visible desde</label>
+                                <input class="input" type="datetime-local" name="visible_desde" value="2026-09-22T00:00">
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="form-group-modern">
+                                <label>Visible hasta</label>
+                                <input class="input" type="datetime-local" name="visible_hasta" value="">
+                            </div>
+                        </div>
+                    </div>
+                    <p class="ayuda mb-3"><i class="fa-solid fa-circle-info"></i> Sin fechas, el anuncio se muestra de inmediato y no vence. Lo ven las familias en su portal.</p>
+                    <div class="buttons">
+                        <button type="submit" class="button is-info"><i class="fa-solid fa-floppy-disk"></i>&nbsp; Guardar</button>
+                        <button type="button" class="button js-modal-cerrar">Cancelar</button>
+                    </div>
+                </section>
+            </form>
+        </div>
+    </div>
+        <div id="modal-anuncio-3" class="modal" data-abrir="0">
+        <div class="modal-background"></div>
+        <div class="modal-card is-large">
+            <form method="post">
+                <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">                <input type="hidden" name="accion" value="editar">
+                <input type="hidden" name="id" value="3">                <header class="modal-card-head">
+                    <p class="modal-card-title">Editar anuncio</p>
+                    <button class="delete" type="button" aria-label="Cerrar"></button>
+                </header>
+                <section class="modal-card-body">
+                                        <div class="form-group-modern">
+                        <label>Título <span class="required-dot">*</span></label>
+                        <input class="input" type="text" name="titulo" required maxlength="150" value="Agendamiento en línea">
+                    </div>
+                    <div class="form-group-modern">
+                        <label>Contenido <span class="required-dot">*</span></label>
+                        <textarea class="textarea" name="contenido" required maxlength="5000" rows="6">Recuerde que puede agendar las citas de seguimiento desde este portal los jueves y viernes. Si necesita otro horario, comuníquese con recepción.</textarea>
+                    </div>
+                    <div class="columns">
+                        <div class="column">
+                            <div class="form-group-modern">
+                                <label>Visible desde</label>
+                                <input class="input" type="datetime-local" name="visible_desde" value="2026-08-28T00:00">
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="form-group-modern">
+                                <label>Visible hasta</label>
+                                <input class="input" type="datetime-local" name="visible_hasta" value="">
+                            </div>
+                        </div>
+                    </div>
+                    <p class="ayuda mb-3"><i class="fa-solid fa-circle-info"></i> Sin fechas, el anuncio se muestra de inmediato y no vence. Lo ven las familias en su portal.</p>
+                    <div class="buttons">
+                        <button type="submit" class="button is-info"><i class="fa-solid fa-floppy-disk"></i>&nbsp; Guardar</button>
+                        <button type="button" class="button js-modal-cerrar">Cancelar</button>
+                    </div>
+                </section>
+            </form>
+        </div>
+    </div>
+    </main>
+<script src="../assets/js/app.js"></script>
+<script src="../demo/mapa.js"></script>
+<script src="../demo/demo.js"></script>
+</body>
+</html>

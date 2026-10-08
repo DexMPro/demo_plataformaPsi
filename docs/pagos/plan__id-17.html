@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="es" style="overflow:hidden;">
+<head>
+<script>window.DEMO_ROOT="..";window.DEMO_KEY="/pagos/plan.php?id=17";window.DEMO_HOY="2026-10-07";</script>
+<script src="../demo/tiempo.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">
+    <title>Plan de pagos · Plataforma Psicológica</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../demo/vendor/bulma/bulma.min.css">
+    <link rel="stylesheet" href="../demo/vendor/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/app.css">
+    <link rel="stylesheet" href="../assets/css/extra.css">
+    <link rel="icon" href="../assets/img/favicon-96x96.png" type="image/png">
+    <link rel="stylesheet" href="../assets/css/finanzas.css">    <link rel="stylesheet" href="../assets/css/ui.css">
+<link rel="stylesheet" href="../demo/demo.css">
+</head>
+<body>
+
+<button class="menu-toggle" type="button" onclick="toggleMenu()" aria-label="Menú"><i class="fas fa-bars"></i></button>
+
+<aside class="sidebar">
+    <div class="sidebar-brand">
+        <img src="../assets/img/logo.png" alt="">
+        <div>
+            <h2><a href="../inicio.html">Plataforma Psicológica</a></h2>
+            <span>Portal administrativo</span>
+        </div>
+    </div>
+
+    <nav>
+        <div class="sidebar-section-title">Navegación</div>
+
+        <a href="../inicio.html" class="">
+            <i class="fa-solid fa-house"></i> Inicio
+        </a>
+
+                    <a href="../pacientes/index.html" class="">
+                <i class="fa-solid fa-hospital-user"></i> Pacientes
+            </a>
+        
+                    <a href="../citas/index.html" class="">
+                <i class="fa-solid fa-calendar-check"></i> Citas
+            </a>
+        
+                    <a href="../empleados/index.html" class="">
+                <i class="fa-solid fa-user-tie"></i> Empleados
+            </a>
+        
+                    <a href="index.html" class="active">
+                <i class="fa-solid fa-sack-dollar"></i> Pagos
+            </a>
+        
+                    <a href="../gastos/index.html" class="">
+                <i class="fa-solid fa-receipt"></i> Gastos
+            </a>
+        
+                    <a href="../usuarios/index.html" class="">
+                <i class="fa-solid fa-users"></i> Usuarios
+            </a>
+        
+                    <a href="../anuncios/index.html" class="">
+                <i class="fa-solid fa-bullhorn"></i> Anuncios
+            </a>
+        
+                    <a href="../empresa/index.html" class="">
+                <i class="fa-solid fa-building"></i> Empresa
+            </a>
+        
+        <hr>
+
+        <form method="post" action="#demo-no-disponible" data-demo-action="/salir.php" class="form-salir">
+            <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">            <button type="submit"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</button>
+        </form>
+    </nav>
+
+    <div class="system-health">
+        <div class="system-health-title">Administración Demo</div>
+        <div class="health-indicator">
+            <div class="health-dot"></div>
+            Administrador        </div>
+    </div>
+</aside>
+
+<main class="main-content">
+<div class="columns header-titulos">
+    <div class="column is-flex is-align-items-center is-justify-content-space-between">
+        <h1 class="titulos-secciones" style="margin-bottom:0">Plan de pagos <span class="tag is-primary is-light">#17</span></h1>
+        <a class="btn-historia btn-historia-datos" href="index.html"><i class="fa-solid fa-arrow-left"></i> Zona de pagos</a>
+    </div>
+</div>
+
+<div class="historia-header">
+    <div class="paciente-info">
+        <div class="paciente-avatar">SH</div>
+        <div>
+            <div class="paciente-nombre">Sara Gabriela Herrera Pérez</div>
+            <div class="paciente-doc">TI 1037890414 · 320 641 4910</div>
+        </div>
+    </div>
+            <span class="estado-tag estado-pagado"><i class="fa-solid fa-circle-check"></i> Vigente</span>
+    </div>
+
+<div class="historia-acciones">
+    <button class="btn-historia btn-historia-editar js-modal-trigger" data-target="modal-editar-plan"><i class="fa-solid fa-pen-to-square"></i> Editar plan</button>
+    <button class="btn-historia btn-historia-evoluciones js-modal-trigger" data-target="modal-cobro"><i class="fa-solid fa-plus"></i> Agregar cobro</button>
+            <form method="post" class="en-linea" data-confirmar="¿Finalizar este plan con fecha de hoy? No se generarán más cobros.">
+            <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8"><input type="hidden" name="accion" value="finalizar">
+            <button class="btn-historia" type="submit" style="color:#b42318"><i class="fa-solid fa-ban"></i> Finalizar plan</button>
+        </form>
+    </div>
+
+<div class="stats-grid stats-grid-4">
+    <div class="stat-card">
+        <div class="stat-icon pacientes"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+        <div class="stat-info">
+            <div class="stat-number">$12.800.000</div>
+            <div class="stat-label">Total cobrado</div>
+        </div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-icon historias"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+        <div class="stat-info">
+            <div class="stat-number">$9.600.000</div>
+            <div class="stat-label">Total pagado</div>
+        </div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-icon evoluciones"><i class="fa-solid fa-scale-unbalanced"></i></div>
+        <div class="stat-info">
+            <div class="stat-number texto-deuda">$3.200.000</div>
+            <div class="stat-label">Saldo pendiente</div>
+        </div>
+    </div>
+</div>
+
+<div class="panel-blanco">
+    <h3><i class="fa-solid fa-circle-info"></i> Datos del plan</h3>
+    <div class="info-grid">
+                    <div class="info-card">
+                <div class="info-label">Descripción</div>
+                <div class="info-value">Plan ambulatorio intensivo</div>
+            </div>
+                    <div class="info-card">
+                <div class="info-label">Periodicidad</div>
+                <div class="info-value">Mensual</div>
+            </div>
+                    <div class="info-card">
+                <div class="info-label">Valor actual</div>
+                <div class="info-value">$1.600.000</div>
+            </div>
+                    <div class="info-card">
+                <div class="info-label">Referido por</div>
+                <div class="info-value">Exalumno del programa</div>
+            </div>
+                    <div class="info-card">
+                <div class="info-label">Inicio</div>
+                <div class="info-value">01/03/2026</div>
+            </div>
+                    <div class="info-card">
+                <div class="info-label">Finalización</div>
+                <div class="info-value">Vigente</div>
+            </div>
+            </div>
+</div>
+
+<div class="panel-blanco">
+    <h3><i class="fa-solid fa-file-invoice-dollar"></i> Cobros (8)</h3>
+            <div class="tabla-scroll">
+            <table class="tabla-simple">
+                <thead><tr><th>Periodo</th><th>Concepto</th><th class="has-text-right">Valor</th><th class="has-text-right">Pagado</th><th class="has-text-right">Saldo</th><th>Estado</th><th>Acciones</th></tr></thead>
+                <tbody>
+                                    <tr class="">
+                        <td><strong>Octubre 2026</strong>
+                                                    </td>
+                        <td>Plan ambulatorio intensivo</td>
+                        <td class="has-text-right">$1.600.000</td>
+                        <td class="has-text-right">$1.600.000</td>
+                        <td class="has-text-right">$0</td>
+                        <td><span class="estado-tag estado-pagado">Pagado</span></td>
+                        <td>
+                            <div class="acciones-fila">
+                                                                                            </div>
+                        </td>
+                    </tr>
+                                    <tr class="">
+                        <td><strong>Septiembre 2026</strong>
+                                                    </td>
+                        <td>Plan ambulatorio intensivo</td>
+                        <td class="has-text-right">$1.600.000</td>
+                        <td class="has-text-right">$1.600.000</td>
+                        <td class="has-text-right">$0</td>
+                        <td><span class="estado-tag estado-pagado">Pagado</span></td>
+                        <td>
+                            <div class="acciones-fila">
+                                                                                            </div>
+                        </td>
+                    </tr>
+                                    <tr class="">
+                        <td><strong>Agosto 2026</strong>
+                                                    </td>
+                        <td>Plan ambulatorio intensivo</td>
+                        <td class="has-text-right">$1.600.000</td>
+                        <td class="has-text-right">$1.600.000</td>
+                        <td class="has-text-right">$0</td>
+                        <td><span class="estado-tag estado-pagado">Pagado</span></td>
+                        <td>
+                            <div class="acciones-fila">
+                                                                                            </div>
+                        </td>
+                    </tr>
+                                    <tr class="">
+                        <td><strong>Julio 2026</strong>
+                                                            <div class="ayuda texto-deuda">Vencido desde 11/07/2026</div>
+                                                    </td>
+                        <td>Plan ambulatorio intensivo</td>
+                        <td class="has-text-right">$1.600.000</td>
+                        <td class="has-text-right">$800.000</td>
+                        <td class="has-text-right">$800.000</td>
+                        <td><span class="estado-tag estado-parcial">Parcial</span></td>
+                        <td>
+                            <div class="acciones-fila">
+                                                                    <button type="button" class="boton-mini exito js-pagar" data-cobro="83"
+                                            data-paciente="Sara Gabriela Herrera Pérez" data-periodo="Julio 2026"
+                                            data-saldo="800000.00"><i class="fa-solid fa-hand-holding-dollar"></i> Registrar pago</button>
+                                                                                            </div>
+                        </td>
+                    </tr>
+                                    <tr class="">
+                        <td><strong>Junio 2026</strong>
+                                                            <div class="ayuda texto-deuda">Vencido desde 11/06/2026</div>
+                                                    </td>
+                        <td>Plan ambulatorio intensivo</td>
+                        <td class="has-text-right">$1.600.000</td>
+                        <td class="has-text-right">$800.000</td>
+                        <td class="has-text-right">$800.000</td>
+                        <td><span class="estado-tag estado-parcial">Parcial</span></td>
+                        <td>
+                            <div class="acciones-fila">
+                                                                    <button type="button" class="boton-mini exito js-pagar" data-cobro="82"
+                                            data-paciente="Sara Gabriela Herrera Pérez" data-periodo="Junio 2026"
+                                            data-saldo="800000.00"><i class="fa-solid fa-hand-holding-dollar"></i> Registrar pago</button>
+                                                                                            </div>
+                        </td>
+                    </tr>
+                                    <tr class="">
+                        <td><strong>Mayo 2026</strong>
+                                                            <div class="ayuda texto-deuda">Vencido desde 11/05/2026</div>
+                                                    </td>
+                        <td>Plan ambulatorio intensivo</td>
+                        <td class="has-text-right">$1.600.000</td>
+                        <td class="has-text-right">$800.000</td>
+                        <td class="has-text-right">$800.000</td>
+                        <td><span class="estado-tag estado-parcial">Parcial</span></td>
+                        <td>
+                            <div class="acciones-fila">
+                                                                    <button type="button" class="boton-mini exito js-pagar" data-cobro="81"
+                                            data-paciente="Sara Gabriela Herrera Pérez" data-periodo="Mayo 2026"
+                                            data-saldo="800000.00"><i class="fa-solid fa-hand-holding-dollar"></i> Registrar pago</button>
+                                                                                            </div>
+                        </td>
+                    </tr>
+                                    <tr class="">
+                        <td><strong>Abril 2026</strong>
+                                                            <div class="ayuda texto-deuda">Vencido desde 11/04/2026</div>
+                                                    </td>
+                        <td>Plan ambulatorio intensivo</td>
+                        <td class="has-text-right">$1.600.000</td>
+                        <td class="has-text-right">$800.000</td>
+                        <td class="has-text-right">$800.000</td>
+                        <td><span class="estado-tag estado-parcial">Parcial</span></td>
+                        <td>
+                            <div class="acciones-fila">
+                                                                    <button type="button" class="boton-mini exito js-pagar" data-cobro="80"
+                                            data-paciente="Sara Gabriela Herrera Pérez" data-periodo="Abril 2026"
+                                            data-saldo="800000.00"><i class="fa-solid fa-hand-holding-dollar"></i> Registrar pago</button>
+                                                                                            </div>
+                        </td>
+                    </tr>
+                                    <tr class="">
+                        <td><strong>Marzo 2026</strong>
+                                                    </td>
+                        <td>Plan ambulatorio intensivo</td>
+                        <td class="has-text-right">$1.600.000</td>
+                        <td class="has-text-right">$1.600.000</td>
+                        <td class="has-text-right">$0</td>
+                        <td><span class="estado-tag estado-pagado">Pagado</span></td>
+                        <td>
+                            <div class="acciones-fila">
+                                                                                            </div>
+                        </td>
+                    </tr>
+                                </tbody>
+            </table>
+        </div>
+    </div>
+
+<div class="panel-blanco">
+    <h3><i class="fa-solid fa-money-bill-wave"></i> Pagos recibidos (9)</h3>
+            <div class="tabla-scroll">
+            <table class="tabla-simple">
+                <thead><tr><th>Fecha</th><th>Periodo</th><th class="has-text-right">Monto</th><th>Método</th><th>Referencia</th><th>Recibo nº</th><th>Registrado por</th><th>Estado</th><th></th></tr></thead>
+                <tbody>
+                                    <tr class="">
+                        <td>07/10/2026</td>
+                        <td>Octubre 2026</td>
+                        <td class="has-text-right"><strong>$1.600.000</strong></td>
+                        <td>Efectivo</td>
+                        <td>—</td>
+                        <td><span class="doc-badge">RC-000089</span></td>
+                        <td>Administración Demo</td>
+                        <td>
+                                                            <span class="estado-tag estado-pagado">Válido</span>
+                                                                                </td>
+                        <td>
+                            <div class="acciones-fila">
+                                <a class="boton-mini" target="_blank" rel="noopener" href="recibo__pago-89.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a>
+                                                                    <button type="button" class="boton-mini peligro js-anular-pago" data-pago="89"
+                                            data-recibo="RC-000089" data-monto="1600000.00"><i class="fa-solid fa-ban"></i> Anular</button>
+                                                            </div>
+                        </td>
+                    </tr>
+                                    <tr class="">
+                        <td>21/09/2026</td>
+                        <td>Septiembre 2026</td>
+                        <td class="has-text-right"><strong>$640.000</strong></td>
+                        <td>Transferencia</td>
+                        <td>24399310</td>
+                        <td><span class="doc-badge">RC-000088</span></td>
+                        <td>Administración Demo</td>
+                        <td>
+                                                            <span class="estado-tag estado-pagado">Válido</span>
+                                                                                </td>
+                        <td>
+                            <div class="acciones-fila">
+                                <a class="boton-mini" target="_blank" rel="noopener" href="recibo__pago-88.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a>
+                                                                    <button type="button" class="boton-mini peligro js-anular-pago" data-pago="88"
+                                            data-recibo="RC-000088" data-monto="640000.00"><i class="fa-solid fa-ban"></i> Anular</button>
+                                                            </div>
+                        </td>
+                    </tr>
+                                    <tr class="">
+                        <td>12/09/2026</td>
+                        <td>Septiembre 2026</td>
+                        <td class="has-text-right"><strong>$960.000</strong></td>
+                        <td>Nequi</td>
+                        <td>15115038</td>
+                        <td><span class="doc-badge">RC-000087</span></td>
+                        <td>Administración Demo</td>
+                        <td>
+                                                            <span class="estado-tag estado-pagado">Válido</span>
+                                                                                </td>
+                        <td>
+                            <div class="acciones-fila">
+                                <a class="boton-mini" target="_blank" rel="noopener" href="recibo__pago-87.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a>
+                                                                    <button type="button" class="boton-mini peligro js-anular-pago" data-pago="87"
+                                            data-recibo="RC-000087" data-monto="960000.00"><i class="fa-solid fa-ban"></i> Anular</button>
+                                                            </div>
+                        </td>
+                    </tr>
+                                    <tr class="">
+                        <td>08/08/2026</td>
+                        <td>Agosto 2026</td>
+                        <td class="has-text-right"><strong>$1.600.000</strong></td>
+                        <td>Nequi</td>
+                        <td>13670984</td>
+                        <td><span class="doc-badge">RC-000086</span></td>
+                        <td>Marcela Gómez</td>
+                        <td>
+                                                            <span class="estado-tag estado-pagado">Válido</span>
+                                                                                </td>
+                        <td>
+                            <div class="acciones-fila">
+                                <a class="boton-mini" target="_blank" rel="noopener" href="recibo__pago-86.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a>
+                                                                    <button type="button" class="boton-mini peligro js-anular-pago" data-pago="86"
+                                            data-recibo="RC-000086" data-monto="1600000.00"><i class="fa-solid fa-ban"></i> Anular</button>
+                                                            </div>
+                        </td>
+                    </tr>
+                                    <tr class="">
+                        <td>04/07/2026</td>
+                        <td>Julio 2026</td>
+                        <td class="has-text-right"><strong>$800.000</strong></td>
+                        <td>Transferencia</td>
+                        <td>24623081</td>
+                        <td><span class="doc-badge">RC-000085</span></td>
+                        <td>Administración Demo</td>
+                        <td>
+                                                            <span class="estado-tag estado-pagado">Válido</span>
+                                                                                </td>
+                        <td>
+                            <div class="acciones-fila">
+                                <a class="boton-mini" target="_blank" rel="noopener" href="recibo__pago-85.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a>
+                                                                    <button type="button" class="boton-mini peligro js-anular-pago" data-pago="85"
+                                            data-recibo="RC-000085" data-monto="800000.00"><i class="fa-solid fa-ban"></i> Anular</button>
+                                                            </div>
+                        </td>
+                    </tr>
+                                    <tr class="">
+                        <td>13/06/2026</td>
+                        <td>Junio 2026</td>
+                        <td class="has-text-right"><strong>$800.000</strong></td>
+                        <td>Transferencia</td>
+                        <td>45616935</td>
+                        <td><span class="doc-badge">RC-000084</span></td>
+                        <td>Administración Demo</td>
+                        <td>
+                                                            <span class="estado-tag estado-pagado">Válido</span>
+                                                                                </td>
+                        <td>
+                            <div class="acciones-fila">
+                                <a class="boton-mini" target="_blank" rel="noopener" href="recibo__pago-84.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a>
+                                                                    <button type="button" class="boton-mini peligro js-anular-pago" data-pago="84"
+                                            data-recibo="RC-000084" data-monto="800000.00"><i class="fa-solid fa-ban"></i> Anular</button>
+                                                            </div>
+                        </td>
+                    </tr>
+                                    <tr class="">
+                        <td>07/05/2026</td>
+                        <td>Mayo 2026</td>
+                        <td class="has-text-right"><strong>$800.000</strong></td>
+                        <td>Transferencia</td>
+                        <td>91419942</td>
+                        <td><span class="doc-badge">RC-000083</span></td>
+                        <td>Administración Demo</td>
+                        <td>
+                                                            <span class="estado-tag estado-pagado">Válido</span>
+                                                                                </td>
+                        <td>
+                            <div class="acciones-fila">
+                                <a class="boton-mini" target="_blank" rel="noopener" href="recibo__pago-83.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a>
+                                                                    <button type="button" class="boton-mini peligro js-anular-pago" data-pago="83"
+                                            data-recibo="RC-000083" data-monto="800000.00"><i class="fa-solid fa-ban"></i> Anular</button>
+                                                            </div>
+                        </td>
+                    </tr>
+                                    <tr class="">
+                        <td>08/04/2026</td>
+                        <td>Abril 2026</td>
+                        <td class="has-text-right"><strong>$800.000</strong></td>
+                        <td>Nequi</td>
+                        <td>13050064</td>
+                        <td><span class="doc-badge">RC-000082</span></td>
+                        <td>Marcela Gómez</td>
+                        <td>
+                                                            <span class="estado-tag estado-pagado">Válido</span>
+                                                                                </td>
+                        <td>
+                            <div class="acciones-fila">
+                                <a class="boton-mini" target="_blank" rel="noopener" href="recibo__pago-82.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a>
+                                                                    <button type="button" class="boton-mini peligro js-anular-pago" data-pago="82"
+                                            data-recibo="RC-000082" data-monto="800000.00"><i class="fa-solid fa-ban"></i> Anular</button>
+                                                            </div>
+                        </td>
+                    </tr>
+                                    <tr class="">
+                        <td>12/03/2026</td>
+                        <td>Marzo 2026</td>
+                        <td class="has-text-right"><strong>$1.600.000</strong></td>
+                        <td>Transferencia</td>
+                        <td>80825890</td>
+                        <td><span class="doc-badge">RC-000081</span></td>
+                        <td>Administración Demo</td>
+                        <td>
+                                                            <span class="estado-tag estado-pagado">Válido</span>
+                                                                                </td>
+                        <td>
+                            <div class="acciones-fila">
+                                <a class="boton-mini" target="_blank" rel="noopener" href="recibo__pago-81.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a>
+                                                                    <button type="button" class="boton-mini peligro js-anular-pago" data-pago="81"
+                                            data-recibo="RC-000081" data-monto="1600000.00"><i class="fa-solid fa-ban"></i> Anular</button>
+                                                            </div>
+                        </td>
+                    </tr>
+                                </tbody>
+            </table>
+        </div>
+    </div>
+
+<div id="modal-pago" class="modal modal-pago">
+    <form method="post">
+        <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">        <input type="hidden" name="accion" value="pagar">
+        <input type="hidden" name="cobro_id" value="">
+        <input type="hidden" name="plan_id" value="">
+        <input type="hidden" name="periodo" value="">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title"><i class="fa-solid fa-hand-holding-dollar"></i> Registrar pago</p>
+                <button class="delete" type="button" aria-label="Cerrar"></button>
+            </header>
+            <section class="modal-card-body">
+                <div class="pago-resumen">
+                    <div><span>Paciente</span><strong data-campo="paciente">—</strong></div>
+                    <div><span>Periodo</span><strong data-campo="periodo">—</strong></div>
+                    <div><span>Saldo pendiente</span><strong data-campo="saldo">—</strong></div>
+                </div>
+                <div class="columns">
+                    <div class="column is-6">
+                        <div class="form-group-modern">
+                            <label>Monto recibido <span class="required-dot">*</span></label>
+                            <input class="input" type="text" name="monto" data-dinero required inputmode="numeric" autocomplete="off">
+                            <p class="ayuda">Puede registrar un abono parcial.</p>
+                        </div>
+                    </div>
+                    <div class="column is-6">
+                        <div class="form-group-modern">
+                            <label>Fecha de pago <span class="required-dot">*</span></label>
+                            <input class="input" type="date" name="fecha_pago" required max="2026-10-07" value="2026-10-07">
+                        </div>
+                    </div>
+                </div>
+                <div class="columns">
+                    <div class="column is-6">
+                        <div class="form-group-modern">
+                            <label>Método <span class="required-dot">*</span></label>
+                            <div class="select is-fullwidth"><select name="metodo" required><option value="efectivo" selected>Efectivo</option><option value="transferencia">Transferencia</option><option value="nequi">Nequi</option><option value="daviplata">Daviplata</option><option value="tarjeta">Tarjeta</option><option value="otro">Otro</option></select></div>
+                        </div>
+                    </div>
+                    <div class="column is-6">
+                        <div class="form-group-modern">
+                            <label>Referencia</label>
+                            <input class="input" type="text" name="referencia" maxlength="100" placeholder="Nº de transacción o comprobante">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group-modern">
+                    <label>Observación</label>
+                    <input class="input" type="text" name="observacion" maxlength="200">
+                </div>
+            </section>
+            <footer class="modal-card-foot">
+                <button type="submit" class="button is-primary"><i class="fa-solid fa-floppy-disk"></i>&nbsp; Registrar pago</button>
+                <button type="button" class="button is-light js-modal-cerrar">Cancelar</button>
+            </footer>
+        </div>
+    </form>
+</div>
+    
+<div id="modal-anular-pago" class="modal modal-pago">
+    <form method="post">
+        <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">        <input type="hidden" name="accion" value="anular_pago">
+        <input type="hidden" name="pago_id" value="">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title"><i class="fa-solid fa-ban"></i> Anular pago</p>
+                <button class="delete" type="button" aria-label="Cerrar"></button>
+            </header>
+            <section class="modal-card-body">
+                <p class="mb-3">Recibo <strong data-campo="recibo"></strong> por <strong data-campo="monto"></strong>. El pago no se borra: queda marcado como anulado y el cobro vuelve a quedar pendiente por ese valor.</p>
+                <div class="form-group-modern">
+                    <label>Motivo de la anulación <span class="required-dot">*</span></label>
+                    <input class="input" type="text" name="motivo" maxlength="150" required placeholder="Ej.: pago registrado dos veces">
+                </div>
+            </section>
+            <footer class="modal-card-foot">
+                <button type="submit" class="button is-danger"><i class="fa-solid fa-ban"></i>&nbsp; Anular pago</button>
+                <button type="button" class="button is-light js-modal-cerrar">Cancelar</button>
+            </footer>
+        </div>
+    </form>
+</div>
+
+<div id="modal-editar-plan" class="modal modal-pago" data-abrir="0">
+    <form method="post">
+        <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">        <input type="hidden" name="accion" value="editar">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title"><i class="fa-solid fa-pen-to-square"></i> Editar plan</p>
+                <button class="delete" type="button" aria-label="Cerrar"></button>
+            </header>
+            <section class="modal-card-body">
+                                <div class="form-group-modern">
+                    <label>Descripción <span class="required-dot">*</span></label>
+                    <input class="input" type="text" name="descripcion" maxlength="150" required value="Plan ambulatorio intensivo">
+                </div>
+                <div class="columns">
+                    <div class="column is-6">
+                        <div class="form-group-modern">
+                            <label>Valor <span class="required-dot">*</span></label>
+                            <input class="input" type="text" name="valor" data-dinero required inputmode="numeric" value="$ 1.600.000">
+                            <p class="ayuda">Aplica solo a los cobros que se generen de aquí en adelante.</p>
+                        </div>
+                    </div>
+                    <div class="column is-6">
+                        <div class="form-group-modern">
+                            <label>Fecha de finalización</label>
+                            <input class="input" type="date" name="fecha_fin" min="2026-03-01" value="">
+                            <p class="ayuda">Vacía = plan vigente.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group-modern">
+                    <label>Referido por</label>
+                    <input class="input" type="text" name="referido_por" maxlength="150" value="Exalumno del programa">
+                </div>
+            </section>
+            <footer class="modal-card-foot">
+                <button type="submit" class="button is-primary"><i class="fa-solid fa-floppy-disk"></i>&nbsp; Guardar</button>
+                <button type="button" class="button is-light js-modal-cerrar">Cancelar</button>
+            </footer>
+        </div>
+    </form>
+</div>
+
+<div id="modal-cobro" class="modal modal-pago" data-abrir="0">
+    <form method="post">
+        <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">        <input type="hidden" name="accion" value="agregar_cobro">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title"><i class="fa-solid fa-plus-circle"></i> Agregar cobro</p>
+                <button class="delete" type="button" aria-label="Cerrar"></button>
+            </header>
+            <section class="modal-card-body">
+                                <div class="columns">
+                    <div class="column is-6">
+                        <div class="form-group-modern">
+                            <label>Periodo (mes) <span class="required-dot">*</span></label>
+                            <input class="input" type="month" name="periodo" required value="2026-10">
+                        </div>
+                    </div>
+                    <div class="column is-6">
+                        <div class="form-group-modern">
+                            <label>Valor <span class="required-dot">*</span></label>
+                            <input class="input" type="text" name="valor" data-dinero required inputmode="numeric" value="$ 1.600.000">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group-modern">
+                    <label>Concepto</label>
+                    <input class="input" type="text" name="concepto" maxlength="150" placeholder="Plan ambulatorio intensivo" value="">
+                </div>
+                <p class="ayuda">Para planes por sesión o cargos extra. Cada plan admite un solo cobro por mes.</p>
+            </section>
+            <footer class="modal-card-foot">
+                <button type="submit" class="button is-primary"><i class="fa-solid fa-floppy-disk"></i>&nbsp; Agregar cobro</button>
+                <button type="button" class="button is-light js-modal-cerrar">Cancelar</button>
+            </footer>
+        </div>
+    </form>
+</div>
+</main>
+<script src="../assets/js/app.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    function pesos(n) { return '$ ' + Math.floor(Number(n) || 0).toLocaleString('es-CO'); }
+    var modal = document.getElementById('modal-pago');
+    document.querySelectorAll('.js-pagar').forEach(function (btn) {
+        btn.addEventListener('click', function (ev) {
+            ev.preventDefault();
+            if (!modal) return;
+            var f = modal.querySelector('form');
+            f.elements['cobro_id'].value = btn.dataset.cobro || '';
+            f.elements['plan_id'].value = btn.dataset.plan || '';
+            f.elements['periodo'].value = btn.dataset.mes || '';
+            f.elements['monto'].value = pesos(btn.dataset.saldo);
+            f.elements['referencia'].value = '';
+            f.elements['observacion'].value = '';
+            modal.querySelector('[data-campo="paciente"]').textContent = btn.dataset.paciente || '—';
+            modal.querySelector('[data-campo="periodo"]').textContent = btn.dataset.periodo || '—';
+            modal.querySelector('[data-campo="saldo"]').textContent = pesos(btn.dataset.saldo);
+            modal.classList.add('is-active');
+            f.elements['monto'].focus();
+        });
+    });
+    var anular = document.getElementById('modal-anular-pago');
+    document.querySelectorAll('.js-anular-pago').forEach(function (btn) {
+        btn.addEventListener('click', function (ev) {
+            ev.preventDefault();
+            if (!anular) return;
+            var f = anular.querySelector('form');
+            f.elements['pago_id'].value = btn.dataset.pago;
+            f.elements['motivo'].value = '';
+            anular.querySelector('[data-campo="recibo"]').textContent = btn.dataset.recibo || '';
+            anular.querySelector('[data-campo="monto"]').textContent = pesos(btn.dataset.monto);
+            anular.classList.add('is-active');
+            f.elements['motivo'].focus();
+        });
+    });
+});
+</script><script src="../demo/mapa.js"></script>
+<script src="../demo/demo.js"></script>
+</body>
+</html>

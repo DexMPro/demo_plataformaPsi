@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<script>window.DEMO_ROOT="..";window.DEMO_KEY="/portal/cuenta.php";window.DEMO_HOY="2026-10-07";</script>
+<script src="../demo/tiempo.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="46b8f74be7f51ac5abdcbb64cb86cb06debc34f365fed2dea70d3383205c3524">
+    <title>Mi cuenta · Portal de familias · Plataforma Psicológica</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../demo/vendor/bulma/bulma.min.css">
+    <link rel="stylesheet" href="../demo/vendor/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/extra.css">
+    <link rel="icon" href="../assets/img/favicon-96x96.png" type="image/png">
+        <link rel="stylesheet" href="../assets/css/ui.css">
+    <link rel="stylesheet" href="../assets/css/portal.css">
+<link rel="stylesheet" href="../demo/demo.css">
+</head>
+<body class="portal-body">
+
+<nav class="navbar portal-navbar is-spaced" role="navigation" aria-label="Menú principal">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item portal-marca" href="index.html">
+                <img src="../assets/img/logo.png" alt="" width="40" height="40">
+                <span class="portal-marca-texto">
+                    <strong>Plataforma Psicológica</strong>
+                    <small>Portal de familias</small>
+                </span>
+            </a>
+            <a role="button" class="navbar-burger" aria-label="Abrir menú" aria-expanded="false" data-target="menuPortal">
+                <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div id="menuPortal" class="navbar-menu">
+            <div class="navbar-start portal-enlaces">
+                                    <a class="navbar-item" href="index.html">
+                        <span class="icon"><i class="fa-solid fa-house"></i></span>
+                        <span>Inicio</span>
+                    </a>
+                                    <a class="navbar-item" href="citas.html">
+                        <span class="icon"><i class="fa-solid fa-calendar-days"></i></span>
+                        <span>Citas</span>
+                    </a>
+                                    <a class="navbar-item is-active" href="cuenta.html" aria-current="page">
+                        <span class="icon"><i class="fa-solid fa-user"></i></span>
+                        <span>Mi cuenta</span>
+                    </a>
+                            </div>
+
+            <div class="navbar-end">
+                <div class="navbar-item has-dropdown portal-usuario">
+                    <a class="navbar-link is-arrowless" role="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="portal-usuario-avatar">PR</span>
+                        <span class="portal-usuario-nombre">
+                            <strong>Patricia Rojas</strong>
+                            <small>Familiar · acudiente</small>
+                        </span>
+                        <span class="icon is-small portal-usuario-flecha"><i class="fa-solid fa-chevron-down"></i></span>
+                    </a>
+                    <div class="navbar-dropdown is-right">
+                        <div class="portal-dropdown-cabecera">
+                            <strong>Patricia Rojas</strong>
+                            <span>familia.rojas@correo-demo.co</span>
+                        </div>
+                        <hr class="navbar-divider">
+                        <a class="navbar-item" href="cuenta.html"><span class="icon"><i class="fa-solid fa-user-gear"></i></span> Mi cuenta</a>
+                        <a class="navbar-item" href="citas.html"><span class="icon"><i class="fa-solid fa-calendar-plus"></i></span> Agendar una cita</a>
+                        <hr class="navbar-divider">
+                        <form method="post" action="#demo-no-disponible" data-demo-action="/salir.php" class="portal-salir">
+                            <input type="hidden" name="_csrf" value="46b8f74be7f51ac5abdcbb64cb86cb06debc34f365fed2dea70d3383205c3524">                            <button type="submit" class="navbar-item"><span class="icon"><i class="fa-solid fa-right-from-bracket"></i></span> Cerrar sesión</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<main class="portal-principal">
+    <div class="container portal-contenido">
+        <section class="portal-encabezado is-compacto">
+    <div class="portal-encabezado-fecha">Configuración</div>
+    <h1>Mi cuenta</h1>
+    <p>Consulte los datos de su usuario, los familiares vinculados y actualice su contraseña de acceso.</p>
+</section>
+
+<div class="columns is-variable is-5">
+    <div class="column is-5-desktop">
+        <div class="portal-caja portal-perfil">
+            <div class="portal-perfil-avatar">PR</div>
+            <h2>Patricia Rojas</h2>
+            <p>Familiar · acudiente</p>
+            <ul class="portal-datos">
+                <li><i class="fa-solid fa-user"></i><div><span>Usuario</span><strong>familia</strong></div></li>
+                <li><i class="fa-solid fa-envelope"></i><div><span>Correo electrónico</span><strong>familia.rojas@correo-demo.co</strong></div></li>
+            </ul>
+            <p class="ayuda mt-3">Si alguno de estos datos no es correcto, comuníquese con el consultorio.</p>
+        </div>
+
+        <div class="portal-caja">
+            <h3 class="portal-caja-titulo">Familiares vinculados</h3>
+                            <ul class="portal-datos" style="margin-top:0">
+                                            <li><i class="fa-solid fa-child-reaching"></i><div><strong>Daniel Rojas Londoño</strong><span>TI 81967330 · Madre</span></div></li>
+                                            <li><i class="fa-solid fa-child-reaching"></i><div><strong>Sebastián Rojas López</strong><span>TI 1088189218 · Madre</span></div></li>
+                                    </ul>
+                    </div>
+    </div>
+
+    <div class="column is-7-desktop">
+        <div class="portal-caja">
+            <h3 class="portal-caja-titulo">Cambiar contraseña</h3>
+            <p class="portal-texto-suave mb-4">Use una contraseña de al menos 8 caracteres que combine letras, números y símbolos. Al cambiarla se cerrará la sesión en los demás equipos donde haya marcado «Recuérdame».</p>
+                        <form method="post" autocomplete="off" class="portal-formulario">
+                <input type="hidden" name="_csrf" value="46b8f74be7f51ac5abdcbb64cb86cb06debc34f365fed2dea70d3383205c3524"><input type="hidden" name="accion" value="clave">
+                <div class="field">
+                    <label class="label" for="clave_actual">Contraseña actual</label>
+                    <div class="control has-icons-left">
+                        <input class="input" type="password" id="clave_actual" name="clave_actual" required autocomplete="current-password">
+                        <span class="icon is-left"><i class="fa-solid fa-lock"></i></span>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label" for="clave_nueva">Nueva contraseña</label>
+                    <div class="control has-icons-left">
+                        <input class="input" type="password" id="clave_nueva" name="clave_nueva" required minlength="8" autocomplete="new-password">
+                        <span class="icon is-left"><i class="fa-solid fa-key"></i></span>
+                    </div>
+                    <div class="portal-medidor" id="medidor-clave" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+                    <p class="ayuda" id="medidor-texto">Mínimo 8 caracteres.</p>
+                </div>
+                <div class="field">
+                    <label class="label" for="clave_confirmacion">Confirmar nueva contraseña</label>
+                    <div class="control has-icons-left">
+                        <input class="input" type="password" id="clave_confirmacion" name="clave_confirmacion" required minlength="8" autocomplete="new-password">
+                        <span class="icon is-left"><i class="fa-solid fa-check-double"></i></span>
+                    </div>
+                </div>
+                <div class="field is-grouped is-grouped-right mt-5">
+                    <div class="control">
+                        <button class="button is-link" type="submit"><span class="icon"><i class="fa-solid fa-floppy-disk"></i></span><span>Guardar contraseña</span></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+    </div>
+</main>
+
+<footer class="portal-pie">
+    <div class="container">
+        <div class="columns is-vcentered">
+            <div class="column is-5">
+                <div class="portal-pie-marca">
+                    <img src="../assets/img/logo.png" alt="" width="34" height="34">
+                    <div>
+                        <strong>Plataforma Psicológica</strong>
+                        <span>Centro de atención psicológica y acompañamiento familiar</span>                    </div>
+                </div>
+            </div>
+            <div class="column is-7">
+                <ul class="portal-pie-contacto">
+                                            <li><i class="fa-solid fa-phone"></i> 601 000 0000</li>
+                                                                <li><i class="fa-solid fa-envelope"></i> contacto@plataforma-demo.co</li>
+                                                                <li><i class="fa-solid fa-location-dot"></i> Calle 100 # 15-20, Of. 301, Bogotá</li>
+                                    </ul>
+            </div>
+        </div>
+        <div class="portal-pie-legal">
+            <span><i class="fa-solid fa-shield-halved"></i> Conexión privada. Sus datos se tratan de forma confidencial (Ley 1581 de 2012).</span>
+            <span>© 2026 Plataforma Psicológica</span>
+        </div>
+    </div>
+</footer>
+
+<script src="../assets/js/app.js"></script>
+<script>
+// Menú del portal: hamburguesa en móvil y desplegable del usuario.
+(function () {
+    var burger = document.querySelector('.portal-navbar .navbar-burger');
+    var menu = document.getElementById('menuPortal');
+    if (burger && menu) {
+        burger.addEventListener('click', function () {
+            var abierto = menu.classList.toggle('is-active');
+            burger.classList.toggle('is-active', abierto);
+            burger.setAttribute('aria-expanded', abierto ? 'true' : 'false');
+        });
+    }
+    var usuario = document.querySelector('.portal-usuario');
+    if (usuario) {
+        var enlace = usuario.querySelector('.navbar-link');
+        enlace.addEventListener('click', function (ev) {
+            ev.preventDefault();
+            var abierto = usuario.classList.toggle('is-active');
+            enlace.setAttribute('aria-expanded', abierto ? 'true' : 'false');
+        });
+        document.addEventListener('click', function (ev) {
+            if (!usuario.contains(ev.target)) {
+                usuario.classList.remove('is-active');
+                enlace.setAttribute('aria-expanded', 'false');
+            }
+        });
+        document.addEventListener('keydown', function (ev) {
+            if (ev.key === 'Escape') usuario.classList.remove('is-active');
+        });
+    }
+})();
+</script>
+<script>
+(function () {
+    var campo = document.getElementById('clave_nueva');
+    var barras = document.querySelectorAll('#medidor-clave span');
+    var texto = document.getElementById('medidor-texto');
+    var colores = ['#e5484d', '#f5a524', '#5b6ee1', '#1e9e62'];
+    var nombres = ['Débil', 'Aceptable', 'Buena', 'Fuerte'];
+    campo.addEventListener('input', function () {
+        var v = campo.value, n = 0;
+        if (v.length >= 8) n++;
+        if (/[a-z]/.test(v) && /[A-Z]/.test(v)) n++;
+        if (/\d/.test(v)) n++;
+        if (/[^A-Za-z0-9]/.test(v) || v.length >= 14) n++;
+        if (v.length < 8) n = Math.min(n, 1);
+        barras.forEach(function (b, i) { b.style.background = i < n ? colores[n - 1] : ''; });
+        texto.textContent = v ? (v.length < 8 ? 'Le faltan ' + (8 - v.length) + ' caracteres.' : 'Seguridad: ' + nombres[n - 1]) : 'Mínimo 8 caracteres.';
+    });
+})();
+</script>
+<script src="../demo/mapa.js"></script>
+<script src="../demo/portal-data.js"></script>
+<script src="../demo/demo.js"></script>
+</body>
+</html>

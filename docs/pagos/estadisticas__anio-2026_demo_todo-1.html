@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="es" style="overflow:hidden;">
+<head>
+<script>window.DEMO_ROOT="..";window.DEMO_KEY="/pagos/estadisticas.php?anio=2026&demo_todo=1";window.DEMO_HOY="2026-10-07";</script>
+<script src="../demo/tiempo.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">
+    <title>Estadísticas de pagos · Plataforma Psicológica</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../demo/vendor/bulma/bulma.min.css">
+    <link rel="stylesheet" href="../demo/vendor/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/app.css">
+    <link rel="stylesheet" href="../assets/css/extra.css">
+    <link rel="icon" href="../assets/img/favicon-96x96.png" type="image/png">
+    <link rel="stylesheet" href="../assets/css/finanzas.css">    <link rel="stylesheet" href="../assets/css/ui.css">
+<link rel="stylesheet" href="../demo/demo.css">
+</head>
+<body>
+
+<button class="menu-toggle" type="button" onclick="toggleMenu()" aria-label="Menú"><i class="fas fa-bars"></i></button>
+
+<aside class="sidebar">
+    <div class="sidebar-brand">
+        <img src="../assets/img/logo.png" alt="">
+        <div>
+            <h2><a href="../inicio.html">Plataforma Psicológica</a></h2>
+            <span>Portal administrativo</span>
+        </div>
+    </div>
+
+    <nav>
+        <div class="sidebar-section-title">Navegación</div>
+
+        <a href="../inicio.html" class="">
+            <i class="fa-solid fa-house"></i> Inicio
+        </a>
+
+                    <a href="../pacientes/index.html" class="">
+                <i class="fa-solid fa-hospital-user"></i> Pacientes
+            </a>
+        
+                    <a href="../citas/index.html" class="">
+                <i class="fa-solid fa-calendar-check"></i> Citas
+            </a>
+        
+                    <a href="../empleados/index.html" class="">
+                <i class="fa-solid fa-user-tie"></i> Empleados
+            </a>
+        
+                    <a href="index.html" class="active">
+                <i class="fa-solid fa-sack-dollar"></i> Pagos
+            </a>
+        
+                    <a href="../gastos/index.html" class="">
+                <i class="fa-solid fa-receipt"></i> Gastos
+            </a>
+        
+                    <a href="../usuarios/index.html" class="">
+                <i class="fa-solid fa-users"></i> Usuarios
+            </a>
+        
+                    <a href="../anuncios/index.html" class="">
+                <i class="fa-solid fa-bullhorn"></i> Anuncios
+            </a>
+        
+                    <a href="../empresa/index.html" class="">
+                <i class="fa-solid fa-building"></i> Empresa
+            </a>
+        
+        <hr>
+
+        <form method="post" action="#demo-no-disponible" data-demo-action="/salir.php" class="form-salir">
+            <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">            <button type="submit"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</button>
+        </form>
+    </nav>
+
+    <div class="system-health">
+        <div class="system-health-title">Administración Demo</div>
+        <div class="health-indicator">
+            <div class="health-dot"></div>
+            Administrador        </div>
+    </div>
+</aside>
+
+<main class="main-content">
+<div class="columns header-titulos">
+    <div class="column is-flex is-align-items-center is-justify-content-space-between">
+        <h1 class="titulos-secciones" style="margin-bottom:0">ESTADÍSTICAS DE PAGOS</h1>
+        <span class="empleados-count"><i class="fa-solid fa-chart-bar"></i> Año 2026</span>
+    </div>
+</div>
+
+<div class="historia-acciones">
+    <form method="get" class="filtros-pagos">
+        <div class="control has-icons-left" style="flex:1;min-width:240px">
+            <input class="input is-rounded" type="search" name="buscar" placeholder="Buscar por nombre o documento…" value="">
+            <span class="icon is-small is-left"><i class="fa-solid fa-magnifying-glass"></i></span>
+        </div>
+        <div class="select is-rounded">
+            <select name="anio" onchange="this.form.submit()" aria-label="Año">
+                                    <option value="2026" selected>2026</option>
+                                    <option value="2025">2025</option>
+                            </select>
+        </div>
+        <a href="index__anio-2026.html" class="btn-historia btn-historia-datos"><i class="fa-solid fa-arrow-left"></i> Volver a pagos</a>
+    </form>
+</div>
+
+<div class="stats-grid stats-grid-4">
+    <div class="stat-card">
+        <div class="stat-icon historias"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+        <div class="stat-info">
+            <div class="stat-number">$177.190.000</div>
+            <div class="stat-label">Total recaudado 2026</div>
+            <div class="stat-change positive"><i class="fa-solid fa-check-circle"></i> 86% de lo cobrado en el año</div>
+        </div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-icon evoluciones"><i class="fa-solid fa-hourglass-half"></i></div>
+        <div class="stat-info">
+            <div class="stat-number">$28.510.000</div>
+            <div class="stat-label">Pendiente por cobrar</div>
+            <div class="stat-change neutral">87 de 108 cobros pagados</div>
+        </div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-icon empleados"><i class="fa-solid fa-calculator"></i></div>
+        <div class="stat-info">
+            <div class="stat-number">$1.654.000</div>
+            <div class="stat-label">Valor promedio</div>
+            <div class="stat-change neutral"><i class="fa-solid fa-chart-line"></i> Planes activos</div>
+        </div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-icon pacientes"><i class="fa-solid fa-users"></i></div>
+        <div class="stat-info">
+            <div class="stat-number">20</div>
+            <div class="stat-label">Planes activos</div>
+            <div class="stat-change neutral"><i class="fa-solid fa-ban"></i> 4 finalizados</div>
+        </div>
+    </div>
+</div>
+
+<div class="dash-card mb-5">
+    <div class="dash-card-header">
+        <h3><i class="fa-solid fa-chart-column"></i> Recaudo mensual 2026</h3>
+        <span class="evo-count-badge">Por fecha de pago</span>
+    </div>
+    <div class="dash-card-body">
+        <div class="genero-distribucion">
+                            <div class="genero-item">
+                    <div class="genero-info" style="width:90px"><span style="font-size:12px;font-weight:600">Enero</span></div>
+                    <div class="genero-barra-container">
+                        <div class="genero-barra" style="width:36%;background:#667eea"></div>
+                    </div>
+                    <div class="genero-cantidad" style="width:120px"><strong>$9.270.000</strong></div>
+                </div>
+                            <div class="genero-item">
+                    <div class="genero-info" style="width:90px"><span style="font-size:12px;font-weight:600">Febrero</span></div>
+                    <div class="genero-barra-container">
+                        <div class="genero-barra" style="width:40%;background:#764ba2"></div>
+                    </div>
+                    <div class="genero-cantidad" style="width:120px"><strong>$10.220.000</strong></div>
+                </div>
+                            <div class="genero-item">
+                    <div class="genero-info" style="width:90px"><span style="font-size:12px;font-weight:600">Marzo</span></div>
+                    <div class="genero-barra-container">
+                        <div class="genero-barra" style="width:50%;background:#667eea"></div>
+                    </div>
+                    <div class="genero-cantidad" style="width:120px"><strong>$12.905.000</strong></div>
+                </div>
+                            <div class="genero-item">
+                    <div class="genero-info" style="width:90px"><span style="font-size:12px;font-weight:600">Abril</span></div>
+                    <div class="genero-barra-container">
+                        <div class="genero-barra" style="width:53%;background:#764ba2"></div>
+                    </div>
+                    <div class="genero-cantidad" style="width:120px"><strong>$13.640.000</strong></div>
+                </div>
+                            <div class="genero-item">
+                    <div class="genero-info" style="width:90px"><span style="font-size:12px;font-weight:600">Mayo</span></div>
+                    <div class="genero-barra-container">
+                        <div class="genero-barra" style="width:92%;background:#667eea"></div>
+                    </div>
+                    <div class="genero-cantidad" style="width:120px"><strong>$23.490.000</strong></div>
+                </div>
+                            <div class="genero-item">
+                    <div class="genero-info" style="width:90px"><span style="font-size:12px;font-weight:600">Junio</span></div>
+                    <div class="genero-barra-container">
+                        <div class="genero-barra" style="width:72%;background:#764ba2"></div>
+                    </div>
+                    <div class="genero-cantidad" style="width:120px"><strong>$18.510.000</strong></div>
+                </div>
+                            <div class="genero-item">
+                    <div class="genero-info" style="width:90px"><span style="font-size:12px;font-weight:600">Julio</span></div>
+                    <div class="genero-barra-container">
+                        <div class="genero-barra" style="width:93%;background:#667eea"></div>
+                    </div>
+                    <div class="genero-cantidad" style="width:120px"><strong>$23.850.000</strong></div>
+                </div>
+                            <div class="genero-item">
+                    <div class="genero-info" style="width:90px"><span style="font-size:12px;font-weight:600">Agosto</span></div>
+                    <div class="genero-barra-container">
+                        <div class="genero-barra" style="width:100%;background:#764ba2"></div>
+                    </div>
+                    <div class="genero-cantidad" style="width:120px"><strong>$25.660.000</strong></div>
+                </div>
+                            <div class="genero-item">
+                    <div class="genero-info" style="width:90px"><span style="font-size:12px;font-weight:600">Septiembre</span></div>
+                    <div class="genero-barra-container">
+                        <div class="genero-barra" style="width:96%;background:#667eea"></div>
+                    </div>
+                    <div class="genero-cantidad" style="width:120px"><strong>$24.535.000</strong></div>
+                </div>
+                            <div class="genero-item">
+                    <div class="genero-info" style="width:90px"><span style="font-size:12px;font-weight:600">Octubre</span></div>
+                    <div class="genero-barra-container">
+                        <div class="genero-barra" style="width:59%;background:#764ba2"></div>
+                    </div>
+                    <div class="genero-cantidad" style="width:120px"><strong>$15.110.000</strong></div>
+                </div>
+                            <div class="genero-item">
+                    <div class="genero-info" style="width:90px"><span style="font-size:12px;font-weight:600">Noviembre</span></div>
+                    <div class="genero-barra-container">
+                        <div class="genero-barra" style="width:0%;background:#667eea"></div>
+                    </div>
+                    <div class="genero-cantidad" style="width:120px"><strong>$0</strong></div>
+                </div>
+                            <div class="genero-item">
+                    <div class="genero-info" style="width:90px"><span style="font-size:12px;font-weight:600">Diciembre</span></div>
+                    <div class="genero-barra-container">
+                        <div class="genero-barra" style="width:0%;background:#764ba2"></div>
+                    </div>
+                    <div class="genero-cantidad" style="width:120px"><strong>$0</strong></div>
+                </div>
+                    </div>
+    </div>
+</div>
+
+<div class="dash-card">
+    <div class="dash-card-header">
+        <h3><i class="fa-solid fa-list-check"></i> Detalle por paciente</h3>
+        <span class="evo-count-badge">24 plan(es)</span>
+    </div>
+    <div class="dash-card-body" style="padding:0">
+        <div class="tabla-scroll">
+            <table class="tabla-historias" style="border-radius:0">
+                <thead>
+                <tr>
+                    <th>Paciente</th>
+                    <th>Fecha inicio</th>
+                    <th class="has-text-right">Valor</th>
+                    <th class="has-text-centered">Cobros pagados 2026</th>
+                    <th class="has-text-right">Deuda total</th>
+                    <th class="has-text-centered">Días de mora</th>
+                    <th class="has-text-centered">Estado</th>
+                    <th class="has-text-centered">Ver</th>
+                </tr>
+                </thead>
+                <tbody>
+                                    <tr>
+                        <td><strong>Daniel Rojas Londoño</strong>
+                            <div class="plan-sub">TI 81967330 · Internado mensual</div></td>
+                        <td>01/09/2026</td>
+                        <td class="has-text-right">$3.800.000</td>
+                        <td class="has-text-centered"><span class="evoluciones-badge">1/2</span></td>
+                        <td class="has-text-right"><strong class="texto-deuda">$3.800.000</strong></td>
+                        <td class="has-text-centered">
+                                                            <span class="mora-baja">6 días</span>
+                                                    </td>
+                        <td class="has-text-centered">
+                                                            <span class="pago-badge pendiente">Pendiente</span>
+                                                    </td>
+                        <td class="has-text-centered"><a class="btn-ver" href="plan__id-1.html" title="Ver plan"><i class="fa-solid fa-magnifying-glass"></i></a></td>
+                    </tr>
+                                    <tr style="opacity:.6">
+                        <td><strong>Daniela Torres Londoño</strong>
+                            <div class="plan-sub">CC 46332090 · Internado mensual</div></td>
+                        <td>01/01/2026</td>
+                        <td class="has-text-right">$3.800.000</td>
+                        <td class="has-text-centered"><span class="evoluciones-badge">7/8</span></td>
+                        <td class="has-text-right"><strong class="texto-deuda">$3.800.000</strong></td>
+                        <td class="has-text-centered">
+                                                            <span class="mora-alta">128 días</span>
+                                                    </td>
+                        <td class="has-text-centered">
+                                                            <span class="pago-badge anulado">Finalizado</span>
+                                                    </td>
+                        <td class="has-text-centered"><a class="btn-ver" href="plan__id-6.html" title="Ver plan"><i class="fa-solid fa-magnifying-glass"></i></a></td>
+                    </tr>
+                                    <tr>
+                        <td><strong>Juan José Camilo Vargas Martínez</strong>
+                            <div class="plan-sub">TI 1014597226 · Internado mensual</div></td>
+                        <td>01/11/2025</td>
+                        <td class="has-text-right">$3.800.000</td>
+                        <td class="has-text-centered"><span class="evoluciones-badge">9/10</span></td>
+                        <td class="has-text-right"><strong class="texto-deuda">$3.800.000</strong></td>
+                        <td class="has-text-centered">
+                                                            <span class="mora-baja">6 días</span>
+                                                    </td>
+                        <td class="has-text-centered">
+                                                            <span class="pago-badge pendiente">Pendiente</span>
+                                                    </td>
+                        <td class="has-text-centered"><a class="btn-ver" href="plan__id-21.html" title="Ver plan"><i class="fa-solid fa-magnifying-glass"></i></a></td>
+                    </tr>
+                                    <tr>
+                        <td><strong>Sofía Torres Vargas</strong>
+                            <div class="plan-sub">TI 1083208769 · Internado mensual</div></td>
+                        <td>01/04/2026</td>
+                        <td class="has-text-right">$3.800.000</td>
+                        <td class="has-text-centered"><span class="evoluciones-badge">5/7</span></td>
+                        <td class="has-text-right"><strong class="texto-deuda">$3.800.000</strong></td>
+                        <td class="has-text-centered">
+                                                            <span class="mora-alta">189 días</span>
+                                                    </td>
+                        <td class="has-text-centered">
+                                                            <span class="pago-badge pendiente">Pendiente</span>
+                                                    </td>
+                        <td class="has-text-centered"><a class="btn-ver" href="plan__id-16.html" title="Ver plan"><i class="fa-solid fa-magnifying-glass"></i></a></td>
+                    </tr>
+                                    <tr>
+                        <td><strong>Sara Gabriela Herrera Pérez</strong>
+                            <div class="plan-sub">TI 1037890414 · Plan ambulatorio intensivo</div></td>
+                        <td>01/03/2026</td>
+                        <td class="has-text-right">$1.600.000</td>
+                        <td class="has-text-centered"><span class="evoluciones-badge">4/8</span></td>
+                        <td class="has-text-right"><strong class="texto-deuda">$3.200.000</strong></td>
+                        <td class="has-text-centered">
+                                                            <span class="mora-alta">189 días</span>
+                                                    </td>
+                        <td class="has-text-centered">
+                                                            <span class="pago-badge pendiente">Pendiente</span>
+                                                    </td>
+                        <td class="has-text-centered"><a class="btn-ver" href="plan__id-17.html" title="Ver plan"><i class="fa-solid fa-magnifying-glass"></i></a></td>
+                    </tr>
+                                    <tr>
+                        <td><strong>Esteban Hernández Vargas</strong>
+                            <div class="plan-sub">CC 32552269 · Acompañamiento mensual</div></td>
+                        <td>01/02/2026</td>
+                        <td class="has-text-right">$950.000</td>
+                        <td class="has-text-centered"><span class="evoluciones-badge">6/9</span></td>
+                        <td class="has-text-right"><strong class="texto-deuda">$2.375.000</strong></td>
+                        <td class="has-text-centered">
+                                                            <span class="mora-alta">220 días</span>
+                                                    </td>
+                        <td class="has-text-centered">
+                                                            <span class="pago-badge pendiente">Pendiente</span>
+                                                    </td>
+                        <td class="has-text-centered"><a class="btn-ver" href="plan__id-3.html" title="Ver plan"><i class="fa-solid fa-magnifying-glass"></i></a></td>
+                    </tr>
+                                    <tr>
+                        <td><strong>Sebastián Rojas López</strong>
+                            <div class="plan-sub">TI 1088189218 · Plan ambulatorio intensivo</div></td>
+                        <td>01/05/2026</td>
+                        <td class="has-text-right">$1.600.000</td>
+                        <td class="has-text-centered"><span class="evoluciones-badge">5/6</span></td>
+                        <td class="has-text-right"><strong class="texto-deuda">$1.600.000</strong></td>
+                        <td class="has-text-centered">
+                                                            <span class="mora-baja">6 días</span>
+                                                    </td>
+                        <td class="has-text-centered">
+                                                            <span class="pago-badge pendiente">Pendiente</span>
+                                                    </td>
+                        <td class="has-text-centered"><a class="btn-ver" href="plan__id-2.html" title="Ver plan"><i class="fa-solid fa-magnifying-glass"></i></a></td>
+                    </tr>
+                                    <tr>
+                        <td><strong>Sofía Vargas Gutiérrez</strong>
+                            <div class="plan-sub">CC 82006536 · Plan ambulatorio intensivo</div></td>
+                        <td>01/10/2026</td>
+                        <td class="has-text-right">$1.600.000</td>
+                        <td class="has-text-centered"><span class="evoluciones-badge">0/1</span></td>
+                        <td class="has-text-right"><strong class="texto-deuda">$1.600.000</strong></td>
+                        <td class="has-text-centered">
+                                                            <span class="mora-baja">6 días</span>
+                                                    </td>
+                        <td class="has-text-centered">
+                                                            <span class="pago-badge pendiente">Pendiente</span>
+                                                    </td>
+                        <td class="has-text-centered"><a class="btn-ver" href="plan__id-22.html" title="Ver plan"><i class="fa-solid fa-magnifying-glass"></i></a></td>
+                    </tr>
+                                    <tr>
+                        <td><strong>Sara Paula Quintero Jiménez</strong>
+                            <div class="plan-sub">CC 11897335 · Terapia familiar mensual</div></td>
+                        <td>01/12/2025</td>
+                        <td class="has-text-right">$720.000</td>
+                        <td class="has-text-centered"><span class="evoluciones-badge">8/10</span></td>
+                        <td class="has-text-right"><strong class="texto-deuda">$1.080.000</strong></td>
+                        <td class="has-text-centered">
+                                                            <span class="mora-alta">220 días</span>
+                                                    </td>
+                        <td class="has-text-centered">
+                                                            <span class="pago-badge pendiente">Pendiente</span>
+                                                    </td>
+                        <td class="has-text-centered"><a class="btn-ver" href="plan__id-15.html" title="Ver plan"><i class="fa-solid fa-magnifying-glass"></i></a></td>
+                    </tr>
+                                    <tr>
+                        <td><strong>Daniel Sánchez Pérez</strong>
+                            <div class="plan-sub">CC 85249699 · Acompañamiento mensual</div></td>
+                        <td>01/10/2026</td>
+                        <td class="has-text-right">$950.000</td>
+                        <td class="has-text-centered"><span class="evoluciones-badge">0/1</span></td>
+                        <td class="has-text-right"><strong class="texto-deuda">$950.000</strong></td>
+                        <td class="has-text-centered">
+                                                            <span class="mora-baja">6 días</span>
+                                                    </td>
+                        <td class="has-text-centered">
+                                                            <span class="pago-badge pendiente">Pendiente</span>
+                                                    </td>
+                        <td class="has-text-centered"><a class="btn-ver" href="plan__id-13.html" title="Ver plan"><i class="fa-solid fa-magnifying-glass"></i></a></td>
+                    </tr>
+                                    <tr>
+                        <td><strong>Sara Vargas Díaz</strong>
+                            <div class="plan-sub">TI 1083494142 · Acompañamiento mensual</div></td>
+                        <td>01/05/2026</td>
+                        <td class="has-text-right">$950.000</td>
+                        <td class="has-text-centered"><span class="evoluciones-badge">5/6</span></td>
+                        <td class="has-text-right"><strong class="texto-deuda">$950.000</strong></td>
+                        <td class="has-text-centered">
+                                                            <span class="mora-baja">6 días</span>
+                                                    </td>
+                        <td class="has-text-centered">
+                                                            <span class="pago-badge pendiente">Pendiente</span>
+                                                    </td>
+                        <td class="has-text-centered"><a class="btn-ver" href="plan__id-23.html" title="Ver plan"><i class="fa-solid fa-magnifying-glass"></i></a></td>
+                    </tr>
+                                    <tr>
+                        <td><strong>Natalia Cárdenas Díaz</strong>
+                            <div class="plan-sub">CC 46858321 · Terapia familiar mensual</div></td>
+                        <td>01/03/2026</td>
+                        <td class="has-text-right">$720.000</td>
+                        <td class="has-text-centered"><span class="evoluciones-badge">7/8</span></td>
+                        <td class="has-text-right"><strong class="texto-deuda">$720.000</strong></td>
+                        <td class="has-text-centered">
+                                                            <span class="mora-baja">6 días</span>
+                                                    </td>
+                        <td class="has-text-centered">
+                                                            <span class="pago-badge pendiente">Pendiente</span>
+                                                    </td>
+                        <td class="has-text-centered"><a class="btn-ver" href="plan__id-20.html" title="Ver plan"><i class="fa-solid fa-magnifying-glass"></i></a></td>
+                    </tr>
+                                    <tr>
+                        <td><strong>Carolina Daniela Londoño Aguilar</strong>
+                            <div class="plan-sub">TI 1062263036 · Acompañamiento mensual</div></td>
+                        <td>01/12/2025</td>
+                        <td class="has-text-right">$950.000</td>
+                        <td class="has-text-centered"><span class="evoluciones-badge">9/10</span></td>
+                        <td class="has-text-right"><strong class="texto-deuda">$475.000</strong></td>
+                        <td class="has-text-centered">
+                                                            <span class="mora-media">36 días</span>
+                                                    </td>
+                        <td class="has-text-centered">
+                                                            <span class="pago-badge pendiente">Pendiente</span>
+                                                    </td>
+                        <td class="has-text-centered"><a class="btn-ver" href="plan__id-8.html" title="Ver plan"><i class="fa-solid fa-magnifying-glass"></i></a></td>
+                    </tr>
+                                    <tr>
+                        <td><strong>Mariana Cárdenas Moreno</strong>
+                            <div class="plan-sub">CC 37199395 · Terapia familiar mensual</div></td>
+                        <td>01/06/2026</td>
+                        <td class="has-text-right">$720.000</td>
+                        <td class="has-text-centered"><span class="evoluciones-badge">4/5</span></td>
+                        <td class="has-text-right"><strong class="texto-deuda">$360.000</strong></td>
+                        <td class="has-text-centered">
+                                                            <span class="mora-alta">98 días</span>
+                                                    </td>
+                        <td class="has-text-centered">
+                                                            <span class="pago-badge pendiente">Pendiente</span>
+                                                    </td>
+                        <td class="has-text-centered"><a class="btn-ver" href="plan__id-5.html" title="Ver plan"><i class="fa-solid fa-magnifying-glass"></i></a></td>
+                    </tr>
+                                    <tr>
+                        <td><strong>Carolina Díaz Zapata</strong>
+                            <div class="plan-sub">CC 18947695 · Paquete 8 sesiones</div></td>
+                        <td>01/11/2025</td>
+                        <td class="has-text-right">$1.200.000</td>
+                        <td class="has-text-centered"><span class="evoluciones-badge">0/0</span></td>
+                        <td class="has-text-right">$0</td>
+                        <td class="has-text-centered">
+                                                            <span class="mora-ok">Al día</span>
+                                                    </td>
+                        <td class="has-text-centered">
+                                                            <span class="pago-badge pagado">Al día</span>
+                                                    </td>
+                        <td class="has-text-centered"><a class="btn-ver" href="plan__id-9.html" title="Ver plan"><i class="fa-solid fa-magnifying-glass"></i></a></td>
+                    </tr>
+                                    <tr style="opacity:.6">
+                        <td><strong>Daniela Antonia Herrera Arango</strong>
+                            <div class="plan-sub">CC 48471089 · Paquete 8 sesiones</div></td>
+                        <td>01/03/2026</td>
+                        <td class="has-text-right">$1.200.000</td>
+                        <td class="has-text-centered"><span class="evoluciones-badge">1/1</span></td>
+                        <td class="has-text-right">$0</td>
+                        <td class="has-text-centered">
+                                                            <span class="mora-ok">Al día</span>
+                                                    </td>
+                        <td class="has-text-centered">
+                                                            <span class="pago-badge anulado">Finalizado</span>
+                                                    </td>
+                        <td class="has-text-centered"><a class="btn-ver" href="plan__id-24.html" title="Ver plan"><i class="fa-solid fa-magnifying-glass"></i></a></td>
+                    </tr>
+                                    <tr>
+                        <td><strong>Daniela Rodríguez Londoño</strong>
+                            <div class="plan-sub">CC 41332109 · Plan ambulatorio intensivo</div></td>
+                        <td>01/05/2026</td>
+                        <td class="has-text-right">$1.600.000</td>
+                        <td class="has-text-centered"><span class="evoluciones-badge">6/6</span></td>
+                        <td class="has-text-right">$0</td>
+                        <td class="has-text-centered">
+                                                            <span class="mora-ok">Al día</span>
+                                                    </td>
+                        <td class="has-text-centered">
+                                                            <span class="pago-badge pagado">Al día</span>
+                                                    </td>
+                        <td class="has-text-centered"><a class="btn-ver" href="plan__id-7.html" title="Ver plan"><i class="fa-solid fa-magnifying-glass"></i></a></td>
+                    </tr>
+                                    <tr>
+                        <td><strong>Diego Esteban Castro Medina</strong>
+                            <div class="plan-sub">CC 11368404 · Paquete 8 sesiones</div></td>
+                        <td>01/10/2026</td>
+                        <td class="has-text-right">$1.200.000</td>
+                        <td class="has-text-centered"><span class="evoluciones-badge">1/1</span></td>
+                        <td class="has-text-right">$0</td>
+                        <td class="has-text-centered">
+                                                            <span class="mora-ok">Al día</span>
+                                                    </td>
+                        <td class="has-text-centered">
+                                                            <span class="pago-badge pagado">Al día</span>
+                                                    </td>
+                        <td class="has-text-centered"><a class="btn-ver" href="plan__id-4.html" title="Ver plan"><i class="fa-solid fa-magnifying-glass"></i></a></td>
+                    </tr>
+                                    <tr style="opacity:.6">
+                        <td><strong>Juan José Rojas Medina</strong>
+                            <div class="plan-sub">CC 37273784 · Acompañamiento mensual</div></td>
+                        <td>01/09/2026</td>
+                        <td class="has-text-right">$950.000</td>
+                        <td class="has-text-centered"><span class="evoluciones-badge">0/0</span></td>
+                        <td class="has-text-right">$0</td>
+                        <td class="has-text-centered">
+                                                            <span class="mora-ok">Al día</span>
+                                                    </td>
+                        <td class="has-text-centered">
+                                                            <span class="pago-badge anulado">Finalizado</span>
+                                                    </td>
+                        <td class="has-text-centered"><a class="btn-ver" href="plan__id-18.html" title="Ver plan"><i class="fa-solid fa-magnifying-glass"></i></a></td>
+                    </tr>
+                                    <tr style="opacity:.6">
+                        <td><strong>Natalia Salazar Torres</strong>
+                            <div class="plan-sub">CC 69905541 · Plan ambulatorio intensivo</div></td>
+                        <td>01/08/2026</td>
+                        <td class="has-text-right">$1.600.000</td>
+                        <td class="has-text-centered"><span class="evoluciones-badge">1/1</span></td>
+                        <td class="has-text-right">$0</td>
+                        <td class="has-text-centered">
+                                                            <span class="mora-ok">Al día</span>
+                                                    </td>
+                        <td class="has-text-centered">
+                                                            <span class="pago-badge anulado">Finalizado</span>
+                                                    </td>
+                        <td class="has-text-centered"><a class="btn-ver" href="plan__id-12.html" title="Ver plan"><i class="fa-solid fa-magnifying-glass"></i></a></td>
+                    </tr>
+                                    <tr>
+                        <td><strong>Samuel Daniel Díaz Ramírez</strong>
+                            <div class="plan-sub">TI 1016843871 · Terapia familiar mensual</div></td>
+                        <td>01/09/2026</td>
+                        <td class="has-text-right">$720.000</td>
+                        <td class="has-text-centered"><span class="evoluciones-badge">2/2</span></td>
+                        <td class="has-text-right">$0</td>
+                        <td class="has-text-centered">
+                                                            <span class="mora-ok">Al día</span>
+                                                    </td>
+                        <td class="has-text-centered">
+                                                            <span class="pago-badge pagado">Al día</span>
+                                                    </td>
+                        <td class="has-text-centered"><a class="btn-ver" href="plan__id-10.html" title="Ver plan"><i class="fa-solid fa-magnifying-glass"></i></a></td>
+                    </tr>
+                                    <tr>
+                        <td><strong>Sara Romero Gutiérrez</strong>
+                            <div class="plan-sub">CC 54307065 · Paquete 8 sesiones</div></td>
+                        <td>01/12/2025</td>
+                        <td class="has-text-right">$1.200.000</td>
+                        <td class="has-text-centered"><span class="evoluciones-badge">0/0</span></td>
+                        <td class="has-text-right">$0</td>
+                        <td class="has-text-centered">
+                                                            <span class="mora-ok">Al día</span>
+                                                    </td>
+                        <td class="has-text-centered">
+                                                            <span class="pago-badge pagado">Al día</span>
+                                                    </td>
+                        <td class="has-text-centered"><a class="btn-ver" href="plan__id-19.html" title="Ver plan"><i class="fa-solid fa-magnifying-glass"></i></a></td>
+                    </tr>
+                                    <tr>
+                        <td><strong>Sofía Herrera Pérez</strong>
+                            <div class="plan-sub">TI 1081265886 · Paquete 8 sesiones</div></td>
+                        <td>01/11/2025</td>
+                        <td class="has-text-right">$1.200.000</td>
+                        <td class="has-text-centered"><span class="evoluciones-badge">0/0</span></td>
+                        <td class="has-text-right">$0</td>
+                        <td class="has-text-centered">
+                                                            <span class="mora-ok">Al día</span>
+                                                    </td>
+                        <td class="has-text-centered">
+                                                            <span class="pago-badge pagado">Al día</span>
+                                                    </td>
+                        <td class="has-text-centered"><a class="btn-ver" href="plan__id-14.html" title="Ver plan"><i class="fa-solid fa-magnifying-glass"></i></a></td>
+                    </tr>
+                                    <tr>
+                        <td><strong>Sofía Sánchez Hernández</strong>
+                            <div class="plan-sub">TI 1009278108 · Internado mensual</div></td>
+                        <td>01/05/2026</td>
+                        <td class="has-text-right">$3.800.000</td>
+                        <td class="has-text-centered"><span class="evoluciones-badge">6/6</span></td>
+                        <td class="has-text-right">$0</td>
+                        <td class="has-text-centered">
+                                                            <span class="mora-ok">Al día</span>
+                                                    </td>
+                        <td class="has-text-centered">
+                                                            <span class="pago-badge pagado">Al día</span>
+                                                    </td>
+                        <td class="has-text-centered"><a class="btn-ver" href="plan__id-11.html" title="Ver plan"><i class="fa-solid fa-magnifying-glass"></i></a></td>
+                    </tr>
+                                                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<p class="ayuda mt-2">Días de mora: días desde el periodo del cobro más antiguo sin pagar (de cualquier año). Deuda total: saldo de todos los cobros pendientes o parciales del plan.</p>
+</main>
+<script src="../assets/js/app.js"></script>
+<script src="../demo/mapa.js"></script>
+<script src="../demo/demo.js"></script>
+</body>
+</html>

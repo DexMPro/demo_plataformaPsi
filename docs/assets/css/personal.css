@@ -1,0 +1,114 @@
+/* ==========================================================================
+   Módulos de administración: empleados, cargos, usuarios, anuncios, empresa.
+   El diseño base sigue en app.css y extra.css.
+   ========================================================================== */
+
+/* Filtros tipo "chip" (Activos / Retirados / Todos) */
+.filtro-chips { display: flex; gap: 8px; flex-wrap: wrap; margin: 4px 0 6px; }
+.filtro-chip {
+    display: inline-flex; align-items: center; padding: 7px 16px; border-radius: 20px;
+    border: 2px solid #e0e4ff; background: #fff; color: #667eea; font-size: 13px; font-weight: 600;
+    text-decoration: none; transition: all .2s ease;
+}
+.filtro-chip:hover { border-color: #667eea; color: #667eea; }
+.filtro-chip.activo { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-color: transparent; color: #fff; }
+
+/* Tarjeta de empleado retirado */
+.empleado-card.retirado .empleado-card-header { background: linear-gradient(135deg, #9aa0b4 0%, #6c7189 100%); }
+.empleado-card.retirado .empleado-foto { filter: grayscale(.6); }
+.cinta-estado {
+    position: absolute; top: 14px; right: 14px; background: rgba(255,255,255,.9); color: #b42318;
+    font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em;
+    padding: 3px 10px; border-radius: 12px;
+}
+
+/* Casilla "Firma historias clínicas" / "Activo" */
+.check-firma {
+    display: flex; gap: 10px; align-items: flex-start; background: #f8f9ff; border: 1px solid #e0e4ff;
+    border-radius: 12px; padding: 12px 16px; font-size: 14px; color: #3b3f5c; line-height: 1.4; width: 100%;
+}
+.check-firma input { margin-top: 3px; }
+
+.etiqueta-suave { font-size: 11px; color: #adb5bd; font-weight: 400; }
+.icono-campo { color: #adb5bd; }
+
+/* Aviso naranja (registros en borrador) */
+.aviso-alerta { background: #fff8ec; border-color: #ffe2b3; }
+.aviso-alerta i { color: #b26a00; }
+
+/* Estados de usuario */
+.estado-usuario { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+.estado-usuario::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+.estado-usuario-activo    { background: #e8f7ee; color: #1e7e46; }
+.estado-usuario-inactivo  { background: #f2f2f2; color: #666; }
+.estado-usuario-bloqueado { background: #fdecec; color: #b42318; }
+
+.tabla-desplazable { overflow-x: auto; }
+.usuarios-table td .tag { vertical-align: middle; }
+.usuarios-toolbar .search-box form { width: 100%; }
+.usuarios-toolbar .search-box .select select { border-radius: 50px; border: 2px solid #e9ecef; height: 100%; }
+
+/* Medidor de fortaleza de contraseña */
+.medidor-clave { display: flex; gap: 5px; margin-top: 10px; }
+.medidor-clave .strength-bar { flex: 1; height: 4px; background: #e9ecef; border-radius: 2px; transition: all .3s ease; }
+.strength-text { font-size: 11px; color: #adb5bd; margin-top: 4px; display: block; min-height: 14px; }
+.password-toggle-icon { pointer-events: auto !important; cursor: pointer; color: #adb5bd; }
+
+/* Editar usuario */
+.avatar-grande {
+    width: 80px; height: 80px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 30px; font-weight: 700; background: linear-gradient(135deg, #0ea5e9, #0284c7);
+}
+.avatar-grande.admin  { background: linear-gradient(135deg, #667eea, #764ba2); }
+.avatar-grande.editor { background: linear-gradient(135deg, #2dce89, #16a34a); }
+.avatar-grande.viewer { background: linear-gradient(135deg, #f97316, #ea580c); }
+.acciones-usuario { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 18px; }
+.acciones-usuario form { margin: 0; }
+.zona-peligro {
+    margin-top: 22px; padding: 18px; background: #fef2f2; border: 2px dashed #fecaca; border-radius: 16px; text-align: center;
+}
+.zona-peligro-titulo { font-weight: 700; color: #dc2626; margin-bottom: 8px; }
+.zona-peligro p { font-size: 13px; color: #6c757d; margin-bottom: 12px; }
+.lista-simple { list-style: none; margin: 0; padding: 0; }
+.lista-simple li { padding: 8px 0; border-bottom: 1px solid #f0f1f7; font-size: 14px; }
+.lista-simple li:last-child { border-bottom: 0; }
+.roles-ayuda { margin-top: 20px; grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 768px) { .roles-ayuda { grid-template-columns: 1fr; } }
+
+/* Anuncios */
+.anuncios-lista { display: flex; flex-direction: column; gap: 16px; }
+.anuncio-card {
+    background: #fff; border-radius: 16px; padding: 20px 24px; box-shadow: 0 2px 12px rgba(0,0,0,.04);
+    border-left: 5px solid #2dce89;
+}
+.anuncio-card.anuncio-programado { border-left-color: #0ea5e9; }
+.anuncio-card.anuncio-vencido { border-left-color: #c4c8d4; opacity: .85; }
+.anuncio-cabecera { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 8px; }
+.anuncio-cabecera h3 { font-size: 17px; font-weight: 700; color: #1a1a2e; margin: 0; }
+.anuncio-contenido { color: #4a5568; font-size: 14px; line-height: 1.55; margin-bottom: 14px; }
+.anuncio-pie { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+.estado-anuncio { white-space: nowrap; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+.estado-anuncio-visible    { background: #e8f7ee; color: #1e7e46; }
+.estado-anuncio-programado { background: #e6f6ff; color: #0b6fa4; }
+.estado-anuncio-vencido    { background: #f2f2f2; color: #666; }
+
+/* Empresa: vista previa del logo */
+.logo-vista {
+    display: flex; align-items: center; justify-content: center; min-height: 140px; margin-bottom: 16px;
+    background: #fafbff; border: 1px solid #eceffd; border-radius: 14px; padding: 16px;
+}
+.logo-vista img { max-height: 120px; max-width: 100%; object-fit: contain; }
+.logo-vacio { display: flex; flex-direction: column; align-items: center; gap: 6px; color: #adb5bd; font-size: 13px; }
+.logo-vacio i { font-size: 36px; }
+
+/* Los <select> de Bulma tienen alto fijo y el padding de .form-group-modern recortaba el texto */
+.form-group-modern .select:not(.is-multiple) { height: auto; }
+.form-group-modern .select select { height: auto; line-height: 1.4; }
+.form-group-modern .select:not(.is-multiple):not(.is-loading)::after { margin-top: -0.3em; }
+
+/* Botones de acción del perfil que van dentro de un <form> (retirar, archivar…) */
+.btn-accion.btn-estado { background: #fff; border: 2px solid #e0e4ff; cursor: pointer; }
+.btn-accion.btn-estado:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,.08); }
+.btn-estado.aviso   { color: #b26a00; border-color: #ffe2b3; }
+.btn-estado.exito   { color: #1e7e46; border-color: #bfe6cf; }
+.btn-estado.peligro { color: #b42318; border-color: #f5c2c0; }

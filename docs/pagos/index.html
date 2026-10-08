@@ -1,0 +1,1779 @@
+<!DOCTYPE html>
+<html lang="es" style="overflow:hidden;">
+<head>
+<script>window.DEMO_ROOT="..";window.DEMO_KEY="/pagos/index.php";window.DEMO_HOY="2026-10-07";</script>
+<script src="../demo/tiempo.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">
+    <title>Pagos · Plataforma Psicológica</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../demo/vendor/bulma/bulma.min.css">
+    <link rel="stylesheet" href="../demo/vendor/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/app.css">
+    <link rel="stylesheet" href="../assets/css/extra.css">
+    <link rel="icon" href="../assets/img/favicon-96x96.png" type="image/png">
+    <link rel="stylesheet" href="../assets/css/finanzas.css">    <link rel="stylesheet" href="../assets/css/ui.css">
+<link rel="stylesheet" href="../demo/demo.css">
+</head>
+<body>
+
+<button class="menu-toggle" type="button" onclick="toggleMenu()" aria-label="Menú"><i class="fas fa-bars"></i></button>
+
+<aside class="sidebar">
+    <div class="sidebar-brand">
+        <img src="../assets/img/logo.png" alt="">
+        <div>
+            <h2><a href="../inicio.html">Plataforma Psicológica</a></h2>
+            <span>Portal administrativo</span>
+        </div>
+    </div>
+
+    <nav>
+        <div class="sidebar-section-title">Navegación</div>
+
+        <a href="../inicio.html" class="">
+            <i class="fa-solid fa-house"></i> Inicio
+        </a>
+
+                    <a href="../pacientes/index.html" class="">
+                <i class="fa-solid fa-hospital-user"></i> Pacientes
+            </a>
+        
+                    <a href="../citas/index.html" class="">
+                <i class="fa-solid fa-calendar-check"></i> Citas
+            </a>
+        
+                    <a href="../empleados/index.html" class="">
+                <i class="fa-solid fa-user-tie"></i> Empleados
+            </a>
+        
+                    <a href="index.html" class="active">
+                <i class="fa-solid fa-sack-dollar"></i> Pagos
+            </a>
+        
+                    <a href="../gastos/index.html" class="">
+                <i class="fa-solid fa-receipt"></i> Gastos
+            </a>
+        
+                    <a href="../usuarios/index.html" class="">
+                <i class="fa-solid fa-users"></i> Usuarios
+            </a>
+        
+                    <a href="../anuncios/index.html" class="">
+                <i class="fa-solid fa-bullhorn"></i> Anuncios
+            </a>
+        
+                    <a href="../empresa/index.html" class="">
+                <i class="fa-solid fa-building"></i> Empresa
+            </a>
+        
+        <hr>
+
+        <form method="post" action="#demo-no-disponible" data-demo-action="/salir.php" class="form-salir">
+            <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">            <button type="submit"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</button>
+        </form>
+    </nav>
+
+    <div class="system-health">
+        <div class="system-health-title">Administración Demo</div>
+        <div class="health-indicator">
+            <div class="health-dot"></div>
+            Administrador        </div>
+    </div>
+</aside>
+
+<main class="main-content">
+<div class="columns header-titulos">
+    <div class="column is-flex is-align-items-center is-justify-content-space-between">
+        <h1 class="titulos-secciones" style="margin-bottom:0">ZONA DE PAGOS</h1>
+        <span class="empleados-count"><i class="fa-solid fa-sack-dollar"></i> Año 2026 · 20 plan(es)</span>
+    </div>
+</div>
+
+<div class="historia-acciones">
+    <form method="get" class="filtros-pagos">
+        <div class="control has-icons-left" style="flex:1;min-width:240px">
+            <input class="input is-rounded" type="search" name="buscar" placeholder="Buscar por nombre, documento o referido…" value="">
+            <span class="icon is-small is-left"><i class="fa-solid fa-magnifying-glass"></i></span>
+        </div>
+        <div class="select is-rounded">
+            <select name="estado" onchange="this.form.submit()" aria-label="Estado del plan">
+                <option value="activos" selected>Activos</option>
+                <option value="finalizados">Finalizados</option>
+                <option value="todos">Todos</option>
+            </select>
+        </div>
+        <div class="select is-rounded">
+            <select name="anio" onchange="this.form.submit()" aria-label="Año">
+                                    <option value="2026" selected>2026</option>
+                                    <option value="2025">2025</option>
+                            </select>
+        </div>
+        <button type="button" class="btn-historia btn-historia-evoluciones js-modal-trigger" data-target="modal-plan">
+            <i class="fa-solid fa-plus"></i> Nuevo plan
+        </button>
+        <a href="estadisticas__anio-2026.html" class="btn-historia btn-historia-informe">
+            <i class="fa-solid fa-chart-bar"></i> Estadísticas
+        </a>
+    </form>
+</div>
+
+<div class="pagos-container">
+    <div class="tabla-scroll">
+        <table class="tabla-pagos tabla-pagos-v2">
+            <thead>
+            <tr>
+                <th class="col-fija">Paciente</th>
+                <th>Documento</th>
+                <th>Inicio</th>
+                <th>Valor</th>
+                <th>Referido</th>
+                                    <th class="">Ene</th>
+                                    <th class="">Feb</th>
+                                    <th class="">Mar</th>
+                                    <th class="">Abr</th>
+                                    <th class="">May</th>
+                                    <th class="">Jun</th>
+                                    <th class="">Jul</th>
+                                    <th class="">Ago</th>
+                                    <th class="">Sep</th>
+                                    <th class="mes-actual">Oct</th>
+                                    <th class="">Nov</th>
+                                    <th class="">Dic</th>
+                                <th>Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+                            <tr class="">
+                    <td class="nombre-cell col-fija">
+                        <a href="plan__id-9.html">Carolina Díaz Zapata</a>
+                        <div class="plan-sub">Paquete 8 sesiones · Pago único</div>
+                                            </td>
+                    <td><span class="doc-badge">CC 18947695</span></td>
+                    <td>01/11/2025</td>
+                    <td class="valor-cell">$1.200.000</td>
+                    <td>Exalumno del programa</td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="9"
+                                             data-mes="2026-01"
+                                             data-paciente="Carolina Díaz Zapata"
+                                             data-periodo="Enero 2026"
+                                             data-saldo="1200000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="9"
+                                             data-mes="2026-02"
+                                             data-paciente="Carolina Díaz Zapata"
+                                             data-periodo="Febrero 2026"
+                                             data-saldo="1200000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="9"
+                                             data-mes="2026-03"
+                                             data-paciente="Carolina Díaz Zapata"
+                                             data-periodo="Marzo 2026"
+                                             data-saldo="1200000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="9"
+                                             data-mes="2026-04"
+                                             data-paciente="Carolina Díaz Zapata"
+                                             data-periodo="Abril 2026"
+                                             data-saldo="1200000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="9"
+                                             data-mes="2026-05"
+                                             data-paciente="Carolina Díaz Zapata"
+                                             data-periodo="Mayo 2026"
+                                             data-saldo="1200000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="9"
+                                             data-mes="2026-06"
+                                             data-paciente="Carolina Díaz Zapata"
+                                             data-periodo="Junio 2026"
+                                             data-saldo="1200000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="9"
+                                             data-mes="2026-07"
+                                             data-paciente="Carolina Díaz Zapata"
+                                             data-periodo="Julio 2026"
+                                             data-saldo="1200000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="9"
+                                             data-mes="2026-08"
+                                             data-paciente="Carolina Díaz Zapata"
+                                             data-periodo="Agosto 2026"
+                                             data-saldo="1200000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="9"
+                                             data-mes="2026-09"
+                                             data-paciente="Carolina Díaz Zapata"
+                                             data-periodo="Septiembre 2026"
+                                             data-saldo="1200000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes mes-actual">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="9"
+                                             data-mes="2026-10"
+                                             data-paciente="Carolina Díaz Zapata"
+                                             data-periodo="Octubre 2026"
+                                             data-saldo="1200000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="9"
+                                             data-mes="2026-11"
+                                             data-paciente="Carolina Díaz Zapata"
+                                             data-periodo="Noviembre 2026"
+                                             data-saldo="1200000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="9"
+                                             data-mes="2026-12"
+                                             data-paciente="Carolina Díaz Zapata"
+                                             data-periodo="Diciembre 2026"
+                                             data-saldo="1200000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                        <td>
+                                                    <form method="post" class="en-linea" data-confirmar="¿Finalizar el plan de Carolina Díaz Zapata con fecha de hoy? No se generarán más cobros.">
+                                <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8"><input type="hidden" name="accion" value="finalizar"><input type="hidden" name="plan_id" value="9">
+                                <button type="submit" class="boton-mini peligro" title="Finalizar plan"><i class="fa-solid fa-ban"></i> Finalizar</button>
+                            </form>
+                                            </td>
+                </tr>
+                            <tr class="">
+                    <td class="nombre-cell col-fija">
+                        <a href="plan__id-8.html">Carolina Daniela Londoño Aguilar</a>
+                        <div class="plan-sub">Acompañamiento mensual · Mensual</div>
+                                            </td>
+                    <td><span class="doc-badge">TI 1062263036</span></td>
+                    <td>01/12/2025</td>
+                    <td class="valor-cell">$950.000</td>
+                    <td>Exalumno del programa</td>
+                                            <td class="celda-mes">
+                                                            <span class="pago-badge pagado">Pagado</span>
+                                                                                                                                    <div><a class="btn-factura" target="_blank" rel="noopener"
+                                            href="recibo__pago-38.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a></div>
+                                                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="pago-badge pagado">Pagado</span>
+                                                                                                                                    <div><a class="btn-factura" target="_blank" rel="noopener"
+                                            href="recibo__pago-39.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a></div>
+                                                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="pago-badge pagado">Pagado</span>
+                                                                                                                                    <div><a class="btn-factura" target="_blank" rel="noopener"
+                                            href="recibo__pago-40.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a></div>
+                                                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="pago-badge pagado">Pagado</span>
+                                                                                                                                    <div><a class="btn-factura" target="_blank" rel="noopener"
+                                            href="recibo__pago-41.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a></div>
+                                                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="pago-badge pagado">Pagado</span>
+                                                                                                                                    <div><a class="btn-factura" target="_blank" rel="noopener"
+                                            href="recibo__pago-42.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a></div>
+                                                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="pago-badge pagado">Pagado</span>
+                                                                                                                                    <div><a class="btn-factura" target="_blank" rel="noopener"
+                                            href="recibo__pago-43.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a></div>
+                                                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="pago-badge pagado">Pagado</span>
+                                                                                                                                    <div><a class="btn-factura" target="_blank" rel="noopener"
+                                            href="recibo__pago-45.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a></div>
+                                                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="pago-badge pagado">Pagado</span>
+                                                                                                                                    <div><a class="btn-factura" target="_blank" rel="noopener"
+                                            href="recibo__pago-47.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a></div>
+                                                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="pago-badge parcial">Parcial</span>
+                                                                    <div class="saldo-mini">Saldo $475.000</div>
+                                                                                                    <div><button type="button" class="btn-pagar js-pagar"
+                                                 data-cobro="47"
+                                                 data-paciente="Carolina Daniela Londoño Aguilar"
+                                                 data-periodo="Septiembre 2026"
+                                                 data-saldo="475000.00"><i class="fa-solid fa-check"></i> Pagar</button></div>
+                                                                                                    <div><a class="btn-factura" target="_blank" rel="noopener"
+                                            href="recibo__pago-48.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a></div>
+                                                                                    </td>
+                                            <td class="celda-mes mes-actual">
+                                                            <span class="pago-badge pagado">Pagado</span>
+                                                                                                                                    <div><a class="btn-factura" target="_blank" rel="noopener"
+                                            href="recibo__pago-49.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a></div>
+                                                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="8"
+                                             data-mes="2026-11"
+                                             data-paciente="Carolina Daniela Londoño Aguilar"
+                                             data-periodo="Noviembre 2026"
+                                             data-saldo="950000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="8"
+                                             data-mes="2026-12"
+                                             data-paciente="Carolina Daniela Londoño Aguilar"
+                                             data-periodo="Diciembre 2026"
+                                             data-saldo="950000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                        <td>
+                                                    <form method="post" class="en-linea" data-confirmar="¿Finalizar el plan de Carolina Daniela Londoño Aguilar con fecha de hoy? No se generarán más cobros.">
+                                <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8"><input type="hidden" name="accion" value="finalizar"><input type="hidden" name="plan_id" value="8">
+                                <button type="submit" class="boton-mini peligro" title="Finalizar plan"><i class="fa-solid fa-ban"></i> Finalizar</button>
+                            </form>
+                                            </td>
+                </tr>
+                            <tr class="">
+                    <td class="nombre-cell col-fija">
+                        <a href="plan__id-1.html">Daniel Rojas Londoño</a>
+                        <div class="plan-sub">Internado mensual · Mensual</div>
+                                            </td>
+                    <td><span class="doc-badge">TI 81967330</span></td>
+                    <td>01/09/2026</td>
+                    <td class="valor-cell">$3.800.000</td>
+                    <td>Página web</td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="1"
+                                             data-mes="2026-01"
+                                             data-paciente="Daniel Rojas Londoño"
+                                             data-periodo="Enero 2026"
+                                             data-saldo="3800000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="1"
+                                             data-mes="2026-02"
+                                             data-paciente="Daniel Rojas Londoño"
+                                             data-periodo="Febrero 2026"
+                                             data-saldo="3800000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="1"
+                                             data-mes="2026-03"
+                                             data-paciente="Daniel Rojas Londoño"
+                                             data-periodo="Marzo 2026"
+                                             data-saldo="3800000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="1"
+                                             data-mes="2026-04"
+                                             data-paciente="Daniel Rojas Londoño"
+                                             data-periodo="Abril 2026"
+                                             data-saldo="3800000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="1"
+                                             data-mes="2026-05"
+                                             data-paciente="Daniel Rojas Londoño"
+                                             data-periodo="Mayo 2026"
+                                             data-saldo="3800000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="1"
+                                             data-mes="2026-06"
+                                             data-paciente="Daniel Rojas Londoño"
+                                             data-periodo="Junio 2026"
+                                             data-saldo="3800000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="1"
+                                             data-mes="2026-07"
+                                             data-paciente="Daniel Rojas Londoño"
+                                             data-periodo="Julio 2026"
+                                             data-saldo="3800000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="1"
+                                             data-mes="2026-08"
+                                             data-paciente="Daniel Rojas Londoño"
+                                             data-periodo="Agosto 2026"
+                                             data-saldo="3800000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="pago-badge pagado">Pagado</span>
+                                                                                                                                    <div><a class="btn-factura" target="_blank" rel="noopener"
+                                            href="recibo__pago-1.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a></div>
+                                                                                    </td>
+                                            <td class="celda-mes mes-actual">
+                                                            <span class="pago-badge pendiente">Pendiente</span>
+                                                                                                    <div><button type="button" class="btn-pagar js-pagar"
+                                                 data-cobro="2"
+                                                 data-paciente="Daniel Rojas Londoño"
+                                                 data-periodo="Octubre 2026"
+                                                 data-saldo="3800000.00"><i class="fa-solid fa-check"></i> Pagar</button></div>
+                                                                                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="1"
+                                             data-mes="2026-11"
+                                             data-paciente="Daniel Rojas Londoño"
+                                             data-periodo="Noviembre 2026"
+                                             data-saldo="3800000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="1"
+                                             data-mes="2026-12"
+                                             data-paciente="Daniel Rojas Londoño"
+                                             data-periodo="Diciembre 2026"
+                                             data-saldo="3800000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                        <td>
+                                                    <form method="post" class="en-linea" data-confirmar="¿Finalizar el plan de Daniel Rojas Londoño con fecha de hoy? No se generarán más cobros.">
+                                <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8"><input type="hidden" name="accion" value="finalizar"><input type="hidden" name="plan_id" value="1">
+                                <button type="submit" class="boton-mini peligro" title="Finalizar plan"><i class="fa-solid fa-ban"></i> Finalizar</button>
+                            </form>
+                                            </td>
+                </tr>
+                            <tr class="">
+                    <td class="nombre-cell col-fija">
+                        <a href="plan__id-13.html">Daniel Sánchez Pérez</a>
+                        <div class="plan-sub">Acompañamiento mensual · Mensual</div>
+                                            </td>
+                    <td><span class="doc-badge">CC 85249699</span></td>
+                    <td>01/10/2026</td>
+                    <td class="valor-cell">$950.000</td>
+                    <td>Exalumno del programa</td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="13"
+                                             data-mes="2026-01"
+                                             data-paciente="Daniel Sánchez Pérez"
+                                             data-periodo="Enero 2026"
+                                             data-saldo="950000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="13"
+                                             data-mes="2026-02"
+                                             data-paciente="Daniel Sánchez Pérez"
+                                             data-periodo="Febrero 2026"
+                                             data-saldo="950000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="13"
+                                             data-mes="2026-03"
+                                             data-paciente="Daniel Sánchez Pérez"
+                                             data-periodo="Marzo 2026"
+                                             data-saldo="950000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="13"
+                                             data-mes="2026-04"
+                                             data-paciente="Daniel Sánchez Pérez"
+                                             data-periodo="Abril 2026"
+                                             data-saldo="950000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="13"
+                                             data-mes="2026-05"
+                                             data-paciente="Daniel Sánchez Pérez"
+                                             data-periodo="Mayo 2026"
+                                             data-saldo="950000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="13"
+                                             data-mes="2026-06"
+                                             data-paciente="Daniel Sánchez Pérez"
+                                             data-periodo="Junio 2026"
+                                             data-saldo="950000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="13"
+                                             data-mes="2026-07"
+                                             data-paciente="Daniel Sánchez Pérez"
+                                             data-periodo="Julio 2026"
+                                             data-saldo="950000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="13"
+                                             data-mes="2026-08"
+                                             data-paciente="Daniel Sánchez Pérez"
+                                             data-periodo="Agosto 2026"
+                                             data-saldo="950000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="13"
+                                             data-mes="2026-09"
+                                             data-paciente="Daniel Sánchez Pérez"
+                                             data-periodo="Septiembre 2026"
+                                             data-saldo="950000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes mes-actual">
+                                                            <span class="pago-badge pendiente">Pendiente</span>
+                                                                                                    <div><button type="button" class="btn-pagar js-pagar"
+                                                 data-cobro="59"
+                                                 data-paciente="Daniel Sánchez Pérez"
+                                                 data-periodo="Octubre 2026"
+                                                 data-saldo="950000.00"><i class="fa-solid fa-check"></i> Pagar</button></div>
+                                                                                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="13"
+                                             data-mes="2026-11"
+                                             data-paciente="Daniel Sánchez Pérez"
+                                             data-periodo="Noviembre 2026"
+                                             data-saldo="950000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="13"
+                                             data-mes="2026-12"
+                                             data-paciente="Daniel Sánchez Pérez"
+                                             data-periodo="Diciembre 2026"
+                                             data-saldo="950000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                        <td>
+                                                    <form method="post" class="en-linea" data-confirmar="¿Finalizar el plan de Daniel Sánchez Pérez con fecha de hoy? No se generarán más cobros.">
+                                <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8"><input type="hidden" name="accion" value="finalizar"><input type="hidden" name="plan_id" value="13">
+                                <button type="submit" class="boton-mini peligro" title="Finalizar plan"><i class="fa-solid fa-ban"></i> Finalizar</button>
+                            </form>
+                                            </td>
+                </tr>
+                            <tr class="">
+                    <td class="nombre-cell col-fija">
+                        <a href="plan__id-7.html">Daniela Rodríguez Londoño</a>
+                        <div class="plan-sub">Plan ambulatorio intensivo · Mensual</div>
+                                            </td>
+                    <td><span class="doc-badge">CC 41332109</span></td>
+                    <td>01/05/2026</td>
+                    <td class="valor-cell">$1.600.000</td>
+                    <td>Página web</td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="7"
+                                             data-mes="2026-01"
+                                             data-paciente="Daniela Rodríguez Londoño"
+                                             data-periodo="Enero 2026"
+                                             data-saldo="1600000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="7"
+                                             data-mes="2026-02"
+                                             data-paciente="Daniela Rodríguez Londoño"
+                                             data-periodo="Febrero 2026"
+                                             data-saldo="1600000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="7"
+                                             data-mes="2026-03"
+                                             data-paciente="Daniela Rodríguez Londoño"
+                                             data-periodo="Marzo 2026"
+                                             data-saldo="1600000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="7"
+                                             data-mes="2026-04"
+                                             data-paciente="Daniela Rodríguez Londoño"
+                                             data-periodo="Abril 2026"
+                                             data-saldo="1600000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="pago-badge pagado">Pagado</span>
+                                                                                                                                    <div><a class="btn-factura" target="_blank" rel="noopener"
+                                            href="recibo__pago-31.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a></div>
+                                                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="pago-badge pagado">Pagado</span>
+                                                                                                                                    <div><a class="btn-factura" target="_blank" rel="noopener"
+                                            href="recibo__pago-32.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a></div>
+                                                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="pago-badge pagado">Pagado</span>
+                                                                                                                                    <div><a class="btn-factura" target="_blank" rel="noopener"
+                                            href="recibo__pago-33.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a></div>
+                                                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="pago-badge pagado">Pagado</span>
+                                                                                                                                    <div><a class="btn-factura" target="_blank" rel="noopener"
+                                            href="recibo__pago-34.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a></div>
+                                                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="pago-badge pagado">Pagado</span>
+                                                                                                                                    <div><a class="btn-factura" target="_blank" rel="noopener"
+                                            href="recibo__pago-35.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a></div>
+                                                                                    </td>
+                                            <td class="celda-mes mes-actual">
+                                                            <span class="pago-badge pagado">Pagado</span>
+                                                                                                                                    <div><a class="btn-factura" target="_blank" rel="noopener"
+                                            href="recibo__pago-36.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a></div>
+                                                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="7"
+                                             data-mes="2026-11"
+                                             data-paciente="Daniela Rodríguez Londoño"
+                                             data-periodo="Noviembre 2026"
+                                             data-saldo="1600000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="7"
+                                             data-mes="2026-12"
+                                             data-paciente="Daniela Rodríguez Londoño"
+                                             data-periodo="Diciembre 2026"
+                                             data-saldo="1600000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                        <td>
+                                                    <form method="post" class="en-linea" data-confirmar="¿Finalizar el plan de Daniela Rodríguez Londoño con fecha de hoy? No se generarán más cobros.">
+                                <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8"><input type="hidden" name="accion" value="finalizar"><input type="hidden" name="plan_id" value="7">
+                                <button type="submit" class="boton-mini peligro" title="Finalizar plan"><i class="fa-solid fa-ban"></i> Finalizar</button>
+                            </form>
+                                            </td>
+                </tr>
+                            <tr class="">
+                    <td class="nombre-cell col-fija">
+                        <a href="plan__id-4.html">Diego Esteban Castro Medina</a>
+                        <div class="plan-sub">Paquete 8 sesiones · Pago único</div>
+                                            </td>
+                    <td><span class="doc-badge">CC 11368404</span></td>
+                    <td>01/10/2026</td>
+                    <td class="valor-cell">$1.200.000</td>
+                    <td>Colegio</td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="4"
+                                             data-mes="2026-01"
+                                             data-paciente="Diego Esteban Castro Medina"
+                                             data-periodo="Enero 2026"
+                                             data-saldo="1200000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="4"
+                                             data-mes="2026-02"
+                                             data-paciente="Diego Esteban Castro Medina"
+                                             data-periodo="Febrero 2026"
+                                             data-saldo="1200000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="4"
+                                             data-mes="2026-03"
+                                             data-paciente="Diego Esteban Castro Medina"
+                                             data-periodo="Marzo 2026"
+                                             data-saldo="1200000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="4"
+                                             data-mes="2026-04"
+                                             data-paciente="Diego Esteban Castro Medina"
+                                             data-periodo="Abril 2026"
+                                             data-saldo="1200000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="4"
+                                             data-mes="2026-05"
+                                             data-paciente="Diego Esteban Castro Medina"
+                                             data-periodo="Mayo 2026"
+                                             data-saldo="1200000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="4"
+                                             data-mes="2026-06"
+                                             data-paciente="Diego Esteban Castro Medina"
+                                             data-periodo="Junio 2026"
+                                             data-saldo="1200000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="4"
+                                             data-mes="2026-07"
+                                             data-paciente="Diego Esteban Castro Medina"
+                                             data-periodo="Julio 2026"
+                                             data-saldo="1200000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="4"
+                                             data-mes="2026-08"
+                                             data-paciente="Diego Esteban Castro Medina"
+                                             data-periodo="Agosto 2026"
+                                             data-saldo="1200000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="4"
+                                             data-mes="2026-09"
+                                             data-paciente="Diego Esteban Castro Medina"
+                                             data-periodo="Septiembre 2026"
+                                             data-saldo="1200000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes mes-actual">
+                                                            <span class="pago-badge pagado">Pagado</span>
+                                                                                                                                    <div><a class="btn-factura" target="_blank" rel="noopener"
+                                            href="recibo__pago-17.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a></div>
+                                                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="4"
+                                             data-mes="2026-11"
+                                             data-paciente="Diego Esteban Castro Medina"
+                                             data-periodo="Noviembre 2026"
+                                             data-saldo="1200000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="4"
+                                             data-mes="2026-12"
+                                             data-paciente="Diego Esteban Castro Medina"
+                                             data-periodo="Diciembre 2026"
+                                             data-saldo="1200000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                        <td>
+                                                    <form method="post" class="en-linea" data-confirmar="¿Finalizar el plan de Diego Esteban Castro Medina con fecha de hoy? No se generarán más cobros.">
+                                <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8"><input type="hidden" name="accion" value="finalizar"><input type="hidden" name="plan_id" value="4">
+                                <button type="submit" class="boton-mini peligro" title="Finalizar plan"><i class="fa-solid fa-ban"></i> Finalizar</button>
+                            </form>
+                                            </td>
+                </tr>
+                            <tr class="">
+                    <td class="nombre-cell col-fija">
+                        <a href="plan__id-3.html">Esteban Hernández Vargas</a>
+                        <div class="plan-sub">Acompañamiento mensual · Mensual</div>
+                                            </td>
+                    <td><span class="doc-badge">CC 32552269</span></td>
+                    <td>01/02/2026</td>
+                    <td class="valor-cell">$950.000</td>
+                    <td>Exalumno del programa</td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="3"
+                                             data-mes="2026-01"
+                                             data-paciente="Esteban Hernández Vargas"
+                                             data-periodo="Enero 2026"
+                                             data-saldo="950000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="pago-badge pagado">Pagado</span>
+                                                                                                                                    <div><a class="btn-factura" target="_blank" rel="noopener"
+                                            href="recibo__pago-9.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a></div>
+                                                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="pago-badge parcial">Parcial</span>
+                                                                    <div class="saldo-mini">Saldo $475.000</div>
+                                                                                                    <div><button type="button" class="btn-pagar js-pagar"
+                                                 data-cobro="10"
+                                                 data-paciente="Esteban Hernández Vargas"
+                                                 data-periodo="Marzo 2026"
+                                                 data-saldo="475000.00"><i class="fa-solid fa-check"></i> Pagar</button></div>
+                                                                                                    <div><a class="btn-factura" target="_blank" rel="noopener"
+                                            href="recibo__pago-10.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a></div>
+                                                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="pago-badge pagado">Pagado</span>
+                                                                                                                                    <div><a class="btn-factura" target="_blank" rel="noopener"
+                                            href="recibo__pago-11.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a></div>
+                                                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="pago-badge pagado">Pagado</span>
+                                                                                                                                    <div><a class="btn-factura" target="_blank" rel="noopener"
+                                            href="recibo__pago-12.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a></div>
+                                                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="pago-badge pagado">Pagado</span>
+                                                                                                                                    <div><a class="btn-factura" target="_blank" rel="noopener"
+                                            href="recibo__pago-14.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a></div>
+                                                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="pago-badge pagado">Pagado</span>
+                                                                                                                                    <div><a class="btn-factura" target="_blank" rel="noopener"
+                                            href="recibo__pago-15.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a></div>
+                                                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="pago-badge pendiente">Pendiente</span>
+                                                                                                    <div><button type="button" class="btn-pagar js-pagar"
+                                                 data-cobro="15"
+                                                 data-paciente="Esteban Hernández Vargas"
+                                                 data-periodo="Agosto 2026"
+                                                 data-saldo="950000.00"><i class="fa-solid fa-check"></i> Pagar</button></div>
+                                                                                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="pago-badge pagado">Pagado</span>
+                                                                                                                                    <div><a class="btn-factura" target="_blank" rel="noopener"
+                                            href="recibo__pago-16.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a></div>
+                                                                                    </td>
+                                            <td class="celda-mes mes-actual">
+                                                            <span class="pago-badge pendiente">Pendiente</span>
+                                                                                                    <div><button type="button" class="btn-pagar js-pagar"
+                                                 data-cobro="17"
+                                                 data-paciente="Esteban Hernández Vargas"
+                                                 data-periodo="Octubre 2026"
+                                                 data-saldo="950000.00"><i class="fa-solid fa-check"></i> Pagar</button></div>
+                                                                                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="3"
+                                             data-mes="2026-11"
+                                             data-paciente="Esteban Hernández Vargas"
+                                             data-periodo="Noviembre 2026"
+                                             data-saldo="950000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="3"
+                                             data-mes="2026-12"
+                                             data-paciente="Esteban Hernández Vargas"
+                                             data-periodo="Diciembre 2026"
+                                             data-saldo="950000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                        <td>
+                                                    <form method="post" class="en-linea" data-confirmar="¿Finalizar el plan de Esteban Hernández Vargas con fecha de hoy? No se generarán más cobros.">
+                                <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8"><input type="hidden" name="accion" value="finalizar"><input type="hidden" name="plan_id" value="3">
+                                <button type="submit" class="boton-mini peligro" title="Finalizar plan"><i class="fa-solid fa-ban"></i> Finalizar</button>
+                            </form>
+                                            </td>
+                </tr>
+                            <tr class="">
+                    <td class="nombre-cell col-fija">
+                        <a href="plan__id-21.html">Juan José Camilo Vargas Martínez</a>
+                        <div class="plan-sub">Internado mensual · Mensual</div>
+                                            </td>
+                    <td><span class="doc-badge">TI 1014597226</span></td>
+                    <td>01/11/2025</td>
+                    <td class="valor-cell">$3.800.000</td>
+                    <td>Exalumno del programa</td>
+                                            <td class="celda-mes">
+                                                            <span class="pago-badge pagado">Pagado</span>
+                                                                                                                                    <div><a class="btn-factura" target="_blank" rel="noopener"
+                                            href="recibo__pago-100.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a></div>
+                                                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="pago-badge pagado">Pagado</span>
+                                                                                                                                    <div><a class="btn-factura" target="_blank" rel="noopener"
+                                            href="recibo__pago-101.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a></div>
+                                                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="pago-badge pagado">Pagado</span>
+                                                                                                                                    <div><a class="btn-factura" target="_blank" rel="noopener"
+                                            href="recibo__pago-102.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a></div>
+                                                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="pago-badge pagado">Pagado</span>
+                                                                                                                                    <div><a class="btn-factura" target="_blank" rel="noopener"
+                                            href="recibo__pago-104.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a></div>
+                                                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="pago-badge pagado">Pagado</span>
+                                                                                                                                    <div><a class="btn-factura" target="_blank" rel="noopener"
+                                            href="recibo__pago-105.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a></div>
+                                                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="pago-badge pagado">Pagado</span>
+                                                                                                                                    <div><a class="btn-factura" target="_blank" rel="noopener"
+                                            href="recibo__pago-106.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a></div>
+                                                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="pago-badge pagado">Pagado</span>
+                                                                                                                                    <div><a class="btn-factura" target="_blank" rel="noopener"
+                                            href="recibo__pago-107.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a></div>
+                                                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="pago-badge pagado">Pagado</span>
+                                                                                                                                    <div><a class="btn-factura" target="_blank" rel="noopener"
+                                            href="recibo__pago-108.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a></div>
+                                                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="pago-badge pagado">Pagado</span>
+                                                                                                                                    <div><a class="btn-factura" target="_blank" rel="noopener"
+                                            href="recibo__pago-109.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a></div>
+                                                                                    </td>
+                                            <td class="celda-mes mes-actual">
+                                                            <span class="pago-badge pendiente">Pendiente</span>
+                                                                                                    <div><button type="button" class="btn-pagar js-pagar"
+                                                 data-cobro="107"
+                                                 data-paciente="Juan José Camilo Vargas Martínez"
+                                                 data-periodo="Octubre 2026"
+                                                 data-saldo="3800000.00"><i class="fa-solid fa-check"></i> Pagar</button></div>
+                                                                                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="21"
+                                             data-mes="2026-11"
+                                             data-paciente="Juan José Camilo Vargas Martínez"
+                                             data-periodo="Noviembre 2026"
+                                             data-saldo="3800000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="21"
+                                             data-mes="2026-12"
+                                             data-paciente="Juan José Camilo Vargas Martínez"
+                                             data-periodo="Diciembre 2026"
+                                             data-saldo="3800000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                        <td>
+                                                    <form method="post" class="en-linea" data-confirmar="¿Finalizar el plan de Juan José Camilo Vargas Martínez con fecha de hoy? No se generarán más cobros.">
+                                <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8"><input type="hidden" name="accion" value="finalizar"><input type="hidden" name="plan_id" value="21">
+                                <button type="submit" class="boton-mini peligro" title="Finalizar plan"><i class="fa-solid fa-ban"></i> Finalizar</button>
+                            </form>
+                                            </td>
+                </tr>
+                            <tr class="">
+                    <td class="nombre-cell col-fija">
+                        <a href="plan__id-5.html">Mariana Cárdenas Moreno</a>
+                        <div class="plan-sub">Terapia familiar mensual · Mensual</div>
+                                            </td>
+                    <td><span class="doc-badge">CC 37199395</span></td>
+                    <td>01/06/2026</td>
+                    <td class="valor-cell">$720.000</td>
+                    <td>Médico general</td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="5"
+                                             data-mes="2026-01"
+                                             data-paciente="Mariana Cárdenas Moreno"
+                                             data-periodo="Enero 2026"
+                                             data-saldo="720000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="5"
+                                             data-mes="2026-02"
+                                             data-paciente="Mariana Cárdenas Moreno"
+                                             data-periodo="Febrero 2026"
+                                             data-saldo="720000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="5"
+                                             data-mes="2026-03"
+                                             data-paciente="Mariana Cárdenas Moreno"
+                                             data-periodo="Marzo 2026"
+                                             data-saldo="720000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="5"
+                                             data-mes="2026-04"
+                                             data-paciente="Mariana Cárdenas Moreno"
+                                             data-periodo="Abril 2026"
+                                             data-saldo="720000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="5"
+                                             data-mes="2026-05"
+                                             data-paciente="Mariana Cárdenas Moreno"
+                                             data-periodo="Mayo 2026"
+                                             data-saldo="720000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="pago-badge pagado">Pagado</span>
+                                                                                                                                    <div><a class="btn-factura" target="_blank" rel="noopener"
+                                            href="recibo__pago-18.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a></div>
+                                                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="pago-badge parcial">Parcial</span>
+                                                                    <div class="saldo-mini">Saldo $360.000</div>
+                                                                                                    <div><button type="button" class="btn-pagar js-pagar"
+                                                 data-cobro="20"
+                                                 data-paciente="Mariana Cárdenas Moreno"
+                                                 data-periodo="Julio 2026"
+                                                 data-saldo="360000.00"><i class="fa-solid fa-check"></i> Pagar</button></div>
+                                                                                                    <div><a class="btn-factura" target="_blank" rel="noopener"
+                                            href="recibo__pago-19.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a></div>
+                                                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="pago-badge pagado">Pagado</span>
+                                                                                                                                    <div><a class="btn-factura" target="_blank" rel="noopener"
+                                            href="recibo__pago-20.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a></div>
+                                                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="pago-badge pagado">Pagado</span>
+                                                                                                                                    <div><a class="btn-factura" target="_blank" rel="noopener"
+                                            href="recibo__pago-21.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a></div>
+                                                                                    </td>
+                                            <td class="celda-mes mes-actual">
+                                                            <span class="pago-badge pagado">Pagado</span>
+                                                                                                                                    <div><a class="btn-factura" target="_blank" rel="noopener"
+                                            href="recibo__pago-22.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a></div>
+                                                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="5"
+                                             data-mes="2026-11"
+                                             data-paciente="Mariana Cárdenas Moreno"
+                                             data-periodo="Noviembre 2026"
+                                             data-saldo="720000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="5"
+                                             data-mes="2026-12"
+                                             data-paciente="Mariana Cárdenas Moreno"
+                                             data-periodo="Diciembre 2026"
+                                             data-saldo="720000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                        <td>
+                                                    <form method="post" class="en-linea" data-confirmar="¿Finalizar el plan de Mariana Cárdenas Moreno con fecha de hoy? No se generarán más cobros.">
+                                <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8"><input type="hidden" name="accion" value="finalizar"><input type="hidden" name="plan_id" value="5">
+                                <button type="submit" class="boton-mini peligro" title="Finalizar plan"><i class="fa-solid fa-ban"></i> Finalizar</button>
+                            </form>
+                                            </td>
+                </tr>
+                            <tr class="">
+                    <td class="nombre-cell col-fija">
+                        <a href="plan__id-20.html">Natalia Cárdenas Díaz</a>
+                        <div class="plan-sub">Terapia familiar mensual · Mensual</div>
+                                            </td>
+                    <td><span class="doc-badge">CC 46858321</span></td>
+                    <td>01/03/2026</td>
+                    <td class="valor-cell">$720.000</td>
+                    <td>—</td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="20"
+                                             data-mes="2026-01"
+                                             data-paciente="Natalia Cárdenas Díaz"
+                                             data-periodo="Enero 2026"
+                                             data-saldo="720000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="20"
+                                             data-mes="2026-02"
+                                             data-paciente="Natalia Cárdenas Díaz"
+                                             data-periodo="Febrero 2026"
+                                             data-saldo="720000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="pago-badge pagado">Pagado</span>
+                                                                                                                                    <div><a class="btn-factura" target="_blank" rel="noopener"
+                                            href="recibo__pago-91.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a></div>
+                                                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="pago-badge pagado">Pagado</span>
+                                                                                                                                    <div><a class="btn-factura" target="_blank" rel="noopener"
+                                            href="recibo__pago-92.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a></div>
+                                                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="pago-badge pagado">Pagado</span>
+                                                                                                                                    <div><a class="btn-factura" target="_blank" rel="noopener"
+                                            href="recibo__pago-93.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a></div>
+                                                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="pago-badge pagado">Pagado</span>
+                                                                                                                                    <div><a class="btn-factura" target="_blank" rel="noopener"
+                                            href="recibo__pago-94.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a></div>
+                                                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="pago-badge pagado">Pagado</span>
+                                                                                                                                    <div><a class="btn-factura" target="_blank" rel="noopener"
+                                            href="recibo__pago-95.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a></div>
+                                                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="pago-badge pagado">Pagado</span>
+                                                                                                                                    <div><a class="btn-factura" target="_blank" rel="noopener"
+                                            href="recibo__pago-96.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a></div>
+                                                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="pago-badge pagado">Pagado</span>
+                                                                                                                                    <div><a class="btn-factura" target="_blank" rel="noopener"
+                                            href="recibo__pago-97.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a></div>
+                                                                                    </td>
+                                            <td class="celda-mes mes-actual">
+                                                            <span class="pago-badge pendiente">Pendiente</span>
+                                                                                                    <div><button type="button" class="btn-pagar js-pagar"
+                                                 data-cobro="95"
+                                                 data-paciente="Natalia Cárdenas Díaz"
+                                                 data-periodo="Octubre 2026"
+                                                 data-saldo="720000.00"><i class="fa-solid fa-check"></i> Pagar</button></div>
+                                                                                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="20"
+                                             data-mes="2026-11"
+                                             data-paciente="Natalia Cárdenas Díaz"
+                                             data-periodo="Noviembre 2026"
+                                             data-saldo="720000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="20"
+                                             data-mes="2026-12"
+                                             data-paciente="Natalia Cárdenas Díaz"
+                                             data-periodo="Diciembre 2026"
+                                             data-saldo="720000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                        <td>
+                                                    <form method="post" class="en-linea" data-confirmar="¿Finalizar el plan de Natalia Cárdenas Díaz con fecha de hoy? No se generarán más cobros.">
+                                <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8"><input type="hidden" name="accion" value="finalizar"><input type="hidden" name="plan_id" value="20">
+                                <button type="submit" class="boton-mini peligro" title="Finalizar plan"><i class="fa-solid fa-ban"></i> Finalizar</button>
+                            </form>
+                                            </td>
+                </tr>
+                            <tr class="">
+                    <td class="nombre-cell col-fija">
+                        <a href="plan__id-10.html">Samuel Daniel Díaz Ramírez</a>
+                        <div class="plan-sub">Terapia familiar mensual · Mensual</div>
+                                            </td>
+                    <td><span class="doc-badge">TI 1016843871</span></td>
+                    <td>01/09/2026</td>
+                    <td class="valor-cell">$720.000</td>
+                    <td>Página web</td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="10"
+                                             data-mes="2026-01"
+                                             data-paciente="Samuel Daniel Díaz Ramírez"
+                                             data-periodo="Enero 2026"
+                                             data-saldo="720000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="10"
+                                             data-mes="2026-02"
+                                             data-paciente="Samuel Daniel Díaz Ramírez"
+                                             data-periodo="Febrero 2026"
+                                             data-saldo="720000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="10"
+                                             data-mes="2026-03"
+                                             data-paciente="Samuel Daniel Díaz Ramírez"
+                                             data-periodo="Marzo 2026"
+                                             data-saldo="720000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="10"
+                                             data-mes="2026-04"
+                                             data-paciente="Samuel Daniel Díaz Ramírez"
+                                             data-periodo="Abril 2026"
+                                             data-saldo="720000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="10"
+                                             data-mes="2026-05"
+                                             data-paciente="Samuel Daniel Díaz Ramírez"
+                                             data-periodo="Mayo 2026"
+                                             data-saldo="720000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="10"
+                                             data-mes="2026-06"
+                                             data-paciente="Samuel Daniel Díaz Ramírez"
+                                             data-periodo="Junio 2026"
+                                             data-saldo="720000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="10"
+                                             data-mes="2026-07"
+                                             data-paciente="Samuel Daniel Díaz Ramírez"
+                                             data-periodo="Julio 2026"
+                                             data-saldo="720000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="10"
+                                             data-mes="2026-08"
+                                             data-paciente="Samuel Daniel Díaz Ramírez"
+                                             data-periodo="Agosto 2026"
+                                             data-saldo="720000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="pago-badge pagado">Pagado</span>
+                                                                                                                                    <div><a class="btn-factura" target="_blank" rel="noopener"
+                                            href="recibo__pago-51.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a></div>
+                                                                                    </td>
+                                            <td class="celda-mes mes-actual">
+                                                            <span class="pago-badge pagado">Pagado</span>
+                                                                                                                                    <div><a class="btn-factura" target="_blank" rel="noopener"
+                                            href="recibo__pago-52.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a></div>
+                                                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="10"
+                                             data-mes="2026-11"
+                                             data-paciente="Samuel Daniel Díaz Ramírez"
+                                             data-periodo="Noviembre 2026"
+                                             data-saldo="720000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="10"
+                                             data-mes="2026-12"
+                                             data-paciente="Samuel Daniel Díaz Ramírez"
+                                             data-periodo="Diciembre 2026"
+                                             data-saldo="720000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                        <td>
+                                                    <form method="post" class="en-linea" data-confirmar="¿Finalizar el plan de Samuel Daniel Díaz Ramírez con fecha de hoy? No se generarán más cobros.">
+                                <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8"><input type="hidden" name="accion" value="finalizar"><input type="hidden" name="plan_id" value="10">
+                                <button type="submit" class="boton-mini peligro" title="Finalizar plan"><i class="fa-solid fa-ban"></i> Finalizar</button>
+                            </form>
+                                            </td>
+                </tr>
+                            <tr class="">
+                    <td class="nombre-cell col-fija">
+                        <a href="plan__id-17.html">Sara Gabriela Herrera Pérez</a>
+                        <div class="plan-sub">Plan ambulatorio intensivo · Mensual</div>
+                                            </td>
+                    <td><span class="doc-badge">TI 1037890414</span></td>
+                    <td>01/03/2026</td>
+                    <td class="valor-cell">$1.600.000</td>
+                    <td>Exalumno del programa</td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="17"
+                                             data-mes="2026-01"
+                                             data-paciente="Sara Gabriela Herrera Pérez"
+                                             data-periodo="Enero 2026"
+                                             data-saldo="1600000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="17"
+                                             data-mes="2026-02"
+                                             data-paciente="Sara Gabriela Herrera Pérez"
+                                             data-periodo="Febrero 2026"
+                                             data-saldo="1600000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="pago-badge pagado">Pagado</span>
+                                                                                                                                    <div><a class="btn-factura" target="_blank" rel="noopener"
+                                            href="recibo__pago-81.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a></div>
+                                                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="pago-badge parcial">Parcial</span>
+                                                                    <div class="saldo-mini">Saldo $800.000</div>
+                                                                                                    <div><button type="button" class="btn-pagar js-pagar"
+                                                 data-cobro="80"
+                                                 data-paciente="Sara Gabriela Herrera Pérez"
+                                                 data-periodo="Abril 2026"
+                                                 data-saldo="800000.00"><i class="fa-solid fa-check"></i> Pagar</button></div>
+                                                                                                    <div><a class="btn-factura" target="_blank" rel="noopener"
+                                            href="recibo__pago-82.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a></div>
+                                                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="pago-badge parcial">Parcial</span>
+                                                                    <div class="saldo-mini">Saldo $800.000</div>
+                                                                                                    <div><button type="button" class="btn-pagar js-pagar"
+                                                 data-cobro="81"
+                                                 data-paciente="Sara Gabriela Herrera Pérez"
+                                                 data-periodo="Mayo 2026"
+                                                 data-saldo="800000.00"><i class="fa-solid fa-check"></i> Pagar</button></div>
+                                                                                                    <div><a class="btn-factura" target="_blank" rel="noopener"
+                                            href="recibo__pago-83.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a></div>
+                                                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="pago-badge parcial">Parcial</span>
+                                                                    <div class="saldo-mini">Saldo $800.000</div>
+                                                                                                    <div><button type="button" class="btn-pagar js-pagar"
+                                                 data-cobro="82"
+                                                 data-paciente="Sara Gabriela Herrera Pérez"
+                                                 data-periodo="Junio 2026"
+                                                 data-saldo="800000.00"><i class="fa-solid fa-check"></i> Pagar</button></div>
+                                                                                                    <div><a class="btn-factura" target="_blank" rel="noopener"
+                                            href="recibo__pago-84.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a></div>
+                                                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="pago-badge parcial">Parcial</span>
+                                                                    <div class="saldo-mini">Saldo $800.000</div>
+                                                                                                    <div><button type="button" class="btn-pagar js-pagar"
+                                                 data-cobro="83"
+                                                 data-paciente="Sara Gabriela Herrera Pérez"
+                                                 data-periodo="Julio 2026"
+                                                 data-saldo="800000.00"><i class="fa-solid fa-check"></i> Pagar</button></div>
+                                                                                                    <div><a class="btn-factura" target="_blank" rel="noopener"
+                                            href="recibo__pago-85.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a></div>
+                                                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="pago-badge pagado">Pagado</span>
+                                                                                                                                    <div><a class="btn-factura" target="_blank" rel="noopener"
+                                            href="recibo__pago-86.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a></div>
+                                                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="pago-badge pagado">Pagado</span>
+                                                                                                                                    <div><a class="btn-factura" target="_blank" rel="noopener"
+                                            href="recibo__pago-88.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a></div>
+                                                                                    </td>
+                                            <td class="celda-mes mes-actual">
+                                                            <span class="pago-badge pagado">Pagado</span>
+                                                                                                                                    <div><a class="btn-factura" target="_blank" rel="noopener"
+                                            href="recibo__pago-89.pdf"><i class="fa-solid fa-receipt"></i> Recibo</a></div>
+                                                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="17"
+                                             data-mes="2026-11"
+                                             data-paciente="Sara Gabriela Herrera Pérez"
+                                             data-periodo="Noviembre 2026"
+                                             data-saldo="1600000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                            <td class="celda-mes">
+                                                            <span class="sin-cobro">—</span>
+                                <div><button type="button" class="btn-pagar btn-pagar-nuevo js-pagar"
+                                             title="Registrar pago de este mes (se crea su cobro)"
+                                             data-plan="17"
+                                             data-mes="2026-12"
+                                             data-paciente="Sara Gabriela Herrera Pérez"
+                                             data-periodo="Diciembre 2026"
+                                             data-saldo="1600000.00"><i class="fa-solid fa-plus"></i> Pagar</button></div>
+                                                    </td>
+                                        <td>
+                                                    <form method="post" class="en-linea" data-confirmar="¿Finalizar el plan de Sara Gabriela Herrera Pérez con fecha de hoy? No se generarán más cobros.">
+                                <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8"><input type="hidden" name="accion" value="finalizar"><input type="hidden" name="plan_id" value="17">
+                                <button type="submit" class="boton-mini peligro" title="Finalizar plan"><i class="fa-solid fa-ban"></i> Finalizar</button>
+                            </form>
+                                            </td>
+                </tr>
+                                    </tbody>
+        </table>
+    </div>
+    <p class="ayuda mt-3"><i class="fa-solid fa-circle-info"></i> Los cobros mensuales se generan solos hasta el mes actual. «—» indica que no hay cobro en ese mes; con «Pagar» se registra igual (pagos atrasados, de antes del inicio del plan o adelantados).</p>
+</div>
+<nav class="pagination is-centered mt-6" role="navigation" aria-label="Paginación">
+            <a class="pagination-previous" disabled><i class="fa-solid fa-chevron-left"></i>&nbsp;Anterior</a>
+    
+            <a class="pagination-next" href="index__pagina-2.html">Siguiente&nbsp;<i class="fa-solid fa-chevron-right"></i></a>
+    
+    <ul class="pagination-list">
+        
+                    <li><a class="pagination-link is-current" href="index__pagina-1.html">1</a></li>
+                    <li><a class="pagination-link" href="index__pagina-2.html">2</a></li>
+        
+            </ul>
+</nav>
+
+<div id="modal-pago" class="modal modal-pago">
+    <form method="post">
+        <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">        <input type="hidden" name="accion" value="pagar">
+        <input type="hidden" name="cobro_id" value="">
+        <input type="hidden" name="plan_id" value="">
+        <input type="hidden" name="periodo" value="">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title"><i class="fa-solid fa-hand-holding-dollar"></i> Registrar pago</p>
+                <button class="delete" type="button" aria-label="Cerrar"></button>
+            </header>
+            <section class="modal-card-body">
+                <div class="pago-resumen">
+                    <div><span>Paciente</span><strong data-campo="paciente">—</strong></div>
+                    <div><span>Periodo</span><strong data-campo="periodo">—</strong></div>
+                    <div><span>Saldo pendiente</span><strong data-campo="saldo">—</strong></div>
+                </div>
+                <div class="columns">
+                    <div class="column is-6">
+                        <div class="form-group-modern">
+                            <label>Monto recibido <span class="required-dot">*</span></label>
+                            <input class="input" type="text" name="monto" data-dinero required inputmode="numeric" autocomplete="off">
+                            <p class="ayuda">Puede registrar un abono parcial.</p>
+                        </div>
+                    </div>
+                    <div class="column is-6">
+                        <div class="form-group-modern">
+                            <label>Fecha de pago <span class="required-dot">*</span></label>
+                            <input class="input" type="date" name="fecha_pago" required max="2026-10-07" value="2026-10-07">
+                        </div>
+                    </div>
+                </div>
+                <div class="columns">
+                    <div class="column is-6">
+                        <div class="form-group-modern">
+                            <label>Método <span class="required-dot">*</span></label>
+                            <div class="select is-fullwidth"><select name="metodo" required><option value="efectivo" selected>Efectivo</option><option value="transferencia">Transferencia</option><option value="nequi">Nequi</option><option value="daviplata">Daviplata</option><option value="tarjeta">Tarjeta</option><option value="otro">Otro</option></select></div>
+                        </div>
+                    </div>
+                    <div class="column is-6">
+                        <div class="form-group-modern">
+                            <label>Referencia</label>
+                            <input class="input" type="text" name="referencia" maxlength="100" placeholder="Nº de transacción o comprobante">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group-modern">
+                    <label>Observación</label>
+                    <input class="input" type="text" name="observacion" maxlength="200">
+                </div>
+            </section>
+            <footer class="modal-card-foot">
+                <button type="submit" class="button is-primary"><i class="fa-solid fa-floppy-disk"></i>&nbsp; Registrar pago</button>
+                <button type="button" class="button is-light js-modal-cerrar">Cancelar</button>
+            </footer>
+        </div>
+    </form>
+</div>
+    
+<div id="modal-plan" class="modal modal-pago" data-abrir="0">
+    <form method="post" id="form-plan">
+        <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">        <input type="hidden" name="accion" value="crear_plan">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title"><i class="fa-solid fa-plus-circle"></i> Nuevo plan de pagos</p>
+                <button class="delete" type="button" aria-label="Cerrar"></button>
+            </header>
+            <section class="modal-card-body">
+                                                <div class="form-group-modern" id="bloque-paciente-existente">
+                    <label>Paciente <span class="required-dot">*</span></label>
+                    <div class="buscador-paciente" data-buscador-paciente>
+                        <input class="input" type="text" name="paciente_texto" id="paciente_texto" autocomplete="off"
+                               placeholder="Escriba el nombre o el número de documento…" value="" required>
+                        <input type="hidden" name="paciente_id" id="paciente_id" value="">
+                        <div class="buscador-resultados" role="listbox" style="z-index:50;" hidden></div>
+                        <script type="application/json" class="buscador-datos" >[{"id":9,"t":"Carolina Díaz Zapata — CC 18947695"},{"id":8,"t":"Carolina Daniela Londoño Aguilar — TI 1062263036"},{"id":1,"t":"Daniel Rojas Londoño — TI 81967330"},{"id":13,"t":"Daniel Sánchez Pérez — CC 85249699"},{"id":24,"t":"Daniela Antonia Herrera Arango — CC 48471089"},{"id":7,"t":"Daniela Rodríguez Londoño — CC 41332109"},{"id":6,"t":"Daniela Torres Londoño — CC 46332090"},{"id":4,"t":"Diego Esteban Castro Medina — CC 11368404"},{"id":3,"t":"Esteban Hernández Vargas — CC 32552269"},{"id":28,"t":"Esteban Ramírez Zapata — CC 23138915"},{"id":18,"t":"Juan José Rojas Medina — CC 37273784"},{"id":21,"t":"Juan José Camilo Vargas Martínez — TI 1014597226"},{"id":25,"t":"Juliana Hernández Salazar — CC 45875443"},{"id":5,"t":"Mariana Cárdenas Moreno — CC 37199395"},{"id":20,"t":"Natalia Cárdenas Díaz — CC 46858321"},{"id":12,"t":"Natalia Salazar Torres — CC 69905541"},{"id":27,"t":"Paula Martínez Jiménez — CC 82998927"},{"id":10,"t":"Samuel Daniel Díaz Ramírez — TI 1016843871"},{"id":17,"t":"Sara Gabriela Herrera Pérez — TI 1037890414"},{"id":15,"t":"Sara Paula Quintero Jiménez — CC 11897335"},{"id":19,"t":"Sara Romero Gutiérrez — CC 54307065"},{"id":23,"t":"Sara Vargas Díaz — TI 1083494142"},{"id":2,"t":"Sebastián Rojas López — TI 1088189218"},{"id":26,"t":"Sebastián Romero Romero — CC 94453835"},{"id":14,"t":"Sofía Herrera Pérez — TI 1081265886"},{"id":11,"t":"Sofía Sánchez Hernández — TI 1009278108"},{"id":16,"t":"Sofía Torres Vargas — TI 1083208769"},{"id":22,"t":"Sofía Vargas Gutiérrez — CC 82006536"}]</script>
+                    </div>
+                    <p class="ayuda">Busca por nombre, apellido o documento (con o sin puntos).</p>
+                </div>
+                <label style="z-index:30;" class="checkbox mb-3">
+                    <input  type="checkbox" name="paciente_nuevo" value="1" id="paciente_nuevo">
+                    Paciente no registrado (crear con datos mínimos)
+                </label>
+                <div id="bloque-paciente-nuevo" class="caja-paciente-nuevo" hidden>
+                    <div class="columns is-multiline">
+                        <div class="column is-5">
+                            <div class="form-group-modern">
+                                <label>Tipo de documento <span class="required-dot">*</span></label>
+                                <div class="select is-fullwidth"><select name="nuevo_tipo_documento"><option value="AS">Adulto sin identificación</option><option value="CC" selected>Cédula de ciudadanía</option><option value="CD">Carné diplomático</option><option value="CE">Cédula de extranjería</option><option value="MS">Menor sin identificación</option><option value="NIT">NIT</option><option value="NUIP">NUIP</option><option value="NV">Certificado de nacido vivo</option><option value="PA">Pasaporte</option><option value="PE">Permiso especial</option><option value="PEP">Permiso especial de permanencia</option><option value="PPT">Permiso por protección temporal</option><option value="RC">Registro civil</option><option value="SC">Salvoconducto</option><option value="TI">Tarjeta de identidad</option></select></div>
+                            </div>
+                        </div>
+                        <div class="column is-7">
+                            <div class="form-group-modern">
+                                <label>Documento <span class="required-dot">*</span></label>
+                                <input class="input" type="text" name="nuevo_documento" maxlength="20" value="">
+                            </div>
+                        </div>
+                        <div class="column is-6">
+                            <div class="form-group-modern">
+                                <label>Primer nombre <span class="required-dot">*</span></label>
+                                <input class="input" type="text" name="nuevo_primer_nombre" maxlength="60" value="">
+                            </div>
+                        </div>
+                        <div class="column is-6">
+                            <div class="form-group-modern">
+                                <label>Primer apellido <span class="required-dot">*</span></label>
+                                <input class="input" type="text" name="nuevo_primer_apellido" maxlength="60" value="">
+                            </div>
+                        </div>
+                    </div>
+                    <p class="ayuda">El resto de la ficha lo completa después un profesional en el módulo de pacientes.</p>
+                </div>
+
+                <div class="columns">
+                    <div class="column is-7">
+                        <div class="form-group-modern">
+                            <label>Descripción <span class="required-dot">*</span></label>
+                            <input class="input" type="text" name="descripcion" maxlength="150" required value="Internado mensual">
+                        </div>
+                    </div>
+                    <div class="column is-5">
+                        <div class="form-group-modern">
+                            <label>Periodicidad <span class="required-dot">*</span></label>
+                            <div class="select is-fullwidth"><select name="periodicidad" required><option value="mensual" selected>Mensual</option><option value="por_sesion">Por sesión</option><option value="unico">Pago único</option></select></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="columns">
+                    <div class="column is-4">
+                        <div class="form-group-modern">
+                            <label>Valor <span class="required-dot">*</span></label>
+                            <input class="input" type="text" name="valor" data-dinero required inputmode="numeric" placeholder="$ 0" value="">
+                        </div>
+                    </div>
+                    <div class="column is-4">
+                        <div class="form-group-modern">
+                            <label>Fecha de inicio <span class="required-dot">*</span></label>
+                            <input class="input" type="date" name="fecha_inicio" required value="2026-10-07">
+                        </div>
+                    </div>
+                    <div class="column is-4">
+                        <div class="form-group-modern">
+                            <label>Referido por</label>
+                            <input class="input" type="text" name="referido_por" maxlength="150" value="">
+                        </div>
+                    </div>
+                </div>
+                <p class="ayuda"><strong>Mensual:</strong> se genera un cobro cada mes desde el inicio. <strong>Pago único:</strong> un solo cobro en el mes de inicio. <strong>Por sesión:</strong> los cobros se agregan a mano en el detalle del plan.</p>
+            </section>
+            <footer class="modal-card-foot">
+                <button type="submit" class="button is-primary"><i class="fa-solid fa-floppy-disk"></i>&nbsp; Crear plan</button>
+                <button type="button" class="button is-light js-modal-cerrar">Cancelar</button>
+            </footer>
+        </div>
+    </form>
+</div>
+
+</main>
+<script src="../assets/js/app.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    function pesos(n) { return '$ ' + Math.floor(Number(n) || 0).toLocaleString('es-CO'); }
+    var modal = document.getElementById('modal-pago');
+    document.querySelectorAll('.js-pagar').forEach(function (btn) {
+        btn.addEventListener('click', function (ev) {
+            ev.preventDefault();
+            if (!modal) return;
+            var f = modal.querySelector('form');
+            f.elements['cobro_id'].value = btn.dataset.cobro || '';
+            f.elements['plan_id'].value = btn.dataset.plan || '';
+            f.elements['periodo'].value = btn.dataset.mes || '';
+            f.elements['monto'].value = pesos(btn.dataset.saldo);
+            f.elements['referencia'].value = '';
+            f.elements['observacion'].value = '';
+            modal.querySelector('[data-campo="paciente"]').textContent = btn.dataset.paciente || '—';
+            modal.querySelector('[data-campo="periodo"]').textContent = btn.dataset.periodo || '—';
+            modal.querySelector('[data-campo="saldo"]').textContent = pesos(btn.dataset.saldo);
+            modal.classList.add('is-active');
+            f.elements['monto'].focus();
+        });
+    });
+    var anular = document.getElementById('modal-anular-pago');
+    document.querySelectorAll('.js-anular-pago').forEach(function (btn) {
+        btn.addEventListener('click', function (ev) {
+            ev.preventDefault();
+            if (!anular) return;
+            var f = anular.querySelector('form');
+            f.elements['pago_id'].value = btn.dataset.pago;
+            f.elements['motivo'].value = '';
+            anular.querySelector('[data-campo="recibo"]').textContent = btn.dataset.recibo || '';
+            anular.querySelector('[data-campo="monto"]').textContent = pesos(btn.dataset.monto);
+            anular.classList.add('is-active');
+            f.elements['motivo'].focus();
+        });
+    });
+});
+</script><script>
+document.addEventListener('DOMContentLoaded', function () {
+    var texto = document.getElementById('paciente_texto');
+    var oculto = document.getElementById('paciente_id');
+    var nuevo = document.getElementById('paciente_nuevo');
+    var bExistente = document.getElementById('bloque-paciente-existente');
+    var bNuevo = document.getElementById('bloque-paciente-nuevo');
+    function alternar() {
+        var n = nuevo.checked;
+        bExistente.hidden = n;
+        bNuevo.hidden = !n;
+        texto.required = !n;
+        bNuevo.querySelectorAll('input').forEach(function (i) { i.required = n; });
+    }
+    nuevo.addEventListener('change', alternar);
+    alternar();
+    document.getElementById('form-plan').addEventListener('submit', function (ev) {
+        if (!nuevo.checked) {
+            if (!oculto.value) {
+                ev.preventDefault();
+                texto.classList.add('is-danger');
+                texto.setCustomValidity('Seleccione un paciente de la lista.');
+                texto.reportValidity();
+                texto.setCustomValidity('');
+            }
+        }
+    });
+});
+</script><script src="../demo/mapa.js"></script>
+<script src="../demo/demo.js"></script>
+</body>
+</html>

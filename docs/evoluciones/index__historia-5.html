@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es" style="overflow:hidden;">
+<head>
+<script>window.DEMO_ROOT="..";window.DEMO_KEY="/evoluciones/index.php?historia=5";window.DEMO_HOY="2026-10-07";</script>
+<script src="../demo/tiempo.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">
+    <title>Evoluciones · Plataforma Psicológica</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../demo/vendor/bulma/bulma.min.css">
+    <link rel="stylesheet" href="../demo/vendor/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/app.css">
+    <link rel="stylesheet" href="../assets/css/extra.css">
+    <link rel="icon" href="../assets/img/favicon-96x96.png" type="image/png">
+        <link rel="stylesheet" href="../assets/css/ui.css">
+<link rel="stylesheet" href="../demo/demo.css">
+</head>
+<body>
+
+<button class="menu-toggle" type="button" onclick="toggleMenu()" aria-label="Menú"><i class="fas fa-bars"></i></button>
+
+<aside class="sidebar">
+    <div class="sidebar-brand">
+        <img src="../assets/img/logo.png" alt="">
+        <div>
+            <h2><a href="../inicio.html">Plataforma Psicológica</a></h2>
+            <span>Portal administrativo</span>
+        </div>
+    </div>
+
+    <nav>
+        <div class="sidebar-section-title">Navegación</div>
+
+        <a href="../inicio.html" class="">
+            <i class="fa-solid fa-house"></i> Inicio
+        </a>
+
+                    <a href="../pacientes/index.html" class="active">
+                <i class="fa-solid fa-hospital-user"></i> Pacientes
+            </a>
+        
+                    <a href="../citas/index.html" class="">
+                <i class="fa-solid fa-calendar-check"></i> Citas
+            </a>
+        
+                    <a href="../empleados/index.html" class="">
+                <i class="fa-solid fa-user-tie"></i> Empleados
+            </a>
+        
+                    <a href="../pagos/index.html" class="">
+                <i class="fa-solid fa-sack-dollar"></i> Pagos
+            </a>
+        
+                    <a href="../gastos/index.html" class="">
+                <i class="fa-solid fa-receipt"></i> Gastos
+            </a>
+        
+                    <a href="../usuarios/index.html" class="">
+                <i class="fa-solid fa-users"></i> Usuarios
+            </a>
+        
+                    <a href="../anuncios/index.html" class="">
+                <i class="fa-solid fa-bullhorn"></i> Anuncios
+            </a>
+        
+                    <a href="../empresa/index.html" class="">
+                <i class="fa-solid fa-building"></i> Empresa
+            </a>
+        
+        <hr>
+
+        <form method="post" action="#demo-no-disponible" data-demo-action="/salir.php" class="form-salir">
+            <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">            <button type="submit"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</button>
+        </form>
+    </nav>
+
+    <div class="system-health">
+        <div class="system-health-title">Administración Demo</div>
+        <div class="health-indicator">
+            <div class="health-dot"></div>
+            Administrador        </div>
+    </div>
+</aside>
+
+<main class="main-content">
+<div class="historia-header">
+    <div class="paciente-info">
+        <div class="paciente-avatar">MC</div>
+        <div>
+            <div class="paciente-nombre">Mariana Cárdenas Moreno</div>
+            <div class="paciente-doc">CC 37199395                 · 24 años            </div>
+        </div>
+    </div>
+    <span class="evo-count-badge"><i class="fa-solid fa-notes-medical"></i> 2 evolución(es) · historia #5</span></div>
+
+<div class="historia-acciones">
+    <a class="btn-historia btn-historia-datos" href="../pacientes/ver__id-5.html">
+        <i class="fa-solid fa-user"></i> Datos
+    </a>
+    <a class="btn-historia btn-historia-historias" href="../historias/index__paciente-5.html">
+        <i class="fa-solid fa-folder-open"></i> Historias
+    </a>
+            <a class="btn-historia btn-historia-informe" href="../historias/ver__id-5.html">
+            <i class="fa-solid fa-file-medical"></i> Ver historia
+        </a>
+        <a class="btn-historia btn-historia-evoluciones" href="index__historia-5.html">
+            <i class="fa-solid fa-notes-medical"></i> Evoluciones
+        </a>
+        <button class="btn-historia btn-historia-evoluciones js-modal-trigger" data-target="modal-evolucion" style="margin-left:auto"><i class="fa-solid fa-plus"></i> Nueva evolución</button></div>
+<div class="evoluciones-grid">
+            <div class="evolucion-card">
+            <div class="evolucion-card-header">
+                <div class="evo-numero">Evolución #2</div>
+                <div class="evo-fecha"><i class="fa-solid fa-calendar-day"></i> 17/07/2026</div>
+            </div>
+            <div class="evolucion-card-body">
+                <div class="evo-icon soap"><i class="fa-solid fa-file-lines"></i></div>
+                <div class="evo-resumen">
+                    Riesgo de recaída moderado asociado a contextos sociales; se refuerza el plan de prevención.                    <div class="autor-linea mt-2">Julián Ortiz · MÉDICO (A) ESPECIALISTA · Reg. RM 74521</div>
+                </div>
+            </div>
+            <div class="evolucion-card-footer">
+                <a href="ver__id-12.html" class="btn-detalle-evo"><i class="fa-solid fa-magnifying-glass"></i> Ver detalle</a>
+            </div>
+        </div>
+            <div class="evolucion-card">
+            <div class="evolucion-card-header">
+                <div class="evo-numero">Evolución #1</div>
+                <div class="evo-fecha"><i class="fa-solid fa-calendar-day"></i> 11/07/2026</div>
+            </div>
+            <div class="evolucion-card-body">
+                <div class="evo-icon soap"><i class="fa-solid fa-file-lines"></i></div>
+                <div class="evo-resumen">
+                    Se evidencia avance en la identificación de detonantes y en el uso de estrategias de afrontamiento.                    <div class="autor-linea mt-2">Julián Ortiz · MÉDICO (A) ESPECIALISTA · Reg. RM 74521</div>
+                </div>
+            </div>
+            <div class="evolucion-card-footer">
+                <a href="ver__id-11.html" class="btn-detalle-evo"><i class="fa-solid fa-magnifying-glass"></i> Ver detalle</a>
+            </div>
+        </div>
+    
+    </div>
+
+<div id="modal-evolucion" class="modal modal-evo" data-abrir="0">
+    <form method="post">
+        <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">        <div class="modal-background"></div>
+        <div class="modal-card is-large">
+            <header class="modal-card-head">
+                <p class="modal-card-title"><i class="fa-solid fa-plus-circle"></i> Nueva evolución</p>
+                <button class="delete" type="button" aria-label="Cerrar"></button>
+            </header>
+            <section class="modal-card-body">
+                                <div class="columns">
+                    <div class="column">
+                        <div class="form-group-modern">
+                            <label>Fecha <span class="required-dot">*</span></label>
+                            <input class="input" type="date" name="fecha" required max="2026-10-07" value="2026-10-07">
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="form-group-modern">
+                            <label>Hora</label>
+                            <input class="input" type="time" name="hora" value="22:28">
+                        </div>
+                    </div>
+                                            <div class="column">
+                            <div class="form-group-modern">
+                                <label>Cita asociada</label>
+                                <div class="select is-fullwidth"><select name="cita_id">
+                                    <option value="">Ninguna</option>
+                                                                            <option value="75">25/09/2026 08:00 am</option>
+                                                                            <option value="24">09/09/2026 05:00 pm</option>
+                                                                            <option value="25">09/09/2026 09:00 am</option>
+                                                                            <option value="16">07/09/2026 04:00 pm</option>
+                                                                            <option value="11">04/09/2026 09:00 am</option>
+                                                                    </select></div>
+                            </div>
+                        </div>
+                                    </div>
+                                    <div class="form-group-modern">
+                        <label>Profesional que firma <span class="required-dot">*</span></label>
+                        <div class="select is-fullwidth"><select name="profesional_id" required>
+                            <option value="">Seleccione…</option>
+                                                            <option value="2">Andrés Morales · PSICÓLOGO</option>
+                                                            <option value="3">Catalina Restrepo · PSICÓLOGO</option>
+                                                            <option value="6">Daniela Suárez · TRABAJADOR(A) SOCIAL</option>
+                                                            <option value="4">Julián Ortiz · MÉDICO (A) ESPECIALISTA</option>
+                                                            <option value="1">Laura Valencia · PSICÓLOGO</option>
+                                                            <option value="7">Santiago Peña · TERAPEUTA</option>
+                                                    </select></div>
+                    </div>
+                                                    <div class="form-group-modern">
+                        <label>Información subjetiva</label>
+                        <textarea class="textarea" name="informacion_subjetiva" placeholder="Lo que el paciente manifiesta…"></textarea>
+                    </div>
+                                    <div class="form-group-modern">
+                        <label>Información objetiva <span class="required-dot">*</span></label>
+                        <textarea class="textarea" name="informacion_objetiva" placeholder="Datos objetivos observados…" required></textarea>
+                    </div>
+                                    <div class="form-group-modern">
+                        <label>Análisis <span class="required-dot">*</span></label>
+                        <textarea class="textarea" name="analisis" placeholder="Análisis y evaluación profesional…" required></textarea>
+                    </div>
+                                    <div class="form-group-modern">
+                        <label>Plan y/o tratamiento <span class="required-dot">*</span></label>
+                        <textarea class="textarea" name="plan_tratamiento" placeholder="Plan de tratamiento a seguir…" required></textarea>
+                    </div>
+                                <p class="ayuda mb-3"><i class="fa-solid fa-lock"></i> Al guardar, la evolución queda firmada y no se puede editar; las correcciones se hacen con notas aclaratorias.</p>
+                <div class="buttons">
+                    <button type="submit" class="button is-info"><i class="fa-solid fa-floppy-disk"></i>&nbsp; Guardar evolución</button>
+                    <button type="button" class="button js-modal-cerrar">Cancelar</button>
+                </div>
+            </section>
+        </div>
+    </form>
+</div>
+</main>
+<script src="../assets/js/app.js"></script>
+<script src="../demo/mapa.js"></script>
+<script src="../demo/demo.js"></script>
+</body>
+</html>

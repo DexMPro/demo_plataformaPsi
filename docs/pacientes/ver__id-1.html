@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="es" style="overflow:hidden;">
+<head>
+<script>window.DEMO_ROOT="..";window.DEMO_KEY="/pacientes/ver.php?id=1";window.DEMO_HOY="2026-10-07";</script>
+<script src="../demo/tiempo.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">
+    <title>Ficha del paciente · Plataforma Psicológica</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../demo/vendor/bulma/bulma.min.css">
+    <link rel="stylesheet" href="../demo/vendor/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/app.css">
+    <link rel="stylesheet" href="../assets/css/extra.css">
+    <link rel="icon" href="../assets/img/favicon-96x96.png" type="image/png">
+        <link rel="stylesheet" href="../assets/css/ui.css">
+<link rel="stylesheet" href="../demo/demo.css">
+</head>
+<body>
+
+<button class="menu-toggle" type="button" onclick="toggleMenu()" aria-label="Menú"><i class="fas fa-bars"></i></button>
+
+<aside class="sidebar">
+    <div class="sidebar-brand">
+        <img src="../assets/img/logo.png" alt="">
+        <div>
+            <h2><a href="../inicio.html">Plataforma Psicológica</a></h2>
+            <span>Portal administrativo</span>
+        </div>
+    </div>
+
+    <nav>
+        <div class="sidebar-section-title">Navegación</div>
+
+        <a href="../inicio.html" class="">
+            <i class="fa-solid fa-house"></i> Inicio
+        </a>
+
+                    <a href="index.html" class="active">
+                <i class="fa-solid fa-hospital-user"></i> Pacientes
+            </a>
+        
+                    <a href="../citas/index.html" class="">
+                <i class="fa-solid fa-calendar-check"></i> Citas
+            </a>
+        
+                    <a href="../empleados/index.html" class="">
+                <i class="fa-solid fa-user-tie"></i> Empleados
+            </a>
+        
+                    <a href="../pagos/index.html" class="">
+                <i class="fa-solid fa-sack-dollar"></i> Pagos
+            </a>
+        
+                    <a href="../gastos/index.html" class="">
+                <i class="fa-solid fa-receipt"></i> Gastos
+            </a>
+        
+                    <a href="../usuarios/index.html" class="">
+                <i class="fa-solid fa-users"></i> Usuarios
+            </a>
+        
+                    <a href="../anuncios/index.html" class="">
+                <i class="fa-solid fa-bullhorn"></i> Anuncios
+            </a>
+        
+                    <a href="../empresa/index.html" class="">
+                <i class="fa-solid fa-building"></i> Empresa
+            </a>
+        
+        <hr>
+
+        <form method="post" action="#demo-no-disponible" data-demo-action="/salir.php" class="form-salir">
+            <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">            <button type="submit"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</button>
+        </form>
+    </nav>
+
+    <div class="system-health">
+        <div class="system-health-title">Administración Demo</div>
+        <div class="health-indicator">
+            <div class="health-dot"></div>
+            Administrador        </div>
+    </div>
+</aside>
+
+<main class="main-content">
+<form method="post">
+    <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">    <input type="hidden" name="accion" value="editar">
+    <div id="modal-editar" class="modal" data-abrir="0">
+        <div class="modal-background"></div>
+        <div class="modal-card is-large">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Editar paciente</p>
+                <button class="delete" type="button" aria-label="Cerrar"></button>
+            </header>
+            <section class="modal-card-body">
+                                <div class="columns is-multiline">
+    <div class="column is-6">
+        
+        <label>Documento <span class="required-dot">*</span></label>
+        <div class="control">
+            <div class="select is-fullwidth">
+                <select name="tipo_documento" required>
+                                            <option value="AS">AS - ADULTO SIN IDENTIFICACIÓN</option>
+                                            <option value="CC">CC - CÉDULA DE CIUDADANÍA</option>
+                                            <option value="CD">CD - CARNÉ DIPLOMÁTICO</option>
+                                            <option value="CE">CE - CÉDULA DE EXTRANJERÍA</option>
+                                            <option value="MS">MS - MENOR SIN IDENTIFICACIÓN</option>
+                                            <option value="NIT">NIT - NIT</option>
+                                            <option value="NUIP">NUIP - NUIP</option>
+                                            <option value="NV">NV - CERTIFICADO DE NACIDO VIVO</option>
+                                            <option value="PA">PA - PASAPORTE</option>
+                                            <option value="PE">PE - PERMISO ESPECIAL</option>
+                                            <option value="PEP">PEP - PERMISO ESPECIAL DE PERMANENCIA</option>
+                                            <option value="PPT">PPT - PERMISO POR PROTECCIÓN TEMPORAL</option>
+                                            <option value="RC">RC - REGISTRO CIVIL</option>
+                                            <option value="SC">SC - SALVOCONDUCTO</option>
+                                            <option value="TI" selected>TI - TARJETA DE IDENTIDAD</option>
+                                    </select>
+            </div>
+            <input class="input mt-2" type="text" name="documento" required maxlength="20" placeholder="Número de documento…" value="81967330">
+        </div>
+
+        <label class="form-label">Primer nombre <span class="required-dot">*</span></label>
+        <input class="input" type="text" name="primer_nombre" required maxlength="60" value="Daniel">
+        <label class="form-label">Segundo nombre</label>
+        <input class="input" type="text" name="segundo_nombre" maxlength="60" value="">
+        <label class="form-label">Primer apellido <span class="required-dot">*</span></label>
+        <input class="input" type="text" name="primer_apellido" required maxlength="60" value="Rojas">
+        <label class="form-label">Segundo apellido</label>
+        <input class="input" type="text" name="segundo_apellido" maxlength="60" value="Londoño">
+
+        <label>Género</label>
+        <div class="select is-fullwidth"><select name="genero"><option value="">Seleccione…</option><option value="Masculino" selected>Masculino</option><option value="Femenino">Femenino</option><option value="NA">NA</option></select></div>
+
+        <label>Fecha de nacimiento <span class="required-dot">*</span></label>
+        <input type="date" class="input" name="fecha_nacimiento" required max="2026-10-07" value="2011-10-07">
+
+        <label>Estado civil</label>
+        <div class="select is-fullwidth"><select name="estado_civil"><option value="">Seleccione…</option><option value="Soltero" selected>Soltero</option><option value="Casado">Casado</option><option value="Comprometido">Comprometido</option><option value="Divorciado">Divorciado</option><option value="Separado">Separado</option><option value="Viudo">Viudo</option><option value="Unión Libre">Unión Libre</option></select></div>
+
+        <label>Grupo sanguíneo</label>
+        <div class="select is-fullwidth">
+            <select name="grupo_sanguineo"><option value="">Seleccione…</option><option value="O+">O+</option><option value="O-">O-</option><option value="A+" selected>A+</option><option value="A-">A-</option><option value="B+">B+</option><option value="B-">B-</option><option value="AB+">AB+</option><option value="AB-">AB-</option></select>
+        </div>
+    </div>
+
+    <div class="column is-6">
+        <label class="form-label">Ciudad</label>
+        <input class="input" list="lista_ciudades" type="text" name="ciudad" maxlength="100" value="Bogotá">
+        <datalist id="lista_ciudades">
+            <option value="Abejorral"><option value="Abrego"><option value="Abriaquí"><option value="Acacías"><option value="Acandí"><option value="Acevedo"><option value="Achí"><option value="Agrado"><option value="Agua de Dios"><option value="Aguachica"><option value="Aguada"><option value="Aguadas"><option value="Aguazul"><option value="Agustín Codazzi"><option value="Aipe"><option value="Albania"><option value="Albán"><option value="Alcalá"><option value="Aldana"><option value="Alejandría"><option value="Algarrobo"><option value="Algeciras"><option value="Almaguer"><option value="Almeida"><option value="Alpujarra"><option value="Altamira"><option value="Alto Baudo"><option value="Altos del Rosario"><option value="Alvarado"><option value="Amagá"><option value="Amalfi"><option value="Ambalema"><option value="Anapoima"><option value="Ancuyá"><option value="Andalucía"><option value="Andes"><option value="Angelópolis"><option value="Angostura"><option value="Anolaima"><option value="Anorí"><option value="Anserma"><option value="Ansermanuevo"><option value="Anza"><option value="Anzoátegui"><option value="Apartadó"><option value="Apulo"><option value="Apía"><option value="Aquitania"><option value="Aracataca"><option value="Aranzazu"><option value="Aratoca"><option value="Arauca"><option value="Arauquita"><option value="Arbeláez"><option value="Arboleda"><option value="Arboledas"><option value="Arboletes"><option value="Arcabuco"><option value="Arenal"><option value="Argelia"><option value="Ariguaní"><option value="Arjona"><option value="Armenia"><option value="Armero"><option value="Arroyohondo"><option value="Astrea"><option value="Ataco"><option value="Atrato"><option value="Ayapel"><option value="Bagadó"><option value="Bahía Solano"><option value="Bajo Baudó"><option value="Balboa"><option value="Baranoa"><option value="Baraya"><option value="Barbacoas"><option value="Barbosa"><option value="Barichara"><option value="Barranca de Upía"><option value="Barrancabermeja"><option value="Barrancas"><option value="Barranco Minas"><option value="Barranco de Loba"><option value="Barranquilla"><option value="Becerril"><option value="Belalcázar"><option value="Bello"><option value="Belmira"><option value="Beltrán"><option value="Belén"><option value="Belén de Bajirá"><option value="Belén de Los Andaquies"><option value="Belén de Umbría"><option value="Berbeo"><option value="Betania"><option value="Betulia"><option value="Betéitiva"><option value="Bituima"><option value="Boavita"><option value="Bochalema"><option value="Bogotá"><option value="Bojacá"><option value="Bojaya"><option value="Bolívar"><option value="Bosconia"><option value="Boyacá"><option value="Briceño"><option value="Bucaramanga"><option value="Bucarasica"><option value="Buenaventura"><option value="Buenavista"><option value="Buenos Aires"><option value="Buesaco"><option value="Buga"><option value="Bugalagrande"><option value="Buriticá"><option value="Busbanzá"><option value="Cabrera"><option value="Cabuyaro"><option value="Cacahual"><option value="Cachipay"><option value="Cachirá"><option value="Caicedo"><option value="Caicedonia"><option value="Caimito"><option value="Cajamarca"><option value="Cajibío"><option value="Cajicá"><option value="Calamar"><option value="Calarca"><option value="Caldas"><option value="Caldono"><option value="Cali"><option value="California"><option value="Calima"><option value="Caloto"><option value="Campamento"><option value="Campo de la Cruz"><option value="Campoalegre"><option value="Campohermoso"><option value="Canalete"><option value="Candelaria"><option value="Cantagallo"><option value="Caparrapí"><option value="Capitanejo"><option value="Caqueza"><option value="Caracolí"><option value="Caramanta"><option value="Carcasí"><option value="Carepa"><option value="Carmen de Apicalá"><option value="Carmen de Carupa"><option value="Carmen del Darien"><option value="Carolina"><option value="Cartagena"><option value="Cartagena del Chairá"><option value="Cartago"><option value="Caruru"><option value="Casabianca"><option value="Castilla La Nueva"><option value="Caucasia"><option value="Cañasgordas"><option value="Cepitá"><option value="Cereté"><option value="Cerinza"><option value="Cerrito"><option value="Cerro San Antonio"><option value="Chachagüí"><option value="Chaguaní"><option value="Chalán"><option value="Chameza"><option value="Chaparral"><option value="Charalá"><option value="Charta"><option value="Chibolo"><option value="Chigorodó"><option value="Chima"><option value="Chimichagua"><option value="Chimá"><option value="Chinavita"><option value="Chinchiná"><option value="Chinácota"><option value="Chinú"><option value="Chipaque"><option value="Chipatá"><option value="Chiquinquirá"><option value="Chiriguaná"><option value="Chiscas"><option value="Chita"><option value="Chitagá"><option value="Chitaraque"><option value="Chivatá"><option value="Chivor"><option value="Choachí"><option value="Chocontá"><option value="Chía"><option value="Chíquiza"><option value="Cicuco"><option value="Cimitarra"><option value="Circasia"><option value="Cisneros"><option value="Ciudad Bolívar"><option value="Ciénaga"><option value="Ciénaga de Oro"><option value="Ciénega"><option value="Clemencia"><option value="Cocorná"><option value="Coello"><option value="Cogua"><option value="Colombia"><option value="Coloso"><option value="Colón"><option value="Concepción"><option value="Concordia"><option value="Condoto"><option value="Confines"><option value="Consaca"><option value="Contadero"><option value="Contratación"><option value="Convención"><option value="Copacabana"><option value="Coper"><option value="Corinto"><option value="Coromoro"><option value="Corozal"><option value="Corrales"><option value="Cota"><option value="Cotorra"><option value="Covarachía"><option value="Coveñas"><option value="Coyaima"><option value="Cravo Norte"><option value="Cuaspud"><option value="Cubarral"><option value="Cubará"><option value="Cucaita"><option value="Cucunubá"><option value="Cucutilla"><option value="Cumaral"><option value="Cumaribo"><option value="Cumbal"><option value="Cumbitara"><option value="Cunday"><option value="Curillo"><option value="Curití"><option value="Curumaní"><option value="Cuítiva"><option value="Cáceres"><option value="Cácota"><option value="Cértegui"><option value="Cómbita"><option value="Córdoba"><option value="Cúcuta"><option value="Dabeiba"><option value="Dagua"><option value="Dibulla"><option value="Distracción"><option value="Dolores"><option value="Don Matías"><option value="Dosquebradas"><option value="Duitama"><option value="Durania"><option value="Ebéjico"><option value="El Bagre"><option value="El Banco"><option value="El Cairo"><option value="El Calvario"><option value="El Cantón del San Pablo"><option value="El Carmen"><option value="El Carmen de Atrato"><option value="El Carmen de Bolívar"><option value="El Carmen de Chucurí"><option value="El Carmen de Viboral"><option value="El Castillo"><option value="El Cerrito"><option value="El Charco"><option value="El Cocuy"><option value="El Colegio"><option value="El Copey"><option value="El Doncello"><option value="El Dorado"><option value="El Dovio"><option value="El Espino"><option value="El Guacamayo"><option value="El Guamo"><option value="El Litoral del San Juan"><option value="El Molino"><option value="El Paso"><option value="El Paujil"><option value="El Peñol"><option value="El Peñón"><option value="El Piñon"><option value="El Playón"><option value="El Retorno"><option value="El Retén"><option value="El Roble"><option value="El Rosal"><option value="El Rosario"><option value="El Santuario"><option value="El Tablón de Gómez"><option value="El Tambo"><option value="El Tarra"><option value="El Zulia"><option value="El encanto"><option value="El Águila"><option value="Elías"><option value="Encino"><option value="Enciso"><option value="Entrerrios"><option value="Envigado"><option value="Espinal"><option value="Facatativá"><option value="Falan"><option value="Filadelfia"><option value="Filandia"><option value="Firavitoba"><option value="Flandes"><option value="Florencia"><option value="Floresta"><option value="Florida"><option value="Floridablanca"><option value="Florián"><option value="Fomeque"><option value="Fonseca"><option value="Fortul"><option value="Fosca"><option value="Francisco Pizarro"><option value="Fredonia"><option value="Fresno"><option value="Frontino"><option value="Fuente de Oro"><option value="Fundación"><option value="Funes"><option value="Funza"><option value="Fusagasugá"><option value="Fúquene"><option value="Gachala"><option value="Gachancipá"><option value="Gachantivá"><option value="Gachetá"><option value="Galapa"><option value="Galeras"><option value="Galán"><option value="Gama"><option value="Gamarra"><option value="Gambita"><option value="Gameza"><option value="Garagoa"><option value="Garzón"><option value="Gigante"><option value="Ginebra"><option value="Giraldo"><option value="Girardot"><option value="Girardota"><option value="Girón"><option value="González"><option value="Gramalote"><option value="Granada"><option value="Guaca"><option value="Guacamayas"><option value="Guacarí"><option value="Guachetá"><option value="Guachucal"><option value="Guadalupe"><option value="Guaduas"><option value="Guaitarilla"><option value="Gualmatán"><option value="Guamal"><option value="Guamo"><option value="Guapi"><option value="Guapotá"><option value="Guaranda"><option value="Guarne"><option value="Guasca"><option value="Guatape"><option value="Guataquí"><option value="Guatavita"><option value="Guateque"><option value="Guavatá"><option value="Guayabal de Siquima"><option value="Guayabetal"><option value="Guayatá"><option value="Gutiérrez"><option value="Guática"><option value="Génova"><option value="Gómez Plata"><option value="Güepsa"><option value="Güicán"><option value="Hacarí"><option value="Hatillo de Loba"><option value="Hato"><option value="Hato Corozal"><option value="Hatonuevo"><option value="Heliconia"><option value="Herrán"><option value="Herveo"><option value="Hispania"><option value="Hobo"><option value="Honda"><option value="Ibagué"><option value="Icononzo"><option value="Iles"><option value="Imués"><option value="Inzá"><option value="Inírida"><option value="Ipiales"><option value="Iquira"><option value="Isnos"><option value="Istmina"><option value="Itagui"><option value="Ituango"><option value="Iza"><option value="Jambaló"><option value="Jamundí"><option value="Jardín"><option value="Jenesano"><option value="Jericó"><option value="Jerusalén"><option value="Jesús María"><option value="Jordán"><option value="Juan de Acosta"><option value="Junín"><option value="Juradó"><option value="La Apartada"><option value="La Argentina"><option value="La Belleza"><option value="La Calera"><option value="La Capilla"><option value="La Ceja"><option value="La Celia"><option value="La Cruz"><option value="La Cumbre"><option value="La Dorada"><option value="La Esperanza"><option value="La Estrella"><option value="La Florida"><option value="La Gloria"><option value="La Guadalupe"><option value="La Jagua de Ibirico"><option value="La Jagua del Pilar"><option value="La Llanada"><option value="La Macarena"><option value="La Merced"><option value="La Mesa"><option value="La Montañita"><option value="La Palma"><option value="La Paz"><option value="La Peña"><option value="La Pintada"><option value="La Plata"><option value="La Playa"><option value="La Primavera"><option value="La Salina"><option value="La Sierra"><option value="La Tebaida"><option value="La Tola"><option value="La Unión"><option value="La Uvita"><option value="La Vega"><option value="La Victoria"><option value="La Virginia"><option value="La chorrera"><option value="La pedrera"><option value="La victoria"><option value="Labateca"><option value="Labranzagrande"><option value="Landázuri"><option value="Lebríja"><option value="Leguízamo"><option value="Leiva"><option value="Lejanías"><option value="Lenguazaque"><option value="Leticia"><option value="Liborina"><option value="Linares"><option value="Lloró"><option value="Lorica"><option value="Los Andes"><option value="Los Córdobas"><option value="Los Palmitos"><option value="Los Patios"><option value="Los Santos"><option value="Lourdes"><option value="Luruaco"><option value="Lérida"><option value="Líbano"><option value="López"><option value="Macanal"><option value="Macaravita"><option value="Maceo"><option value="Macheta"><option value="Madrid"><option value="Magangué"><option value="Magüi"><option value="Mahates"><option value="Maicao"><option value="Majagual"><option value="Malambo"><option value="Mallama"><option value="Manatí"><option value="Manaure"><option value="Manizales"><option value="Manta"><option value="Manzanares"><option value="Maní"><option value="Mapiripana"><option value="Mapiripán"><option value="Margarita"><option value="Marinilla"><option value="Maripí"><option value="Mariquita"><option value="Marmato"><option value="Marquetalia"><option value="Marsella"><option value="Marulanda"><option value="María La Baja"><option value="Matanza"><option value="Medellín"><option value="Medina"><option value="Medio Atrato"><option value="Medio Baudó"><option value="Medio San Juan"><option value="Melgar"><option value="Mercaderes"><option value="Mesetas"><option value="Milán"><option value="Miraflores"><option value="Miranda"><option value="Miriti Paraná"><option value="Mistrató"><option value="Mitú"><option value="Mocoa"><option value="Mogotes"><option value="Molagavita"><option value="Momil"><option value="Mompós"><option value="Mongua"><option value="Monguí"><option value="Moniquirá"><option value="Montebello"><option value="Montecristo"><option value="Montelíbano"><option value="Montenegro"><option value="Monterrey"><option value="Montería"><option value="Morales"><option value="Morelia"><option value="Morichal"><option value="Morroa"><option value="Mosquera"><option value="Motavita"><option value="Moñitos"><option value="Murillo"><option value="Murindó"><option value="Mutatá"><option value="Mutiscua"><option value="Muzo"><option value="Málaga"><option value="Nariño"><option value="Natagaima"><option value="Nechí"><option value="Necoclí"><option value="Neira"><option value="Neiva"><option value="Nemocón"><option value="Nilo"><option value="Nimaima"><option value="Nobsa"><option value="Nocaima"><option value="Norcasia"><option value="Nueva Granada"><option value="Nuevo Colón"><option value="Nunchía"><option value="Nuquí"><option value="Nátaga"><option value="Nóvita"><option value="Obando"><option value="Ocamonte"><option value="Ocaña"><option value="Oiba"><option value="Oicatá"><option value="Olaya"><option value="Olaya Herrera"><option value="Onzaga"><option value="Oporapa"><option value="Orito"><option value="Orocué"><option value="Ortega"><option value="Ospina"><option value="Otanche"><option value="Ovejas"><option value="Pachavita"><option value="Pacho"><option value="Pacoa"><option value="Padilla"><option value="Paez"><option value="Paicol"><option value="Pailitas"><option value="Paime"><option value="Paipa"><option value="Pajarito"><option value="Palermo"><option value="Palestina"><option value="Palmar"><option value="Palmar de Varela"><option value="Palmas del Socorro"><option value="Palmira"><option value="Palmito"><option value="Palocabildo"><option value="Pamplona"><option value="Pamplonita"><option value="Pana Pana"><option value="Pandi"><option value="Panqueba"><option value="Papunaua"><option value="Paratebueno"><option value="Pasca"><option value="Pasto"><option value="Patía"><option value="Pauna"><option value="Paya"><option value="Paz de Ariporo"><option value="Paz de Río"><option value="Pedraza"><option value="Pelaya"><option value="Pensilvania"><option value="Peque"><option value="Pereira"><option value="Pesca"><option value="Peñol"><option value="Piamonte"><option value="Piedecuesta"><option value="Piedras"><option value="Piendamó"><option value="Pijao"><option value="Pijiño del Carmen"><option value="Pinchote"><option value="Pinillos"><option value="Piojó"><option value="Pisba"><option value="Pital"><option value="Pitalito"><option value="Pivijay"><option value="Planadas"><option value="Planeta Rica"><option value="Plato"><option value="Policarpa"><option value="Polonuevo"><option value="Ponedera"><option value="Popayán"><option value="Pore"><option value="Potosí"><option value="Pradera"><option value="Prado"><option value="Providencia"><option value="Pueblo Bello"><option value="Pueblo Nuevo"><option value="Pueblo Rico"><option value="Pueblorrico"><option value="Puebloviejo"><option value="Puente Nacional"><option value="Puerres"><option value="Puerto Alegría"><option value="Puerto Arica"><option value="Puerto Asís"><option value="Puerto Berrío"><option value="Puerto Boyacá"><option value="Puerto Caicedo"><option value="Puerto Carreño"><option value="Puerto Colombia"><option value="Puerto Concordia"><option value="Puerto Escondido"><option value="Puerto Gaitán"><option value="Puerto Guzmán"><option value="Puerto Libertador"><option value="Puerto Lleras"><option value="Puerto López"><option value="Puerto Nare"><option value="Puerto Nariño"><option value="Puerto Parra"><option value="Puerto Rico"><option value="Puerto Rondón"><option value="Puerto Salgar"><option value="Puerto Santander"><option value="Puerto Tejada"><option value="Puerto Triunfo"><option value="Puerto Wilches"><option value="Pulí"><option value="Pupiales"><option value="Puracé"><option value="Purificación"><option value="Purísima"><option value="Pácora"><option value="Páez"><option value="Páramo"><option value="Quebradanegra"><option value="Quetame"><option value="Quibdó"><option value="Quimbaya"><option value="Quinchía"><option value="Quipile"><option value="Quípama"><option value="Ragonvalia"><option value="Ramiriquí"><option value="Recetor"><option value="Regidor"><option value="Remedios"><option value="Remolino"><option value="Repelón"><option value="Restrepo"><option value="Retiro"><option value="Ricaurte"><option value="Rioblanco"><option value="Riofrío"><option value="Riohacha"><option value="Rionegro"><option value="Riosucio"><option value="Risaralda"><option value="Rivera"><option value="Roberto Payán"><option value="Roldanillo"><option value="Roncesvalles"><option value="Rondón"><option value="Rosas"><option value="Rovira"><option value="Ráquira"><option value="Río Iro"><option value="Río Quito"><option value="Río Viejo"><option value="Río de Oro"><option value="Sabana de Torres"><option value="Sabanagrande"><option value="Sabanalarga"><option value="Sabanas de San Angel"><option value="Sabaneta"><option value="Saboyá"><option value="Sahagún"><option value="Saladoblanco"><option value="Salamina"><option value="Salazar"><option value="Saldaña"><option value="Salento"><option value="Salgar"><option value="Samacá"><option value="Samaniego"><option value="Samaná"><option value="Sampués"><option value="San Agustín"><option value="San Alberto"><option value="San Andrés"><option value="San Andrés Sotavento"><option value="San Antero"><option value="San Antonio"><option value="San Antonio del Tequendama"><option value="San Benito"><option value="San Benito Abad"><option value="San Bernardo"><option value="San Bernardo del Viento"><option value="San Calixto"><option value="San Carlos"><option value="San Carlos de Guaroa"><option value="San Cayetano"><option value="San Cristóbal"><option value="San Diego"><option value="San Eduardo"><option value="San Estanislao"><option value="San Felipe"><option value="San Fernando"><option value="San Francisco"><option value="San Gil"><option value="San Jacinto"><option value="San Jacinto del Cauca"><option value="San Jerónimo"><option value="San Joaquín"><option value="San José"><option value="San José de Miranda"><option value="San José de Pare"><option value="San José de la Montaña"><option value="San José del Fragua"><option value="San José del Guaviare"><option value="San José del Palmar"><option value="San Juan Nepomuceno"><option value="San Juan de Arama"><option value="San Juan de Betulia"><option value="San Juan de Río Seco"><option value="San Juan de Urabá"><option value="San Juan del Cesar"><option value="San Juanito"><option value="San Lorenzo"><option value="San Luis"><option value="San Luis de Gaceno"><option value="San Luis de Palenque"><option value="San Marcos"><option value="San Martín"><option value="San Martín de Loba"><option value="San Mateo"><option value="San Miguel"><option value="San Miguel de Sema"><option value="San Onofre"><option value="San Pablo"><option value="San Pablo de Borbur"><option value="San Pedro"><option value="San Pedro de Cartago"><option value="San Pedro de Uraba"><option value="San Pelayo"><option value="San Rafael"><option value="San Roque"><option value="San Sebastián"><option value="San Sebastián de Buenavista"><option value="San Vicente"><option value="San Vicente de Chucurí"><option value="San Vicente del Caguán"><option value="San Zenón"><option value="Sandoná"><option value="Santa Ana"><option value="Santa Bárbara"><option value="Santa Bárbara de Pinto"><option value="Santa Catalina"><option value="Santa Helena del Opón"><option value="Santa Isabel"><option value="Santa Lucía"><option value="Santa Marta"><option value="Santa María"><option value="Santa Rosa"><option value="Santa Rosa de Cabal"><option value="Santa Rosa de Osos"><option value="Santa Rosa de Viterbo"><option value="Santa Rosa del Sur"><option value="Santa Rosalía"><option value="Santa Sofía"><option value="Santacruz"><option value="Santafé de Antioquia"><option value="Santana"><option value="Santander de Quilichao"><option value="Santiago"><option value="Santiago de Tolú"><option value="Santo Domingo"><option value="Santo Tomás"><option value="Santuario"><option value="Sapuyes"><option value="Saravena"><option value="Sardinata"><option value="Sasaima"><option value="Sativanorte"><option value="Sativasur"><option value="Segovia"><option value="Sesquilé"><option value="Sevilla"><option value="Siachoque"><option value="Sibaté"><option value="Sibundoy"><option value="Silos"><option value="Silvania"><option value="Silvia"><option value="Simacota"><option value="Simijaca"><option value="Simití"><option value="Sincelejo"><option value="Sincé"><option value="Sipí"><option value="Sitionuevo"><option value="Soacha"><option value="Soatá"><option value="Socha"><option value="Socorro"><option value="Socotá"><option value="Sogamoso"><option value="Solano"><option value="Soledad"><option value="Solita"><option value="Somondoco"><option value="Sonson"><option value="Sopetrán"><option value="Soplaviento"><option value="Sopó"><option value="Sora"><option value="Soracá"><option value="Sotaquirá"><option value="Sotara"><option value="Suaita"><option value="Suan"><option value="Suaza"><option value="Subachoque"><option value="Sucre"><option value="Suesca"><option value="Supatá"><option value="Supía"><option value="Suratá"><option value="Susa"><option value="Susacón"><option value="Sutamarchán"><option value="Sutatausa"><option value="Sutatenza"><option value="Suárez"><option value="Sácama"><option value="Sáchica"><option value="Tabio"><option value="Tadó"><option value="Talaigua Nuevo"><option value="Tamalameque"><option value="Tame"><option value="Taminango"><option value="Tangua"><option value="Taraira"><option value="Tarapacá"><option value="Tarazá"><option value="Tarqui"><option value="Tarso"><option value="Tasco"><option value="Tauramena"><option value="Tausa"><option value="Tello"><option value="Tena"><option value="Tenerife"><option value="Tenjo"><option value="Tenza"><option value="Teorama"><option value="Teruel"><option value="Tesalia"><option value="Tibacuy"><option value="Tibaná"><option value="Tibasosa"><option value="Tibirita"><option value="Tibú"><option value="Tierralta"><option value="Timaná"><option value="Timbiquí"><option value="Timbío"><option value="Tinjacá"><option value="Tipacoque"><option value="Tiquisio"><option value="Titiribí"><option value="Toca"><option value="Tocaima"><option value="Tocancipá"><option value="Togüí"><option value="Toledo"><option value="Tolú Viejo"><option value="Tona"><option value="Topaipí"><option value="Toribio"><option value="Toro"><option value="Tota"><option value="Totoró"><option value="Trinidad"><option value="Trujillo"><option value="Tubará"><option value="Tuluá"><option value="Tumaco"><option value="Tunja"><option value="Tununguá"><option value="Turbaco"><option value="Turbaná"><option value="Turbo"><option value="Turmequé"><option value="Tuta"><option value="Tutazá"><option value="Támara"><option value="Támesis"><option value="Tópaga"><option value="Túquerres"><option value="Ubalá"><option value="Ubaque"><option value="Ulloa"><option value="Umbita"><option value="Une"><option value="Unguía"><option value="Unión Panamericana"><option value="Uramita"><option value="Uribe"><option value="Uribia"><option value="Urrao"><option value="Urumita"><option value="Usiacurí"><option value="Valdivia"><option value="Valencia"><option value="Valle de San José"><option value="Valle de San Juan"><option value="Valle del Guamuez"><option value="Valledupar"><option value="Valparaíso"><option value="Vegachí"><option value="Venadillo"><option value="Venecia"><option value="Ventaquemada"><option value="Vergara"><option value="Versalles"><option value="Vetas"><option value="Vianí"><option value="Victoria"><option value="Vigía del Fuerte"><option value="Vijes"><option value="Villa Caro"><option value="Villa Rica"><option value="Villa de Leyva"><option value="Villa de San Diego de Ubate"><option value="Villa del Rosario"><option value="Villagarzón"><option value="Villagómez"><option value="Villahermosa"><option value="Villamaría"><option value="Villanueva"><option value="Villapinzón"><option value="Villarrica"><option value="Villavicencio"><option value="Villavieja"><option value="Villeta"><option value="Viotá"><option value="Viracachá"><option value="Vistahermosa"><option value="Viterbo"><option value="Vélez"><option value="Yacopí"><option value="Yacuanquer"><option value="Yaguará"><option value="Yalí"><option value="Yarumal"><option value="Yavaraté"><option value="Yolombó"><option value="Yondó"><option value="Yopal"><option value="Yotoco"><option value="Yumbo"><option value="Zambrano"><option value="Zapatoca"><option value="Zapayán"><option value="Zaragoza"><option value="Zarzal"><option value="Zetaquira"><option value="Zipacón"><option value="Zipaquirá"><option value="Zona Bananera"><option value="Útica">        </datalist>
+        <label class="form-label">Dirección</label>
+        <input type="text" class="input" name="direccion" maxlength="200" value="Cra 34 # 139-74, Teusaquillo">
+        <label class="form-label">Teléfono</label>
+        <input type="tel" class="input" name="telefono" maxlength="40" value="316 492 2777">
+        <label class="form-label">Correo</label>
+        <input type="email" class="input" name="correo" maxlength="150" value="daniel.rojas45@correo-demo.co">
+
+        <label>Grupo étnico</label>
+        <div class="select is-fullwidth"><select name="grupo_etnico"><option value="">Seleccione…</option><option value="INDIGENA">INDIGENA</option><option value="NEGRO(A), Mulato(a), Afrocolombiano(a) o Afrodescendiente">NEGRO(A), Mulato(a), Afrocolombiano(a) o Afrodescendiente</option><option value="PALENQUERO de San Basilio">PALENQUERO de San Basilio</option><option value="RAIZAL (Archipiélago de SAN ANDRES y PROVIDENCIA)">RAIZAL (Archipiélago de SAN ANDRES y PROVIDENCIA)</option><option value="ROM (gitano)">ROM (gitano)</option><option value="Ninguno" selected>Ninguno</option></select></div>
+        <label>Grupo poblacional</label>
+        <div class="select is-fullwidth"><select name="grupo_poblacional"><option value="">Seleccione…</option><option value="Consumidor de sustancias psicoactivas por via diferente a la inyectada">Consumidor de sustancias psicoactivas por via diferente a la inyectada</option><option value="Habitantes de calle">Habitantes de calle</option><option value="Hombres que tienen relaciones sexuales con otros hombres">Hombres que tienen relaciones sexuales con otros hombres</option><option value="Hombres transgénero">Hombres transgénero</option><option value="Mujeres transgénero">Mujeres transgénero</option><option value="Personas que se inyectan drogas">Personas que se inyectan drogas</option><option value="Personas trabajadoras sexuales">Personas trabajadoras sexuales</option><option value="Poblacion privada de la libertad">Poblacion privada de la libertad</option><option value="Ninguno" selected>Ninguno</option></select></div>
+        <label>Ocupación</label>
+        <input type="text" class="input" name="ocupacion" maxlength="120" value="Estudiante de colegio">
+        <label>Nivel educativo</label>
+        <div class="select is-fullwidth"><select name="nivel_educativo"><option value="">Seleccione…</option><option value="BASICA PRIMARIA">BASICA PRIMARIA</option><option value="BASICA SECUNDARIA (Bachillerato básico)">BASICA SECUNDARIA (Bachillerato básico)</option><option value="DOCTORADO">DOCTORADO</option><option value="ESPECIALIZACION">ESPECIALIZACION</option><option value="MAESTRIA">MAESTRIA</option><option value="MEDIA ACADEMICA O CLASICA (Bachillerato básico)" selected>MEDIA ACADEMICA O CLASICA (Bachillerato básico)</option><option value="MEDIA TECNICA (Bachillerato básico)">MEDIA TECNICA (Bachillerato básico)</option><option value="NORMALISTA">NORMALISTA</option><option value="PREESCOLAR">PREESCOLAR</option><option value="PROFESIONAL">PROFESIONAL</option><option value="TECNICA PROFESIONAL">TECNICA PROFESIONAL</option><option value="TECNOLOGICA">TECNOLOGICA</option><option value="NO DEFINIDO">NO DEFINIDO</option></select></div>
+        <label>Régimen</label>
+        <div class="select is-fullwidth"><select name="regimen"><option value="">Seleccione…</option><option value="Particular">Particular</option><option value="Beneficiario A">Beneficiario A</option><option value="Beneficiario B">Beneficiario B</option><option value="Beneficiario C">Beneficiario C</option><option value="Contributivo A">Contributivo A</option><option value="Contributivo B" selected>Contributivo B</option><option value="Contributivo C">Contributivo C</option><option value="Vinculado">Vinculado</option><option value="Especial">Especial</option><option value="Desplazado">Desplazado</option><option value="Subsidiado">Subsidiado</option><option value="Ninguno">Ninguno</option></select></div>
+        <label>EPS</label>
+        <input type="text" class="input" name="eps" maxlength="120" value="Salud Total">
+    </div>
+</div>
+
+
+<label class="checkbox mt-3" style="display:flex;gap:8px;align-items:flex-start">
+    <input type="checkbox" name="autoriza_datos" value="1" checked>
+    <span>El paciente (o su acudiente) autorizó por escrito el tratamiento de sus datos personales y de salud (Ley 1581 de 2012).</span>
+</label>
+                <div class="buttons mt-4">
+                    <button type="submit" class="button is-info"><i class="fa-solid fa-floppy-disk"></i>&nbsp; Guardar</button>
+                    <button type="button" class="button js-modal-cerrar">Cancelar</button>
+                </div>
+            </section>
+        </div>
+    </div>
+</form>
+
+<div class="columns header-titulos">
+    <div class="column">
+        <h1 class="titulos-secciones">Ficha del paciente <span class="tag is-primary is-light">#1</span></h1>
+    </div>
+</div>
+
+<div class="perfil-acciones">
+    <a class="btn-accion btn-historias" href="../historias/index__paciente-1.html">
+        <i class="fa-solid fa-folder-open"></i> Historias clínicas (1)
+    </a>
+    <button class="btn-accion btn-editar js-modal-trigger" data-target="modal-editar">
+        <i class="fa-solid fa-pen-to-square"></i> Editar información
+    </button>
+            <form method="post" class="en-linea" data-confirmar="¿Archivar este paciente? Dejará de aparecer en los listados, pero su historia clínica se conserva.">
+            <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8"><input type="hidden" name="accion" value="eliminar">
+            <button class="btn-accion" type="submit" style="color:#b42318"><i class="fa-solid fa-box-archive"></i> Archivar</button>
+        </form>
+    </div>
+
+<div class="perfil-paciente">
+    <div class="perfil-header">
+        <div class="perfil-foto"><img src="../assets/img/default-user.png" alt="Foto del paciente"></div>
+        <div class="perfil-info">
+            <h2>Daniel Rojas Londoño</h2>
+            <div style="margin-top:8px">
+                <span class="documento-tag">TI 81967330</span>
+                <span class="edad-tag">15 años</span>            </div>
+                            <p class="sede"><i class="fa-solid fa-hospital"></i> Plataforma Psicológica · Centro de atención psicológica y acompañamiento familiar</p>
+                    </div>
+    </div>
+
+    <div class="info-grid">
+                    <div class="info-card">
+                <div class="info-label">Régimen</div>
+                <div class="info-value">Contributivo B</div>
+            </div>
+                    <div class="info-card">
+                <div class="info-label">EPS</div>
+                <div class="info-value">Salud Total</div>
+            </div>
+                    <div class="info-card">
+                <div class="info-label">Género</div>
+                <div class="info-value">Masculino</div>
+            </div>
+                    <div class="info-card">
+                <div class="info-label">Fecha de nacimiento</div>
+                <div class="info-value">07/10/2011</div>
+            </div>
+                    <div class="info-card">
+                <div class="info-label">Grupo sanguíneo</div>
+                <div class="info-value">A+</div>
+            </div>
+                    <div class="info-card">
+                <div class="info-label">Estado civil</div>
+                <div class="info-value">Soltero</div>
+            </div>
+                    <div class="info-card">
+                <div class="info-label">Ciudad</div>
+                <div class="info-value">Bogotá</div>
+            </div>
+                    <div class="info-card">
+                <div class="info-label">Dirección</div>
+                <div class="info-value">Cra 34 # 139-74, Teusaquillo</div>
+            </div>
+                    <div class="info-card">
+                <div class="info-label">Teléfono</div>
+                <div class="info-value">316 492 2777</div>
+            </div>
+                    <div class="info-card">
+                <div class="info-label">Correo</div>
+                <div class="info-value">daniel.rojas45@correo-demo.co</div>
+            </div>
+                    <div class="info-card">
+                <div class="info-label">Nivel educativo</div>
+                <div class="info-value">MEDIA ACADEMICA O CLASICA (Bachillerato básico)</div>
+            </div>
+                    <div class="info-card">
+                <div class="info-label">Ocupación</div>
+                <div class="info-value">Estudiante de colegio</div>
+            </div>
+                    <div class="info-card">
+                <div class="info-label">Grupo étnico</div>
+                <div class="info-value">Ninguno</div>
+            </div>
+                    <div class="info-card">
+                <div class="info-label">Grupo poblacional</div>
+                <div class="info-value">Ninguno</div>
+            </div>
+                    <div class="info-card">
+                <div class="info-label">Autorización de datos</div>
+                <div class="info-value">Sí · 13/09/2026</div>
+            </div>
+                    <div class="info-card">
+                <div class="info-label">Registrado</div>
+                <div class="info-value">13/09/2026</div>
+            </div>
+            </div>
+
+    <form method="post" enctype="multipart/form-data" style="margin-top:25px">
+        <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8"><input type="hidden" name="accion" value="foto">
+        <label style="font-weight:600;color:#1a1a2e;margin-bottom:15px;display:block;font-size:15px">
+            <i class="fa-solid fa-camera"></i> Actualizar foto
+        </label>
+        <div class="foto-upload-box" data-input="foto">
+            <div class="upload-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+            <div class="upload-text">Arrastra la foto aquí o haz clic</div>
+            <div class="upload-hint">JPG, PNG o WEBP (máx. 2 MB)</div>
+            <input type="file" name="foto" id="foto" accept="image/jpeg,image/png,image/webp" style="display:none">
+            <div class="file-name-display" style="display:none"></div>
+        </div>
+        <button type="submit" class="btn-guardar-foto">Guardar foto</button>
+    </form>
+</div>
+
+<div class="columns mt-4">
+    <div class="column is-7">
+        <div class="panel-blanco">
+            <h3><i class="fa-solid fa-people-roof"></i> Acudientes / responsables</h3>
+                            <table class="tabla-simple mb-4">
+                    <thead><tr><th>Nombre</th><th>Parentesco</th><th>Teléfono</th><th>Acceso al portal</th><th></th></tr></thead>
+                    <tbody>
+                                            <tr>
+                            <td>Patricia Rojas <span class="tag is-info is-light">Principal</span></td>
+                            <td>Madre</td>
+                            <td>312 000 6436</td>
+                            <td>familia</td>
+                            <td>
+                                <form method="post" class="en-linea" data-confirmar="¿Retirar este acudiente?">
+                                    <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8"><input type="hidden" name="accion" value="responsable_quitar">
+                                    <input type="hidden" name="responsable_id" value="1">
+                                    <button class="boton-mini peligro" type="submit" title="Retirar"><i class="fa-solid fa-xmark"></i></button>
+                                </form>
+                            </td>
+                        </tr>
+                                        </tbody>
+                </table>
+            
+            <details>
+                <summary class="boton-mini" style="display:inline-flex"><i class="fa-solid fa-plus"></i> Agregar acudiente</summary>
+                <form method="post" class="mt-3">
+                    <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8"><input type="hidden" name="accion" value="responsable_agregar">
+                    <div class="columns is-multiline">
+                        <div class="column is-6"><label>Nombre completo *</label><input class="input" name="nombre_completo" required maxlength="150"></div>
+                        <div class="column is-6"><label>Parentesco *</label>
+                            <div class="select is-fullwidth"><select name="parentesco" required><option value="">Seleccione…</option><option value="Madre">Madre</option><option value="Padre">Padre</option><option value="Hijo(a)">Hijo(a)</option><option value="Hermano(a)">Hermano(a)</option><option value="Cónyuge / pareja">Cónyuge / pareja</option><option value="Abuelo(a)">Abuelo(a)</option><option value="Tío(a)">Tío(a)</option><option value="Tutor legal">Tutor legal</option><option value="Otro">Otro</option></select></div></div>
+                        <div class="column is-6"><label>Teléfono</label><input class="input" name="telefono" maxlength="40"></div>
+                        <div class="column is-6"><label>Correo</label><input class="input" type="email" name="correo" maxlength="150"></div>
+                        <div class="column is-12"><label>Usuario del portal de familias (opcional)</label>
+                            <div class="select is-fullwidth"><select name="usuario_id">
+                                <option value="">Sin acceso al portal</option>
+                                                                    <option value="8">Fernando Hernández (fhernandez)</option>
+                                                                    <option value="7">Patricia Rojas (familia)</option>
+                                                                    <option value="9">Sandra Castro (scastro)</option>
+                                                            </select></div>
+                            <p class="ayuda mt-5">Con un usuario vinculado, el acudiente puede ver los motivos de consulta y agendar citas de este paciente.</p>
+                        </div>
+                        <div class="column is-12"><label class="checkbox"><input type="checkbox" name="es_principal" value="1"> Acudiente principal</label></div>
+                    </div>
+                    <button class="button is-info is-small" type="submit">Agregar</button>
+                </form>
+            </details>
+        </div>
+    </div>
+
+    <div class="column is-5">
+        <div class="panel-blanco">
+            <h3><i class="fa-solid fa-user-doctor"></i> Profesionales tratantes</h3>
+                                                <div class="is-flex is-justify-content-space-between is-align-items-center mb-2">
+                        <span>Catalina Restrepo <span class="autor-linea">· PSICÓLOGO · desde 17/09/2026</span></span>
+                                                    <form method="post" class="en-linea" data-confirmar="¿Retirar este profesional del paciente?">
+                                <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8"><input type="hidden" name="accion" value="profesional_quitar">
+                                <input type="hidden" name="empleado_id" value="3">
+                                <button class="boton-mini peligro" type="submit"><i class="fa-solid fa-xmark"></i></button>
+                            </form>
+                                            </div>
+                                    <div class="is-flex is-justify-content-space-between is-align-items-center mb-2">
+                        <span>Julián Ortiz <span class="autor-linea">· MÉDICO (A) ESPECIALISTA · desde 17/09/2026</span></span>
+                                                    <form method="post" class="en-linea" data-confirmar="¿Retirar este profesional del paciente?">
+                                <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8"><input type="hidden" name="accion" value="profesional_quitar">
+                                <input type="hidden" name="empleado_id" value="4">
+                                <button class="boton-mini peligro" type="submit"><i class="fa-solid fa-xmark"></i></button>
+                            </form>
+                                            </div>
+                            
+                            <form method="post" class="mt-3 is-flex" style="gap:8px">
+                    <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8"><input type="hidden" name="accion" value="profesional_asignar">
+                    <div class="select is-small is-fullwidth"><select name="empleado_id" required>
+                        <option value="">Asignar profesional…</option>
+                                                    <option value="2">Andrés Morales · PSICÓLOGO</option>
+                                                    <option value="3">Catalina Restrepo · PSICÓLOGO</option>
+                                                    <option value="6">Daniela Suárez · TRABAJADOR(A) SOCIAL</option>
+                                                    <option value="4">Julián Ortiz · MÉDICO (A) ESPECIALISTA</option>
+                                                    <option value="1">Laura Valencia · PSICÓLOGO</option>
+                                                    <option value="7">Santiago Peña · TERAPEUTA</option>
+                                            </select></div>
+                    <button class="button is-small is-info" type="submit">Asignar</button>
+                </form>
+                                    <p class="ayuda mt-2">Hoy todos los profesionales ven a todos los pacientes (ACCESO_PACIENTES=todos en .env).</p>
+                                    </div>
+    </div>
+</div>
+</main>
+<script src="../assets/js/app.js"></script>
+<script src="../demo/mapa.js"></script>
+<script src="../demo/demo.js"></script>
+</body>
+</html>

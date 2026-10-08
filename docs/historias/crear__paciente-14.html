@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="es" style="overflow:hidden;">
+<head>
+<script>window.DEMO_ROOT="..";window.DEMO_KEY="/historias/crear.php?paciente=14";window.DEMO_HOY="2026-10-07";</script>
+<script src="../demo/tiempo.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">
+    <title>Nueva historia clínica · Plataforma Psicológica</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../demo/vendor/bulma/bulma.min.css">
+    <link rel="stylesheet" href="../demo/vendor/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/app.css">
+    <link rel="stylesheet" href="../assets/css/extra.css">
+    <link rel="icon" href="../assets/img/favicon-96x96.png" type="image/png">
+        <link rel="stylesheet" href="../assets/css/ui.css">
+<link rel="stylesheet" href="../demo/demo.css">
+</head>
+<body>
+
+<button class="menu-toggle" type="button" onclick="toggleMenu()" aria-label="Menú"><i class="fas fa-bars"></i></button>
+
+<aside class="sidebar">
+    <div class="sidebar-brand">
+        <img src="../assets/img/logo.png" alt="">
+        <div>
+            <h2><a href="../inicio.html">Plataforma Psicológica</a></h2>
+            <span>Portal administrativo</span>
+        </div>
+    </div>
+
+    <nav>
+        <div class="sidebar-section-title">Navegación</div>
+
+        <a href="../inicio.html" class="">
+            <i class="fa-solid fa-house"></i> Inicio
+        </a>
+
+                    <a href="../pacientes/index.html" class="active">
+                <i class="fa-solid fa-hospital-user"></i> Pacientes
+            </a>
+        
+                    <a href="../citas/index.html" class="">
+                <i class="fa-solid fa-calendar-check"></i> Citas
+            </a>
+        
+                    <a href="../empleados/index.html" class="">
+                <i class="fa-solid fa-user-tie"></i> Empleados
+            </a>
+        
+                    <a href="../pagos/index.html" class="">
+                <i class="fa-solid fa-sack-dollar"></i> Pagos
+            </a>
+        
+                    <a href="../gastos/index.html" class="">
+                <i class="fa-solid fa-receipt"></i> Gastos
+            </a>
+        
+                    <a href="../usuarios/index.html" class="">
+                <i class="fa-solid fa-users"></i> Usuarios
+            </a>
+        
+                    <a href="../anuncios/index.html" class="">
+                <i class="fa-solid fa-bullhorn"></i> Anuncios
+            </a>
+        
+                    <a href="../empresa/index.html" class="">
+                <i class="fa-solid fa-building"></i> Empresa
+            </a>
+        
+        <hr>
+
+        <form method="post" action="#demo-no-disponible" data-demo-action="/salir.php" class="form-salir">
+            <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">            <button type="submit"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</button>
+        </form>
+    </nav>
+
+    <div class="system-health">
+        <div class="system-health-title">Administración Demo</div>
+        <div class="health-indicator">
+            <div class="health-dot"></div>
+            Administrador        </div>
+    </div>
+</aside>
+
+<main class="main-content">
+<div class="historia-header">
+    <div class="paciente-info">
+        <div class="paciente-avatar">SH</div>
+        <div>
+            <div class="paciente-nombre">Sofía Herrera Pérez</div>
+            <div class="paciente-doc">TI 1081265886                 · 14 años            </div>
+        </div>
+    </div>
+    <span class="historia-badge"><i class="fa-solid fa-file-circle-plus"></i> Nueva historia</span></div>
+
+<div class="historia-acciones">
+    <a class="btn-historia btn-historia-datos" href="../pacientes/ver__id-14.html">
+        <i class="fa-solid fa-user"></i> Datos
+    </a>
+    <a class="btn-historia btn-historia-historias" href="index__paciente-14.html">
+        <i class="fa-solid fa-folder-open"></i> Historias
+    </a>
+        </div>
+<form method="post" novalidate>
+    <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">    <div class="historia-form-container" data-pestanas>
+    <div class="paciente-data-grid">
+        <div class="paciente-data-item"><div class="data-label">Régimen</div><div class="data-value">Beneficiario A</div></div>
+        <div class="paciente-data-item"><div class="data-label">Documento</div><div class="data-value">TI 1081265886</div></div>
+        <div class="paciente-data-item"><div class="data-label">Género</div><div class="data-value">Femenino</div></div>
+        <div class="paciente-data-item"><div class="data-label">Fecha nacimiento</div><div class="data-value">04/04/2012</div></div>
+        <div class="paciente-data-item"><div class="data-label">Ciudad</div><div class="data-value">Bogotá</div></div>
+        <div class="paciente-data-item"><div class="data-label">Teléfono</div><div class="data-value">311 336 7450</div></div>
+    </div>
+
+    <div class="historia-tabs">
+                    <button type="button" class="historia-tab active"><i class="fa-solid fa-file-lines"></i> Datos</button>
+                    <button type="button" class="historia-tab"><i class="fa-solid fa-comments"></i> Consulta</button>
+                    <button type="button" class="historia-tab"><i class="fa-solid fa-clock-rotate-left"></i> Antecedentes</button>
+                    <button type="button" class="historia-tab"><i class="fa-solid fa-layer-group"></i> Áreas</button>
+                    <button type="button" class="historia-tab"><i class="fa-solid fa-heart-pulse"></i> Examen físico</button>
+                    <button type="button" class="historia-tab"><i class="fa-solid fa-stethoscope"></i> Diagnóstico</button>
+                    <button type="button" class="historia-tab"><i class="fa-solid fa-clipboard-check"></i> Plan</button>
+            </div>
+
+    <!-- Datos generales -->
+    <div class="form-section active">
+        <div class="form-section-title"><div class="section-icon datos"><i class="fa-solid fa-file-lines"></i></div> Información general</div>
+        <div class="columns is-multiline">
+            <div class="column is-6">
+                <div class="form-group-modern">
+                    <label>Servicio <span class="required-dot">*</span></label>
+                    <input class="input" type="text" name="servicio" required maxlength="120" value="CONSULTA DE PRIMERA VEZ POR PSICOLOGIA">
+                </div>
+            </div>
+            <div class="column is-3">
+                <div class="form-group-modern">
+                    <label>Fecha de atención <span class="required-dot">*</span></label>
+                    <input class="input" type="date" name="fecha" required max="2026-10-07" value="2026-10-07">
+                </div>
+            </div>
+            <div class="column is-3">
+                <div class="form-group-modern">
+                    <label>Hora</label>
+                    <input class="input" type="time" name="hora" value="22:28">
+                </div>
+            </div>
+                            <div class="column is-6">
+                    <div class="form-group-modern">
+                        <label>Profesional que firma <span class="required-dot">*</span></label>
+                        <div class="select is-fullwidth">
+                            <select name="profesional_id" required>
+                                <option value="">Seleccione…</option>
+                                                                    <option value="2">Andrés Morales · PSICÓLOGO</option>
+                                                                    <option value="3">Catalina Restrepo · PSICÓLOGO</option>
+                                                                    <option value="6">Daniela Suárez · TRABAJADOR(A) SOCIAL</option>
+                                                                    <option value="4">Julián Ortiz · MÉDICO (A) ESPECIALISTA</option>
+                                                                    <option value="1">Laura Valencia · PSICÓLOGO</option>
+                                                                    <option value="7">Santiago Peña · TERAPEUTA</option>
+                                                            </select>
+                        </div>
+                        <p class="ayuda">Su usuario no está vinculado a un profesional, por eso debe elegir quién firma.</p>
+                    </div>
+                </div>
+                    </div>
+    </div>
+
+            <div class="form-section">
+            <div class="form-section-title"><div class="section-icon consulta"><i class="fa-solid fa-comments"></i></div> Datos de la consulta</div>
+
+                                                                    <div class="form-group-modern">
+                    <label>Motivo de consulta <span class="required-dot">*</span></label>
+                    <textarea class="textarea" name="motivo_consulta" rows="4" required></textarea>
+                </div>
+                                                            <div class="form-group-modern">
+                    <label>Comportamiento en consulta</label>
+                    <textarea class="textarea" name="comportamiento_consulta" rows="4"></textarea>
+                </div>
+                                                            <div class="form-group-modern">
+                    <label>Descripción del problema <span class="required-dot">*</span></label>
+                    <textarea class="textarea" name="descripcion_problema" rows="4" required></textarea>
+                </div>
+                                        
+            
+                    </div>
+            <div class="form-section">
+            <div class="form-section-title"><div class="section-icon antecedentes"><i class="fa-solid fa-clock-rotate-left"></i></div> Antecedentes</div>
+
+                                                                    <div class="form-group-modern">
+                    <label>Antecedentes personales <span class="required-dot">*</span></label>
+                    <textarea class="textarea" name="antecedentes_personales" rows="4" required></textarea>
+                </div>
+                                                            <div class="form-group-modern">
+                    <label>Antecedentes familiares</label>
+                    <textarea class="textarea" name="antecedentes_familiares" rows="4"></textarea>
+                </div>
+                                                            <div class="form-group-modern">
+                    <label>Otros antecedentes</label>
+                    <textarea class="textarea" name="otros_antecedentes" rows="4"></textarea>
+                </div>
+                                        
+            
+                    </div>
+            <div class="form-section">
+            <div class="form-section-title"><div class="section-icon areas"><i class="fa-solid fa-layer-group"></i></div> Áreas de evaluación</div>
+
+                        <div class="columns is-multiline">                            <div class="column is-6">                <div class="form-group-modern">
+                    <label>Área personal</label>
+                    <textarea class="textarea" name="area_personal" rows="3"></textarea>
+                </div>
+                </div>                            <div class="column is-6">                <div class="form-group-modern">
+                    <label>Área familiar</label>
+                    <textarea class="textarea" name="area_familiar" rows="3"></textarea>
+                </div>
+                </div>                            <div class="column is-6">                <div class="form-group-modern">
+                    <label>Área social</label>
+                    <textarea class="textarea" name="area_social" rows="3"></textarea>
+                </div>
+                </div>                            <div class="column is-6">                <div class="form-group-modern">
+                    <label>Área académica</label>
+                    <textarea class="textarea" name="area_academica" rows="3"></textarea>
+                </div>
+                </div>                            <div class="column is-6">                <div class="form-group-modern">
+                    <label>Área afectiva</label>
+                    <textarea class="textarea" name="area_afectiva" rows="3"></textarea>
+                </div>
+                </div>                            <div class="column is-6">                <div class="form-group-modern">
+                    <label>Área sexual</label>
+                    <textarea class="textarea" name="area_sexual" rows="3"></textarea>
+                </div>
+                </div>                            <div class="column is-6">                <div class="form-group-modern">
+                    <label>Área biológica</label>
+                    <textarea class="textarea" name="area_biologica" rows="3"></textarea>
+                </div>
+                </div>                            <div class="column is-6">                <div class="form-group-modern">
+                    <label>Área laboral</label>
+                    <textarea class="textarea" name="area_laboral" rows="3"></textarea>
+                </div>
+                </div>                        </div>
+            
+                    </div>
+            <div class="form-section">
+            <div class="form-section-title"><div class="section-icon examen"><i class="fa-solid fa-heart-pulse"></i></div> Examen físico</div>
+
+                                                                    <div class="form-group-modern">
+                    <label>Examen físico</label>
+                    <textarea class="textarea" name="examen_fisico" rows="7"></textarea>
+                </div>
+                                        
+            
+                    </div>
+            <div class="form-section">
+            <div class="form-section-title"><div class="section-icon diagnostico"><i class="fa-solid fa-stethoscope"></i></div> Diagnóstico</div>
+
+                                                                    <div class="form-group-modern">
+                    <label>Proceso de evaluación</label>
+                    <textarea class="textarea" name="evaluacion" rows="4"></textarea>
+                </div>
+                                                            <div class="form-group-modern">
+                    <label>Hallazgos pertinentes</label>
+                    <textarea class="textarea" name="hallazgos_pertinentes" rows="4"></textarea>
+                </div>
+                                        
+                            <label class="mt-3" style="font-weight:600;display:block">Diagnósticos (CIE-10)</label>
+                <p class="ayuda mb-3">Elija el código del catálogo y/o escriba la descripción. El primero es el diagnóstico principal.</p>
+                                    <div class="dx-fila">
+                        <div class="select is-fullwidth">
+                            <select name="dx[0][codigo]">
+                                <option value="">Principal: código…</option>
+                                                                    <option value="F00">F00 - Demencia en la enfermedad de Alzheimer</option>
+                                                                    <option value="F01">F01 - Demencia vascular</option>
+                                                                    <option value="F02">F02 - Demencia en otras enfermedades</option>
+                                                                    <option value="F03">F03 - Demencia no especificada</option>
+                                                                    <option value="F04">F04 - Síndrome amnésico orgánico, no inducido por alcohol o sustancias psico…</option>
+                                                                    <option value="F05">F05 - Delirio, no inducido por alcohol o sustancias psicoactivas</option>
+                                                                    <option value="F06">F06 - Otros trastornos mentales debidos a daño y disfunción cerebral o enfer…</option>
+                                                                    <option value="F07">F07 - Trastornos de la personalidad y del comportamiento debidos a enfermeda…</option>
+                                                                    <option value="F09">F09 - Trastorno mental orgánico o sintomático, no especificado</option>
+                                                                    <option value="F10">F10 - Trastornos mentales y del comportamiento debidos al consumo de alcohol</option>
+                                                                    <option value="F11">F11 - Trastornos debidos al consumo de opiáceos</option>
+                                                                    <option value="F12">F12 - Trastornos debidos al consumo de cannabinoides</option>
+                                                                    <option value="F13">F13 - Trastornos debidos al consumo de sedantes o hipnóticos</option>
+                                                                    <option value="F14">F14 - Trastornos debidos al consumo de cocaína</option>
+                                                                    <option value="F15">F15 - Trastornos debidos al consumo de otros estimulantes, incluida la cafeí…</option>
+                                                                    <option value="F16">F16 - Trastornos debidos al consumo de alucinógenos</option>
+                                                                    <option value="F17">F17 - Trastornos debidos al consumo de tabaco</option>
+                                                                    <option value="F18">F18 - Trastornos debidos al consumo de disolventes volátiles</option>
+                                                                    <option value="F19">F19 - Trastornos debidos al consumo de múltiples drogas y otras sustancias p…</option>
+                                                                    <option value="F20">F20 - Esquizofrenia</option>
+                                                                    <option value="F21">F21 - Trastorno esquizotípico</option>
+                                                                    <option value="F22">F22 - Trastornos delirantes persistentes</option>
+                                                                    <option value="F23">F23 - Trastornos psicóticos agudos y transitorios</option>
+                                                                    <option value="F24">F24 - Trastorno delirante inducido</option>
+                                                                    <option value="F25">F25 - Trastornos esquizoafectivos</option>
+                                                                    <option value="F28">F28 - Otros trastornos psicóticos no orgánicos</option>
+                                                                    <option value="F29">F29 - Psicosis no orgánica no especificada</option>
+                                                                    <option value="F30">F30 - Episodio maníaco</option>
+                                                                    <option value="F31">F31 - Trastorno afectivo bipolar</option>
+                                                                    <option value="F32">F32 - Episodio depresivo</option>
+                                                                    <option value="F33">F33 - Trastorno depresivo recurrente</option>
+                                                                    <option value="F34">F34 - Trastornos del humor persistentes</option>
+                                                                    <option value="F38">F38 - Otros trastornos del humor</option>
+                                                                    <option value="F39">F39 - Trastorno del humor no especificado</option>
+                                                                    <option value="F40">F40 - Trastornos fóbicos de ansiedad</option>
+                                                                    <option value="F41">F41 - Otros trastornos de ansiedad</option>
+                                                                    <option value="F42">F42 - Trastorno obsesivo-compulsivo</option>
+                                                                    <option value="F43">F43 - Reacciones a estrés grave y trastornos de adaptación</option>
+                                                                    <option value="F44">F44 - Trastornos disociativos (de conversión)</option>
+                                                                    <option value="F45">F45 - Trastornos somatomorfos</option>
+                                                                    <option value="F48">F48 - Otros trastornos neuróticos</option>
+                                                                    <option value="F50">F50 - Trastornos de la conducta alimentaria</option>
+                                                                    <option value="F51">F51 - Trastornos no orgánicos del sueño</option>
+                                                                    <option value="F52">F52 - Disfunción sexual no debida a un trastorno o enfermedad orgánica</option>
+                                                                    <option value="F53">F53 - Trastornos mentales y del comportamiento asociados con el puerperio</option>
+                                                                    <option value="F54">F54 - Factores psicológicos y de comportamiento asociados con enfermedades o…</option>
+                                                                    <option value="F55">F55 - Abuso de sustancias no adictivas</option>
+                                                                    <option value="F59">F59 - Síntomas y signos no específicos del comportamiento emocional</option>
+                                                                    <option value="F60">F60 - Trastornos específicos de la personalidad</option>
+                                                                    <option value="F61">F61 - Trastornos mixtos y otros de la personalidad</option>
+                                                                    <option value="F62">F62 - Cambio duradero de la personalidad</option>
+                                                                    <option value="F63">F63 - Trastornos de los hábitos y del control de los impulsos</option>
+                                                                    <option value="F64">F64 - Trastornos de la identidad sexual</option>
+                                                                    <option value="F65">F65 - Trastornos de la preferencia sexual</option>
+                                                                    <option value="F66">F66 - Trastornos psicológicos y del comportamiento asociados con el desarrol…</option>
+                                                                    <option value="F68">F68 - Otros trastornos de la personalidad y del comportamiento en adultos</option>
+                                                                    <option value="F69">F69 - Trastorno de la personalidad y del comportamiento en adulto no especif…</option>
+                                                                    <option value="F70">F70 - Retraso mental leve</option>
+                                                                    <option value="F71">F71 - Retraso mental moderado</option>
+                                                                    <option value="F72">F72 - Retraso mental grave</option>
+                                                                    <option value="F73">F73 - Retraso mental profundo</option>
+                                                                    <option value="F78">F78 - Otro retraso mental</option>
+                                                                    <option value="F79">F79 - Retraso mental no especificado</option>
+                                                                    <option value="F80">F80 - Trastornos específicos del desarrollo del habla y del lenguaje</option>
+                                                                    <option value="F81">F81 - Trastornos específicos del desarrollo del aprendizaje escolar</option>
+                                                                    <option value="F82">F82 - Trastorno específico del desarrollo de la motricidad</option>
+                                                                    <option value="F83">F83 - Trastornos mixtos del desarrollo</option>
+                                                                    <option value="F84">F84 - Trastornos generalizados del desarrollo</option>
+                                                                    <option value="F88">F88 - Otros trastornos del desarrollo psicológico</option>
+                                                                    <option value="F89">F89 - Trastorno del desarrollo psicológico no especificado</option>
+                                                                    <option value="F90">F90 - Trastornos hipercinéticos (incluye TDAH)</option>
+                                                                    <option value="F91">F91 - Trastornos disociales</option>
+                                                                    <option value="F92">F92 - Trastornos mixtos de la conducta y de las emociones</option>
+                                                                    <option value="F93">F93 - Trastornos emocionales con comienzo específico en la infancia</option>
+                                                                    <option value="F94">F94 - Trastornos del funcionamiento social con inicio específico en la infan…</option>
+                                                                    <option value="F95">F95 - Trastornos por tics</option>
+                                                                    <option value="F98">F98 - Otros trastornos del comportamiento y de las emociones de comienzo hab…</option>
+                                                                    <option value="F99">F99 - Trastorno mental no especificado</option>
+                                                            </select>
+                        </div>
+                        <input class="input" type="text" name="dx[0][texto]" maxlength="255"
+                               placeholder="Diagnóstico principal (descripción)…"
+                               value="">
+                    </div>
+                                    <div class="dx-fila">
+                        <div class="select is-fullwidth">
+                            <select name="dx[1][codigo]">
+                                <option value="">Relacionado 1: código…</option>
+                                                                    <option value="F00">F00 - Demencia en la enfermedad de Alzheimer</option>
+                                                                    <option value="F01">F01 - Demencia vascular</option>
+                                                                    <option value="F02">F02 - Demencia en otras enfermedades</option>
+                                                                    <option value="F03">F03 - Demencia no especificada</option>
+                                                                    <option value="F04">F04 - Síndrome amnésico orgánico, no inducido por alcohol o sustancias psico…</option>
+                                                                    <option value="F05">F05 - Delirio, no inducido por alcohol o sustancias psicoactivas</option>
+                                                                    <option value="F06">F06 - Otros trastornos mentales debidos a daño y disfunción cerebral o enfer…</option>
+                                                                    <option value="F07">F07 - Trastornos de la personalidad y del comportamiento debidos a enfermeda…</option>
+                                                                    <option value="F09">F09 - Trastorno mental orgánico o sintomático, no especificado</option>
+                                                                    <option value="F10">F10 - Trastornos mentales y del comportamiento debidos al consumo de alcohol</option>
+                                                                    <option value="F11">F11 - Trastornos debidos al consumo de opiáceos</option>
+                                                                    <option value="F12">F12 - Trastornos debidos al consumo de cannabinoides</option>
+                                                                    <option value="F13">F13 - Trastornos debidos al consumo de sedantes o hipnóticos</option>
+                                                                    <option value="F14">F14 - Trastornos debidos al consumo de cocaína</option>
+                                                                    <option value="F15">F15 - Trastornos debidos al consumo de otros estimulantes, incluida la cafeí…</option>
+                                                                    <option value="F16">F16 - Trastornos debidos al consumo de alucinógenos</option>
+                                                                    <option value="F17">F17 - Trastornos debidos al consumo de tabaco</option>
+                                                                    <option value="F18">F18 - Trastornos debidos al consumo de disolventes volátiles</option>
+                                                                    <option value="F19">F19 - Trastornos debidos al consumo de múltiples drogas y otras sustancias p…</option>
+                                                                    <option value="F20">F20 - Esquizofrenia</option>
+                                                                    <option value="F21">F21 - Trastorno esquizotípico</option>
+                                                                    <option value="F22">F22 - Trastornos delirantes persistentes</option>
+                                                                    <option value="F23">F23 - Trastornos psicóticos agudos y transitorios</option>
+                                                                    <option value="F24">F24 - Trastorno delirante inducido</option>
+                                                                    <option value="F25">F25 - Trastornos esquizoafectivos</option>
+                                                                    <option value="F28">F28 - Otros trastornos psicóticos no orgánicos</option>
+                                                                    <option value="F29">F29 - Psicosis no orgánica no especificada</option>
+                                                                    <option value="F30">F30 - Episodio maníaco</option>
+                                                                    <option value="F31">F31 - Trastorno afectivo bipolar</option>
+                                                                    <option value="F32">F32 - Episodio depresivo</option>
+                                                                    <option value="F33">F33 - Trastorno depresivo recurrente</option>
+                                                                    <option value="F34">F34 - Trastornos del humor persistentes</option>
+                                                                    <option value="F38">F38 - Otros trastornos del humor</option>
+                                                                    <option value="F39">F39 - Trastorno del humor no especificado</option>
+                                                                    <option value="F40">F40 - Trastornos fóbicos de ansiedad</option>
+                                                                    <option value="F41">F41 - Otros trastornos de ansiedad</option>
+                                                                    <option value="F42">F42 - Trastorno obsesivo-compulsivo</option>
+                                                                    <option value="F43">F43 - Reacciones a estrés grave y trastornos de adaptación</option>
+                                                                    <option value="F44">F44 - Trastornos disociativos (de conversión)</option>
+                                                                    <option value="F45">F45 - Trastornos somatomorfos</option>
+                                                                    <option value="F48">F48 - Otros trastornos neuróticos</option>
+                                                                    <option value="F50">F50 - Trastornos de la conducta alimentaria</option>
+                                                                    <option value="F51">F51 - Trastornos no orgánicos del sueño</option>
+                                                                    <option value="F52">F52 - Disfunción sexual no debida a un trastorno o enfermedad orgánica</option>
+                                                                    <option value="F53">F53 - Trastornos mentales y del comportamiento asociados con el puerperio</option>
+                                                                    <option value="F54">F54 - Factores psicológicos y de comportamiento asociados con enfermedades o…</option>
+                                                                    <option value="F55">F55 - Abuso de sustancias no adictivas</option>
+                                                                    <option value="F59">F59 - Síntomas y signos no específicos del comportamiento emocional</option>
+                                                                    <option value="F60">F60 - Trastornos específicos de la personalidad</option>
+                                                                    <option value="F61">F61 - Trastornos mixtos y otros de la personalidad</option>
+                                                                    <option value="F62">F62 - Cambio duradero de la personalidad</option>
+                                                                    <option value="F63">F63 - Trastornos de los hábitos y del control de los impulsos</option>
+                                                                    <option value="F64">F64 - Trastornos de la identidad sexual</option>
+                                                                    <option value="F65">F65 - Trastornos de la preferencia sexual</option>
+                                                                    <option value="F66">F66 - Trastornos psicológicos y del comportamiento asociados con el desarrol…</option>
+                                                                    <option value="F68">F68 - Otros trastornos de la personalidad y del comportamiento en adultos</option>
+                                                                    <option value="F69">F69 - Trastorno de la personalidad y del comportamiento en adulto no especif…</option>
+                                                                    <option value="F70">F70 - Retraso mental leve</option>
+                                                                    <option value="F71">F71 - Retraso mental moderado</option>
+                                                                    <option value="F72">F72 - Retraso mental grave</option>
+                                                                    <option value="F73">F73 - Retraso mental profundo</option>
+                                                                    <option value="F78">F78 - Otro retraso mental</option>
+                                                                    <option value="F79">F79 - Retraso mental no especificado</option>
+                                                                    <option value="F80">F80 - Trastornos específicos del desarrollo del habla y del lenguaje</option>
+                                                                    <option value="F81">F81 - Trastornos específicos del desarrollo del aprendizaje escolar</option>
+                                                                    <option value="F82">F82 - Trastorno específico del desarrollo de la motricidad</option>
+                                                                    <option value="F83">F83 - Trastornos mixtos del desarrollo</option>
+                                                                    <option value="F84">F84 - Trastornos generalizados del desarrollo</option>
+                                                                    <option value="F88">F88 - Otros trastornos del desarrollo psicológico</option>
+                                                                    <option value="F89">F89 - Trastorno del desarrollo psicológico no especificado</option>
+                                                                    <option value="F90">F90 - Trastornos hipercinéticos (incluye TDAH)</option>
+                                                                    <option value="F91">F91 - Trastornos disociales</option>
+                                                                    <option value="F92">F92 - Trastornos mixtos de la conducta y de las emociones</option>
+                                                                    <option value="F93">F93 - Trastornos emocionales con comienzo específico en la infancia</option>
+                                                                    <option value="F94">F94 - Trastornos del funcionamiento social con inicio específico en la infan…</option>
+                                                                    <option value="F95">F95 - Trastornos por tics</option>
+                                                                    <option value="F98">F98 - Otros trastornos del comportamiento y de las emociones de comienzo hab…</option>
+                                                                    <option value="F99">F99 - Trastorno mental no especificado</option>
+                                                            </select>
+                        </div>
+                        <input class="input" type="text" name="dx[1][texto]" maxlength="255"
+                               placeholder="Diagnóstico relacionado 1…"
+                               value="">
+                    </div>
+                                    <div class="dx-fila">
+                        <div class="select is-fullwidth">
+                            <select name="dx[2][codigo]">
+                                <option value="">Relacionado 2: código…</option>
+                                                                    <option value="F00">F00 - Demencia en la enfermedad de Alzheimer</option>
+                                                                    <option value="F01">F01 - Demencia vascular</option>
+                                                                    <option value="F02">F02 - Demencia en otras enfermedades</option>
+                                                                    <option value="F03">F03 - Demencia no especificada</option>
+                                                                    <option value="F04">F04 - Síndrome amnésico orgánico, no inducido por alcohol o sustancias psico…</option>
+                                                                    <option value="F05">F05 - Delirio, no inducido por alcohol o sustancias psicoactivas</option>
+                                                                    <option value="F06">F06 - Otros trastornos mentales debidos a daño y disfunción cerebral o enfer…</option>
+                                                                    <option value="F07">F07 - Trastornos de la personalidad y del comportamiento debidos a enfermeda…</option>
+                                                                    <option value="F09">F09 - Trastorno mental orgánico o sintomático, no especificado</option>
+                                                                    <option value="F10">F10 - Trastornos mentales y del comportamiento debidos al consumo de alcohol</option>
+                                                                    <option value="F11">F11 - Trastornos debidos al consumo de opiáceos</option>
+                                                                    <option value="F12">F12 - Trastornos debidos al consumo de cannabinoides</option>
+                                                                    <option value="F13">F13 - Trastornos debidos al consumo de sedantes o hipnóticos</option>
+                                                                    <option value="F14">F14 - Trastornos debidos al consumo de cocaína</option>
+                                                                    <option value="F15">F15 - Trastornos debidos al consumo de otros estimulantes, incluida la cafeí…</option>
+                                                                    <option value="F16">F16 - Trastornos debidos al consumo de alucinógenos</option>
+                                                                    <option value="F17">F17 - Trastornos debidos al consumo de tabaco</option>
+                                                                    <option value="F18">F18 - Trastornos debidos al consumo de disolventes volátiles</option>
+                                                                    <option value="F19">F19 - Trastornos debidos al consumo de múltiples drogas y otras sustancias p…</option>
+                                                                    <option value="F20">F20 - Esquizofrenia</option>
+                                                                    <option value="F21">F21 - Trastorno esquizotípico</option>
+                                                                    <option value="F22">F22 - Trastornos delirantes persistentes</option>
+                                                                    <option value="F23">F23 - Trastornos psicóticos agudos y transitorios</option>
+                                                                    <option value="F24">F24 - Trastorno delirante inducido</option>
+                                                                    <option value="F25">F25 - Trastornos esquizoafectivos</option>
+                                                                    <option value="F28">F28 - Otros trastornos psicóticos no orgánicos</option>
+                                                                    <option value="F29">F29 - Psicosis no orgánica no especificada</option>
+                                                                    <option value="F30">F30 - Episodio maníaco</option>
+                                                                    <option value="F31">F31 - Trastorno afectivo bipolar</option>
+                                                                    <option value="F32">F32 - Episodio depresivo</option>
+                                                                    <option value="F33">F33 - Trastorno depresivo recurrente</option>
+                                                                    <option value="F34">F34 - Trastornos del humor persistentes</option>
+                                                                    <option value="F38">F38 - Otros trastornos del humor</option>
+                                                                    <option value="F39">F39 - Trastorno del humor no especificado</option>
+                                                                    <option value="F40">F40 - Trastornos fóbicos de ansiedad</option>
+                                                                    <option value="F41">F41 - Otros trastornos de ansiedad</option>
+                                                                    <option value="F42">F42 - Trastorno obsesivo-compulsivo</option>
+                                                                    <option value="F43">F43 - Reacciones a estrés grave y trastornos de adaptación</option>
+                                                                    <option value="F44">F44 - Trastornos disociativos (de conversión)</option>
+                                                                    <option value="F45">F45 - Trastornos somatomorfos</option>
+                                                                    <option value="F48">F48 - Otros trastornos neuróticos</option>
+                                                                    <option value="F50">F50 - Trastornos de la conducta alimentaria</option>
+                                                                    <option value="F51">F51 - Trastornos no orgánicos del sueño</option>
+                                                                    <option value="F52">F52 - Disfunción sexual no debida a un trastorno o enfermedad orgánica</option>
+                                                                    <option value="F53">F53 - Trastornos mentales y del comportamiento asociados con el puerperio</option>
+                                                                    <option value="F54">F54 - Factores psicológicos y de comportamiento asociados con enfermedades o…</option>
+                                                                    <option value="F55">F55 - Abuso de sustancias no adictivas</option>
+                                                                    <option value="F59">F59 - Síntomas y signos no específicos del comportamiento emocional</option>
+                                                                    <option value="F60">F60 - Trastornos específicos de la personalidad</option>
+                                                                    <option value="F61">F61 - Trastornos mixtos y otros de la personalidad</option>
+                                                                    <option value="F62">F62 - Cambio duradero de la personalidad</option>
+                                                                    <option value="F63">F63 - Trastornos de los hábitos y del control de los impulsos</option>
+                                                                    <option value="F64">F64 - Trastornos de la identidad sexual</option>
+                                                                    <option value="F65">F65 - Trastornos de la preferencia sexual</option>
+                                                                    <option value="F66">F66 - Trastornos psicológicos y del comportamiento asociados con el desarrol…</option>
+                                                                    <option value="F68">F68 - Otros trastornos de la personalidad y del comportamiento en adultos</option>
+                                                                    <option value="F69">F69 - Trastorno de la personalidad y del comportamiento en adulto no especif…</option>
+                                                                    <option value="F70">F70 - Retraso mental leve</option>
+                                                                    <option value="F71">F71 - Retraso mental moderado</option>
+                                                                    <option value="F72">F72 - Retraso mental grave</option>
+                                                                    <option value="F73">F73 - Retraso mental profundo</option>
+                                                                    <option value="F78">F78 - Otro retraso mental</option>
+                                                                    <option value="F79">F79 - Retraso mental no especificado</option>
+                                                                    <option value="F80">F80 - Trastornos específicos del desarrollo del habla y del lenguaje</option>
+                                                                    <option value="F81">F81 - Trastornos específicos del desarrollo del aprendizaje escolar</option>
+                                                                    <option value="F82">F82 - Trastorno específico del desarrollo de la motricidad</option>
+                                                                    <option value="F83">F83 - Trastornos mixtos del desarrollo</option>
+                                                                    <option value="F84">F84 - Trastornos generalizados del desarrollo</option>
+                                                                    <option value="F88">F88 - Otros trastornos del desarrollo psicológico</option>
+                                                                    <option value="F89">F89 - Trastorno del desarrollo psicológico no especificado</option>
+                                                                    <option value="F90">F90 - Trastornos hipercinéticos (incluye TDAH)</option>
+                                                                    <option value="F91">F91 - Trastornos disociales</option>
+                                                                    <option value="F92">F92 - Trastornos mixtos de la conducta y de las emociones</option>
+                                                                    <option value="F93">F93 - Trastornos emocionales con comienzo específico en la infancia</option>
+                                                                    <option value="F94">F94 - Trastornos del funcionamiento social con inicio específico en la infan…</option>
+                                                                    <option value="F95">F95 - Trastornos por tics</option>
+                                                                    <option value="F98">F98 - Otros trastornos del comportamiento y de las emociones de comienzo hab…</option>
+                                                                    <option value="F99">F99 - Trastorno mental no especificado</option>
+                                                            </select>
+                        </div>
+                        <input class="input" type="text" name="dx[2][texto]" maxlength="255"
+                               placeholder="Diagnóstico relacionado 2…"
+                               value="">
+                    </div>
+                                    <div class="dx-fila">
+                        <div class="select is-fullwidth">
+                            <select name="dx[3][codigo]">
+                                <option value="">Relacionado 3: código…</option>
+                                                                    <option value="F00">F00 - Demencia en la enfermedad de Alzheimer</option>
+                                                                    <option value="F01">F01 - Demencia vascular</option>
+                                                                    <option value="F02">F02 - Demencia en otras enfermedades</option>
+                                                                    <option value="F03">F03 - Demencia no especificada</option>
+                                                                    <option value="F04">F04 - Síndrome amnésico orgánico, no inducido por alcohol o sustancias psico…</option>
+                                                                    <option value="F05">F05 - Delirio, no inducido por alcohol o sustancias psicoactivas</option>
+                                                                    <option value="F06">F06 - Otros trastornos mentales debidos a daño y disfunción cerebral o enfer…</option>
+                                                                    <option value="F07">F07 - Trastornos de la personalidad y del comportamiento debidos a enfermeda…</option>
+                                                                    <option value="F09">F09 - Trastorno mental orgánico o sintomático, no especificado</option>
+                                                                    <option value="F10">F10 - Trastornos mentales y del comportamiento debidos al consumo de alcohol</option>
+                                                                    <option value="F11">F11 - Trastornos debidos al consumo de opiáceos</option>
+                                                                    <option value="F12">F12 - Trastornos debidos al consumo de cannabinoides</option>
+                                                                    <option value="F13">F13 - Trastornos debidos al consumo de sedantes o hipnóticos</option>
+                                                                    <option value="F14">F14 - Trastornos debidos al consumo de cocaína</option>
+                                                                    <option value="F15">F15 - Trastornos debidos al consumo de otros estimulantes, incluida la cafeí…</option>
+                                                                    <option value="F16">F16 - Trastornos debidos al consumo de alucinógenos</option>
+                                                                    <option value="F17">F17 - Trastornos debidos al consumo de tabaco</option>
+                                                                    <option value="F18">F18 - Trastornos debidos al consumo de disolventes volátiles</option>
+                                                                    <option value="F19">F19 - Trastornos debidos al consumo de múltiples drogas y otras sustancias p…</option>
+                                                                    <option value="F20">F20 - Esquizofrenia</option>
+                                                                    <option value="F21">F21 - Trastorno esquizotípico</option>
+                                                                    <option value="F22">F22 - Trastornos delirantes persistentes</option>
+                                                                    <option value="F23">F23 - Trastornos psicóticos agudos y transitorios</option>
+                                                                    <option value="F24">F24 - Trastorno delirante inducido</option>
+                                                                    <option value="F25">F25 - Trastornos esquizoafectivos</option>
+                                                                    <option value="F28">F28 - Otros trastornos psicóticos no orgánicos</option>
+                                                                    <option value="F29">F29 - Psicosis no orgánica no especificada</option>
+                                                                    <option value="F30">F30 - Episodio maníaco</option>
+                                                                    <option value="F31">F31 - Trastorno afectivo bipolar</option>
+                                                                    <option value="F32">F32 - Episodio depresivo</option>
+                                                                    <option value="F33">F33 - Trastorno depresivo recurrente</option>
+                                                                    <option value="F34">F34 - Trastornos del humor persistentes</option>
+                                                                    <option value="F38">F38 - Otros trastornos del humor</option>
+                                                                    <option value="F39">F39 - Trastorno del humor no especificado</option>
+                                                                    <option value="F40">F40 - Trastornos fóbicos de ansiedad</option>
+                                                                    <option value="F41">F41 - Otros trastornos de ansiedad</option>
+                                                                    <option value="F42">F42 - Trastorno obsesivo-compulsivo</option>
+                                                                    <option value="F43">F43 - Reacciones a estrés grave y trastornos de adaptación</option>
+                                                                    <option value="F44">F44 - Trastornos disociativos (de conversión)</option>
+                                                                    <option value="F45">F45 - Trastornos somatomorfos</option>
+                                                                    <option value="F48">F48 - Otros trastornos neuróticos</option>
+                                                                    <option value="F50">F50 - Trastornos de la conducta alimentaria</option>
+                                                                    <option value="F51">F51 - Trastornos no orgánicos del sueño</option>
+                                                                    <option value="F52">F52 - Disfunción sexual no debida a un trastorno o enfermedad orgánica</option>
+                                                                    <option value="F53">F53 - Trastornos mentales y del comportamiento asociados con el puerperio</option>
+                                                                    <option value="F54">F54 - Factores psicológicos y de comportamiento asociados con enfermedades o…</option>
+                                                                    <option value="F55">F55 - Abuso de sustancias no adictivas</option>
+                                                                    <option value="F59">F59 - Síntomas y signos no específicos del comportamiento emocional</option>
+                                                                    <option value="F60">F60 - Trastornos específicos de la personalidad</option>
+                                                                    <option value="F61">F61 - Trastornos mixtos y otros de la personalidad</option>
+                                                                    <option value="F62">F62 - Cambio duradero de la personalidad</option>
+                                                                    <option value="F63">F63 - Trastornos de los hábitos y del control de los impulsos</option>
+                                                                    <option value="F64">F64 - Trastornos de la identidad sexual</option>
+                                                                    <option value="F65">F65 - Trastornos de la preferencia sexual</option>
+                                                                    <option value="F66">F66 - Trastornos psicológicos y del comportamiento asociados con el desarrol…</option>
+                                                                    <option value="F68">F68 - Otros trastornos de la personalidad y del comportamiento en adultos</option>
+                                                                    <option value="F69">F69 - Trastorno de la personalidad y del comportamiento en adulto no especif…</option>
+                                                                    <option value="F70">F70 - Retraso mental leve</option>
+                                                                    <option value="F71">F71 - Retraso mental moderado</option>
+                                                                    <option value="F72">F72 - Retraso mental grave</option>
+                                                                    <option value="F73">F73 - Retraso mental profundo</option>
+                                                                    <option value="F78">F78 - Otro retraso mental</option>
+                                                                    <option value="F79">F79 - Retraso mental no especificado</option>
+                                                                    <option value="F80">F80 - Trastornos específicos del desarrollo del habla y del lenguaje</option>
+                                                                    <option value="F81">F81 - Trastornos específicos del desarrollo del aprendizaje escolar</option>
+                                                                    <option value="F82">F82 - Trastorno específico del desarrollo de la motricidad</option>
+                                                                    <option value="F83">F83 - Trastornos mixtos del desarrollo</option>
+                                                                    <option value="F84">F84 - Trastornos generalizados del desarrollo</option>
+                                                                    <option value="F88">F88 - Otros trastornos del desarrollo psicológico</option>
+                                                                    <option value="F89">F89 - Trastorno del desarrollo psicológico no especificado</option>
+                                                                    <option value="F90">F90 - Trastornos hipercinéticos (incluye TDAH)</option>
+                                                                    <option value="F91">F91 - Trastornos disociales</option>
+                                                                    <option value="F92">F92 - Trastornos mixtos de la conducta y de las emociones</option>
+                                                                    <option value="F93">F93 - Trastornos emocionales con comienzo específico en la infancia</option>
+                                                                    <option value="F94">F94 - Trastornos del funcionamiento social con inicio específico en la infan…</option>
+                                                                    <option value="F95">F95 - Trastornos por tics</option>
+                                                                    <option value="F98">F98 - Otros trastornos del comportamiento y de las emociones de comienzo hab…</option>
+                                                                    <option value="F99">F99 - Trastorno mental no especificado</option>
+                                                            </select>
+                        </div>
+                        <input class="input" type="text" name="dx[3][texto]" maxlength="255"
+                               placeholder="Diagnóstico relacionado 3…"
+                               value="">
+                    </div>
+                                <div class="form-group-modern mt-3" style="max-width:340px">
+                    <label>Tipo de diagnóstico principal</label>
+                    <div class="select is-fullwidth"><select name="dx_tipo"><option value="impresion_diagnostica" selected>Impresión diagnóstica</option><option value="confirmado_nuevo">Confirmado nuevo</option><option value="confirmado_repetido">Confirmado repetido</option></select></div>
+                </div>
+            
+                    </div>
+            <div class="form-section">
+            <div class="form-section-title"><div class="section-icon plan"><i class="fa-solid fa-clipboard-check"></i></div> Plan y recomendaciones</div>
+
+                                                                    <div class="form-group-modern">
+                    <label>Plan y/o tratamiento <span class="required-dot">*</span></label>
+                    <textarea class="textarea" name="plan_tratamiento" rows="7" required></textarea>
+                </div>
+                                                            <div class="form-group-modern">
+                    <label>Recomendación y/o educación <span class="required-dot">*</span></label>
+                    <textarea class="textarea" name="recomendaciones_educacion" rows="7" required></textarea>
+                </div>
+                                        
+            
+                            <div class="buttons mt-5" style="justify-content:center">
+                    <button type="submit" name="cerrar" value="0" class="btn-guardar-historia" style="background:#fff;color:#667eea;border:2px solid #667eea">
+                        <i class="fa-solid fa-floppy-disk"></i> Guardar borrador
+                    </button>
+                    <button type="submit" name="cerrar" value="1" class="btn-guardar-historia"
+                            onclick="return confirm('Al cerrar la historia ya no se podrá editar; las correcciones se harán con notas aclaratorias. ¿Cerrar ahora?')">
+                        <i class="fa-solid fa-lock"></i> Guardar y cerrar
+                    </button>
+                </div>
+                    </div>
+    
+    <div class="tab-navigation" style="border-top:0">
+        <button type="button" class="btn-tab-nav btn-tab-prev" data-pestana-anterior><i class="fa-solid fa-arrow-left"></i> Anterior</button>
+        <button type="button" class="btn-tab-nav btn-tab-next" data-pestana-siguiente>Siguiente <i class="fa-solid fa-arrow-right"></i></button>
+    </div>
+</div>
+
+<div id="modalWarning" class="modal-warning-overlay">
+    <div class="modal-warning-card">
+        <div class="warning-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+        <h3 style="font-weight:700;color:#1a1a2e;margin-bottom:10px">Campos incompletos</h3>
+        <p>Complete los campos obligatorios marcados en rojo.</p>
+        <button class="btn-cerrar" type="button" onclick="document.getElementById('modalWarning').classList.remove('show')">Entendido</button>
+    </div>
+</div>
+</form>
+</main>
+<script src="../assets/js/app.js"></script>
+<script src="../demo/mapa.js"></script>
+<script src="../demo/demo.js"></script>
+</body>
+</html>

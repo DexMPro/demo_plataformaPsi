@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es" style="overflow:hidden;">
+<head>
+<script>window.DEMO_ROOT="..";window.DEMO_KEY="/historias/ver.php?id=14";window.DEMO_HOY="2026-10-07";</script>
+<script src="../demo/tiempo.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">
+    <title>Historia clínica #14 · Plataforma Psicológica</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../demo/vendor/bulma/bulma.min.css">
+    <link rel="stylesheet" href="../demo/vendor/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/app.css">
+    <link rel="stylesheet" href="../assets/css/extra.css">
+    <link rel="icon" href="../assets/img/favicon-96x96.png" type="image/png">
+        <link rel="stylesheet" href="../assets/css/ui.css">
+<link rel="stylesheet" href="../demo/demo.css">
+</head>
+<body>
+
+<button class="menu-toggle" type="button" onclick="toggleMenu()" aria-label="Menú"><i class="fas fa-bars"></i></button>
+
+<aside class="sidebar">
+    <div class="sidebar-brand">
+        <img src="../assets/img/logo.png" alt="">
+        <div>
+            <h2><a href="../inicio.html">Plataforma Psicológica</a></h2>
+            <span>Portal administrativo</span>
+        </div>
+    </div>
+
+    <nav>
+        <div class="sidebar-section-title">Navegación</div>
+
+        <a href="../inicio.html" class="">
+            <i class="fa-solid fa-house"></i> Inicio
+        </a>
+
+                    <a href="../pacientes/index.html" class="active">
+                <i class="fa-solid fa-hospital-user"></i> Pacientes
+            </a>
+        
+                    <a href="../citas/index.html" class="">
+                <i class="fa-solid fa-calendar-check"></i> Citas
+            </a>
+        
+                    <a href="../empleados/index.html" class="">
+                <i class="fa-solid fa-user-tie"></i> Empleados
+            </a>
+        
+                    <a href="../pagos/index.html" class="">
+                <i class="fa-solid fa-sack-dollar"></i> Pagos
+            </a>
+        
+                    <a href="../gastos/index.html" class="">
+                <i class="fa-solid fa-receipt"></i> Gastos
+            </a>
+        
+                    <a href="../usuarios/index.html" class="">
+                <i class="fa-solid fa-users"></i> Usuarios
+            </a>
+        
+                    <a href="../anuncios/index.html" class="">
+                <i class="fa-solid fa-bullhorn"></i> Anuncios
+            </a>
+        
+                    <a href="../empresa/index.html" class="">
+                <i class="fa-solid fa-building"></i> Empresa
+            </a>
+        
+        <hr>
+
+        <form method="post" action="#demo-no-disponible" data-demo-action="/salir.php" class="form-salir">
+            <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">            <button type="submit"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</button>
+        </form>
+    </nav>
+
+    <div class="system-health">
+        <div class="system-health-title">Administración Demo</div>
+        <div class="health-indicator">
+            <div class="health-dot"></div>
+            Administrador        </div>
+    </div>
+</aside>
+
+<main class="main-content">
+<div class="historia-header">
+    <div class="paciente-info">
+        <div class="paciente-avatar">SH</div>
+        <div>
+            <div class="paciente-nombre">Sofía Herrera Pérez</div>
+            <div class="paciente-doc">TI 1081265886                 · 14 años            </div>
+        </div>
+    </div>
+    <span class="historia-badge"><i class="fa-solid fa-file-medical"></i> Historia #14</span></div>
+
+<div class="historia-acciones">
+    <a class="btn-historia btn-historia-datos" href="../pacientes/ver__id-14.html">
+        <i class="fa-solid fa-user"></i> Datos
+    </a>
+    <a class="btn-historia btn-historia-historias" href="index__paciente-14.html">
+        <i class="fa-solid fa-folder-open"></i> Historias
+    </a>
+            <a class="btn-historia btn-historia-informe" href="ver__id-14.html">
+            <i class="fa-solid fa-file-medical"></i> Ver historia
+        </a>
+        <a class="btn-historia btn-historia-evoluciones" href="../evoluciones/index__historia-14.html">
+            <i class="fa-solid fa-notes-medical"></i> Evoluciones
+        </a>
+        <a class="btn-historia btn-historia-informe" href="informe__id-14.pdf" target="_blank"><i class="fa-solid fa-file-pdf"></i> Informe PDF</a><a class="btn-historia btn-historia-editar" href="editar__id-14.html"><i class="fa-solid fa-pen-to-square"></i> Editar</a></div>
+
+    <div class="aviso-cerrada" style="background:#fff8ec;border-color:#ffe2b3">
+        <i class="fa-solid fa-pen" style="color:#b26a00"></i>
+        <div style="flex:1">
+            <strong>Borrador.</strong> Puede editarse hasta que se cierre. Al cerrarla queda como registro definitivo.
+        </div>
+                    <form method="post" data-confirmar="Al cerrar la historia ya no se podrá editar. ¿Cerrar ahora?">
+                <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8"><input type="hidden" name="accion" value="cerrar">
+                <button class="button is-small is-warning" type="submit"><i class="fa-solid fa-lock"></i>&nbsp; Cerrar historia</button>
+            </form>
+            </div>
+
+<p class="autor-linea mb-4">
+    <i class="fa-solid fa-user-doctor"></i> Elaborada por <strong>Catalina Restrepo · PSICÓLOGO · Reg. TP 163390</strong>
+    · atención del 26/11/2025 04:30 pm    · 0 evolución(es)
+</p>
+
+<div class="historia-grid">
+    <div class="historia-card">
+        <div class="card-icon general"><i class="fa-solid fa-clipboard-list"></i></div>
+        <div class="card-title">Datos generales</div>
+        <div class="info-item"><div class="info-label">Fecha y hora</div><div class="info-value">26/11/2025 04:30 pm</div></div>
+        <div class="info-item"><div class="info-label">Servicio</div><div class="info-value">CONSULTA DE PRIMERA VEZ POR PSICOLOGIA</div></div>
+                    <div class="info-item"><div class="info-label">Motivo de consulta</div><div class="info-value">Remitido por el colegio debido a bajo rendimiento académico y consumo ocasional de cannabis reportado por los padres.</div></div>
+                    <div class="info-item"><div class="info-label">Comportamiento en consulta</div><div class="info-value">Asiste puntual, colaborador durante la entrevista, establece buen rapport.</div></div>
+                    <div class="info-item"><div class="info-label">Descripción del problema</div><div class="info-value">Adolescente con dificultades de atención desde la primaria. Inicio de consumo hace un año en contexto de grupo de pares.</div></div>
+            </div>
+
+    <div class="historia-card">
+        <div class="card-icon areas"><i class="fa-solid fa-layer-group"></i></div>
+        <div class="card-title">Antecedentes y examen</div>
+                    <div class="info-item"><div class="info-label">Antecedentes personales</div><div class="info-value">Sin antecedentes médicos de importancia. Niega hospitalizaciones previas.</div></div>
+                    <div class="info-item"><div class="info-label">Antecedentes familiares</div><div class="info-value">No refiere antecedentes familiares relevantes.</div></div>
+                    <div class="info-item"><div class="info-label">Otros antecedentes</div><div class="info-value">Esquema de vacunación completo.</div></div>
+                    <div class="info-item"><div class="info-label">Examen físico</div><div class="info-value">Sin hallazgos relevantes al examen general.</div></div>
+            </div>
+
+    <div class="historia-card">
+        <div class="card-icon diagnostico"><i class="fa-solid fa-stethoscope"></i></div>
+        <div class="card-title">Diagnóstico y tratamiento</div>
+                    <div class="info-item"><div class="info-label">Proceso de evaluación</div><div class="info-value">Entrevista clínica semiestructurada y aplicación de escalas de tamizaje.</div></div>
+                    <div class="info-item"><div class="info-label">Hallazgos pertinentes</div><div class="info-value">Puntajes compatibles con la impresión diagnóstica.</div></div>
+                <div class="info-item">
+            <div class="info-label">Diagnósticos</div>
+            <div class="info-value">
+                                    <span class="dx-badge dx-principal">F12 · Uso nocivo de cannabinoides</span>
+                                    <span class="dx-badge dx-relacionado">F90 · Perturbación de la actividad y de la atención</span>
+                                                    <br><span class="dx-badge dx-tipo">Confirmado nuevo</span>
+                                                            </div>
+        </div>
+                    <div class="info-item"><div class="info-label">Plan y/o tratamiento</div><div class="info-value">Intervención motivacional individual y sesiones familiares quincenales. Coordinación con orientación escolar. Seguimiento de hábitos de sueño y uso de pantallas.</div></div>
+                    <div class="info-item"><div class="info-label">Recomendación y/o educación</div><div class="info-value">Se brinda psicoeducación sobre el diagnóstico y los signos de alarma. Se entregan líneas de atención.</div></div>
+            </div>
+</div>
+
+<div class="panel-blanco mt-5">
+    <h3><i class="fa-solid fa-layer-group"></i> Áreas de evaluación</h3>
+    <div class="columns is-multiline">
+                    <div class="column is-6">
+                <div class="info-label" style="font-weight:600">Área personal</div>
+                <div>Se describe como una persona responsable, con dificultad para expresar emociones.</div>
+            </div>
+                    <div class="column is-6">
+                <div class="info-label" style="font-weight:600">Área familiar</div>
+                <div>Vive solo; contacto frecuente con su familia de origen.</div>
+            </div>
+                    <div class="column is-6">
+                <div class="info-label" style="font-weight:600">Área social</div>
+                <div>Red social reducida en el último año.</div>
+            </div>
+                    <div class="column is-6">
+                <div class="info-label" style="font-weight:600">Área académica</div>
+                <div>Cursa grado décimo; bajo rendimiento en el último periodo.</div>
+            </div>
+                    <div class="column is-6">
+                <div class="info-label" style="font-weight:600">Área afectiva</div>
+                <div>Tristeza intermitente, baja tolerancia a la frustración.</div>
+            </div>
+                    <div class="column is-6">
+                <div class="info-label" style="font-weight:600">Área biológica</div>
+                <div>Alteraciones del sueño (insomnio de conciliación).</div>
+            </div>
+                    <div class="column is-6">
+                <div class="info-label" style="font-weight:600">Área laboral</div>
+                <div>No aplica.</div>
+            </div>
+                    </div>
+</div>
+
+<div class="panel-blanco">
+    <h3><i class="fa-solid fa-comment-medical"></i> Notas aclaratorias</h3>
+            <p class="autor-linea mb-3">Sin notas aclaratorias.</p>
+    
+    <form method="post">
+        <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8"><input type="hidden" name="accion" value="nota">
+        <div class="form-group-modern">
+            <label>Nueva nota aclaratoria</label>
+            <textarea class="textarea" name="nota" rows="3" required placeholder="Corrección o complemento de la historia. Quedará con su nombre, fecha y hora; no se puede editar después."></textarea>
+        </div>
+                    <div class="select mb-3"><select name="profesional_id" required>
+                <option value="">Profesional que firma…</option>
+                <option value="2">Andrés Morales</option><option value="3">Catalina Restrepo</option><option value="6">Daniela Suárez</option><option value="4">Julián Ortiz</option><option value="1">Laura Valencia</option><option value="7">Santiago Peña</option>            </select></div>
+                <button class="button is-info is-small" type="submit"><i class="fa-solid fa-plus"></i>&nbsp; Agregar nota</button>
+    </form>
+</div>
+</main>
+<script src="../assets/js/app.js"></script>
+<script src="../demo/mapa.js"></script>
+<script src="../demo/demo.js"></script>
+</body>
+</html>

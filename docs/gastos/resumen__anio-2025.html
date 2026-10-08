@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es" style="overflow:hidden;">
+<head>
+<script>window.DEMO_ROOT="..";window.DEMO_KEY="/gastos/resumen.php?anio=2025";window.DEMO_HOY="2026-10-07";</script>
+<script src="../demo/tiempo.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">
+    <title>Resumen de gastos · Plataforma Psicológica</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../demo/vendor/bulma/bulma.min.css">
+    <link rel="stylesheet" href="../demo/vendor/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/app.css">
+    <link rel="stylesheet" href="../assets/css/extra.css">
+    <link rel="icon" href="../assets/img/favicon-96x96.png" type="image/png">
+    <link rel="stylesheet" href="../assets/css/finanzas.css">    <link rel="stylesheet" href="../assets/css/ui.css">
+<link rel="stylesheet" href="../demo/demo.css">
+</head>
+<body>
+
+<button class="menu-toggle" type="button" onclick="toggleMenu()" aria-label="Menú"><i class="fas fa-bars"></i></button>
+
+<aside class="sidebar">
+    <div class="sidebar-brand">
+        <img src="../assets/img/logo.png" alt="">
+        <div>
+            <h2><a href="../inicio.html">Plataforma Psicológica</a></h2>
+            <span>Portal administrativo</span>
+        </div>
+    </div>
+
+    <nav>
+        <div class="sidebar-section-title">Navegación</div>
+
+        <a href="../inicio.html" class="">
+            <i class="fa-solid fa-house"></i> Inicio
+        </a>
+
+                    <a href="../pacientes/index.html" class="">
+                <i class="fa-solid fa-hospital-user"></i> Pacientes
+            </a>
+        
+                    <a href="../citas/index.html" class="">
+                <i class="fa-solid fa-calendar-check"></i> Citas
+            </a>
+        
+                    <a href="../empleados/index.html" class="">
+                <i class="fa-solid fa-user-tie"></i> Empleados
+            </a>
+        
+                    <a href="../pagos/index.html" class="">
+                <i class="fa-solid fa-sack-dollar"></i> Pagos
+            </a>
+        
+                    <a href="index.html" class="active">
+                <i class="fa-solid fa-receipt"></i> Gastos
+            </a>
+        
+                    <a href="../usuarios/index.html" class="">
+                <i class="fa-solid fa-users"></i> Usuarios
+            </a>
+        
+                    <a href="../anuncios/index.html" class="">
+                <i class="fa-solid fa-bullhorn"></i> Anuncios
+            </a>
+        
+                    <a href="../empresa/index.html" class="">
+                <i class="fa-solid fa-building"></i> Empresa
+            </a>
+        
+        <hr>
+
+        <form method="post" action="#demo-no-disponible" data-demo-action="/salir.php" class="form-salir">
+            <input type="hidden" name="_csrf" value="3d5b0f297b4bd83517712973009907ec985c978eb62183dc34c2afe7438605d8">            <button type="submit"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</button>
+        </form>
+    </nav>
+
+    <div class="system-health">
+        <div class="system-health-title">Administración Demo</div>
+        <div class="health-indicator">
+            <div class="health-dot"></div>
+            Administrador        </div>
+    </div>
+</aside>
+
+<main class="main-content">
+<div class="resumen-hero">
+    <div>
+        <h1>Resumen de gastos</h1>
+        <p>Análisis financiero del año 2025</p>
+    </div>
+    <div class="resumen-hero-acciones">
+        <form method="get">
+            <div class="select is-rounded">
+                <select name="anio" onchange="this.form.submit()" aria-label="Año">
+                                            <option value="2026">2026</option>
+                                            <option value="2025" selected>2025</option>
+                                    </select>
+            </div>
+        </form>
+        <a href="index__anio-2025_tab-lista.html" class="btn-hero"><i class="fa-solid fa-arrow-left"></i> Volver</a>
+    </div>
+</div>
+
+<div class="stats-grid stats-grid-4">
+    <div class="stat-card">
+        <div class="stat-icon historias"><i class="fa-solid fa-sack-dollar"></i></div>
+        <div class="stat-info">
+            <div class="stat-number">$0</div>
+            <div class="stat-label">Total del año</div>
+        </div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-icon pacientes"><i class="fa-solid fa-receipt"></i></div>
+        <div class="stat-info">
+            <div class="stat-number">0</div>
+            <div class="stat-label">Nº de gastos</div>
+        </div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-icon empleados"><i class="fa-solid fa-calculator"></i></div>
+        <div class="stat-info">
+            <div class="stat-number">$0</div>
+            <div class="stat-label">Promedio por gasto</div>
+        </div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-icon evoluciones"><i class="fa-solid fa-calendar-days"></i></div>
+        <div class="stat-info">
+            <div class="stat-number">0</div>
+            <div class="stat-label">Meses con gastos</div>
+        </div>
+    </div>
+</div>
+
+<div class="dashboard-grid resumen-grid">
+    <div class="dash-card">
+        <div class="dash-card-header"><h3><i class="fa-solid fa-chart-column"></i> Gasto mensual 2025</h3></div>
+        <div class="dash-card-body">
+            <div class="barras-verticales">
+                                    <div class="barra-v" title="Enero: $0">
+                        <div class="barra-v-valor"></div>
+                        <div class="barra-v-pista"><div class="barra-v-relleno" style="height:0%;background:#667eea"></div></div>
+                        <div class="barra-v-etiqueta">Ene</div>
+                    </div>
+                                    <div class="barra-v" title="Febrero: $0">
+                        <div class="barra-v-valor"></div>
+                        <div class="barra-v-pista"><div class="barra-v-relleno" style="height:0%;background:#764ba2"></div></div>
+                        <div class="barra-v-etiqueta">Feb</div>
+                    </div>
+                                    <div class="barra-v" title="Marzo: $0">
+                        <div class="barra-v-valor"></div>
+                        <div class="barra-v-pista"><div class="barra-v-relleno" style="height:0%;background:#667eea"></div></div>
+                        <div class="barra-v-etiqueta">Mar</div>
+                    </div>
+                                    <div class="barra-v" title="Abril: $0">
+                        <div class="barra-v-valor"></div>
+                        <div class="barra-v-pista"><div class="barra-v-relleno" style="height:0%;background:#764ba2"></div></div>
+                        <div class="barra-v-etiqueta">Abr</div>
+                    </div>
+                                    <div class="barra-v" title="Mayo: $0">
+                        <div class="barra-v-valor"></div>
+                        <div class="barra-v-pista"><div class="barra-v-relleno" style="height:0%;background:#667eea"></div></div>
+                        <div class="barra-v-etiqueta">May</div>
+                    </div>
+                                    <div class="barra-v" title="Junio: $0">
+                        <div class="barra-v-valor"></div>
+                        <div class="barra-v-pista"><div class="barra-v-relleno" style="height:0%;background:#764ba2"></div></div>
+                        <div class="barra-v-etiqueta">Jun</div>
+                    </div>
+                                    <div class="barra-v" title="Julio: $0">
+                        <div class="barra-v-valor"></div>
+                        <div class="barra-v-pista"><div class="barra-v-relleno" style="height:0%;background:#667eea"></div></div>
+                        <div class="barra-v-etiqueta">Jul</div>
+                    </div>
+                                    <div class="barra-v" title="Agosto: $0">
+                        <div class="barra-v-valor"></div>
+                        <div class="barra-v-pista"><div class="barra-v-relleno" style="height:0%;background:#764ba2"></div></div>
+                        <div class="barra-v-etiqueta">Ago</div>
+                    </div>
+                                    <div class="barra-v" title="Septiembre: $0">
+                        <div class="barra-v-valor"></div>
+                        <div class="barra-v-pista"><div class="barra-v-relleno" style="height:0%;background:#667eea"></div></div>
+                        <div class="barra-v-etiqueta">Sep</div>
+                    </div>
+                                    <div class="barra-v" title="Octubre: $0">
+                        <div class="barra-v-valor"></div>
+                        <div class="barra-v-pista"><div class="barra-v-relleno" style="height:0%;background:#764ba2"></div></div>
+                        <div class="barra-v-etiqueta">Oct</div>
+                    </div>
+                                    <div class="barra-v" title="Noviembre: $0">
+                        <div class="barra-v-valor"></div>
+                        <div class="barra-v-pista"><div class="barra-v-relleno" style="height:0%;background:#667eea"></div></div>
+                        <div class="barra-v-etiqueta">Nov</div>
+                    </div>
+                                    <div class="barra-v" title="Diciembre: $0">
+                        <div class="barra-v-valor"></div>
+                        <div class="barra-v-pista"><div class="barra-v-relleno" style="height:0%;background:#764ba2"></div></div>
+                        <div class="barra-v-etiqueta">Dic</div>
+                    </div>
+                            </div>
+        </div>
+    </div>
+    <div class="dash-card">
+        <div class="dash-card-header"><h3><i class="fa-solid fa-chart-pie"></i> Por categoría</h3></div>
+        <div class="dash-card-body">
+            <div class="genero-distribucion">
+                                                    <div class="empty-state-small"><i class="fa-solid fa-chart-simple"></i><p>Sin gastos en 2025</p></div>
+                            </div>
+        </div>
+    </div>
+</div>
+
+<div class="dash-card mt-5">
+    <div class="dash-card-header"><h3><i class="fa-solid fa-table"></i> Mes × categoría</h3></div>
+    <div class="dash-card-body" style="padding:0">
+        <div class="tabla-scroll">
+            <table class="tabla-simple tabla-matriz">
+                <thead>
+                <tr>
+                    <th>Categoría</th>
+                    <th class="has-text-right">Ene</th><th class="has-text-right">Feb</th><th class="has-text-right">Mar</th><th class="has-text-right">Abr</th><th class="has-text-right">May</th><th class="has-text-right">Jun</th><th class="has-text-right">Jul</th><th class="has-text-right">Ago</th><th class="has-text-right">Sep</th><th class="has-text-right">Oct</th><th class="has-text-right">Nov</th><th class="has-text-right">Dic</th>                    <th class="has-text-right">Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                                                    <tr><td colspan="14" class="celda-vacia">Sin gastos en 2025.</td></tr>
+                                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="dash-card mt-5">
+    <div class="dash-card-header">
+        <h3><i class="fa-solid fa-scale-balanced"></i> Ingresos vs. egresos 2025</h3>
+        <span class="evo-count-badge">Ingresos = pagos válidos por fecha de pago</span>
+    </div>
+    <div class="dash-card-body" style="padding:0">
+        <div class="tabla-scroll">
+            <table class="tabla-simple">
+                <thead><tr><th>Mes</th><th class="has-text-right">Ingresos</th><th class="has-text-right">Egresos</th><th class="has-text-right">Resultado</th></tr></thead>
+                <tbody>
+                                    <tr>
+                        <td>Enero</td>
+                        <td class="has-text-right"><span class="sin-cobro">—</span></td>
+                        <td class="has-text-right"><span class="sin-cobro">—</span></td>
+                        <td class="has-text-right"><span class="sin-cobro">—</span></td>
+                    </tr>
+                                    <tr>
+                        <td>Febrero</td>
+                        <td class="has-text-right"><span class="sin-cobro">—</span></td>
+                        <td class="has-text-right"><span class="sin-cobro">—</span></td>
+                        <td class="has-text-right"><span class="sin-cobro">—</span></td>
+                    </tr>
+                                    <tr>
+                        <td>Marzo</td>
+                        <td class="has-text-right"><span class="sin-cobro">—</span></td>
+                        <td class="has-text-right"><span class="sin-cobro">—</span></td>
+                        <td class="has-text-right"><span class="sin-cobro">—</span></td>
+                    </tr>
+                                    <tr>
+                        <td>Abril</td>
+                        <td class="has-text-right"><span class="sin-cobro">—</span></td>
+                        <td class="has-text-right"><span class="sin-cobro">—</span></td>
+                        <td class="has-text-right"><span class="sin-cobro">—</span></td>
+                    </tr>
+                                    <tr>
+                        <td>Mayo</td>
+                        <td class="has-text-right"><span class="sin-cobro">—</span></td>
+                        <td class="has-text-right"><span class="sin-cobro">—</span></td>
+                        <td class="has-text-right"><span class="sin-cobro">—</span></td>
+                    </tr>
+                                    <tr>
+                        <td>Junio</td>
+                        <td class="has-text-right"><span class="sin-cobro">—</span></td>
+                        <td class="has-text-right"><span class="sin-cobro">—</span></td>
+                        <td class="has-text-right"><span class="sin-cobro">—</span></td>
+                    </tr>
+                                    <tr>
+                        <td>Julio</td>
+                        <td class="has-text-right"><span class="sin-cobro">—</span></td>
+                        <td class="has-text-right"><span class="sin-cobro">—</span></td>
+                        <td class="has-text-right"><span class="sin-cobro">—</span></td>
+                    </tr>
+                                    <tr>
+                        <td>Agosto</td>
+                        <td class="has-text-right"><span class="sin-cobro">—</span></td>
+                        <td class="has-text-right"><span class="sin-cobro">—</span></td>
+                        <td class="has-text-right"><span class="sin-cobro">—</span></td>
+                    </tr>
+                                    <tr>
+                        <td>Septiembre</td>
+                        <td class="has-text-right"><span class="sin-cobro">—</span></td>
+                        <td class="has-text-right"><span class="sin-cobro">—</span></td>
+                        <td class="has-text-right"><span class="sin-cobro">—</span></td>
+                    </tr>
+                                    <tr>
+                        <td>Octubre</td>
+                        <td class="has-text-right"><span class="sin-cobro">—</span></td>
+                        <td class="has-text-right"><span class="sin-cobro">—</span></td>
+                        <td class="has-text-right"><span class="sin-cobro">—</span></td>
+                    </tr>
+                                    <tr>
+                        <td>Noviembre</td>
+                        <td class="has-text-right">$6.200.000</td>
+                        <td class="has-text-right">$0</td>
+                        <td class="has-text-right"><strong class="texto-positivo">$6.200.000</strong></td>
+                    </tr>
+                                    <tr>
+                        <td>Diciembre</td>
+                        <td class="has-text-right">$6.670.000</td>
+                        <td class="has-text-right">$0</td>
+                        <td class="has-text-right"><strong class="texto-positivo">$6.670.000</strong></td>
+                    </tr>
+                                                <tr class="fila-total">
+                    <td>Total 2025</td>
+                    <td class="has-text-right">$12.870.000</td>
+                    <td class="has-text-right">$0</td>
+                    <td class="has-text-right"><span class="texto-positivo">$12.870.000</span></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</main>
+<script src="../assets/js/app.js"></script>
+<script src="../demo/mapa.js"></script>
+<script src="../demo/demo.js"></script>
+</body>
+</html>
