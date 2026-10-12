@@ -1,6 +1,6 @@
 # Plataforma Psicológica · gestión para centros de atención psicológica
 
-**[▶ Abrir la demo en vivo](https://USUARIO.github.io/plataforma-psicologica-demo/)** · datos 100 % ficticios · no requiere registro
+**[▶ Abrir la demo en vivo](https://dexmpro.github.io/demo_plataformaPsi/)** · datos 100 % ficticios · no requiere registro
 
 Plataforma Psicológica es un sistema web para centros de atención psicológica y de adicciones. Reúne en un solo lugar la ficha del paciente, la **historia clínica con firma y cierre**, las evoluciones de cada sesión, la agenda del equipo, un **portal para las familias** con agendamiento en línea, y el control de pagos y gastos con recibos en PDF.
 
